@@ -156,7 +156,7 @@
 }
 
 /* ════════ TIMELINE: column, gap 16px ════════ */
-.timeline {
+.roadmap-timeline {
   display: flex;
   flex-direction: column;
   gap: 16px;

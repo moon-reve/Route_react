@@ -165,7 +165,7 @@ export default function RoadmapPage() {
 
             {/* 타임라인 */}
             {activeFilter === '전체' && (
-              <div className="timeline">
+              <div className="roadmap-timeline">
 
                 {/* WEEK 01 — DONE */}
                 <div className={`roadmap-card ${openCards['w01'] ? 'roadmap-card--done-open' : 'roadmap-card--done-closed'}`}>
