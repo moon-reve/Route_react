@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
 import '../styles/daily_mission.css'
 
@@ -171,6 +172,7 @@ export default function DailyMissionPage() {
           </div>
         </div>
       )}
+      <BottomNav />
     </div>
   )
 }
