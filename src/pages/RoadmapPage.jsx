@@ -155,7 +155,7 @@ export default function RoadmapPage() {
                         {getIconEl(item.iconType)}
                         <span className="filter-item-title">{item.title}</span>
                         <span className="filter-week-badge">{item.week}</span>
-                        <span className={`tag ${item.statusClass}`}>{item.statusLabel}</span>
+                        <span className={`roadmap-tag ${item.statusClass}`}>{item.statusLabel}</span>
                       </div>
                     ))}
                   </div>
@@ -199,14 +199,14 @@ export default function RoadmapPage() {
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">피그마 기초</span>
-                            <div className="item-tags"><span className="roadmap-tag tag--gold">인강</span></div>
+                            <div className="item-tags"><span className="roadmap-tag roadmap-tag--gold">인강</span></div>
                           </div>
                         </div>
                         <div className="card-item">
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">UX 심리학</span>
-                            <div className="item-tags"><span className="roadmap-tag tag--mint">도서</span></div>
+                            <div className="item-tags"><span className="roadmap-tag roadmap-tag--mint">도서</span></div>
                           </div>
                         </div>
                         <div className="card-item">
@@ -214,8 +214,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title">디자인 트렌드</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--blue">매거진</span>
-                              <span className="roadmap-tag tag--sage">선취득</span>
+                              <span className="roadmap-tag roadmap-tag--blue">매거진</span>
+                              <span className="roadmap-tag roadmap-tag--sage">선취득</span>
                             </div>
                           </div>
                         </div>
@@ -255,14 +255,14 @@ export default function RoadmapPage() {
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">리액트 기초</span>
-                            <div className="item-tags"><span className="roadmap-tag tag--gold">인강</span></div>
+                            <div className="item-tags"><span className="roadmap-tag roadmap-tag--gold">인강</span></div>
                           </div>
                         </div>
                         <div className="card-item">
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">린 UX</span>
-                            <div className="item-tags"><span className="roadmap-tag tag--mint">도서</span></div>
+                            <div className="item-tags"><span className="roadmap-tag roadmap-tag--mint">도서</span></div>
                           </div>
                         </div>
                       </div>
@@ -305,14 +305,14 @@ export default function RoadmapPage() {
                               <span className="item-title">포트폴리오 리뉴얼 - 앱 기획</span>
                               <Link to="/feedback" className="feedback-btn">피드백 보기</Link>
                             </div>
-                            <div className="item-tags"><span className="roadmap-tag tag--lavender">프로젝트</span></div>
+                            <div className="item-tags"><span className="roadmap-tag roadmap-tag--lavender">프로젝트</span></div>
                           </div>
                         </div>
                         <div className="card-item">
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">CSS 고급</span>
-                            <div className="item-tags"><span className="roadmap-tag tag--gold">인강</span></div>
+                            <div className="item-tags"><span className="roadmap-tag roadmap-tag--gold">인강</span></div>
                           </div>
                         </div>
                         <div className="card-item">
@@ -320,8 +320,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title">린 스타트업</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--mint">도서</span>
-                              <span className="roadmap-tag tag--unfinished">미완료</span>
+                              <span className="roadmap-tag roadmap-tag--mint">도서</span>
+                              <span className="roadmap-tag roadmap-tag--unfinished">미완료</span>
                             </div>
                           </div>
                         </div>
@@ -368,8 +368,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--bold">HTML/CSS 구조</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--gold">인강</span>
-                              <span className="roadmap-tag tag--in-progress">진행 중</span>
+                              <span className="roadmap-tag roadmap-tag--gold">인강</span>
+                              <span className="roadmap-tag roadmap-tag--in-progress">진행 중</span>
                             </div>
                           </div>
                         </div>
@@ -378,8 +378,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">인터랙션 디자인</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--mint">도서</span>
-                              <span className="roadmap-tag tag--plan">예정</span>
+                              <span className="roadmap-tag roadmap-tag--mint">도서</span>
+                              <span className="roadmap-tag roadmap-tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
@@ -388,8 +388,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">시장 분석 리포트</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--lavender">프로젝트</span>
-                              <span className="roadmap-tag tag--plan">예정</span>
+                              <span className="roadmap-tag roadmap-tag--lavender">프로젝트</span>
+                              <span className="roadmap-tag roadmap-tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
@@ -430,8 +430,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">리액트 컴포넌트</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--gold">인강</span>
-                              <span className="roadmap-tag tag--plan">예정</span>
+                              <span className="roadmap-tag roadmap-tag--gold">인강</span>
+                              <span className="roadmap-tag roadmap-tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
@@ -440,8 +440,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">UX 케이스 스터디</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--blue">매거진</span>
-                              <span className="roadmap-tag tag--sage">선취득</span>
+                              <span className="roadmap-tag roadmap-tag--blue">매거진</span>
+                              <span className="roadmap-tag roadmap-tag--sage">선취득</span>
                             </div>
                           </div>
                         </div>
@@ -481,8 +481,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">포트폴리오 전략</span>
                             <div className="item-tags">
-                              <span className="roadmap-tag tag--mint">도서</span>
-                              <span className="roadmap-tag tag--plan">예정</span>
+                              <span className="roadmap-tag roadmap-tag--mint">도서</span>
+                              <span className="roadmap-tag roadmap-tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
