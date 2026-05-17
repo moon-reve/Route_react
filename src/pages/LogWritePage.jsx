@@ -110,7 +110,7 @@ export default function LogWritePage() {
               </button>
             </header>
 
-            <div className="log-contents">
+            <div className="log-write-contents">
 
               {/* 히어로 썸네일 */}
               <div className="hero-section">

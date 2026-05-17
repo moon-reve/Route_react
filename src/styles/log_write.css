@@ -43,7 +43,7 @@
 }
 
 /* ════════ CONTENTS: column, gap 30px ════════ */
-.log-contents {
+.log-write-contents {
   display: flex;
   flex-direction: column;
   gap: 30px;
