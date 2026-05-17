@@ -20,7 +20,7 @@ export default function LogProjectPage() {
               <Link to="/log/project" className="tab tab--active">프로젝트</Link>
             </nav>
 
-            <div className="contents">
+            <div className="log-contents">
 
               {/* 진행 중인 프로젝트 */}
               <div className="section">

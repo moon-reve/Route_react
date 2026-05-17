@@ -86,7 +86,7 @@ export default function LogCalendarPage() {
               <Link to="/log/project" className="tab">프로젝트</Link>
             </nav>
 
-            <div className="contents">
+            <div className="log-contents">
 
               <div className="calendar">
                 <div className="cal-header">

@@ -55,7 +55,7 @@ export default function LogFeedPage() {
               <Link to="/log/project" className="tab">프로젝트</Link>
             </nav>
 
-            <div className="contents">
+            <div className="log-contents">
 
               <div className="filter-area">
                 <span className="filter-count">총 {totalCount}개의 기록</span>

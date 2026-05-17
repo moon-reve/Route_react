@@ -53,7 +53,7 @@
 }
 
 /* ════════ CONTENTS: column, gap 39px, padding 0 24px ════════ */
-.contents {
+.log-contents {
   display: flex;
   flex-direction: column;
   gap: 39px;
