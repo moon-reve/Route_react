@@ -92,21 +92,21 @@ export default function PreLoadingPage() {
               const state = itemStates[i]
               return (
                 <div key={i} className={`check-item check-item--${state}`}>
-                  <div className="check-icon-wrap">
+                  <div className="loading-check-icon-wrap">
                     <img
                       src="/images/loading_icon_done.svg"
                       alt=""
-                      className="check-icon check-icon--done"
+                      className="loading-check-icon loading-check-icon--done"
                       style={{ display: state === 'done' ? 'block' : 'none' }}
                     />
                     <img
                       src="/images/loading_icon_spinning.svg"
                       alt=""
-                      className="check-icon check-icon--spin"
+                      className="loading-check-icon loading-check-icon--spin"
                       style={{ display: state === 'loading' ? 'block' : 'none' }}
                     />
                     <div
-                      className="check-icon check-icon--empty"
+                      className="loading-check-icon loading-check-icon--empty"
                       style={{ display: state === 'pending' ? 'block' : 'none' }}
                     ></div>
                   </div>

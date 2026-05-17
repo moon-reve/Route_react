@@ -97,7 +97,7 @@
   position: relative;
 }
 
-.check-icon {
+.loading-check-icon {
   width: 28px;
   height: 28px;
   position: absolute;
@@ -107,7 +107,7 @@
 }
 
 /* 빈 원 (pending) */
-.check-icon--empty {
+.loading-check-icon--empty {
   width: 28px;
   height: 28px;
   border-radius: 9999px;
@@ -116,7 +116,7 @@
 }
 
 /* 스피닝 애니메이션 */
-.check-icon--spin {
+.loading-check-icon--spin {
   animation: spin 1.2s linear infinite;
 }
 
