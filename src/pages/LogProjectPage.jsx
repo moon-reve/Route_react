@@ -27,7 +27,7 @@ export default function LogProjectPage() {
                 <h2 className="section-title section-title--dark">항해 중인 궤적 (2)</h2>
 
                 <div className="card-ongoing">
-                  <div className="card-img-box">
+                  <div className="proj-card-img-box">
                     <img src="/images/project_figma_icon.png" alt="피그마 아이콘" />
                   </div>
                   <div className="card-body">
@@ -40,7 +40,7 @@ export default function LogProjectPage() {
                 </div>
 
                 <div className="card-ongoing">
-                  <div className="card-img-box">
+                  <div className="proj-card-img-box">
                     <img src="/images/daily_book_cover.png" alt="Lean 스타트업" />
                   </div>
                   <div className="card-body">

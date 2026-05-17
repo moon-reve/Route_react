@@ -85,7 +85,7 @@
   border-radius: 12px;
 }
 
-.card-img-box {
+.proj-card-img-box {
   width: 64px;
   height: 64px;
   border: 1px solid var(--border-gray-300);
