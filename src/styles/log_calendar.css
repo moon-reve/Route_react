@@ -281,3 +281,10 @@
   border: 1px solid rgba(123, 158, 173, 0.25);
   border-radius: 10px;
 }
+
+.log-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--midnight-charcoal);
+  text-align: left;
+}

@@ -124,13 +124,13 @@
 }
 
 .article-badge {
-  display: block;
-  width: 100%;
-  padding: 6px 5px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 8px;
   border-radius: 4px;
   font-weight: 400;
   font-size: 12px;
-  text-align: center;
 }
 
 .badge--gold      { background: rgba(212, 168, 83, 0.15);  color: var(--champagne-gold); }
