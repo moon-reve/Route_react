@@ -317,7 +317,7 @@ export default function LogWritePage() {
                     <label className="input-label">파일 업로드 (선택)</label>
                     <div className="input-box input-box--file" onClick={() => projectFileRef.current?.click()}>
                       <span className="file-name-text">{fileName}</span>
-                      <img src="/images/icon_upload.svg" alt="" className="file-icon" />
+                      <img src="/images/log_write_upload.svg" alt="" className="file-icon" />
                     </div>
                   </div>
                 )}
