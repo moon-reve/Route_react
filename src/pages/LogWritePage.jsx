@@ -130,6 +130,10 @@ export default function LogWritePage() {
     setHeroCap(c.heroCap)
     setHeroCapVisible(true)
     setReminderActive(true)
+    setStartDate('시작일 선택')
+    setEndDate('종료일 선택')
+    setCalOpen(false)
+    setTimeOpen(false)
   }
 
   /* ── 히어로 업로드 ── */
