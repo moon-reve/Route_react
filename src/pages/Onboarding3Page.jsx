@@ -25,7 +25,7 @@ export default function Onboarding3Page() {
 
       {/* 하단 컨트롤 */}
       <div className="bottom-controls bottom-controls--ob3">
-        <button className="cta-btn" onClick={() => navigate('/login')}>나만의 길 찾기 시작하기 →</button>
+        <button className="ob3-cta-btn" onClick={() => navigate('/login')}>나만의 길 찾기 시작하기 →</button>
       </div>
     </div>
   )

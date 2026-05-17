@@ -178,7 +178,7 @@
   justify-content: flex-end;
 }
 
-.cta-btn {
+.ob3-cta-btn {
   border: none;
   cursor: pointer;
   display: flex;
@@ -218,4 +218,4 @@
   }
 }
 
-.cta-btn:hover { opacity: 0.85; }
+.ob3-cta-btn:hover { opacity: 0.85; }
