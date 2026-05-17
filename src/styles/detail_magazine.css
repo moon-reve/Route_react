@@ -43,7 +43,7 @@
 }
 
 /* ════════ CONTENTS WRAPPER: column, gap 64px ════════ */
-.contents {
+.mag-contents {
   display: flex;
   flex-direction: column;
   gap: 64px;

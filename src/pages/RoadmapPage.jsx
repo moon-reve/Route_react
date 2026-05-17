@@ -9,42 +9,42 @@ const FILTER_CONFIG = {
   '인강': {
     color: '#D4A853',
     items: [
-      { title: '왕초보를위한 피그마기초입문', week: 'W01', iconType: 'done', statusLabel: '완료', statusClass: 'tag--gold' },
-      { title: '일러스트레이터보다 100배 쉬운 캐릭터디자인', week: 'W02', iconType: 'done', statusLabel: '완료', statusClass: 'tag--gold' },
-      { title: '3분이면 완성 피그마 아이콘 제작', week: 'W03', iconType: 'done', statusLabel: '완료', statusClass: 'tag--gold' },
-      { title: '오토레이아웃 활용 카드디자인', week: 'W04', iconType: 'active', statusLabel: '진행 중', statusClass: 'tag--in-progress' },
-      { title: '작업시간 500프로 단축 디자인시스템', week: 'W05', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: '시간 단축과 재사용의 끝판왕 컴포넌트와 베리언트', week: 'W06', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: 'Mobile UI디자인과 오토 레이아웃 실전!', week: 'W07', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: '코딩없이 인터랙티브 끝장내는 프로토타입제작', week: 'W08', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: '트렌드완성! 글래스모피즘 UI', week: 'W09', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: '디자이너 필수 플러그인 Top10 사용법', week: 'W10', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: 'UIUX디자이너 매출 1000억 기업 취업 포트폴리오', week: 'W11', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: 'UIUX디자이너 에이전시 합격 포트폴리오 (당근마켓앱 팀프로젝트 리뉴얼)', week: 'W12', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
+      { title: '왕초보를위한 피그마기초입문', week: 'W01', iconType: 'done', statusLabel: '완료', statusClass: 'roadmap-tag--gold' },
+      { title: '일러스트레이터보다 100배 쉬운 캐릭터디자인', week: 'W02', iconType: 'done', statusLabel: '완료', statusClass: 'roadmap-tag--gold' },
+      { title: '3분이면 완성 피그마 아이콘 제작', week: 'W03', iconType: 'done', statusLabel: '완료', statusClass: 'roadmap-tag--gold' },
+      { title: '오토레이아웃 활용 카드디자인', week: 'W04', iconType: 'active', statusLabel: '진행 중', statusClass: 'roadmap-tag--in-progress' },
+      { title: '작업시간 500프로 단축 디자인시스템', week: 'W05', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: '시간 단축과 재사용의 끝판왕 컴포넌트와 베리언트', week: 'W06', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: 'Mobile UI디자인과 오토 레이아웃 실전!', week: 'W07', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: '코딩없이 인터랙티브 끝장내는 프로토타입제작', week: 'W08', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: '트렌드완성! 글래스모피즘 UI', week: 'W09', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: '디자이너 필수 플러그인 Top10 사용법', week: 'W10', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: 'UIUX디자이너 매출 1000억 기업 취업 포트폴리오', week: 'W11', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: 'UIUX디자이너 에이전시 합격 포트폴리오 (당근마켓앱 팀프로젝트 리뉴얼)', week: 'W12', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
     ]
   },
   '도서': {
     color: '#47B5A7',
     items: [
-      { title: 'UX 심리학', week: 'W01', iconType: 'done', statusLabel: '완료', statusClass: 'tag--gold' },
-      { title: '린 UX', week: 'W02', iconType: 'done', statusLabel: '완료', statusClass: 'tag--gold' },
-      { title: '린 스타트업', week: 'W03', iconType: 'unfinished', statusLabel: '미완료', statusClass: 'tag--unfinished' },
-      { title: '인터랙션 디자인', week: 'W04', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
-      { title: '포트폴리오 전략', week: 'W06', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
+      { title: 'UX 심리학', week: 'W01', iconType: 'done', statusLabel: '완료', statusClass: 'roadmap-tag--gold' },
+      { title: '린 UX', week: 'W02', iconType: 'done', statusLabel: '완료', statusClass: 'roadmap-tag--gold' },
+      { title: '린 스타트업', week: 'W03', iconType: 'unfinished', statusLabel: '미완료', statusClass: 'roadmap-tag--unfinished' },
+      { title: '인터랙션 디자인', week: 'W04', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
+      { title: '포트폴리오 전략', week: 'W06', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
     ]
   },
   '매거진': {
     color: '#D4849A',
     items: [
-      { title: '디자인 트렌드', week: 'W01', iconType: 'done-sage', statusLabel: '선취득', statusClass: 'tag--sage' },
-      { title: 'UX 케이스 스터디', week: 'W05', iconType: 'done-sage', statusLabel: '선취득', statusClass: 'tag--sage' },
+      { title: '디자인 트렌드', week: 'W01', iconType: 'done-sage', statusLabel: '선취득', statusClass: 'roadmap-tag--sage' },
+      { title: 'UX 케이스 스터디', week: 'W05', iconType: 'done-sage', statusLabel: '선취득', statusClass: 'roadmap-tag--sage' },
     ]
   },
   '프로젝트': {
     color: '#9E90BC',
     items: [
-      { title: '포트폴리오 리뉴얼 - 앱 기획', week: 'W03', iconType: 'done', statusLabel: '완료', statusClass: 'tag--gold' },
-      { title: '시장 분석 리포트', week: 'W04', iconType: 'inactive', statusLabel: '예정', statusClass: 'tag--plan' },
+      { title: '포트폴리오 리뉴얼 - 앱 기획', week: 'W03', iconType: 'done', statusLabel: '완료', statusClass: 'roadmap-tag--gold' },
+      { title: '시장 분석 리포트', week: 'W04', iconType: 'inactive', statusLabel: '예정', statusClass: 'roadmap-tag--plan' },
     ]
   }
 }
@@ -199,14 +199,14 @@ export default function RoadmapPage() {
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">피그마 기초</span>
-                            <div className="item-tags"><span className="tag tag--gold">인강</span></div>
+                            <div className="item-tags"><span className="roadmap-tag tag--gold">인강</span></div>
                           </div>
                         </div>
                         <div className="card-item">
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">UX 심리학</span>
-                            <div className="item-tags"><span className="tag tag--mint">도서</span></div>
+                            <div className="item-tags"><span className="roadmap-tag tag--mint">도서</span></div>
                           </div>
                         </div>
                         <div className="card-item">
@@ -214,8 +214,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title">디자인 트렌드</span>
                             <div className="item-tags">
-                              <span className="tag tag--blue">매거진</span>
-                              <span className="tag tag--sage">선취득</span>
+                              <span className="roadmap-tag tag--blue">매거진</span>
+                              <span className="roadmap-tag tag--sage">선취득</span>
                             </div>
                           </div>
                         </div>
@@ -255,14 +255,14 @@ export default function RoadmapPage() {
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">리액트 기초</span>
-                            <div className="item-tags"><span className="tag tag--gold">인강</span></div>
+                            <div className="item-tags"><span className="roadmap-tag tag--gold">인강</span></div>
                           </div>
                         </div>
                         <div className="card-item">
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">린 UX</span>
-                            <div className="item-tags"><span className="tag tag--mint">도서</span></div>
+                            <div className="item-tags"><span className="roadmap-tag tag--mint">도서</span></div>
                           </div>
                         </div>
                       </div>
@@ -305,14 +305,14 @@ export default function RoadmapPage() {
                               <span className="item-title">포트폴리오 리뉴얼 - 앱 기획</span>
                               <Link to="/feedback" className="feedback-btn">피드백 보기</Link>
                             </div>
-                            <div className="item-tags"><span className="tag tag--lavender">프로젝트</span></div>
+                            <div className="item-tags"><span className="roadmap-tag tag--lavender">프로젝트</span></div>
                           </div>
                         </div>
                         <div className="card-item">
                           <img src="/images/roadmap_icon_done.svg" alt="" className="item-icon" />
                           <div className="item-body">
                             <span className="item-title">CSS 고급</span>
-                            <div className="item-tags"><span className="tag tag--gold">인강</span></div>
+                            <div className="item-tags"><span className="roadmap-tag tag--gold">인강</span></div>
                           </div>
                         </div>
                         <div className="card-item">
@@ -320,8 +320,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title">린 스타트업</span>
                             <div className="item-tags">
-                              <span className="tag tag--mint">도서</span>
-                              <span className="tag tag--unfinished">미완료</span>
+                              <span className="roadmap-tag tag--mint">도서</span>
+                              <span className="roadmap-tag tag--unfinished">미완료</span>
                             </div>
                           </div>
                         </div>
@@ -368,8 +368,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--bold">HTML/CSS 구조</span>
                             <div className="item-tags">
-                              <span className="tag tag--gold">인강</span>
-                              <span className="tag tag--in-progress">진행 중</span>
+                              <span className="roadmap-tag tag--gold">인강</span>
+                              <span className="roadmap-tag tag--in-progress">진행 중</span>
                             </div>
                           </div>
                         </div>
@@ -378,8 +378,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">인터랙션 디자인</span>
                             <div className="item-tags">
-                              <span className="tag tag--mint">도서</span>
-                              <span className="tag tag--plan">예정</span>
+                              <span className="roadmap-tag tag--mint">도서</span>
+                              <span className="roadmap-tag tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
@@ -388,8 +388,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">시장 분석 리포트</span>
                             <div className="item-tags">
-                              <span className="tag tag--lavender">프로젝트</span>
-                              <span className="tag tag--plan">예정</span>
+                              <span className="roadmap-tag tag--lavender">프로젝트</span>
+                              <span className="roadmap-tag tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
@@ -430,8 +430,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">리액트 컴포넌트</span>
                             <div className="item-tags">
-                              <span className="tag tag--gold">인강</span>
-                              <span className="tag tag--plan">예정</span>
+                              <span className="roadmap-tag tag--gold">인강</span>
+                              <span className="roadmap-tag tag--plan">예정</span>
                             </div>
                           </div>
                         </div>
@@ -440,8 +440,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">UX 케이스 스터디</span>
                             <div className="item-tags">
-                              <span className="tag tag--blue">매거진</span>
-                              <span className="tag tag--sage">선취득</span>
+                              <span className="roadmap-tag tag--blue">매거진</span>
+                              <span className="roadmap-tag tag--sage">선취득</span>
                             </div>
                           </div>
                         </div>
@@ -481,8 +481,8 @@ export default function RoadmapPage() {
                           <div className="item-body">
                             <span className="item-title item-title--muted">포트폴리오 전략</span>
                             <div className="item-tags">
-                              <span className="tag tag--mint">도서</span>
-                              <span className="tag tag--plan">예정</span>
+                              <span className="roadmap-tag tag--mint">도서</span>
+                              <span className="roadmap-tag tag--plan">예정</span>
                             </div>
                           </div>
                         </div>

@@ -70,7 +70,7 @@ export default function DetailMag1Page() {
             </button>
           </header>
 
-          <div className="contents">
+          <div className="mag-contents">
 
             {/* 섹션 헤더 */}
             <section className="section-header">
