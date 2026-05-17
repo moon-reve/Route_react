@@ -193,7 +193,7 @@ export default function LogPage() {
                           <div className="log-card-top">
                             <span className="log-badge badge--bookmark">[저장] {item.type}</span>
                           </div>
-                          <p className="log-title">{item.title}</p>
+                          <p className="cal-log-title">{item.title}</p>
                         </div>
                       ))}
                     </div>
