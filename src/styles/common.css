@@ -144,8 +144,6 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   border-radius: 50%;
   text-decoration: none;
 }
@@ -154,8 +152,6 @@ body {
   display: block;
   width: auto;
   height: auto;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
 
 /* ── 공통 타이포그래피 ── */
