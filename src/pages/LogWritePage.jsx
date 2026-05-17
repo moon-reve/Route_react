@@ -83,7 +83,7 @@ function DrumCol({ items, selectedIndex, onChange }) {
   return (
     <div className="drum-col" ref={colRef} onScroll={handleScroll}>
       {items.map((item, i) => (
-        <div key={i} className="drum-item">{item}</div>
+        <div key={i} className={`drum-item${i === selectedIndex ? ' drum-item--selected' : ''}`}>{item}</div>
       ))}
     </div>
   )
@@ -394,6 +394,7 @@ export default function LogWritePage() {
             <DrumCol items={HOURS} selectedIndex={hourIdx} onChange={setHourIdx} />
             <DrumCol items={MINS}  selectedIndex={minIdx}  onChange={setMinIdx}  />
           </div>
+          <button className="drum-confirm" onClick={() => setTimeOpen(false)}>확인</button>
         </div>
       )}
     </>

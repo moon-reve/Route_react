@@ -670,3 +670,26 @@
   overflow: hidden;
   width: 268px;
 }
+
+/* ── 드럼 선택 항목 ── */
+.drum-item--selected {
+  font-weight: 700;
+  color: var(--starline-gold);
+}
+
+/* ── 드럼 확인 버튼 ── */
+.drum-confirm {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border-gray-300);
+  font-family: 'Pretendard', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--starline-gold);
+  cursor: pointer;
+  text-align: center;
+}
+.drum-confirm:active { opacity: 0.7; }
