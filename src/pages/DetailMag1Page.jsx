@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
 import '../styles/detail_magazine.css'
 
@@ -109,6 +110,7 @@ export default function DetailMag1Page() {
       </div>
 
       {/* 북마크 토스트 */}
+      <BottomNav />
       <div className={`bookmark-toast${toastVisible ? '' : ' is-hidden'}`}>
         <span className="toast-text">{toast}</span>
       </div>
