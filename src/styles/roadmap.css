@@ -164,6 +164,8 @@
 
 /* ── SHARED CARD BASE ── */
 .roadmap-card {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   border-radius: 10px;
   width: 100%;
 }
