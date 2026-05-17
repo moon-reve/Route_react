@@ -7,7 +7,7 @@ export default function MyPage() {
     <div className="screen">
       <div className="scroll-area">
         <div className="my-page">
-          <main className="main">
+          <main className="my-main">
 
             <header className="header">
               <div className="header-title">마이페이지</div>

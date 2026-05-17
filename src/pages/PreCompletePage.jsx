@@ -10,7 +10,7 @@ export default function PreCompletePage() {
       <img src="/images/pre_bg.svg" alt="" className="complete-bg" />
 
       <div className="scroll-area">
-        <div className="main">
+        <div className="pre-complete-main">
 
           {/* ① 히어로 섹션 */}
           <section className="hero-section">

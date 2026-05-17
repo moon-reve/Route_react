@@ -13,7 +13,7 @@ export default function LoginPage() {
       <img className="login-bg" src="/images/login_bg.svg" alt="" />
 
       {/* 메인 콘텐츠 */}
-      <main className="main">
+      <main className="login-main">
 
         {/* 헤더 섹션 */}
         <section className="header-section">

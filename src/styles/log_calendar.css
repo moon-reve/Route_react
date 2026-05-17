@@ -3,7 +3,7 @@
 }
 
 /* ── main: column, gap 16px, padding 40px 0 125px ── */
-.main {
+.log-cal-main {
   display: flex;
   flex-direction: column;
   gap: 16px;

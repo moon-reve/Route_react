@@ -1,7 +1,7 @@
 .feed-page { width: 100%; }
 
 /* ── main: column, gap 20px, padding 40px 0 125px ── */
-.main {
+.log-feed-main {
   display: flex;
   flex-direction: column;
   gap: 16px;

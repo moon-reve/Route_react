@@ -92,7 +92,7 @@ export default function RoadmapPage() {
   return (
     <div className="screen">
       <div className="scroll-area">
-        <main className="main">
+        <main className="roadmap-main">
 
           <header className="header">
             <div className="header-title">마스터 플랜 아키텍처</div>

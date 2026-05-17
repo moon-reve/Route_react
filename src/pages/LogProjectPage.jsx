@@ -8,7 +8,7 @@ export default function LogProjectPage() {
     <div className="screen">
       <div className="scroll-area">
         <div className="project-page">
-          <main className="main">
+          <main className="log-proj-main">
 
             <header className="header">
               <div className="header-title">내가 쌓은 시간들</div>

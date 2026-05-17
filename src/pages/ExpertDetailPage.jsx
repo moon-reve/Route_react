@@ -11,7 +11,7 @@ export default function ExpertDetailPage() {
 
       <div className="scroll-area">
         <div className="expert-page">
-          <main className="main">
+          <main className="expert-main">
 
             <header className="header">
               <button className="btn-back" onClick={() => navigate(-1)}>

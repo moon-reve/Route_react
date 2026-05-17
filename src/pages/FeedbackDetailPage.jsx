@@ -26,7 +26,7 @@ export default function FeedbackDetailPage() {
 
       <div className="scroll-area">
         <div className="feedback-page">
-          <main className="main">
+          <main className="feedback-main">
 
             <header className="header">
               <button className="btn-back" onClick={() => navigate(-1)}>

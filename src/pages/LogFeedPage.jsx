@@ -43,7 +43,7 @@ export default function LogFeedPage() {
     <div className="screen">
       <div className="scroll-area">
         <div className="feed-page">
-          <main className="main">
+          <main className="log-feed-main">
 
             <header className="header">
               <div className="header-title">내가 쌓은 시간들</div>

@@ -46,7 +46,7 @@ export default function DailyMissionPage() {
     <div className="screen">
       <div className="scroll-area">
         <div className="daily-container">
-          <main className="main">
+          <main className="mission-main">
 
             <header className="header">
               <button className="btn-back" onClick={() => navigate(-1)}>

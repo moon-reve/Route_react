@@ -1,7 +1,7 @@
 .my-page { width: 100%; }
 
 /* ── main: column, gap 34px, padding 40px 24px 125px ── */
-.main {
+.my-main {
   display: flex;
   flex-direction: column;
   gap: 34px;

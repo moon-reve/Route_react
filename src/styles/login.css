@@ -10,7 +10,7 @@
 
 /* ── Main layout ── */
 /* column, padding: 64px 24px, gap: 339px between header and action */
-.main {
+.login-main {
   position: relative;
   z-index: 1;
   width: 100%;

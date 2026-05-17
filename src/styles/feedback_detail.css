@@ -17,7 +17,7 @@
 }
 
 /* ── 메인: padding 40px 24px 110px ── */
-.main {
+.feedback-main {
   position: relative;
   z-index: 1;
   display: flex;
