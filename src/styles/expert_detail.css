@@ -240,6 +240,7 @@
 .tag--dark {
   background: var(--midnight-charcoal);
   color: var(--pure-white);
+  font-weight: 700;
 }
 
 .tag--gray {
