@@ -227,7 +227,7 @@
   align-content: flex-start;
 }
 
-.tag {
+.expert-tag {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
@@ -237,13 +237,13 @@
   line-height: 20px;
 }
 
-.tag--dark {
+.expert-tag--dark {
   background: var(--midnight-charcoal);
   color: var(--pure-white);
   font-weight: 700;
 }
 
-.tag--gray {
+.expert-tag--gray {
   background: var(--inactive-gray-200);
   color: var(--gray-700);
 }

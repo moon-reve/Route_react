@@ -60,10 +60,10 @@ export default function ExpertDetailPage() {
             <section className="expertise-section">
               <p className="section-heading">전문 분야</p>
               <div className="tag-wrap">
-                <span className="tag tag--dark">디자인 시스템</span>
-                <span className="tag tag--gray">B2B 서비스</span>
-                <span className="tag tag--gray">사용성 테스트</span>
-                <span className="tag tag--gray">브랜딩</span>
+                <span className="expert-tag expert-tag--dark">디자인 시스템</span>
+                <span className="expert-tag expert-tag--gray">B2B 서비스</span>
+                <span className="expert-tag expert-tag--gray">사용성 테스트</span>
+                <span className="expert-tag expert-tag--gray">브랜딩</span>
               </div>
             </section>
 
