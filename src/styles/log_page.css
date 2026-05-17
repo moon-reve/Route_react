@@ -53,20 +53,21 @@
 
 /* ── 슬라이더 ── */
 .log-slider-wrap {
-  overflow-x: clip;
+  overflow: hidden;
   width: 100%;
 }
 
 .log-slider {
   display: flex;
   flex-direction: row;
+  width: 300%;
   transition: transform 0.3s ease;
   will-change: transform;
 }
 
 .log-panel {
-  width: 100%;
-  flex-shrink: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ── 패널별 contents ── */
