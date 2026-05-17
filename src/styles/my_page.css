@@ -124,13 +124,13 @@
 }
 
 /* 프로그레스 바 래퍼 */
-.progress-wrapper {
+.my-progress-wrapper {
   position: relative;
   height: 10px;
 }
 
 /* 트랙: 8px 높이, bg #333333 */
-.progress-track {
+.my-progress-track {
   position: absolute;
   top: 1px;
   left: 0;
@@ -142,7 +142,7 @@
 }
 
 /* 채워진 부분: 60%, 골드 그라디언트 */
-.progress-fill {
+.my-progress-fill {
   width: 60%;
   height: 100%;
   background: linear-gradient(90deg, var(--champagne-gold) 0%, var(--starline-gold) 100%);
@@ -150,7 +150,7 @@
 }
 
 /* 끝점 표시 도트: 10×10, 60% 위치 */
-.progress-dot {
+.my-progress-dot {
   position: absolute;
   width: 10px;
   height: 10px;

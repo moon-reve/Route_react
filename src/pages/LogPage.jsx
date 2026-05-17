@@ -280,8 +280,8 @@ export default function LogPage() {
                       </div>
                       <div className="card-body">
                         <p className="card-title">피그마 오토레이아웃 마스터 클래스</p>
-                        <div className="progress-track">
-                          <div className="progress-fill progress-fill--gold"></div>
+                        <div className="proj-progress-track">
+                          <div className="proj-progress-fill proj-progress-fill--gold"></div>
                         </div>
                         <p className="card-meta">총 12개의 기록이 담겨있어요</p>
                       </div>
@@ -292,8 +292,8 @@ export default function LogPage() {
                       </div>
                       <div className="card-body">
                         <p className="card-title">Lean 스타트업 완독하기</p>
-                        <div className="progress-track">
-                          <div className="progress-fill progress-fill--sage"></div>
+                        <div className="proj-progress-track">
+                          <div className="proj-progress-fill proj-progress-fill--sage"></div>
                         </div>
                         <p className="card-meta">총 8개의 기록이 담겨있어요</p>
                       </div>

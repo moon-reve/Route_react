@@ -31,11 +31,11 @@ export default function MyPage() {
                   <p className="mastery-main">총 14개의 미션 완료</p>
                 </div>
 
-                <div className="progress-wrapper">
-                  <div className="progress-track">
-                    <div className="progress-fill"></div>
+                <div className="my-progress-wrapper">
+                  <div className="my-progress-track">
+                    <div className="my-progress-fill"></div>
                   </div>
-                  <div className="progress-dot"></div>
+                  <div className="my-progress-dot"></div>
                 </div>
 
                 <p className="mastery-caption">전체 목표의 60%를 달성했어요</p>
