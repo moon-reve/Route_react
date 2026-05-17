@@ -69,9 +69,6 @@
 
 .section:last-child { gap: 14px; }
 
-.section-title { font-weight: 700; font-size: 16px; }
-.section-title--dark { color: #000000; }
-.section-title--gray { color: var(--gray-700); }
 
 /* ════════ ONGOING CARD ════════ */
 .card-ongoing {

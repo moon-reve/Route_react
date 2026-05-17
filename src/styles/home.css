@@ -318,12 +318,6 @@
   padding-left: 24px;
 }
 
-.section-title {
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: #4C4546;
-}
 
 /* card-list: row, horizontal scroll, gap 17px
    section-cards 자체를 패딩 밖으로 빼서 full-width 스크롤 확보 */

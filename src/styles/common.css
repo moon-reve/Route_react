@@ -160,6 +160,14 @@ body {
   -webkit-backdrop-filter: blur(2px);
 }
 
+/* ── 공통 타이포그래피 ── */
+.section-title {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--midnight-charcoal);
+}
+
 /* ── 유틸리티 클래스 ── */
 .is-hidden { display: none !important; }
 [data-href] { cursor: pointer; }
