@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/log_write.css'
@@ -47,20 +47,82 @@ const TAB_LABELS = [
   ['프로젝트', 'project'],
 ]
 
+const AMPM   = ['오전', '오후']
+const HOURS  = ['01','02','03','04','05','06','07','08','09','10','11','12']
+const MINS   = ['00','05','10','15','20','25','30','35','40','45','50','55']
+const DAYS   = ['일','월','화','수','목','금','토']
+
+function formatDate(y, m, d) {
+  return `${y}. ${String(m + 1).padStart(2,'0')}. ${String(d).padStart(2,'0')}.`
+}
+
+/* ── 드럼 컬럼 컴포넌트 ── */
+function DrumCol({ items, selectedIndex, onChange }) {
+  const ITEM_H = 36
+  const colRef = useRef(null)
+  const timerRef = useRef(null)
+
+  useEffect(() => {
+    const el = colRef.current
+    if (!el) return
+    el.scrollTop = selectedIndex * ITEM_H
+  }, [selectedIndex])
+
+  const handleScroll = useCallback(() => {
+    clearTimeout(timerRef.current)
+    timerRef.current = setTimeout(() => {
+      const el = colRef.current
+      if (!el) return
+      const idx = Math.round(el.scrollTop / ITEM_H)
+      const clamped = Math.max(0, Math.min(idx, items.length - 1))
+      el.scrollTop = clamped * ITEM_H
+      onChange(clamped)
+    }, 120)
+  }, [items.length, onChange])
+
+  return (
+    <div className="drum-col" ref={colRef} onScroll={handleScroll}>
+      {items.map((item, i) => (
+        <div key={i} className="drum-item">{item}</div>
+      ))}
+    </div>
+  )
+}
+
 export default function LogWritePage() {
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState('log')
-  const [heroImgSrc, setHeroImgSrc] = useState('/images/log_hero_img.svg')
-  const [heroCap, setHeroCap] = useState('탭하여 오늘의 항해 순간을 담아보세요')
+  const [activeTab, setActiveTab]         = useState('log')
+  const [heroImgSrc, setHeroImgSrc]       = useState('/images/log_hero_img.svg')
+  const [heroCap, setHeroCap]             = useState('탭하여 오늘의 항해 순간을 담아보세요')
   const [heroCapVisible, setHeroCapVisible] = useState(true)
-  const [fileName, setFileName] = useState('파일을 선택해주세요')
+  const [fileName, setFileName]           = useState('파일을 선택해주세요')
   const [reminderActive, setReminderActive] = useState(true)
-  const [reminderTime] = useState('오전 9:00')
-  const heroFileRef = useRef(null)
+
+  /* ── 캘린더 ── */
+  const today = new Date()
+  const [calOpen, setCalOpen]       = useState(false)
+  const [calTarget, setCalTarget]   = useState(null) // 'log' | 'start' | 'end'
+  const [calYear, setCalYear]       = useState(today.getFullYear())
+  const [calMonth, setCalMonth]     = useState(today.getMonth())
+  const [calPos, setCalPos]         = useState({ top: 0, left: 0 })
+  const [logDate, setLogDate]       = useState(formatDate(today.getFullYear(), today.getMonth(), today.getDate()))
+  const [startDate, setStartDate]   = useState('시작일 선택')
+  const [endDate, setEndDate]       = useState('종료일 선택')
+
+  /* ── 드럼 피커 ── */
+  const [timeOpen, setTimeOpen]     = useState(false)
+  const [timePos, setTimePos]       = useState({ top: 0, left: 0 })
+  const [ampmIdx, setAmpmIdx]       = useState(0)
+  const [hourIdx, setHourIdx]       = useState(8)  // 09시
+  const [minIdx, setMinIdx]         = useState(0)  // 00분
+  const timeDisplay = `${AMPM[ampmIdx]} ${HOURS[hourIdx]}:${MINS[minIdx]}`
+
+  const heroFileRef    = useRef(null)
   const projectFileRef = useRef(null)
 
   const cfg = TAB_CONFIG[activeTab]
 
+  /* ── 탭 전환 ── */
   const handleTabSelect = (type) => {
     setActiveTab(type)
     const c = TAB_CONFIG[type]
@@ -70,6 +132,7 @@ export default function LogWritePage() {
     setReminderActive(true)
   }
 
+  /* ── 히어로 업로드 ── */
   const handleHeroUpload = (e) => {
     const file = e.target.files?.[0]
     if (!file) return
@@ -83,21 +146,85 @@ export default function LogWritePage() {
     setFileName(file.name)
   }
 
+  /* ── 캘린더 열기 ── */
+  const openCal = (target, anchorRef) => {
+    if (calOpen && calTarget === target) { setCalOpen(false); return }
+    setCalTarget(target)
+    const rect = anchorRef.current?.getBoundingClientRect() || { bottom: 0, top: 0, left: 0 }
+    let top = rect.bottom + 8
+    let left = rect.left
+    if (left + 276 > window.innerWidth) left = window.innerWidth - 284
+    if (top + 280 > window.innerHeight) top = rect.top - 290
+    setCalPos({ top, left })
+    setCalYear(today.getFullYear())
+    setCalMonth(today.getMonth())
+    setCalOpen(true)
+  }
+
+  const selectDay = (d) => {
+    const formatted = formatDate(calYear, calMonth, d)
+    if (calTarget === 'log')   setLogDate(formatted)
+    if (calTarget === 'start') setStartDate(formatted)
+    if (calTarget === 'end')   setEndDate(formatted)
+    setCalOpen(false)
+  }
+
+  const moveCal = (dir) => {
+    let m = calMonth + dir, y = calYear
+    if (m > 11) { m = 0; y++ }
+    if (m < 0)  { m = 11; y-- }
+    setCalMonth(m); setCalYear(y)
+  }
+
+  const renderCalDays = () => {
+    const firstDay     = new Date(calYear, calMonth, 1).getDay()
+    const daysInMonth  = new Date(calYear, calMonth + 1, 0).getDate()
+    const cells = []
+    for (let i = 0; i < firstDay; i++)
+      cells.push(<span key={`e${i}`} className="cal-day cal-day--disabled" />)
+    for (let d = 1; d <= daysInMonth; d++) {
+      const isToday = today.getFullYear() === calYear && today.getMonth() === calMonth && today.getDate() === d
+      cells.push(
+        <span key={d} className={`cal-day${isToday ? ' cal-day--today' : ''}`} onClick={() => selectDay(d)}>{d}</span>
+      )
+    }
+    return cells
+  }
+
+  /* ── 드럼 피커 열기 ── */
+  const timeRowRef = useRef(null)
+  const openTime = () => {
+    if (timeOpen) { setTimeOpen(false); return }
+    const rect = timeRowRef.current?.getBoundingClientRect() || { top: 0, left: 0 }
+    let top = rect.top - 200
+    let left = rect.left
+    if (left + 280 > window.innerWidth) left = window.innerWidth - 288
+    if (top < 8) top = rect.bottom + 8
+    setTimePos({ top, left })
+    setTimeOpen(true)
+  }
+
+  /* ── 바깥 클릭 시 닫기 ── */
+  useEffect(() => {
+    const close = (e) => {
+      if (!e.target.closest('.cal-popup-wrap') && !e.target.closest('.date-box'))
+        setCalOpen(false)
+      if (!e.target.closest('.time-popup-wrap') && !e.target.closest('.reminder-time-row'))
+        setTimeOpen(false)
+    }
+    document.addEventListener('mousedown', close)
+    return () => document.removeEventListener('mousedown', close)
+  }, [])
+
+  /* ── ref for date boxes ── */
+  const logDateRef   = useRef(null)
+  const startDateRef = useRef(null)
+  const endDateRef   = useRef(null)
+
   return (
     <>
-      <input
-        type="file"
-        accept="image/*"
-        ref={heroFileRef}
-        style={{ display: 'none' }}
-        onChange={handleHeroUpload}
-      />
-      <input
-        type="file"
-        ref={projectFileRef}
-        style={{ display: 'none' }}
-        onChange={handleProjectFile}
-      />
+      <input type="file" accept="image/*" ref={heroFileRef} style={{ display:'none' }} onChange={handleHeroUpload} />
+      <input type="file" ref={projectFileRef} style={{ display:'none' }} onChange={handleProjectFile} />
 
       <div className="screen">
         <div className="scroll-area">
@@ -119,9 +246,7 @@ export default function LogWritePage() {
                   <div className="hero-upload-overlay">
                     <span className="hero-upload-label">사진 변경</span>
                   </div>
-                  {heroCapVisible && (
-                    <span className="hero-caption">{heroCap}</span>
-                  )}
+                  {heroCapVisible && <span className="hero-caption">{heroCap}</span>}
                 </div>
               </div>
 
@@ -145,10 +270,8 @@ export default function LogWritePage() {
               {cfg.showLogDate && (
                 <div className="section-log-date">
                   <div className="section-label">날짜</div>
-                  <div className="date-box date-box--full">
-                    <span className="date-text">
-                      {new Date().toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' })}
-                    </span>
+                  <div className="date-box date-box--full" ref={logDateRef} onClick={() => openCal('log', logDateRef)}>
+                    <span className="date-text">{logDate}</span>
                     <img src="/images/log_calendar.svg" alt="" className="calendar-icon" />
                   </div>
                 </div>
@@ -196,13 +319,13 @@ export default function LogWritePage() {
                 <div className="section-duration">
                   <div className="section-label">목표 기간을 설정해 주세요</div>
                   <div className="date-row">
-                    <div className="date-box">
-                      <span className="date-text date-placeholder">시작일 선택</span>
+                    <div className="date-box" ref={startDateRef} onClick={() => openCal('start', startDateRef)}>
+                      <span className={`date-text${startDate === '시작일 선택' ? ' date-placeholder' : ''}`}>{startDate}</span>
                       <img src="/images/log_calendar.svg" alt="" className="calendar-icon" />
                     </div>
                     <span className="date-sep">~</span>
-                    <div className="date-box">
-                      <span className="date-text date-placeholder">종료일 선택</span>
+                    <div className="date-box" ref={endDateRef} onClick={() => openCal('end', endDateRef)}>
+                      <span className={`date-text${endDate === '종료일 선택' ? ' date-placeholder' : ''}`}>{endDate}</span>
                       <img src="/images/log_calendar.svg" alt="" className="calendar-icon" />
                     </div>
                   </div>
@@ -220,9 +343,9 @@ export default function LogWritePage() {
                     ></div>
                   </div>
                   {reminderActive && (
-                    <div className="reminder-time-row">
+                    <div className="reminder-time-row" ref={timeRowRef} onClick={openTime}>
                       <span className="reminder-time-label">알림 시간</span>
-                      <span className="reminder-time-display">{reminderTime}</span>
+                      <span className="reminder-time-display">{timeDisplay}</span>
                     </div>
                   )}
                 </div>
@@ -235,6 +358,44 @@ export default function LogWritePage() {
           </div>
         </div>
       </div>
+
+      {/* ── 캘린더 팝업 ── */}
+      {calOpen && (
+        <div
+          className="cal-popup-wrap"
+          style={{ position:'fixed', top: calPos.top, left: calPos.left, zIndex: 400 }}
+        >
+          <div className="cal-header">
+            <button className="cal-nav" onClick={() => moveCal(-1)}>‹</button>
+            <span className="cal-title">{calYear}년 {calMonth + 1}월</span>
+            <button className="cal-nav" onClick={() => moveCal(1)}>›</button>
+          </div>
+          <div className="cal-days">
+            {DAYS.map(d => <span key={d}>{d}</span>)}
+          </div>
+          <div className="cal-grid">
+            {renderCalDays()}
+          </div>
+        </div>
+      )}
+
+      {/* ── 드럼 피커 팝업 ── */}
+      {timeOpen && (
+        <div
+          className="time-popup-wrap"
+          style={{ position:'fixed', top: timePos.top, left: timePos.left, zIndex: 400 }}
+        >
+          <div className="drum-wrapper">
+            <div className="drum-fade-top" />
+            <div className="drum-fade-bottom" />
+            <div className="drum-line drum-line--top"><span/><span/><span/></div>
+            <div className="drum-line drum-line--bottom"><span/><span/><span/></div>
+            <DrumCol items={AMPM}  selectedIndex={ampmIdx} onChange={setAmpmIdx} />
+            <DrumCol items={HOURS} selectedIndex={hourIdx} onChange={setHourIdx} />
+            <DrumCol items={MINS}  selectedIndex={minIdx}  onChange={setMinIdx}  />
+          </div>
+        </div>
+      )}
     </>
   )
 }

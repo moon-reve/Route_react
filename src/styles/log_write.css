@@ -382,8 +382,8 @@
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid #E5E7EB;
   border-radius: 14px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   font-family: 'Pretendard', sans-serif;
@@ -548,8 +548,8 @@
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid #E5E7EB;
   border-radius: 14px;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 16px;
   font-family: 'Pretendard', sans-serif;
@@ -637,3 +637,27 @@
 }
 
 .submit-btn:hover { opacity: 0.85; }
+
+/* ── 팝업 공통 스타일 ── */
+.cal-popup-wrap {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  font-family: 'Pretendard', sans-serif;
+  width: 268px;
+}
+
+.time-popup-wrap {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 268px;
+}
