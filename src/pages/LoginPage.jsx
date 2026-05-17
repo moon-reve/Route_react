@@ -45,11 +45,11 @@ export default function LoginPage() {
 
       {/* 오버레이 */}
       {modalOpen && (
-        <div className="overlay" onClick={() => setModalOpen(false)} />
+        <div className="overlay active" onClick={() => setModalOpen(false)} />
       )}
 
       {/* 로그인 모달 */}
-      <div className={`modal${modalOpen ? ' is-open' : ''}`}>
+      <div className={`modal${modalOpen ? ' active' : ''}`}>
         <div className="modal-handle"></div>
 
         <h2 className="modal-title">다른 방법으로 로그인</h2>
