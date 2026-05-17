@@ -27,12 +27,12 @@ export default function LoginPage() {
 
         {/* 액션 섹션 */}
         <section className="action-section">
-          <button className="btn btn-kakao" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-kakao" onClick={() => navigate('/home')}>
             <img src="/images/ic_kakao.svg" alt="" className="btn-icon" />
             <span>카카오톡으로 로그인</span>
           </button>
 
-          <button className="btn btn-google" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-google" onClick={() => navigate('/home')}>
             <img src="/images/ic_google.svg" alt="" className="btn-icon" />
             <span>구글로 로그인</span>
           </button>
@@ -55,22 +55,22 @@ export default function LoginPage() {
         <h2 className="modal-title">다른 방법으로 로그인</h2>
 
         <div className="modal-buttons">
-          <button className="btn btn-line" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-line" onClick={() => navigate('/home')}>
             <img src="/images/ic_line.svg" alt="" className="btn-icon" />
             <span>LINE으로 로그인</span>
           </button>
 
-          <button className="btn btn-linkedin" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-linkedin" onClick={() => navigate('/home')}>
             <img src="/images/ic_linkedin.svg" alt="" className="btn-icon" />
             <span>LinkedIn으로 로그인</span>
           </button>
 
-          <button className="btn btn-github" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-github" onClick={() => navigate('/home')}>
             <img src="/images/ic_github.svg" alt="" className="btn-icon" />
             <span>GitHub로 로그인</span>
           </button>
 
-          <button className="btn btn-phone" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-phone" onClick={() => navigate('/home')}>
             <img src="/images/ic_phone.svg" alt="" className="btn-icon" />
             <span>휴대폰/이메일로 로그인</span>
           </button>

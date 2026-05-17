@@ -74,7 +74,7 @@
 }
 
 /* ── Buttons common ── */
-.btn {
+.login-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +91,7 @@
   transition: opacity 0.15s;
 }
 
-.btn:active { opacity: 0.8; }
+.login-btn:active { opacity: 0.8; }
 
 .btn-icon {
   width: 20px;
@@ -101,13 +101,13 @@
 }
 
 /* Kakao */
-.btn-kakao {
+.login-btn-kakao {
   background: #FFE812;
   color: var(--midnight-charcoal);
 }
 
 /* Google */
-.btn-google {
+.login-btn-google {
   background: var(--pure-white);
   color: var(--midnight-charcoal);
   border: 0.5px solid var(--border-gray-300);
@@ -216,25 +216,25 @@
 }
 
 /* LINE */
-.btn-line {
+.login-btn-line {
   background: #06C755;
   color: var(--pure-white);
 }
 
 /* LinkedIn */
-.btn-linkedin {
+.login-btn-linkedin {
   background: #0A66C2;
   color: var(--pure-white);
 }
 
 /* GitHub */
-.btn-github {
+.login-btn-github {
   background: #24292F;
   color: var(--pure-white);
 }
 
 /* 휴대폰/이메일 */
-.btn-phone {
+.login-btn-phone {
   background: var(--pure-white);
   color: var(--midnight-charcoal);
   border: 1px solid var(--active-border-gray-500);
