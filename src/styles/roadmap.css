@@ -40,7 +40,7 @@
 }
 
 /* ════════ NAV CHIPS: row, gap 8px, padding 10px 0 ════════ */
-.nav-chips {
+.chips {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,7 +48,7 @@
   padding: 10px 0;
 }
 
-.nav-chip {
+.chip {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +64,7 @@
   flex: 1;
 }
 
-.nav-chip--active {
+.chip--active {
   background: var(--midnight-charcoal);
   border-color: var(--midnight-charcoal);
   color: var(--pure-white);

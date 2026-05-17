@@ -101,11 +101,11 @@ export default function RoadmapPage() {
           <div className="contents">
 
             {/* 필터 칩 */}
-            <div className="nav-chips">
+            <div className="chips">
               {CHIPS.map(label => (
                 <div
                   key={label}
-                  className={`nav-chip${activeFilter === label ? ' nav-chip--active' : ''}`}
+                  className={`chip${activeFilter === label ? ' chip--active' : ''}`}
                   style={activeFilter === label && filterConfig ? {
                     background: filterConfig.color,
                     borderColor: filterConfig.color,
