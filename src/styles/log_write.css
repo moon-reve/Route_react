@@ -674,7 +674,7 @@
 /* ── 드럼 선택 항목 ── */
 .drum-item--selected {
   font-weight: 700;
-  color: var(--starline-gold);
+  color: var(--midnight-charcoal);
 }
 
 /* ── 드럼 확인 버튼 ── */

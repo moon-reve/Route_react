@@ -195,11 +195,12 @@ export default function LogWritePage() {
   const timeRowRef = useRef(null)
   const openTime = () => {
     if (timeOpen) { setTimeOpen(false); return }
-    const rect = timeRowRef.current?.getBoundingClientRect() || { top: 0, left: 0 }
-    let top = rect.top - 200
+    const rect = timeRowRef.current?.getBoundingClientRect() || { top: 0, left: 0, bottom: 0 }
+    const popupH = 168  // drum(108) + confirm(44) + padding
+    let top = rect.top - popupH - 8
+    if (top < 8) top = rect.bottom + 8
     let left = rect.left
     if (left + 280 > window.innerWidth) left = window.innerWidth - 288
-    if (top < 8) top = rect.bottom + 8
     setTimePos({ top, left })
     setTimeOpen(true)
   }
