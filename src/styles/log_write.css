@@ -644,6 +644,7 @@
 .cal-popup-wrap {
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid #E5E7EB;
+  border-bottom: none;
   border-radius: 14px;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
