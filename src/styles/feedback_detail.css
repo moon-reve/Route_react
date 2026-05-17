@@ -84,6 +84,8 @@
   gap: 8px;
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   border: 1px solid var(--inactive-gray-200);
   border-radius: 12px;
 }
@@ -305,6 +307,9 @@
   gap: 10px;
   padding: 20px 28px;
   border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
 }
 
 .comment-card--good {
