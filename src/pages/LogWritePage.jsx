@@ -177,15 +177,22 @@ export default function LogWritePage() {
   }
 
   const renderCalDays = () => {
-    const firstDay     = new Date(calYear, calMonth, 1).getDay()
-    const daysInMonth  = new Date(calYear, calMonth + 1, 0).getDate()
+    const firstDay    = new Date(calYear, calMonth, 1).getDay()
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate()
     const cells = []
+
+    // 현재 선택된 날짜 파악 (로그탭만 날짜가 있음, 시작/종료는 초기엔 미선택)
+    const currentVal = calTarget === 'log' ? logDate : calTarget === 'start' ? startDate : endDate
+    const isPickerSelected = currentVal && currentVal !== '시작일 선택' && currentVal !== '종료일 선택'
+    const selectedD = isPickerSelected ? parseInt(currentVal.split('. ')[2]) : null
+    const selectedMatchesMonth = isPickerSelected && parseInt(currentVal.split('. ')[0]) === calYear && parseInt(currentVal.split('. ')[1]) - 1 === calMonth
+
     for (let i = 0; i < firstDay; i++)
       cells.push(<span key={`e${i}`} className="write-cal-day write-cal-day--disabled" />)
     for (let d = 1; d <= daysInMonth; d++) {
-      const isToday = today.getFullYear() === calYear && today.getMonth() === calMonth && today.getDate() === d
+      const isSelected = selectedMatchesMonth && selectedD === d
       cells.push(
-        <span key={d} className={`write-cal-day${isToday ? ' write-cal-day--today' : ''}`} onClick={() => selectDay(d)}>{d}</span>
+        <span key={d} className={`write-cal-day${isSelected ? ' write-cal-day--selected' : ''}`} onClick={() => selectDay(d)}>{d}</span>
       )
     }
     return cells
