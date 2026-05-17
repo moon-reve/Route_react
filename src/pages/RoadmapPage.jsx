@@ -168,7 +168,7 @@ export default function RoadmapPage() {
               <div className="timeline">
 
                 {/* WEEK 01 — DONE */}
-                <div className={`card ${openCards['w01'] ? 'card--done-open' : 'card--done-closed'}`}>
+                <div className={`roadmap-card ${openCards['w01'] ? 'roadmap-card--done-open' : 'roadmap-card--done-closed'}`}>
                   {!openCards['w01'] && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w01')}>
                       <div className="card-head-left">
@@ -225,7 +225,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* WEEK 02 — DONE */}
-                <div className={`card ${openCards['w02'] ? 'card--done-open' : 'card--done-closed'}`}>
+                <div className={`roadmap-card ${openCards['w02'] ? 'roadmap-card--done-open' : 'roadmap-card--done-closed'}`}>
                   {!openCards['w02'] && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w02')}>
                       <div className="card-head-left">
@@ -271,7 +271,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* WEEK 03 — DONE */}
-                <div className={`card ${openCards['w03'] ? 'card--done-open' : 'card--done-closed'}`}>
+                <div className={`roadmap-card ${openCards['w03'] ? 'roadmap-card--done-open' : 'roadmap-card--done-closed'}`}>
                   {!openCards['w03'] && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w03')}>
                       <div className="card-head-left">
@@ -331,7 +331,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* WEEK 04 — ACTIVE */}
-                <div className={`card ${openCards['w04'] === false ? 'card--active-closed' : 'card--active-open'}`}>
+                <div className={`roadmap-card ${openCards['w04'] === false ? 'roadmap-card--active-closed' : 'roadmap-card--active-open'}`}>
                   {openCards['w04'] === false && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w04')}>
                       <div className="card-head-left">
@@ -399,7 +399,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* WEEK 05 — PLAN */}
-                <div className={`card ${openCards['w05'] ? 'card--plan-open' : 'card--plan-closed'}`}>
+                <div className={`roadmap-card ${openCards['w05'] ? 'roadmap-card--plan-open' : 'roadmap-card--plan-closed'}`}>
                   {!openCards['w05'] && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w05')}>
                       <div className="card-head-left">
@@ -451,7 +451,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* WEEK 06 — PLAN DIM */}
-                <div className={`card card--plan-dim ${openCards['w06'] ? 'card--plan-open' : 'card--plan-closed'}`}>
+                <div className={`card roadmap-card--plan-dim ${openCards['w06'] ? 'roadmap-card--plan-open' : 'roadmap-card--plan-closed'}`}>
                   {!openCards['w06'] && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w06')}>
                       <div className="card-head-left">
