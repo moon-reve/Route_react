@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
 import '../styles/detail_card.css'
 
@@ -109,6 +110,8 @@ export default function DetailCard1Page() {
       <div className={`bookmark-toast${toastVisible ? '' : ' is-hidden'}`}>
         <span className="toast-text">{toast}</span>
       </div>
+
+      <BottomNav />
     </div>
   )
 }
