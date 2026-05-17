@@ -181,11 +181,11 @@ export default function LogWritePage() {
     const daysInMonth  = new Date(calYear, calMonth + 1, 0).getDate()
     const cells = []
     for (let i = 0; i < firstDay; i++)
-      cells.push(<span key={`e${i}`} className="cal-day cal-day--disabled" />)
+      cells.push(<span key={`e${i}`} className="write-cal-day write-cal-day--disabled" />)
     for (let d = 1; d <= daysInMonth; d++) {
       const isToday = today.getFullYear() === calYear && today.getMonth() === calMonth && today.getDate() === d
       cells.push(
-        <span key={d} className={`cal-day${isToday ? ' cal-day--today' : ''}`} onClick={() => selectDay(d)}>{d}</span>
+        <span key={d} className={`write-cal-day${isToday ? ' write-cal-day--today' : ''}`} onClick={() => selectDay(d)}>{d}</span>
       )
     }
     return cells
@@ -365,15 +365,15 @@ export default function LogWritePage() {
           className="cal-popup-wrap"
           style={{ position:'fixed', top: calPos.top, left: calPos.left, zIndex: 400 }}
         >
-          <div className="cal-header">
-            <button className="cal-nav" onClick={() => moveCal(-1)}>‹</button>
-            <span className="cal-title">{calYear}년 {calMonth + 1}월</span>
-            <button className="cal-nav" onClick={() => moveCal(1)}>›</button>
+          <div className="write-cal-header">
+            <button className="write-cal-nav" onClick={() => moveCal(-1)}>‹</button>
+            <span className="write-cal-title">{calYear}년 {calMonth + 1}월</span>
+            <button className="write-cal-nav" onClick={() => moveCal(1)}>›</button>
           </div>
-          <div className="cal-days">
+          <div className="write-cal-days">
             {DAYS.map(d => <span key={d}>{d}</span>)}
           </div>
-          <div className="cal-grid">
+          <div className="write-cal-grid">
             {renderCalDays()}
           </div>
         </div>
