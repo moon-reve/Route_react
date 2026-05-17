@@ -113,7 +113,7 @@ export default function LogWritePage() {
             <div className="log-write-contents">
 
               {/* 히어로 썸네일 */}
-              <div className="hero-section">
+              <div className="log-hero-section">
                 <div className="hero-illustration" onClick={() => heroFileRef.current?.click()}>
                   <img src={heroImgSrc} alt="" id="hero-img" />
                   <div className="hero-upload-overlay">
