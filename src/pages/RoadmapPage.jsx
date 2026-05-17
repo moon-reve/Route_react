@@ -105,7 +105,7 @@ export default function RoadmapPage() {
               {CHIPS.map(label => (
                 <div
                   key={label}
-                  className={`chip${activeFilter === label ? ' chip--active' : ''}`}
+                  className={`nav-chip${activeFilter === label ? ' nav-chip--active' : ''}`}
                   style={activeFilter === label && filterConfig ? {
                     background: filterConfig.color,
                     borderColor: filterConfig.color,

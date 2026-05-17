@@ -48,7 +48,7 @@
   padding: 10px 0;
 }
 
-.chip {
+.nav-chip {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@
   white-space: nowrap;
 }
 
-.chip--active {
+.nav-chip--active {
   background: var(--midnight-charcoal);
   border-color: var(--midnight-charcoal);
   color: var(--pure-white);
