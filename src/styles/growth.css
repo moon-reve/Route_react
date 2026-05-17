@@ -1,0 +1,387 @@
+/* ============================================================
+   ROUTE — Growth (growth.html)
+   ============================================================ */
+
+.grw-app {
+  background-color: var(--color-bg-50);
+}
+
+.grw-app a {
+  text-decoration: none;
+}
+
+.grw-main {
+  padding-top: 68px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ============================================================
+   1. Immediate Action
+   ============================================================ */
+.grw-action__card {
+  background-color: var(--color-midnight);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.grw-action__bg-icon {
+  position: absolute;
+  top: -8px;
+  right: -24px;
+  width: 64px;
+  height: 80px;
+  opacity: 0.2;
+}
+
+.grw-action__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.grw-action__badge-line {
+  width: 2px;
+  height: 10.5px;
+  background-color: var(--color-white);
+}
+
+.grw-action__badge-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.1em;
+}
+
+.grw-action__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 4px;
+  z-index: 1;
+}
+
+.grw-action__desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+  margin-bottom: 12px;
+  z-index: 1;
+}
+
+.grw-action__btn {
+  background-color: var(--color-white);
+  color: var(--color-midnight);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 1;
+}
+
+/* ============================================================
+   Common Sections
+   ============================================================ */
+.grw-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grw-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.grw-section__title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grw-section__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-midnight);
+  letter-spacing: -0.05em;
+}
+
+.grw-section__subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray-700);
+}
+
+.grw-section__link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-midnight);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-bottom: 2px;
+}
+
+.grw-section__dots {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.grw-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gray-200);
+}
+
+.grw-dot--active {
+  background-color: var(--color-midnight);
+}
+
+/* ============================================================
+   2. Growth Report Card
+   ============================================================ */
+.grw-report-card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grw-report-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grw-report-card__value-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.grw-report-card__value {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.grw-report-card__trend-icon {
+  width: 30px;
+  height: 18px;
+}
+
+.grw-report-card__label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  letter-spacing: 0.1em;
+}
+
+.grw-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 128px;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.grw-chart__bar {
+  flex: 1;
+  background-color: var(--color-gray-200);
+  border-radius: 2px 2px 0 0;
+}
+
+.grw-chart__bar--gold {
+  background-color: var(--color-gold);
+}
+
+/* ============================================================
+   3. Portfolio Archive
+   ============================================================ */
+.grw-archive {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grw-archive__card {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grw-archive__card--full {
+  gap: 4px;
+}
+
+.grw-archive__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.grw-archive__icon {
+  height: 20px;
+  width: auto;
+}
+
+.grw-archive__date {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-gray-700);
+  letter-spacing: 0.1em;
+}
+
+.grw-archive__card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-midnight);
+}
+
+.grw-archive__card-desc {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-gray-700);
+  margin-top: 4px;
+}
+
+.grw-archive__grid {
+  display: flex;
+  gap: 16px;
+}
+
+.grw-archive__card--half {
+  flex: 1;
+  height: 80px;
+  justify-content: flex-end;
+  gap: 8px;
+  align-items: flex-start;
+  border-color: var(--color-gray-200);
+}
+
+.grw-archive__card--half .grw-archive__card-title {
+  font-size: 14px;
+}
+
+/* ============================================================
+   4 & 5. Lists (Inbox & Logs)
+   ============================================================ */
+.grw-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grw-list__item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.grw-list__item--white {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+}
+
+.grw-list__item--gray {
+  background-color: var(--color-gray-200);
+  border: 0.5px solid var(--color-gray-200);
+}
+
+.grw-list__thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #eee;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grw-list__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grw-list__thumb--dark {
+  background-color: var(--color-midnight);
+}
+
+.grw-list__thumb--gray {
+  background-color: var(--color-gray-700);
+}
+
+.grw-list__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.grw-list__content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.grw-list__name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-midnight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grw-list__time {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--color-gray-500);
+  white-space: nowrap;
+}
+
+.grw-list__text {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-gray-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================
+   Bottom Nav Overrides
+   ============================================================ */
+.bottom-nav .nav-item--active .nav-item__icon[src*="ic_nav_growth.svg"] {
+  /* --color-midnight (#1a1c1e) 와 동일한 색상으로 덮어씌우기 */
+  filter: brightness(0) invert(9%) sepia(9%) saturate(836%) hue-rotate(174deg) brightness(94%) contrast(88%);
+}

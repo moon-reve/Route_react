@@ -1,0 +1,73 @@
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* fallback */
+  height: 100svh;
+  overflow: hidden;
+  padding-top: env(safe-area-inset-top);
+  background: #F8F7F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ── Full-screen background ── */
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh; /* fallback */
+  height: 100svh;
+  object-fit: cover;
+}
+
+/* ── Center content box ── */
+.title-box {
+  position: relative;
+  z-index: 1;
+  width: 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Logo: icon + wordmark stacked ── */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  width: 79px;
+  height: 79px;
+}
+
+.logo-text {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 34px;
+  color: var(--midnight-charcoal);
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+/* ── Wavy divider line ── */
+.divider {
+  width: 115px;
+  height: 5px;
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 18px;
+  color: #5A5A5A;
+  text-align: center;
+  white-space: nowrap;
+}

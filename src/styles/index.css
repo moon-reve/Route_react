@@ -1,0 +1,122 @@
+/* ============================================================
+   ROUTE — Splash Screen (index.html)
+   ============================================================ */
+
+/* ---------- Keyframes ---------- */
+@keyframes spin-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.1; }
+}
+
+/* ---------- Splash Container ---------- */
+.splash {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---------- Background SVG ---------- */
+.splash__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ---------- Orbital Ring Groups (SVG) ----------
+   각 그룹의 transform-origin은 인라인 style로 정의.
+   CSS에서 animation만 적용.
+*/
+
+/* 별 트윈클 → js/index.js에서 requestAnimationFrame으로 처리 */
+
+/* ---------- JS Stars Overlay ---------- */
+.splash__stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite;
+}
+
+/* ---------- Content ---------- */
+.splash__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 0 24px;
+}
+
+/* Logo */
+.splash__logo {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Brand Name */
+.splash__brand {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* Tagline */
+.splash__tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.splash__tagline-text {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 29.25px;
+  letter-spacing: -0.025em;
+  color: #F9F9F9;
+  text-align: center;
+}
+
+.splash__tagline-line {
+  width: 100%;
+  height: 4px;
+  background-color: #D1D1D1;
+  border-radius: 9999px;
+}

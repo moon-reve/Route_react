@@ -1,0 +1,293 @@
+/* ============================================================
+   ROUTE — 오늘의 미션 전체 (daily_missions.html)
+   ============================================================ */
+
+/* ---------- Main ---------- */
+.dm-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 44px 0px 96px;
+  background-color: var(--color-bg-50);
+  min-height: 100%;
+}
+
+/* ============================================================
+   Header - TopAppBar
+   row, space-between, padding: 16px 24px
+   ============================================================ */
+.dm-header {
+  padding: 16px 24px;
+}
+
+.dm-header__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.dm-header__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.dm-header__back-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.dm-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Overview Heading
+   column, gap: 8px, padding: 0 24px
+   ============================================================ */
+.dm-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding: 0 24px;
+}
+
+.dm-overview__label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.1667em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+}
+
+.dm-overview__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Mission List
+   column, padding: 0 24px, bg: white
+   ============================================================ */
+.dm-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 24px;
+  background-color: var(--color-white);
+}
+
+/* 아이템: row, space-between, padding: 24px 0, border-bottom */
+.dm-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-gray-200);
+  cursor: pointer;
+}
+
+.dm-item--last {
+  border-bottom: none;
+}
+
+.dm-item__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 아이콘 배경: ~44×48, bg: F9F9F9, borderRadius: 8px */
+.dm-item__icon-wrap {
+  width: 44px;
+  height: 48px;
+  background-color: var(--color-bg-50);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dm-item__icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.dm-item__text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+/* 카테고리 레이블: Bold 700, 10px, UPPER, letterSpacing 20% */
+.dm-item__category {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+}
+
+/* 미션 타이틀: SemiBold 600, 15px, letterSpacing -1% */
+.dm-item__title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight);
+}
+
+.dm-item__arrow {
+  width: 8px;
+  height: 12px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* ============================================================
+   Insight Card
+   bg: white, borderRadius: 8px, padding: 32px
+   relative for quote icon positioning
+   ============================================================ */
+/* 부모: 풀 너비 흰색 필 */
+.dm-insight-wrap {
+  background-color: var(--color-white);
+}
+
+.dm-insight {
+  position: relative;
+  padding: 32px 24px;
+  overflow: hidden;
+}
+
+/* 큰따옴표 아이콘: absolute, x:346 y:70.5 (피그마 기준) */
+.dm-insight__quote {
+  position: absolute;
+  top: 70.5px;
+  right: 0;
+  width: 85px;
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.dm-insight__body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.dm-insight__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-midnight);
+}
+
+.dm-insight__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  color: var(--color-gray-700);
+}
+
+/* ============================================================
+   Bottom CTA
+   padding: 24px
+   ============================================================ */
+.dm-bottom {
+  padding: 24px;
+}
+
+.dm-cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-midnight);
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.dm-cta__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ============================================================
+   하단 네비게이션 (fixed)
+   ============================================================ */
+.dm-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background-color: var(--color-white);
+  box-shadow: 0px -4px 24px 0px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+}
+
+.dm-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.dm-nav__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.dm-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16.5px;
+  color: var(--color-gray-300);
+}
+
+.dm-nav__item--active .dm-nav__label {
+  color: var(--color-midnight);
+  font-weight: 700;
+}

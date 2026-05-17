@@ -1,0 +1,376 @@
+/* ── 페이지 래퍼 ── */
+.expert-page {
+  position: relative;
+  width: 100%;
+}
+
+/* ── 배경 이미지 ── */
+.expert-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── 메인: padding 40px 24px 110px, gap 48px ── */
+.main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 48px;
+  padding: 40px 24px 110px;
+  width: 100%;
+}
+
+/* ════════ HEADER ════════ */
+.header {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.btn-back img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--midnight-charcoal);
+  text-align: center;
+}
+
+.header-placeholder {
+  width: 24px;
+  flex-shrink: 0;
+}
+
+/* ════════ ① 프로필 섹션 ════════ */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 0 73px;
+}
+
+/* 아바타 */
+.avatar-wrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.avatar-border {
+  width: 128px;
+  height: 128px;
+  border-radius: 9999px;
+  border: 2.5px solid var(--champagne-gold);
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* EXPERT 뱃지 (하단 우측 절대 위치) */
+.expert-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expert-badge img {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* 이름 */
+.profile-name {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.025em;
+  color: var(--midnight-charcoal);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* 직책 */
+.profile-role {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-700);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* 통계 */
+.profile-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.stat-value-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--midnight-charcoal);
+  text-align: center;
+}
+
+.stat-star {
+  width: 9.6px;
+  height: 9px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.stat-label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray-700);
+  text-align: center;
+}
+
+.stat-divider {
+  width: 1px;
+  background: var(--inactive-gray-200);
+  align-self: stretch;
+}
+
+/* ════════ ② 전문 분야 ════════ */
+.expertise-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-heading {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--midnight-charcoal);
+  padding: 0 4px;
+}
+
+.section-heading--gray {
+  color: var(--gray-700);
+}
+
+.tag-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 80px;
+  align-content: flex-start;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tag--dark {
+  background: var(--midnight-charcoal);
+  color: var(--pure-white);
+}
+
+.tag--gray {
+  background: var(--inactive-gray-200);
+  color: var(--gray-700);
+}
+
+/* ════════ ③ 주요 경력 ════════ */
+.experience-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 타임라인 */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 세로 구분선 */
+.timeline-line {
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  width: 1px;
+  height: calc(100% - 32px);
+  background: var(--border-gray-300);
+}
+
+/* 타임라인 아이템 */
+.timeline-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+}
+
+.timeline-item--past {
+  opacity: 0.7;
+}
+
+/* 도트 (회사 아이콘) */
+.timeline-dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--pure-white);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  z-index: 1;
+}
+
+.timeline-dot--active {
+  border: 1px solid var(--starline-gold);
+}
+
+.timeline-dot--inactive {
+  border: 1px solid var(--inactive-gray-200);
+}
+
+.timeline-dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 9999px;
+}
+
+/* 콘텐츠 */
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 32px;
+  flex: 1;
+}
+
+.career-company {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--midnight-charcoal);
+}
+
+.career-title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-700);
+}
+
+.career-desc {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--active-border-gray-500);
+  padding-top: 4px;
+}
+
+/* ════════ ④ 멘토링 스타일 ════════ */
+.style-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--pure-white);
+  border: 0.5px solid var(--border-gray-300);
+  border-radius: 24px;
+}
+
+.style-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22.75px;
+  color: var(--gray-700);
+}
+
+/* ════════ ⑤ CTA 버튼 ════════ */
+.btn-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  background: var(--midnight-charcoal);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--pure-white);
+  cursor: pointer;
+}

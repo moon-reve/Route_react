@@ -1,0 +1,485 @@
+/* ============================================================
+   ROUTE — 성장 스트릭 (growth_streak.html)
+   ============================================================ */
+
+.gs-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.gs-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 52px 24px 16px;
+  background-color: var(--color-bg-50);
+  z-index: 200;
+}
+
+.gs-header__back {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.gs-header__back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.gs-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Main
+   ============================================================ */
+.gs-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 104px;
+  padding-bottom: 96px;
+}
+
+/* ============================================================
+   1. Streak Hero
+   ============================================================ */
+.gs-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 24px 28px;
+}
+
+.gs-hero__flame-card {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.gs-hero__flame {
+  width: 32px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.gs-hero__streak-badge {
+  position: absolute;
+  bottom: -10px;
+  right: -16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  background-color: var(--color-gold);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.gs-hero__days {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--color-midnight);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.gs-hero__sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================================================
+   2. Calendar
+   ============================================================ */
+.gs-cal-wrap {
+  padding: 0 24px;
+}
+
+.gs-cal {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.gs-cal__head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.gs-cal__month {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-midnight);
+}
+
+.gs-cal__nav {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.gs-cal__nav-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--color-gray-500);
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+/* 요일 헤더 */
+.gs-cal__days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.gs-cal__days-header span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-gray-500);
+  padding: 4px 0;
+}
+
+/* 날짜 그리드 */
+.gs-cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px 0;
+  text-align: center;
+}
+
+.gs-cal__cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.gs-cal__line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gold);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.gs-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-midnight);
+  cursor: default;
+  position: relative;
+  z-index: 1;
+}
+
+.gs-date--prev,
+.gs-date--next {
+  color: var(--color-gray-300);
+}
+
+/* 스트릭 날짜 */
+.gs-date--streak {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* 오늘 (스트릭 첫날 or 오늘 마커) */
+.gs-date--today {
+  background-color: transparent;
+  border: 1.5px dashed var(--color-gray-300);
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   3. Stats Cards
+   ============================================================ */
+.gs-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 0 24px;
+}
+
+.gs-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px;
+  border-radius: 12px;
+}
+
+.gs-stat--light {
+  background-color: var(--color-white);
+}
+
+.gs-stat--dark {
+  background-color: var(--color-midnight);
+}
+
+.gs-stat__label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-gray-500);
+}
+
+.gs-stat--dark .gs-stat__label {
+  color: rgba(255,255,255,0.55);
+}
+
+.gs-stat__value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-midnight);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gs-stat__value--gold {
+  color: var(--color-gold);
+}
+
+.gs-stat__icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) saturate(100%) invert(75%) sepia(40%) saturate(500%) hue-rotate(5deg);
+  opacity: 0.9;
+}
+
+/* ============================================================
+   Section Title
+   ============================================================ */
+.gs-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight);
+  margin: 0 0 16px;
+}
+
+.gs-badge-extra-box {
+  padding: 0 24px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.gs-badge-extra-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   4. 배지
+   ============================================================ */
+.gs-badge-section {
+  padding: 0 24px;
+  background-color: var(--color-white);
+  padding-top: 24px;
+  padding-bottom: 28px;
+  margin: 0 0;
+}
+
+.gs-badges {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.gs-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.gs-badge__box {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gs-badge__box--earned {
+  background-color: var(--color-midnight);
+}
+
+.gs-badge__box--locked {
+  border: 1.5px dashed var(--color-gray-300);
+  background-color: transparent;
+}
+
+.gs-badge__icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.gs-badge__icon--locked {
+  filter: brightness(0) invert(0.7);
+  opacity: 0.4;
+}
+
+.gs-badge__label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-midnight);
+  text-align: center;
+}
+
+.gs-badge__label--locked {
+  color: var(--color-gray-300);
+}
+
+/* ============================================================
+   5. 학습 밸런스
+   ============================================================ */
+.gs-balance-section {
+  padding: 24px 24px 28px;
+  background-color: var(--color-white);
+}
+
+.gs-balance-bar {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.gs-balance__seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.gs-balance__seg--theory   { background-color: var(--color-midnight); }
+.gs-balance__seg--practice { background-color: var(--color-gray-700); }
+.gs-balance__seg--research { background-color: var(--color-gray-300); }
+
+.gs-balance-legend {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.gs-legend-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.gs-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gs-legend-dot--theory   { background-color: var(--color-midnight); }
+.gs-legend-dot--practice { background-color: var(--color-gray-700); }
+.gs-legend-dot--research { background-color: var(--color-gray-300); }
+
+.gs-legend-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray-700);
+}
+
+/* ============================================================
+   Bottom Nav
+   ============================================================ */
+.gs-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background: var(--color-white);
+  box-shadow: 0px -4px 24px rgba(0,0,0,0.04);
+  z-index: 100;
+}
+
+.gs-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.gs-nav__icon { width: 24px; height: 24px; }
+
+.gs-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-gray-300);
+}
+
+.gs-nav__item--active .gs-nav__label {
+  color: var(--color-midnight);
+  font-weight: 700;
+}

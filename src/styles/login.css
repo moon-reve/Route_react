@@ -1,0 +1,276 @@
+/* ── Background ── */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh; /* fallback */
+  height: 100svh;
+  object-fit: cover;
+}
+
+/* ── Main layout ── */
+/* column, padding: 64px 24px, gap: 339px between header and action */
+.main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 64px 24px;
+}
+
+/* ── Header section ── */
+.header-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.05em;
+  color: var(--midnight-charcoal);
+  line-height: 1;
+}
+
+.heading {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 48.4px;
+  color: var(--midnight-charcoal);
+}
+
+.subtext {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-700);
+}
+
+/* ── Action section ── */
+/* column, padding: 0 32px, gap: 16px */
+.action-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 32px;
+}
+
+/* ── Buttons common ── */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  transition: opacity 0.15s;
+}
+
+.btn:active { opacity: 0.8; }
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Kakao */
+.btn-kakao {
+  background: #FFE812;
+  color: var(--midnight-charcoal);
+}
+
+/* Google */
+.btn-google {
+  background: var(--pure-white);
+  color: var(--midnight-charcoal);
+  border: 0.5px solid var(--border-gray-300);
+  font-weight: 500;
+}
+
+/* ── Footer link ── */
+.footer-link {
+  display: flex;
+  justify-content: center;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-700);
+  padding: 4px 0;
+}
+
+.link-btn:hover { opacity: 0.7; }
+
+/* ════════════════════════════
+   OVERLAY
+════════════════════════════ */
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.overlay.active {
+  pointer-events: auto;
+}
+
+/* ════════════════════════════
+   MODAL (bottom sheet)
+════════════════════════════ */
+.modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 32px 32px 0 0;
+
+  padding: 32px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  /* 기본 상태: 화면 아래 숨김 */
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 20;
+}
+
+.modal.active {
+  transform: translateY(0);
+}
+
+/* 드래그 핸들 */
+.modal-handle {
+  width: 48px;
+  height: 6px;
+  background: var(--inactive-gray-200);
+  border-radius: 12px;
+}
+
+/* 모달 타이틀 */
+.modal-title {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--midnight-charcoal);
+  text-align: center;
+  align-self: stretch;
+}
+
+/* 모달 버튼 목록 */
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: stretch;
+}
+
+/* 모달용 버튼: 텍스트 크기 재정의 */
+.modal-buttons .btn {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* LINE */
+.btn-line {
+  background: #06C755;
+  color: var(--pure-white);
+}
+
+/* LinkedIn */
+.btn-linkedin {
+  background: #0A66C2;
+  color: var(--pure-white);
+}
+
+/* GitHub */
+.btn-github {
+  background: #24292F;
+  color: var(--pure-white);
+}
+
+/* 휴대폰/이메일 */
+.btn-phone {
+  background: var(--pure-white);
+  color: var(--midnight-charcoal);
+  border: 1px solid var(--active-border-gray-500);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* ── 비회원 ── */
+.guest-section {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+}
+
+.guest-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-700);
+  padding: 12px 24px;
+}
+
+.guest-btn:hover { opacity: 0.7; }
+
+/* ── 430px 미만: 타이틀·설명 폰트 축소 ── */
+@media (max-width: 429px) {
+  .heading {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  .subtext {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

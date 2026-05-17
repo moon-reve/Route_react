@@ -1,0 +1,305 @@
+/* ============================================================
+   ROUTE — 계정 보안 (account-security.html)
+   ============================================================ */
+
+.sec-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.sec-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 52px 24px 16px;
+  background-color: var(--color-bg-50);
+}
+
+.sec-header__back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.sec-header__back img {
+  width: 24px;
+  height: 24px;
+}
+
+.sec-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Main Layout
+   ============================================================ */
+.sec-main {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.sec-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sec-section__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  margin-left: 4px;
+}
+
+/* ============================================================
+   Login Information Card
+   ============================================================ */
+.sec-card {
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sec-card--gray {
+  background-color: var(--color-gray-200);
+  border: 1px solid rgba(198, 198, 198, 0.1);
+}
+
+.sec-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sec-card__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gray-500);
+}
+
+.sec-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-midnight);
+  margin-top: 4px;
+}
+
+.sec-card__desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-gray-500);
+}
+
+.sec-card__logo {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec-card__logo img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================================
+   Security Controls List
+   ============================================================ */
+.sec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sec-list-item {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  text-align: left;
+}
+
+.sec-list-item__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sec-list-item__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.sec-list-item__text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-list-item__text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-midnight);
+}
+
+.sec-list-item__badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-gray-300);
+  margin-top: 2px;
+}
+
+.sec-list-item__arrow {
+  width: 8px;
+  height: 12px;
+  filter: opacity(0.3);
+}
+
+.sec-toggle {
+  width: 44px;
+  height: 24px;
+  background-color: var(--color-gray-200);
+  border-radius: 12px;
+  position: relative;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sec-toggle__knob {
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.sec-toggle--on {
+  background-color: var(--color-midnight);
+}
+
+.sec-toggle--on .sec-toggle__knob {
+  transform: translateX(20px);
+}
+
+/* ============================================================
+   Device Management
+   ============================================================ */
+.sec-device-hint {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gray-500);
+  margin: 0 0 8px 4px;
+}
+
+.sec-device-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sec-device-item {
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sec-device-item--white {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+}
+
+.sec-device-item--gray {
+  background-color: var(--color-gray-200);
+}
+
+.sec-device-item__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: var(--color-bg-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.sec-device-item__icon-box--white {
+  background-color: var(--color-white);
+}
+
+.sec-device-item__icon-box img {
+  width: 24px;
+  height: 24px;
+}
+
+.sec-device-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.sec-device-item__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+.sec-device-item__status {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray-300);
+}
+
+.sec-device-item__status--active {
+  color: var(--color-midnight);
+  font-weight: 600;
+}
+
+.sec-device-item__logout {
+  background-color: var(--color-gray-300);
+  color: var(--color-gray-700);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 12px;
+}

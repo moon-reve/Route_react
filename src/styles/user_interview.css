@@ -1,0 +1,496 @@
+/* ============================================================
+   ROUTE — 유저 인터뷰 및 인사이트 도출 (user_interview.html)
+   ============================================================ */
+
+.ui-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Main — 44px 상단(status bar), 0 좌우(각 섹션이 24px 보유),
+          하단 nav 높이만큼 여백
+   ============================================================ */
+.ui-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 44px 0 140px;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.ui-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  height: 64px;
+  padding: 0 24px;
+}
+
+.ui-header__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ui-header__back-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.ui-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: -0.025em;
+  color: #000000;
+}
+
+/* ============================================================
+   Progress Section
+   ============================================================ */
+.ui-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 24px;
+}
+
+.ui-progress__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.ui-progress__label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--color-gray-700);
+}
+
+.ui-progress__count {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.ui-progress__num {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+.ui-progress__denom {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--color-gray-700);
+}
+
+.ui-progress__unit {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.04em;
+  color: var(--color-gray-700);
+}
+
+.ui-progress__bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ui-progress__fill {
+  height: 100%;
+  background-color: var(--color-gold);
+  border-radius: 12px;
+  transition: width 0.4s ease;
+}
+
+/* ============================================================
+   Section 공통
+   ============================================================ */
+.ui-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.ui-section__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ui-section__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.ui-section__link {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--color-gray-700);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ============================================================
+   Interviewee List
+   ============================================================ */
+.ui-interviewee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ui-interviewee {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 8px;
+}
+
+/* 완료 항목 — opacity 0.7 */
+.ui-interviewee--done {
+  opacity: 0.7;
+}
+
+/* 진행 중 항목 — 좌측 골드 테두리 */
+.ui-interviewee--active {
+  border: 0.5px solid var(--color-gray-300);
+  border-left: 2px solid var(--color-gold);
+}
+
+.ui-interviewee__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.ui-interviewee__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-gray-300);
+}
+
+.ui-interviewee__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ui-interviewee__avatar-placeholder {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 12px;
+}
+
+.ui-interviewee__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ui-interviewee__name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-midnight);
+}
+
+.ui-interviewee__role {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-gray-700);
+}
+
+/* ── 상태 뱃지 ── */
+.ui-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  flex-shrink: 0;
+}
+
+.ui-badge--done {
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+}
+
+.ui-badge--pending {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+.ui-badge--tbd {
+  background-color: transparent;
+  border: 1px solid var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+/* ============================================================
+   Section 2: Guide Heading
+   ============================================================ */
+.ui-guide-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ui-guide-heading__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+/* ============================================================
+   Checklist
+   ============================================================ */
+.ui-checklist {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+}
+
+.ui-check-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.ui-check-item__box {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ui-check-item__box--checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.ui-check-item__box--checked::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--color-white);
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.ui-check-item__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--color-gray-700);
+  flex: 1;
+}
+
+/* ============================================================
+   File Upload Section
+   ============================================================ */
+.ui-files-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+}
+
+.ui-files-section__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.ui-files {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+/* 업로드 카드 */
+.ui-file-upload {
+  flex: 1;
+  height: 118px;
+  background-color: var(--color-white);
+  border: 2px dashed var(--color-gray-300);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.ui-file-upload__icon {
+  width: 22px;
+  height: 35px;
+  display: block;
+}
+
+.ui-file-upload__label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--color-gray-700);
+}
+
+/* 첨부 파일 카드 */
+.ui-file-card {
+  flex: 1;
+  height: 118px;
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ui-file-card__icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.ui-file-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ui-file-card__name {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--color-midnight);
+}
+
+.ui-file-card__size {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  color: var(--color-gray-700);
+}
+
+/* ============================================================
+   CTA Button
+   ============================================================ */
+.ui-cta {
+  padding: 0 24px;
+}
+
+.ui-cta__btn {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-midnight);
+  border: none;
+  border-radius: 4px; /* Figma: 4px */
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.ui-cta__btn:active {
+  opacity: 0.85;
+}
+
+/* ============================================================
+   Bottom Nav
+   ============================================================ */
+.ui-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background: var(--color-white);
+  box-shadow: 0px -4px 24px rgba(0,0,0,0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 100;
+}
+
+.ui-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.ui-nav__icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1) brightness(0.82);
+}
+
+.ui-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--color-gray-300);
+}

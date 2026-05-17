@@ -1,0 +1,262 @@
+/* ============================================================
+   ROUTE — 내 프로필 관리 (profile-edit.html)
+   ============================================================ */
+
+.pe-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.pe-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 52px 24px 16px;
+  background-color: var(--color-bg-50);
+}
+
+.pe-header__back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.pe-header__back img {
+  width: 24px;
+  height: 24px;
+}
+
+.pe-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Main Layout
+   ============================================================ */
+.pe-main {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ============================================================
+   Profile Image
+   ============================================================ */
+.pe-profile-img-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+}
+
+.pe-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  background-color: var(--color-gray-300);
+}
+
+.pe-profile-edit-btn {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-midnight);
+  border: 2px solid var(--color-bg-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pe-profile-edit-btn img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.pe-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pe-section__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-midnight);
+  margin: 0 0 4px;
+}
+
+/* Read-only Input Card */
+.pe-input-card {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pe-input-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-gray-500);
+}
+
+.pe-input-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Forms
+   ============================================================ */
+.pe-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pe-form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+/* Pills */
+.pe-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pe-pill {
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-500);
+  font-family: inherit;
+}
+
+.pe-pill--active {
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+}
+
+/* Dropdown */
+.pe-form-group--dropdown {
+  position: relative;
+}
+
+.pe-dropdown {
+  background-color: var(--color-gray-200);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pe-dropdown span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-midnight);
+}
+
+.pe-dropdown img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.pe-dropdown--open img {
+  transform: rotate(180deg);
+}
+
+.pe-dropdown-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 12px;
+  overflow-y: auto;
+  max-height: 132px;
+  z-index: 100;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.pe-dropdown-list--open {
+  display: block;
+}
+
+.pe-dropdown-item {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-midnight);
+  cursor: pointer;
+}
+
+.pe-dropdown-item:hover {
+  background-color: var(--color-gray-200);
+}
+
+.pe-dropdown-item--selected {
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+/* Textarea */
+.pe-textarea {
+  width: 100%;
+  min-height: 120px;
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-gray-500);
+  font-family: inherit;
+  resize: none;
+  line-height: 1.5;
+}
+
+.pe-textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+/* Submit */
+.pe-submit-wrap {
+  margin-top: 16px;
+}

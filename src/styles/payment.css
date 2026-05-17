@@ -1,0 +1,302 @@
+/* ============================================================
+   ROUTE — 피드백권 결제 (payment.html)
+   ============================================================ */
+
+.pay-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.pay-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 52px 24px 16px;
+  background-color: var(--color-bg-50);
+}
+
+.pay-header__back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.pay-header__back img {
+  width: 24px;
+  height: 24px;
+}
+
+.pay-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Main Layout
+   ============================================================ */
+.pay-main {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.pay-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pay-section__eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+}
+
+.pay-section__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-midnight);
+}
+
+.pay-section__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.pay-section__link {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-gray-300);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ============================================================
+   Current Plan Card
+   ============================================================ */
+.pay-card {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 8px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pay-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pay-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.pay-card__desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+.pay-card__icon-box {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-card__icon-box img {
+  width: 36px;
+  height: 36px;
+}
+
+/* ============================================================
+   Plan Selection List
+   ============================================================ */
+.pay-plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pay-plan {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.pay-plan--active {
+  border: 2px solid var(--color-midnight);
+}
+
+.pay-plan__badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.pay-plan__left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pay-plan__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.pay-plan__features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pay-plan__feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-midnight);
+}
+
+.pay-plan__desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+.pay-plan__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.pay-plan__price {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-midnight);
+}
+
+.pay-plan__price-sub {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--color-gray-500);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   Payment Method Grid
+   ============================================================ */
+.pay-method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pay-method {
+  background-color: var(--color-gray-200);
+  border-radius: 8px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.pay-method__icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) opacity(0.5);
+  /* grayish */
+}
+
+.pay-method__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-gray-700);
+}
+
+.pay-method--active {
+  background-color: var(--color-white);
+  border-color: var(--color-gold);
+}
+
+.pay-method--active .pay-method__icon {
+  filter: brightness(0);
+  /* solid black */
+}
+
+.pay-method--active .pay-method__label {
+  color: var(--color-midnight);
+  font-weight: 600;
+}
+
+/* ============================================================
+   Submit Button
+   ============================================================ */
+.pay-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 64px;
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+  border-radius: 8px;
+  border: none;
+  padding: 0 24px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.pay-submit-btn img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}

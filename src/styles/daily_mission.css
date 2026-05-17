@@ -1,0 +1,429 @@
+/* ── 전체 컨테이너 ── */
+.daily-container {
+  padding: 40px 24px 110px;
+  width: 100%;
+}
+
+/* ── main: column, gap 16px ── */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ════════ HEADER ════════ */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.btn-back,
+.btn-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+}
+
+.btn-back img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.btn-menu img {
+  width: 20px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* ── 팝오버 메뉴 ── */
+.menu-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.menu-popover {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--pure-white);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  min-width: 110px;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.menu-popover.is-open {
+  display: block;
+}
+
+.menu-popover-btn {
+  display: block;
+  width: 100%;
+  padding: 13px 18px;
+  background: none;
+  border: none;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--midnight-charcoal);
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-popover-btn:hover {
+  background: var(--gray-100);
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--midnight-charcoal);
+}
+
+/* ════════ CONTENTS: column, gap 28px ════════ */
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--midnight-charcoal);
+}
+
+/* ════════ BADGES ════════ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+.badge--gold {
+  background: rgba(212, 160, 23, 0.15);
+  color: var(--starline-gold);
+}
+
+.badge--sage {
+  background: rgba(143, 175, 138, 0.15);
+  color: var(--dusty-sage);
+}
+
+.badge--orange {
+  background: rgba(232, 148, 26, 0.15);
+  color: var(--starline-gold);
+}
+
+/* ════════ SHARED CARD BUTTON ════════ */
+.card-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background: var(--midnight-charcoal);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--pure-white);
+  cursor: pointer;
+}
+
+.card-btn--sm {
+  padding: 8px 20px;
+}
+
+/* ════════ SHARED TEXT STYLES ════════ */
+.card-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--midnight-charcoal);
+  line-height: 1.3;
+}
+
+.card-sub {
+  font-weight: 400;
+  font-size: 12px;
+  color: #5F5E5E;
+}
+
+/* ── 휴지통 버튼 ── */
+.btn-trash {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(229,62,62,0.25);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.btn-trash.is-visible {
+  display: flex;
+}
+
+/* ── 삭제 확인 모달 ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.40);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.is-open {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--pure-white);
+  border-radius: 16px;
+  padding: 28px 24px 22px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.modal-title {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--midnight-charcoal);
+  text-align: center;
+  margin: 0;
+}
+
+.modal-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 13px 0;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-btn--gray {
+  background: var(--gray-100);
+  color: var(--active-border-gray-500);
+}
+
+.modal-btn--charcoal {
+  background: var(--midnight-charcoal);
+  color: var(--pure-white);
+}
+
+/* ════════ CARD VIDEO ════════ */
+.card-video {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-gray-300);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.video-box {
+  position: relative;
+  background: var(--gray-100);
+  width: 100%;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+/* padding: 15px 15px 0; height: 128px */
+.bottom-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 15px 15px 0;
+  background: var(--pure-white);
+  height: 128px;
+  overflow: hidden;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+/* ════════ CARD BOOK ════════ */
+.card-book {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  padding: 15px;
+  background: var(--pure-white);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.book-img-box {
+  width: 72px;
+  height: 105px;
+  border: 1px solid var(--inactive-gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.book-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* book-right: column, 텍스트 위 + 버튼 오른쪽 하단 */
+.book-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* title info: column, gap 4px */
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* btn-box: 버튼 오른쪽 정렬 */
+.book-btn-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-btn--sm {
+  width: auto;
+  padding: 8px 20px;
+}
+
+/* ════════ CARD PROJECT ════════ */
+.card-project {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 15px;
+  background: var(--pure-white);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.list-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--midnight-charcoal);
+}
+
+.list-text--todo {
+  color: #5F5E5E;
+}

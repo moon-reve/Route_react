@@ -1,0 +1,295 @@
+/* ============================================================
+   Growth Report Detail Page Styles
+   ============================================================ */
+
+.grw-rep-app {
+  background-color: var(--color-bg-50);
+}
+
+.grw-rep-header {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 24px;
+  padding-top: 44px;
+  /* Space for native safe area (status bar) */
+  gap: 16px;
+}
+
+.grw-rep-header__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.grw-rep-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-midnight);
+  letter-spacing: -0.45px;
+}
+
+.grw-rep-main {
+  flex: 1;
+  padding-bottom: 100px;
+  /* Space for bottom nav */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 1. Filter Section */
+.grw-rep-filter {
+  display: flex;
+  gap: 16px;
+  padding: 0 24px;
+  margin-top: 24px;
+}
+
+.grw-rep-filter__btn {
+  flex: 1;
+  height: 37px;
+  border-radius: 4px;
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.grw-rep-filter__btn--active {
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* 2. Headline & Radar Chart */
+.grw-rep-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.grw-rep-headline {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-midnight);
+  letter-spacing: -0.6px;
+}
+
+.grw-rep-headline--highlight {
+  color: var(--color-gold);
+}
+
+.grw-rep-radar-card {
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.grw-rep-radar-chart {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grw-rep-radar-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.grw-rep-radar-poly--past,
+.grw-rep-radar-poly--current {
+  transition: all 0.5s ease-out;
+}
+
+/* Radar Labels */
+.grw-rep-radar-label {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-midnight);
+}
+
+.grw-rep-radar-label--ui {
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.grw-rep-radar-label--ux {
+  top: 33%;
+  right: -24px;
+}
+
+.grw-rep-radar-label--tool {
+  bottom: -10px;
+  right: 10px;
+}
+
+.grw-rep-radar-label--comm {
+  bottom: -10px;
+  left: -6px;
+}
+
+.grw-rep-radar-label--concept {
+  top: 33%;
+  left: -40px;
+}
+
+.grw-rep-radar-legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.grw-rep-radar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-midnight);
+  font-weight: 700;
+}
+
+.grw-rep-radar-legend-item--past {
+  color: var(--color-gray-700);
+  font-weight: 500;
+}
+
+.grw-rep-radar-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.grw-rep-radar-legend-color--current {
+  background-color: var(--color-gold);
+}
+
+.grw-rep-radar-legend-color--past {
+  border: 1px dashed var(--color-gray-300);
+  background-color: transparent;
+}
+
+/* 3. Focus Heatmap */
+.grw-rep-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+.grw-rep-heatmap-card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grw-rep-heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.grw-rep-heatmap-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-gray-700);
+  margin-bottom: 4px;
+}
+
+.grw-rep-heatmap-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 2px;
+}
+
+.grw-rep-heatmap-cell--lv0 {
+  background-color: #f2f2f2;
+}
+
+.grw-rep-heatmap-cell--lv1 {
+  background-color: var(--color-gray-300, #d1d1d1);
+}
+
+.grw-rep-heatmap-cell--lv2 {
+  background-color: var(--color-gray-500, #999);
+}
+
+.grw-rep-heatmap-cell--lv3 {
+  background-color: var(--color-gold);
+}
+
+.grw-rep-heatmap-desc {
+  font-size: 14px;
+  color: var(--color-gray-700);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* 4. Milestones */
+.grw-rep-milestone-tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.grw-rep-milestone-tag {
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.grw-rep-milestone-tag--dark {
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+}
+
+.grw-rep-milestone-tag--light {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+.grw-rep-milestone-msg {
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+  padding: 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.grw-rep-milestone-msg b {
+  font-weight: 800;
+}
+
+/* 5. Override Bottom Nav */
+.bottom-nav .nav-item--active .nav-item__label {
+  color: var(--color-gray-300);
+}

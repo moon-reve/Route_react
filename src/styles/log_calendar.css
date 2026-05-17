@@ -1,0 +1,283 @@
+.log-page {
+  width: 100%;
+}
+
+/* ── main: column, gap 16px, padding 40px 0 125px ── */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 0 110px;
+  width: 100%;
+}
+
+/* ════════ HEADER ════════ */
+/* row, justify center, padding 10px 20px */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--midnight-charcoal);
+}
+
+/* ════════ TABS ════════ */
+/* row, space-between, padding 0 30px, border-bottom 1px var(--border-gray-300) */
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border-gray-300);
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab--active {
+  font-weight: 700;
+  border-bottom: 2px solid var(--midnight-charcoal);
+  margin-bottom: -1px;
+}
+
+/* ════════ CONTENTS: column, gap 11px, padding 0 20px ════════ */
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 0 24px;
+}
+
+/* ════════ CALENDAR: column, gap 16px ════════ */
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* calendar-header: row, space-between, flex-end */
+.cal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cal-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-nav-btn img {
+  width: 8px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.cal-month {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--midnight-charcoal);
+}
+
+/* calendar-grid: 7 columns */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-gray-300);
+}
+
+/* Day-of-week header cells */
+.cal-dow {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: #5F5E5E;
+}
+
+/* Calendar day cells */
+.cal-day {
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4px;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.cal-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+}
+
+/* Previous month dates */
+.cal-day--prev .cal-num {
+  color: #E2E2E2;
+}
+
+/* Selected day: orange circle */
+.cal-day--selected .cal-num {
+  background: var(--starline-gold);
+  border-radius: 50%;
+  color: var(--pure-white);
+}
+
+/* Log indicator dots */
+.cal-dots {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  align-items: center;
+}
+
+.cal-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.cal-dot--gold       { background: var(--champagne-gold); }
+.cal-dot--sage       { background: var(--dusty-sage); }
+.cal-dot--terracotta { background: var(--muted-terracotta); }
+.cal-dot--orange     { background: var(--starline-gold); }
+
+/* ════════ SECTION DIVIDER ════════ */
+.section-divider {
+}
+
+.divider-title {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #5F5E5E;
+}
+
+/* 빈 상태 메시지 */
+.log-empty {
+  font-size: 14px;
+  color: var(--gray-700);
+  text-align: center;
+  white-space: nowrap;
+  padding: 20px 0;
+}
+
+/* ════════ SECTION LOG: column, gap 16px ════════ */
+.section-log {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Log card */
+.log-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  background: var(--pure-white);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 12px;
+}
+
+.log-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.log-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 5px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.log-badge--gold      { background: rgba(212, 168, 83, 0.15);  color: var(--champagne-gold); }
+.log-badge--sage      { background: rgba(143, 175, 138, 0.15); color: var(--dusty-sage); }
+.log-badge--terracotta{ background: rgba(196, 135, 106, 0.15); color: var(--muted-terracotta); }
+.log-badge--orange    { background: rgba(232, 148, 26, 0.15);  color: var(--starline-gold); }
+
+.log-time {
+  font-weight: 400;
+  font-size: 12px;
+  color: #5F5E5E;
+  text-align: right;
+}
+
+.log-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #5F5E5E;
+  line-height: 1.5;
+}
+
+.log-img-box {
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.log-img-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Log 탭 활성 */
+
+/* ── 북마크 저장 항목 ── */
+.cal-dot--bookmark   { background: var(--slate-blue); }
+
+.log-badge.badge--bookmark {
+  background: rgba(123, 158, 173, 0.15);
+  color: var(--slate-blue);
+}
+
+#saved-log-cards { display: flex; flex-direction: column; gap: 12px; }
+
+.log-card--saved {
+  padding: 14px 16px;
+  background: rgba(123, 158, 173, 0.06);
+  border: 1px solid rgba(123, 158, 173, 0.25);
+  border-radius: 10px;
+}

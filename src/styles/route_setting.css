@@ -1,0 +1,435 @@
+/* ============================================================
+   ROUTE — 루트 관리 / Route Setting (route_setting.html)
+   ============================================================ */
+
+.rs-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.rs-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  padding: 52px 24px 16px;
+  background-color: var(--color-bg-50);
+  z-index: 200;
+}
+
+.rs-header__back {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+  flex-shrink: 0;
+}
+
+.rs-header__back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.rs-header__title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Main
+   ============================================================ */
+.rs-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 104px 0 96px;
+}
+
+/* ============================================================
+   Section 1: Current Progress Card
+   ============================================================ */
+.rs-progress-card {
+  margin: 0 18px;
+  background: var(--color-white);
+  border: 0.5px solid #D1D1D1;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rs-progress-card__eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.0833em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+.rs-progress-card__path {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.rs-progress-card__bottom {
+  margin-top: 8px;
+}
+
+.rs-progress-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.rs-progress-row__label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--color-midnight);
+}
+
+.rs-progress-row__pct {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.rs-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #E8E8E8;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.rs-progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(212,160,23,0.5) 0%, #D4A017 100%);
+  border-radius: 9999px;
+}
+
+/* ============================================================
+   Section Common
+   ============================================================ */
+.rs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+}
+
+.rs-section__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+/* ============================================================
+   Section 2: 주차별 학습 편집
+   ============================================================ */
+.rs-weeks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rs-week {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--color-white);
+}
+
+/* Active week — gold left border */
+.rs-week--active {
+  border-left: 4px solid var(--color-gold);
+}
+
+/* Inactive weeks — light gray border, dimmed */
+.rs-week--inactive {
+  border: 0.5px solid #E8E8E8;
+  opacity: 0.6;
+}
+
+.rs-week__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rs-week__num {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--color-midnight);
+}
+
+.rs-week__num--dim {
+  color: var(--color-gray-700);
+}
+
+.rs-week__task {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--color-midnight);
+}
+
+/* 편집/교체 버튼 */
+.rs-week__btn {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rs-week__btn--dark {
+  background: var(--color-midnight);
+  color: var(--color-white);
+}
+
+.rs-week__btn--light {
+  background: #E8E8E8;
+  color: var(--color-midnight);
+}
+
+/* 액션 버튼 그룹 (trash + 편집) */
+.rs-week__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.rs-week__trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.rs-week__trash-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ============================================================
+   Section 3: 로드맵 강도 조절
+   ============================================================ */
+.rs-intensity {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rs-intensity__track {
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  background: #E8E8E8;
+  border-radius: 16px;
+  gap: 0;
+}
+
+.rs-intensity__btn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.rs-intensity__btn--active {
+  background: var(--color-white);
+  font-weight: 700;
+  color: var(--color-midnight);
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.rs-intensity__caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19.5px;
+  color: var(--color-gray-700);
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* ============================================================
+   Section 4: 주차별 산출물 보관함
+   ============================================================ */
+.rs-outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rs-outcome {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--color-white);
+}
+
+/* 아이콘 박스 */
+.rs-outcome__icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rs-outcome__icon-box--done     { background: var(--color-midnight); }
+.rs-outcome__icon-box--progress { background: #E8E8E8; }
+
+.rs-outcome__icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.rs-outcome__icon--done     { }
+.rs-outcome__icon--progress { }
+
+/* 텍스트 */
+.rs-outcome__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rs-outcome__title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.rs-outcome__sub {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+.rs-outcome__arrow {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Section 5: Danger Zone
+   ============================================================ */
+.rs-danger {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+  opacity: 0.7;
+}
+
+.rs-danger__btn {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #999999;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #999999;
+  padding: 0 0 2px;
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ============================================================
+   Bottom Nav
+   ============================================================ */
+.rs-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background: var(--color-white);
+  box-shadow: 0px -4px 24px rgba(0,0,0,0.04);
+  z-index: 100;
+}
+
+.rs-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.rs-nav__icon { width: 24px; height: 24px; }
+
+.rs-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--color-gray-300);
+}
+
+.rs-nav__item--active .rs-nav__label {
+  color: var(--color-midnight);
+  font-weight: 700;
+}

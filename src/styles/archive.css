@@ -1,0 +1,702 @@
+/* ============================================================
+   ROUTE — 결과물 보관함 (archive.html + archive_modal)
+   ============================================================ */
+
+.ar-app {
+  background-color: var(--color-bg-50);
+}
+
+/* ============================================================
+   Main
+   ============================================================ */
+.ar-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+  padding: 44px 0 180px;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   Header - TopAppBar
+   ============================================================ */
+.ar-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 24px;
+}
+
+.ar-header__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.ar-header__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ar-header__back-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.ar-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Editorial Headline
+   ============================================================ */
+.ar-editorial {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 24px;
+}
+
+.ar-editorial__label {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+}
+
+.ar-editorial__heading {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+/* ============================================================
+   Tab Navigation
+   ============================================================ */
+.ar-tab-wrap {
+  padding: 0 24px;
+}
+
+.ar-tabs {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-gray-200);
+  border-radius: 16px;
+  padding: 4px 0;
+  width: 100%;
+}
+
+.ar-tab {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ar-tab--active {
+  background-color: var(--color-midnight);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+/* ============================================================
+   Asset List
+   ============================================================ */
+.ar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+/* ── 카드 공통 ── */
+.ar-card {
+  background: var(--color-white);
+  border: 0.5px solid var(--color-gray-300);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Card 1 — Large (image + body)
+   ============================================================ */
+.ar-card__image {
+  position: relative;
+  width: 100%;
+}
+
+.ar-card__image-bg {
+  width: 100%;
+  height: 192px;
+  background: linear-gradient(135deg, #C8D4E0 0%, #A8B8CC 50%, #8FA4BC 100%);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-card__image-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ar-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.ar-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 19px 20px 20px;
+}
+
+.ar-card__title-wrap {
+  padding-bottom: 1px;
+}
+
+.ar-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24.75px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.ar-card__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  color: var(--color-gray-700);
+  margin: 0;
+  padding-bottom: 9px;
+}
+
+.ar-card__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: 16px;
+}
+
+.ar-card__type-tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.ar-card__type-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+}
+
+.ar-card__type-icon {
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.ar-card__date {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  color: var(--color-gray-700);
+}
+
+/* ============================================================
+   Card 2 — Standard
+   ============================================================ */
+.ar-card__body--pad {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 20px;
+}
+
+.ar-card__title-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ar-card__more-icon {
+  width: 4px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.ar-card__meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 13px;
+}
+
+.ar-card__keywords {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.ar-card__keyword {
+  background-color: var(--color-gray-200);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16.5px;
+  color: var(--color-gray-700);
+}
+
+.ar-card__avatars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ar-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 12px;
+  border: 2px solid var(--color-white);
+  flex-shrink: 0;
+}
+
+.ar-avatar--light {
+  background-color: var(--color-gray-200);
+  color: var(--color-midnight);
+}
+
+.ar-avatar--dark {
+  background-color: var(--color-midnight);
+  color: var(--color-white);
+  margin-left: -8px;
+}
+
+/* ============================================================
+   Card 3 — Minimal Horizontal
+   ============================================================ */
+.ar-card--horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.ar-card__thumb {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.ar-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ar-card__title-sm {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.ar-card__modified {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+.ar-card__chevron-sm {
+  width: 8px;
+  height: 12px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* ============================================================
+   FAB
+   ============================================================ */
+.ar-fab {
+  position: fixed;
+  bottom: 141px;
+  right: calc(50% - 191px);
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  background-color: var(--color-midnight);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 150;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.16);
+  transition: opacity 0.2s;
+}
+
+.ar-fab:active {
+  opacity: 0.85;
+}
+
+/* ============================================================
+   Bottom Nav
+   ============================================================ */
+.ar-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background: var(--color-white);
+  box-shadow: 0px -4px 24px rgba(0,0,0,0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 400; /* 모달/오버레이보다 항상 위 */
+}
+
+.ar-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.ar-nav__icon {
+  width: 24px;
+  height: 24px;
+  /* 비활성: gray 300 (#D1D1D1) 처리 */
+  filter: brightness(0) invert(1) brightness(0.82);
+}
+
+.ar-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--color-gray-300);
+}
+
+.ar-nav__item--active .ar-nav__icon {
+  filter: brightness(0); /* midnight charcoal */
+}
+
+.ar-nav__item--active .ar-nav__label {
+  color: var(--color-midnight);
+  font-weight: 700;
+}
+
+/* ============================================================
+   Home Indicator
+   ============================================================ */
+.ar-home-indicator {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  height: 34px;
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* ============================================================
+   Modal — Overlay
+   ============================================================ */
+.ar-overlay {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 299;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.ar-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================================
+   Modal — Bottom Sheet
+   ============================================================ */
+.ar-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 100%;
+  max-width: 430px;
+  background: var(--color-white);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0px -12px 32px 0px rgba(0, 0, 0, 0.15);
+  padding-bottom: 96px; /* 네비게이션바 높이만큼 */
+  z-index: 300;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.ar-sheet.is-open {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Grab Handle */
+.ar-sheet__handle-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.ar-sheet__handle {
+  width: 40px;
+  height: 6px;
+  background-color: #E2E2E2;
+  border-radius: 12px;
+}
+
+/* Modal Header */
+.ar-sheet__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px 0;
+}
+
+.ar-sheet__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+  margin: 0;
+}
+
+.ar-sheet__close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--color-gray-200);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+
+.ar-sheet__close:active {
+  opacity: 0.7;
+}
+
+/* Modal Content */
+.ar-sheet__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px;
+}
+
+/* Section */
+.ar-sheet__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ar-sheet__section--note {
+  padding-bottom: 16px;
+}
+
+.ar-sheet__label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.025em;
+  color: var(--color-gray-700);
+}
+
+/* Category Chips */
+.ar-chips {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ar-chip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 20px;
+  border: 1px solid var(--color-gray-200);
+  background-color: var(--color-bg-50);
+  border-radius: 12px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-gray-500);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.ar-chip--active {
+  padding: 10px 20px;
+  background-color: var(--color-midnight);
+  border-color: var(--color-midnight);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.ar-chip__icon {
+  flex-shrink: 0;
+}
+
+/* URL Input */
+.ar-sheet__input {
+  background-color: var(--color-bg-50);
+  border-radius: 8px;
+  padding: 18.5px 16px;
+}
+
+.ar-sheet__input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-midnight);
+  outline: none;
+}
+
+.ar-sheet__input-field::placeholder {
+  color: var(--color-gray-300);
+}
+
+/* Textarea */
+.ar-sheet__textarea {
+  background-color: var(--color-bg-50);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.ar-sheet__textarea-field {
+  width: 100%;
+  height: 72px;
+  border: none;
+  background: transparent;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-midnight);
+  resize: none;
+  outline: none;
+}
+
+.ar-sheet__textarea-field::placeholder {
+  color: var(--color-gray-300);
+}
+
+/* Save Button */
+.ar-sheet__save {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-midnight);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.ar-sheet__save:active {
+  opacity: 0.85;
+}

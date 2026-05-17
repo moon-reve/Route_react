@@ -1,0 +1,639 @@
+/* ── 전체 컨테이너: column, gap 16px, padding 40px 24px ── */
+.log-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 24px;
+  width: 100%;
+}
+
+/* ════════ HEADER ════════ */
+.log-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.log-title {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--midnight-charcoal);
+  text-align: center;
+}
+
+.log-close {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.log-close img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* ════════ CONTENTS: column, gap 30px ════════ */
+.log-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ════════ HERO ════════ */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.hero-illustration {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(240,239,235,1) 0%, rgba(232,232,232,1) 100%);
+}
+
+.hero-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-illustration::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: linear-gradient(to top, rgba(238,237,233,1) 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #9A9090;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ════════ RESOURCE TYPE ════════ */
+/* column, gap 8px */
+.section-resource {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-label {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--midnight-charcoal);
+}
+
+/* 탭 컨테이너: row, gap 4px, padding 4px, bg var(--inactive-gray-200), radius 5px */
+.resource-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--inactive-gray-200);
+  border-radius: 5px;
+}
+
+/* 각 탭: 균등 분할 */
+.resource-tab {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+.resource-tab--active {
+  background: var(--pure-white);
+  font-weight: 700;
+  color: var(--midnight-charcoal);
+}
+
+/* ════════ INPUTS ════════ */
+/* column, gap 16px */
+.section-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 각 input 그룹: column, gap 4px */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-label {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+}
+
+/* 인풋 박스: height 52px, bg white, border 1px #CFC4C5 */
+.input-box {
+  height: 52px;
+  background: var(--pure-white);
+  border: 1px solid #CFC4C5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.input-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+}
+
+.input-box input::placeholder {
+  color: #848484;
+}
+
+.input-box--textarea {
+  height: auto;
+  align-items: flex-start;
+  padding: 14px 16px;
+}
+
+.input-box textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+  resize: none;
+  line-height: 1.6;
+}
+
+.input-box textarea::placeholder {
+  color: #848484;
+}
+
+/* ════════ LOG DATE (단일 날짜) ════════ */
+.section-log-date {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-log-date .date-box {
+  width: 100%;
+}
+
+/* ════════ DURATION ════════ */
+/* column, gap 5px */
+.section-duration {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* date row: row, space-between, center */
+.date-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* date box: row, space-between, center, padding 16px 10px, width 178px, bg white, border, radius 10px */
+.date-box {
+  width: 178px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 10px;
+  background: var(--pure-white);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.date-text {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+}
+
+.date-placeholder {
+  color: var(--gray-700);
+}
+
+.calendar-icon {
+  width: 14px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.date-sep {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #5F5E5E;
+}
+
+/* ════════ HERO UPLOAD ════════ */
+.hero-illustration {
+  cursor: pointer;
+}
+
+.hero-upload-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+
+.hero-illustration:hover .hero-upload-overlay {
+  opacity: 1;
+}
+
+.hero-upload-label {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.35);
+  padding: 6px 14px;
+  border-radius: 50px;
+}
+
+/* ════════ FILE UPLOAD ════════ */
+.input-box--file {
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.file-name-text {
+  font-size: 14px;
+  color: #848484;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ════════ REMINDER ════════ */
+/* column, gap 10px */
+.section-reminder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reminder-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reminder-time-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--pure-white);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 10px;
+}
+
+.reminder-time-label {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--midnight-charcoal);
+}
+
+.reminder-time-display {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--midnight-charcoal);
+}
+
+/* ════════ TIME POPUP (드럼 피커) ════════ */
+#time-popup {
+  display: none;
+  position: fixed;
+  z-index: 300;
+  width: 268px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 드럼 영역: 3행 × 36px = 108px */
+.drum-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 108px;
+  overflow: hidden;
+}
+
+/* 위아래 페이드: 한 줄 높이 */
+.drum-fade-top,
+.drum-fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 36px;
+  pointer-events: none;
+  z-index: 1;
+}
+.drum-fade-top {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.92) 0%, transparent 100%);
+}
+.drum-fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255,255,255,0.92) 0%, transparent 100%);
+}
+
+/* 각 열: CSS padding으로 여백 */
+.drum-col {
+  flex: 1;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 36px 0; /* (108 - 36) / 2 = 36 */
+}
+.drum-col::-webkit-scrollbar { display: none; }
+
+/* 골드 선: flex span으로 3열 분리 */
+.drum-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+  pointer-events: none;
+}
+.drum-line span {
+  flex: 1;
+  height: 1px;
+  background: var(--starline-gold);
+}
+.drum-line--top    { top: calc(50% - 18px); }
+.drum-line--bottom { top: calc(50% + 17px); }
+
+/* 드럼 아이템 */
+.drum-item {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(26,28,30,0.22);
+  transition: font-size 0.1s, font-weight 0.1s, color 0.1s;
+  user-select: none;
+}
+
+/* 확인 버튼 */
+.time-confirm-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  background: none;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--starline-gold);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+.reminder-text {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+}
+
+/* ── 토글 스위치 ── */
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--inactive-gray-200);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--pure-white);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.section-reminder[data-active="true"] .toggle-switch {
+  background: var(--starline-gold);
+}
+
+.section-reminder[data-active="true"] .toggle-switch::after {
+  transform: translateX(18px);
+}
+
+.section-reminder[data-active="false"] .reminder-time-row {
+  display: none;
+}
+
+/* ════════ SUBMIT BUTTON ════════ */
+/* row center, padding 16px 0, bg var(--midnight-charcoal), radius 12px */
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0;
+  background: var(--midnight-charcoal);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--pure-white);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+/* ════════ CALENDAR POPUP ════════ */
+#cal-popup {
+  display: none;
+  position: fixed;
+  z-index: 300;
+  width: 268px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cal-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--midnight-charcoal);
+}
+
+.cal-nav {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--active-border-gray-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1;
+}
+.cal-nav:active { background: var(--gray-100); }
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+.cal-days span {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--active-border-gray-500);
+  padding: 3px 0;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-day {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: 'Pretendard', sans-serif;
+  color: var(--midnight-charcoal);
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 400;
+  padding: 0;
+  box-sizing: border-box;
+}
+.cal-day:active { background: rgba(0,0,0,0.05); }
+.cal-day--selected {
+  background: var(--starline-gold) !important;
+  color: var(--pure-white) !important;
+  font-weight: 700 !important;
+  border-radius: 50% !important;
+}
+.cal-day--disabled {
+  color: var(--border-gray-300);
+  cursor: default;
+  pointer-events: none;
+}
+.cal-empty {
+  aspect-ratio: 1;
+}
+
+.submit-btn:hover { opacity: 0.85; }

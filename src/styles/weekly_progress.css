@@ -1,0 +1,348 @@
+/* ============================================================
+   ROUTE — 주간 진행률 상세 (weekly_progress.html)
+   ============================================================ */
+
+/* ---------- Main ---------- */
+.wp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 44px 0px 96px;
+  background-color: var(--color-bg-50);
+  min-height: 100%;
+}
+
+/* ============================================================
+   Header - TopAppBar
+   padding: 16px 24px, row, space-between
+   ============================================================ */
+.wp-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+}
+
+.wp-header__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.wp-header__back-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.wp-header__heading {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.wp-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Hero Progress Section
+   column, alignItems: center, padding: 0 24px
+   ============================================================ */
+.wp-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+  gap: 0;
+}
+
+/* 도넛 차트 wrapper: 256×256, padding-bottom 40px */
+.wp-donut-wrap {
+  padding-bottom: 40px;
+}
+
+.wp-donut {
+  position: relative;
+  width: 256px;
+  height: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wp-donut__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 256px;
+  height: 256px;
+}
+
+/* 진행 아크 애니메이션 (페이지 로드 시 0→실제값으로 부드럽게 채움) */
+#wp-donut-arc {
+  transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 중앙 텍스트 오버레이 (absolute 위치) */
+.wp-donut__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.wp-donut__pct {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.05em;
+  color: var(--color-midnight);
+}
+
+.wp-donut__label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+}
+
+/* 에디토리얼 텍스트: column, gap 11px, stretch */
+.wp-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 11px;
+}
+
+.wp-editorial__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  color: var(--color-midnight);
+}
+
+.wp-editorial__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  color: var(--color-gray-700);
+}
+
+/* ============================================================
+   Phase List Section
+   column, gap: 32px, padding: 0 24px
+   ============================================================ */
+.wp-phases {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+/* 섹션 헤더: row, space-between */
+.wp-phases__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wp-phases__title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-midnight);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.wp-phases__divider {
+  flex: 1;
+  height: 1px;
+  margin-left: 16px;
+  object-fit: fill;
+}
+
+/* 리스트: column, gap: 16px */
+.wp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 리스트 아이템: row, space-between, padding: 20px, bg white, borderRadius: 8px */
+.wp-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.wp-item__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 아이콘 배경: 40×40, #F9F9F9, borderRadius: 12px */
+.wp-item__icon-wrap {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-bg-50);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.wp-item__icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.wp-item__text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 항목 타이틀: SemiBold 600, 16px */
+.wp-item__name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-midnight);
+}
+
+/* 항목 서브: Regular 400, 12px */
+.wp-item__desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-gray-500);
+}
+
+.wp-item__circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gray-300);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.wp-item__circle.is-checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.wp-item__circle.is-checked::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--color-white);
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.wp-item--done .wp-item__name {
+  color: var(--color-gray-300);
+  text-decoration: line-through;
+}
+
+.wp-item--done .wp-item__desc {
+  color: var(--color-gray-300);
+}
+
+/* ============================================================
+   Fixed Bottom CTA (padding: 24px, width: 430px)
+   ============================================================ */
+.wp-bottom {
+  padding: 24px;
+}
+
+.wp-cta {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-midnight);
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ============================================================
+   하단 네비게이션 (fixed)
+   ============================================================ */
+.wp-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background-color: var(--color-white);
+  box-shadow: 0px -4px 24px 0px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+}
+
+.wp-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.wp-nav__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.wp-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16.5px;
+  color: var(--color-gray-300);
+}
+
+.wp-nav__item--active .wp-nav__label {
+  color: var(--color-midnight);
+  font-weight: 700;
+}

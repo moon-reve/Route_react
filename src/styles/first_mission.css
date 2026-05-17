@@ -1,0 +1,394 @@
+/* ============================================================
+   ROUTE — 첫 번째 미션 상세 (first_mission.html)
+   ============================================================ */
+
+.fm-app {
+  background-color: var(--color-white);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.fm-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 52px 24px 16px;
+  background-color: var(--color-white);
+  z-index: 200;
+}
+
+.fm-header__back {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.fm-header__back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.fm-header__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight);
+}
+
+/* ============================================================
+   Main
+   ============================================================ */
+.fm-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 104px;
+  padding-bottom: 96px;
+}
+
+/* ============================================================
+   Hero Section
+   ============================================================ */
+.fm-hero {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #1A1C1E;
+}
+
+.fm-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fm-hero__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 20px 24px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%);
+}
+
+.fm-hero__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.fm-hero__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+}
+
+/* ============================================================
+   Steps Container
+   ============================================================ */
+.fm-steps {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  padding: 8px 0;
+}
+
+.fm-divider {
+  height: 1px;
+  background-color: var(--color-gray-200);
+  margin: 0 24px;
+}
+
+/* ============================================================
+   Step
+   ============================================================ */
+.fm-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 24px;
+}
+
+.fm-step__head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 번호 뱃지 */
+.fm-step__num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-midnight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.fm-step__title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight);
+  flex: 1;
+}
+
+.fm-step__body {
+  padding-left: 40px;
+}
+
+.fm-step__desc {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+/* ============================================================
+   Video Thumbnail
+   ============================================================ */
+.fm-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-gray-200);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fm-video__play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CSS 삼각형 재생 버튼 */
+.fm-video__play-btn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent var(--color-midnight);
+  margin-left: 3px;
+}
+
+.fm-video__duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0,0,0,0.55);
+  border-radius: 4px;
+  padding: 2px 6px;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   Checklist
+   ============================================================ */
+.fm-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fm-check-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.fm-check__circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gray-300);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fm-check__circle--done {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* 체크 마크 */
+.fm-check__mark {
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.fm-check__label {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-midnight);
+}
+
+.fm-check__label--done {
+  color: var(--color-gray-500);
+  text-decoration: line-through;
+}
+
+/* ============================================================
+   Reflection Memo
+   ============================================================ */
+.fm-memo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px 24px 24px;
+  background-color: var(--color-white);
+}
+
+.fm-memo__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+.fm-memo__input {
+  width: 100%;
+  height: 120px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-midnight);
+  font-family: 'Pretendard', sans-serif;
+  resize: none;
+  background-color: var(--color-white);
+  box-sizing: border-box;
+  outline: none;
+  line-height: 1.6;
+}
+
+.fm-memo__input::placeholder {
+  color: var(--color-gray-300);
+}
+
+.fm-memo__input:focus {
+  border-color: var(--color-midnight);
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.fm-cta-wrap {
+  padding: 16px 24px 24px;
+  background-color: var(--color-white);
+}
+
+.fm-cta {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-midnight);
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white);
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.fm-cta:active {
+  opacity: 0.85;
+}
+
+/* ============================================================
+   Bottom Nav
+   ============================================================ */
+.fm-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px 40px;
+  background: var(--color-white);
+  box-shadow: 0px -4px 24px rgba(0,0,0,0.04);
+  z-index: 100;
+}
+
+.fm-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.fm-nav__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.fm-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-gray-300);
+}
+
+.fm-nav__item--active .fm-nav__label {
+  color: var(--color-midnight);
+  font-weight: 700;
+}
