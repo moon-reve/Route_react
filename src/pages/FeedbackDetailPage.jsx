@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
 import '../styles/feedback_detail.css'
 
@@ -132,6 +133,7 @@ export default function FeedbackDetailPage() {
           </main>
         </div>
       </div>
+      <BottomNav />
     </div>
   )
 }
