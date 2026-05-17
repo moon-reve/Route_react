@@ -629,6 +629,12 @@
   font-weight: 700 !important;
   border-radius: 50% !important;
 }
+.write-cal-day--today {
+  background: var(--starline-gold);
+  color: var(--pure-white);
+  font-weight: 700;
+  border-radius: 50%;
+}
 .write-cal-day--disabled {
   color: var(--border-gray-300);
   cursor: default;
