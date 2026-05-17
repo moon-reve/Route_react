@@ -1,0 +1,81 @@
+/* ════════ LOG PAGE (통합) ════════ */
+
+.log-main {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 110px;
+  width: 100%;
+}
+
+/* ── 헤더 ── */
+.log-page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+}
+
+.log-page-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--midnight-charcoal);
+}
+
+/* ── 탭 ── */
+.log-tabs-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border-gray-300);
+}
+
+.log-tab-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.log-tab-btn--active {
+  font-weight: 700;
+  border-bottom: 2px solid var(--midnight-charcoal);
+  margin-bottom: -1px;
+}
+
+/* ── 슬라이더 ── */
+.log-slider-wrap {
+  overflow-x: clip;
+  width: 100%;
+}
+
+.log-slider {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.log-panel {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ── 패널별 contents ── */
+.log-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 0;
+}
+
+.log-contents--cal  { gap: 11px; }
+.log-contents--feed { gap: 21px; }
+.log-contents--proj { gap: 39px; }

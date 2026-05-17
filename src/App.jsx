@@ -15,6 +15,7 @@ import PreLoadingPage from './pages/PreLoadingPage'
 import PreCompletePage from './pages/PreCompletePage'
 import HomePage from './pages/HomePage'
 import RoadmapPage from './pages/RoadmapPage'
+import LogPage from './pages/LogPage'
 import LogCalendarPage from './pages/LogCalendarPage'
 import LogFeedPage from './pages/LogFeedPage'
 import LogProjectPage from './pages/LogProjectPage'
@@ -45,9 +46,9 @@ export default function App() {
         <Route path="/pre/complete" element={<PreCompletePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/roadmap" element={<RoadmapPage />} />
-        <Route path="/log" element={<LogCalendarPage />} />
-        <Route path="/log/feed" element={<LogFeedPage />} />
-        <Route path="/log/project" element={<LogProjectPage />} />
+        <Route path="/log" element={<LogPage />} />
+        <Route path="/log/feed" element={<LogPage />} />
+        <Route path="/log/project" element={<LogPage />} />
         <Route path="/log/write" element={<LogWritePage />} />
         <Route path="/mission" element={<DailyMissionPage />} />
         <Route path="/feedback" element={<FeedbackDetailPage />} />
