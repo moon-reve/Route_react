@@ -60,7 +60,7 @@ body {
   width: 100vw;
   height: 100vh;
   height: 100svh;
-  overflow: hidden;
+  overflow: clip;
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
 }
@@ -90,9 +90,9 @@ body {
   justify-content: space-evenly;
   align-items: center;
   padding: 10px 4px;
-  background: rgba(242, 242, 242, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(242, 242, 242, 0.6);
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
   border: 1px solid var(--border-gray-300);
   border-radius: 50px;
   z-index: 100;
