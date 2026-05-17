@@ -104,6 +104,10 @@ body {
   align-items: center;
   gap: 4px;
   text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .nav-tab img {
@@ -136,6 +140,10 @@ body {
   height: 40px;
   overflow: visible;
   transform: translateY(-21px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 50%;

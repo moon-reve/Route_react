@@ -37,10 +37,10 @@ export default function BottomNav({ active }) {
 
       {/* 중앙 + 버튼 */}
       <button
-        className="nav-tab nav-tab--center"
+        className="nav-center"
         onClick={() => navigate('/log/write')}
       >
-        <img src="/images/nav_center.svg" alt="기록하기" className="nav-icon-center" />
+        <img src="/images/nav_center.svg" alt="기록하기" />
       </button>
 
       <button
