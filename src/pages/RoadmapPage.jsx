@@ -451,7 +451,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* WEEK 06 — PLAN DIM */}
-                <div className={`card roadmap-card--plan-dim ${openCards['w06'] ? 'roadmap-card--plan-open' : 'roadmap-card--plan-closed'}`}>
+                <div className={`roadmap-card roadmap-card--plan-dim ${openCards['w06'] ? 'roadmap-card--plan-open' : 'roadmap-card--plan-closed'}`}>
                   {!openCards['w06'] && (
                     <div className="card-head-row done-closed-header" onClick={() => toggleCard('w06')}>
                       <div className="card-head-left">
