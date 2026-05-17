@@ -173,8 +173,9 @@
 }
 
 .article--saved {
-  background: rgba(123, 158, 173, 0.04);
-  border-radius: 8px;
-  padding: 4px 0;
+  background: none;
+  border-radius: 0;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--border-gray-300);
   cursor: pointer;
 }
