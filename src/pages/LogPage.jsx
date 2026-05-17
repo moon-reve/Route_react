@@ -116,7 +116,7 @@ export default function LogPage() {
 
           {/* ── 슬라이더 ── */}
           <div className="log-slider-wrap">
-            <div className="log-slider" style={{ transform: `translateX(calc(-${tabIdx} * 100% / 3))` }}>
+            <div className="log-slider" style={{ transform: `translateX(-${tabIdx * 100}vw)` }}>
 
               {/* ────── Panel 0: 캘린더 ────── */}
               <div className="log-panel">
