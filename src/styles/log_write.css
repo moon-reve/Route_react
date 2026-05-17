@@ -594,7 +594,10 @@
   font-size: 10px;
   font-weight: 600;
   color: var(--active-border-gray-500);
-  padding: 3px 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cal-grid {
@@ -604,8 +607,7 @@
 }
 
 .cal-day {
-  width: 100%;
-  aspect-ratio: 1;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
