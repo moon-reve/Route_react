@@ -1,4 +1,9 @@
 /* ── 페이지 래퍼 ── */
+/* expert 페이지에서 screen 배경색 제거 */
+.screen:has(.expert-page) {
+  background: transparent;
+}
+
 .expert-page {
   position: relative;
   width: 100%;
@@ -61,6 +66,7 @@
   font-weight: 700;
   font-size: 20px;
   color: var(--midnight-charcoal);
+  flex: 1;
   text-align: center;
 }
 

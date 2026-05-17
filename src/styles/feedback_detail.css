@@ -60,6 +60,7 @@
   font-weight: 700;
   font-size: 20px;
   color: var(--midnight-charcoal);
+  flex: 1;
   text-align: center;
 }
 
