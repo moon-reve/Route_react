@@ -61,6 +61,7 @@
   border: 1px solid var(--border-gray-300);
   cursor: pointer;
   white-space: nowrap;
+  flex: 1;
 }
 
 .nav-chip--active {
