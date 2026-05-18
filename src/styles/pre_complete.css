@@ -10,8 +10,6 @@
   z-index: 0;
 }
 
-/* 스크롤 */
-
 /* 메인 */
 .pre-complete-main {
   display: flex;
@@ -24,7 +22,7 @@
 }
 
 /* ════════ ① HERO ════════ */
-.hero-section {
+.complete-hero-section {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -33,14 +31,13 @@
   -webkit-backdrop-filter: blur(2px);
 }
 
-.hero-top {
+.complete-hero-top {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* 루트 완성 뱃지 */
-.route-badge {
+.complete-route-badge {
   display: inline-flex;
   align-items: center;
   padding: 4px 25px;
@@ -54,8 +51,7 @@
   align-self: flex-start;
 }
 
-/* 타이틀 */
-.hero-title {
+.complete-hero-title {
   font-weight: 800;
   font-size: 32px;
   line-height: 1.3;
@@ -64,17 +60,14 @@
 }
 
 @media (max-width: 430px) {
-  .hero-title {
-    font-size: 30px;
-  }
+  .complete-hero-title { font-size: 30px; }
 }
 
-.hero-title--gold {
+.complete-hero-title--gold {
   color: var(--starline-gold);
 }
 
-/* 태그 */
-.tag-group {
+.complete-tag-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -83,7 +76,7 @@
   align-content: flex-start;
 }
 
-.custom-tag {
+.complete-custom-tag {
   display: inline-flex;
   align-items: center;
   padding: 6px 12px;
@@ -98,7 +91,7 @@
 }
 
 /* ════════ ② 커리큘럼 카드 ════════ */
-.curriculum-card {
+.complete-curriculum-card {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -110,7 +103,7 @@
   -webkit-backdrop-filter: blur(2px);
 }
 
-.section-heading {
+.complete-section-heading {
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
@@ -119,33 +112,32 @@
   color: var(--gray-700);
 }
 
-/* 타임라인 */
-.timeline {
+.complete-timeline {
   display: flex;
   flex-direction: column;
   gap: 40px;
   position: relative;
 }
 
-.timeline-line {
+.complete-timeline-line {
   position: absolute;
   left: 7px;
   width: 1px;
 }
 
-.timeline-line--gold {
+.complete-timeline-line--gold {
   top: 8.5px;
   height: 87px;
   background: var(--starline-gold);
 }
 
-.timeline-line--gray {
+.complete-timeline-line--gray {
   top: 94.5px;
   height: 129px;
   background: var(--inactive-gray-200);
 }
 
-.phase-item {
+.complete-phase-item {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -153,7 +145,7 @@
   position: relative;
 }
 
-.phase-dot {
+.complete-phase-dot {
   width: 15px;
   height: 15px;
   object-fit: contain;
@@ -162,13 +154,13 @@
   z-index: 1;
 }
 
-.phase-text {
+.complete-phase-text {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.phase-label {
+.complete-phase-label {
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
@@ -176,7 +168,7 @@
   color: var(--midnight-charcoal);
 }
 
-.phase-desc {
+.complete-phase-desc {
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
@@ -185,7 +177,7 @@
 }
 
 /* ════════ ③ 미션 카드 ════════ */
-.mission-card {
+.complete-mission-card {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -197,27 +189,27 @@
   -webkit-backdrop-filter: blur(2px);
 }
 
-.mission-header {
+.complete-mission-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.mission-header-left {
+.complete-mission-header-left {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
 
-.mission-icon {
+.complete-mission-icon {
   width: 13px;
   height: 14px;
   object-fit: contain;
 }
 
-.mission-label {
+.complete-mission-label {
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
@@ -225,7 +217,7 @@
   color: var(--gray-700);
 }
 
-.day-badge {
+.complete-day-badge {
   display: inline-flex;
   align-items: center;
   padding: 1px 8px;
@@ -237,13 +229,13 @@
   color: var(--pure-white);
 }
 
-.mission-body {
+.complete-mission-body {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.mission-title {
+.complete-mission-title {
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.03em;
@@ -251,7 +243,7 @@
   line-height: 1.4;
 }
 
-.mission-desc {
+.complete-mission-desc {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -259,7 +251,7 @@
 }
 
 /* ════════ ④ CTA 버튼 ════════ */
-.btn-start {
+.complete-btn-start {
   border: none;
   cursor: pointer;
   display: flex;
@@ -278,4 +270,4 @@
   text-align: center;
 }
 
-.btn-start:hover { opacity: 0.85; }
+.complete-btn-start:hover { opacity: 0.85; }
