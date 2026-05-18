@@ -89,9 +89,9 @@ body {
 .nav-bar {
   position: fixed;
   bottom: calc(20px + env(safe-area-inset-bottom));
-  left: 20px;
-  right: 20px;
-  width: calc(100% - 40px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(min(430px, 100vw) - 40px);
   max-width: 390px;
   display: flex;
   flex-direction: row;
