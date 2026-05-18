@@ -1,11 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import useHtmlBackground from '../hooks/useHtmlBackground'
 import '../styles/common.css'
 import '../styles/pre_loading.css'
 
 export default function PreLoadingPage() {
-  useHtmlBackground('/images/pre_bg.svg')
   const navigate = useNavigate()
   const [itemStates, setItemStates] = useState(['pending', 'pending', 'pending', 'pending'])
   const [progress, setProgress] = useState(0)

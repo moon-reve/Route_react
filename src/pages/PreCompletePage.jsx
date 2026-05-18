@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import useHtmlBackground from '../hooks/useHtmlBackground'
 import '../styles/common.css'
 import '../styles/pre_complete.css'
 
 export default function PreCompletePage() {
-  useHtmlBackground('/images/pre_bg.svg')
   const navigate = useNavigate()
 
   return (
