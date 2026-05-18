@@ -5,6 +5,8 @@
 
 /* ── CSS Variables ── */
 :root {
+  --sab: env(safe-area-inset-bottom, 0px);
+
   /* primary */
   --midnight-charcoal: #1A1C1E;
   --gray-700: #555555;
