@@ -3,6 +3,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 import SplashPage from './pages/SplashPage'
 import LoginPage from './pages/LoginPage'
+import OnboardingPage from './pages/OnboardingPage'
 import Onboarding1Page from './pages/Onboarding1Page'
 import Onboarding2Page from './pages/Onboarding2Page'
 import Onboarding3Page from './pages/Onboarding3Page'
@@ -34,6 +35,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<SplashPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
         <Route path="/onboarding/1" element={<Onboarding1Page />} />
         <Route path="/onboarding/2" element={<Onboarding2Page />} />
         <Route path="/onboarding/3" element={<Onboarding3Page />} />

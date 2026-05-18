@@ -8,7 +8,7 @@ export default function SplashPage() {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      navigate('/onboarding/1')
+      navigate('/onboarding')
     }, 3000)
     return () => clearTimeout(t)
   }, [navigate])
