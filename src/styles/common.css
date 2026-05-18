@@ -57,7 +57,7 @@ body {
 }
 
 #root {
-  height: 100dvh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -68,29 +68,11 @@ body {
   position: relative;
   width: 100%;
   max-width: 430px;
-  height: 100dvh;
+  height: 100vh;
+  height: 100svh;
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
   flex-shrink: 0;
-}
-
-/* iOS 하단 safe-area: screen과 동일한 배경으로 채우기 */
-.screen::after {
-  content: '';
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 430px;
-  height: env(safe-area-inset-bottom);
-  background-color: transparent;
-  background-image: var(--page-bg-image, none);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 9999;
-  pointer-events: none;
 }
 
 /* ── Scroll Area ── */
