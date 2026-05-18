@@ -39,15 +39,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
+html, body {
   margin: 0;
   padding: 0;
+  background: var(--bg-gray-50);
 }
 
 body {
   font-family: 'Pretendard', sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 @media (min-width: 431px) {
@@ -68,8 +67,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 430px;
-  height: 100vh;
-  height: 100svh;
+  height: calc(100vh + env(safe-area-inset-bottom));
+  height: calc(100svh + env(safe-area-inset-bottom));
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
   flex-shrink: 0;
