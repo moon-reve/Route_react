@@ -62,6 +62,26 @@ export default function LogPage() {
   // tab
   const initialTab = useRef(getInitialTab(pathname)).current
   const [tabIdx, setTabIdx] = useState(initialTab)
+  const touchStartX = useRef(null)
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (diff > 50 && tabIdx < 2) setTabIdx(tabIdx + 1)
+    else if (diff < -50 && tabIdx > 0) setTabIdx(tabIdx - 1)
+    touchStartX.current = null
+  }
+  const handleMouseDown = (e) => { touchStartX.current = e.clientX }
+  const handleMouseUp = (e) => {
+    if (touchStartX.current === null) return
+    const diff = touchStartX.current - e.clientX
+    if (diff > 50 && tabIdx < 2) setTabIdx(tabIdx + 1)
+    else if (diff < -50 && tabIdx > 0) setTabIdx(tabIdx - 1)
+    touchStartX.current = null
+  }
 
   // calendar
   const today = new Date().getDate()
@@ -115,7 +135,14 @@ export default function LogPage() {
           </nav>
 
           {/* ── 슬라이더 ── */}
-          <div className="log-slider-wrap">
+          <div
+            className="log-slider-wrap"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            style={{ userSelect: 'none' }}
+          >
             <div className="log-slider" style={{ transform: `translateX(calc(-${tabIdx} * 100% / 3))` }}>
 
               {/* ────── Panel 0: 캘린더 ────── */}
