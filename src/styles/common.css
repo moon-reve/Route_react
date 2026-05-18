@@ -69,6 +69,7 @@ body {
   max-width: 430px;
   height: 100vh;
   height: 100svh;
+  height: calc(var(--vh, 1svh) * 100);
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
   flex-shrink: 0;
@@ -77,8 +78,7 @@ body {
 /* ── Scroll Area ── */
 .scroll-area {
   width: 100%;
-  height: calc(100% + env(safe-area-inset-bottom));
-  background: var(--bg-gray-50);
+  height: 100%;
   overflow-y: auto;
   overflow-x: clip;
   -webkit-overflow-scrolling: touch;
