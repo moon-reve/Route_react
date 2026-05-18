@@ -14,7 +14,7 @@ export default function SplashPage() {
   }, [navigate])
 
   return (
-    <div className="screen">
+    <div className="screen" onClick={() => navigate('/onboarding')} style={{ cursor: 'pointer' }}>
       <img className="bg" src="/images/splash_bg.svg" alt="" />
 
       <div className="title-box">
