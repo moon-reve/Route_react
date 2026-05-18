@@ -30,7 +30,8 @@ const SLIDES = [
 export default function OnboardingPage() {
   const navigate = useNavigate()
   const [idx, setIdx] = useState(0)
-  const touchStartX = useRef(null)
+  const startX = useRef(null)
+  const isDragging = useRef(false)
 
   const goNext = () => {
     if (idx < SLIDES.length - 1) setIdx(idx + 1)
@@ -41,17 +42,27 @@ export default function OnboardingPage() {
     if (idx > 0) setIdx(idx - 1)
   }
 
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX
+  const handleDragStart = (clientX) => {
+    startX.current = clientX
+    isDragging.current = true
   }
 
-  const handleTouchEnd = (e) => {
-    if (touchStartX.current === null) return
-    const diff = touchStartX.current - e.changedTouches[0].clientX
+  const handleDragEnd = (clientX) => {
+    if (!isDragging.current || startX.current === null) return
+    const diff = startX.current - clientX
     if (diff > 50) goNext()
     else if (diff < -50) goPrev()
-    touchStartX.current = null
+    startX.current = null
+    isDragging.current = false
   }
+
+  // Touch
+  const handleTouchStart = (e) => handleDragStart(e.touches[0].clientX)
+  const handleTouchEnd = (e) => handleDragEnd(e.changedTouches[0].clientX)
+
+  // Mouse
+  const handleMouseDown = (e) => handleDragStart(e.clientX)
+  const handleMouseUp = (e) => handleDragEnd(e.clientX)
 
   const slide = SLIDES[idx]
 
@@ -60,6 +71,9 @@ export default function OnboardingPage() {
       className="screen"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      style={{ userSelect: 'none' }}
     >
       {/* 슬라이더 */}
       <div className="ob-slider-wrap">
