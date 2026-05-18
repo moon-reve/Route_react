@@ -2,7 +2,7 @@
 .loading-bg {
   position: fixed;
   top: 0;
-  bottom: 0;
+  bottom: calc(-1 * env(safe-area-inset-bottom));
   left: max(0px, calc(50% - 215px));
   right: max(0px, calc(50% - 215px));
   object-fit: cover;
