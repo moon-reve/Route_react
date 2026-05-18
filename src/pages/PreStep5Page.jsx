@@ -15,7 +15,16 @@ const DOMAINS = [
 
 export default function PreStep5Page() {
   const navigate = useNavigate()
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(new Set())
+
+  const toggleDomain = (name) => {
+    setSelected(prev => {
+      const next = new Set(prev)
+      if (next.has(name)) next.delete(name)
+      else next.add(name)
+      return next
+    })
+  }
 
   return (
     <div className="screen">
@@ -50,8 +59,8 @@ export default function PreStep5Page() {
                   {DOMAINS.slice(row * 2, row * 2 + 2).map(domain => (
                     <div
                       key={domain.name}
-                      className={`domain-card${selected === domain.name ? ' domain-card--selected' : ''}`}
-                      onClick={() => setSelected(domain.name)}
+                      className={`domain-card${selected.has(domain.name) ? ' domain-card--selected' : ''}`}
+                      onClick={() => toggleDomain(domain.name)}
                     >
                       <img src={domain.img} alt={domain.name} className="domain-icon" />
                       <span className="domain-name">{domain.name}</span>
