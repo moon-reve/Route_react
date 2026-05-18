@@ -62,7 +62,7 @@ body {
   max-width: 430px;
   margin: 0 auto;
   height: 100vh;
-  height: 100svh;
+  height: 100dvh;
   overflow: clip;
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
@@ -85,6 +85,7 @@ body {
 .nav-bar {
   position: fixed;
   bottom: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
   left: 0;
   right: 0;
   margin: 0 auto;
