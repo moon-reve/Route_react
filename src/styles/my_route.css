@@ -464,7 +464,7 @@
    Bottom Sheet Overlay
    ============================================================ */
 .mr-bs-overlay {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 80;
@@ -485,7 +485,7 @@
    myroute_Bottom Sheet Modal
    ============================================================ */
 .mr-bs {
-  position: fixed;
+  position: absolute;
   bottom: 91px;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
@@ -607,7 +607,7 @@
    FAB
    ============================================================ */
 .mr-fab {
-  position: fixed;
+  position: absolute;
   bottom: 112px;
   right: calc(50% - 215px + 24px);
   width: 56px;
@@ -633,7 +633,7 @@
    Bottom Nav
    ============================================================ */
 .mr-nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);

@@ -386,7 +386,7 @@
    FAB
    ============================================================ */
 .ar-fab {
-  position: fixed;
+  position: absolute;
   bottom: 141px;
   right: calc(50% - 191px);
   width: 56px;
@@ -411,7 +411,7 @@
    Bottom Nav
    ============================================================ */
 .ar-nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -463,7 +463,7 @@
    Home Indicator
    ============================================================ */
 .ar-home-indicator {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -478,7 +478,7 @@
    Modal — Overlay
    ============================================================ */
 .ar-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -501,7 +501,7 @@
    Modal — Bottom Sheet
    ============================================================ */
 .ar-sheet {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) translateY(100%);

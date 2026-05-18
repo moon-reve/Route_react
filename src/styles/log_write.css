@@ -376,7 +376,7 @@
 /* ════════ TIME POPUP (드럼 피커) ════════ */
 #time-popup {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 300;
   width: 268px;
   background: rgba(255, 255, 255, 0.55);
@@ -542,7 +542,7 @@
 /* ════════ CALENDAR POPUP ════════ */
 #cal-popup {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 300;
   width: 268px;
   background: rgba(255, 255, 255, 0.5);

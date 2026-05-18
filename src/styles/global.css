@@ -67,7 +67,7 @@ html, body {
 
 /* ---------- Status Bar ---------- */
 .status-bar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -112,7 +112,7 @@ html, body {
 
 /* ---------- Home Indicator ---------- */
 .home-indicator {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -153,7 +153,7 @@ html, body {
 
 /* ---------- Bottom Nav Bar ---------- */
 .bottom-nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);

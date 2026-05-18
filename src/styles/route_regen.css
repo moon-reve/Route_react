@@ -10,7 +10,7 @@
    Header
    ============================================================ */
 .rr-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -239,7 +239,7 @@
    Bottom Nav
    ============================================================ */
 .rr-nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -280,7 +280,7 @@
    Modal Overlay
    ============================================================ */
 .rr-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -301,7 +301,7 @@
    Modal Card
    ============================================================ */
 .rr-modal {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.92);

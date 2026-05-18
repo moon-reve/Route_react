@@ -10,7 +10,7 @@
    Header
    ============================================================ */
 .fm-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -354,7 +354,7 @@
    Bottom Nav
    ============================================================ */
 .fm-nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
