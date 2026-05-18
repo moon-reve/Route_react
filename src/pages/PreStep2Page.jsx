@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useHtmlBackground from '../hooks/useHtmlBackground'
 import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/pre_step.css'
@@ -14,6 +15,7 @@ const TOOLS = [
 ]
 
 export default function PreStep2Page() {
+  useHtmlBackground('/images/pre_bg.svg')
   const navigate = useNavigate()
   const [selected, setSelected] = useState(new Set())
 

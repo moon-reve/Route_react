@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useHtmlBackground from '../hooks/useHtmlBackground'
 import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/pre_step.css'
@@ -6,6 +7,7 @@ import '../styles/pre_step.css'
 const OPTIONS = ['비전공자 / 입문자', '유관 직군 전향', '주니어 디자이너', '독학 중']
 
 export default function PreStep1Page() {
+  useHtmlBackground('/images/pre_bg.svg')
   const navigate = useNavigate()
   const [selected, setSelected] = useState(null)
 
