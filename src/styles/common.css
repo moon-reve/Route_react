@@ -67,6 +67,7 @@ body {
   height: 100svh;
   overflow: clip;
   padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
   background: var(--bg-gray-50);
   flex-shrink: 0;
 }
@@ -87,7 +88,7 @@ body {
 ════════════════════════════ */
 .nav-bar {
   position: fixed;
-  bottom: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
   left: 20px;
   right: 20px;
   width: calc(100% - 40px);
