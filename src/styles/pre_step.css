@@ -4,8 +4,9 @@
 .pre-bg {
   position: absolute;
   inset: 0;
+  bottom: calc(-1 * env(safe-area-inset-bottom));
   width: 100%;
-  height: 100%;
+  height: calc(100% + env(safe-area-inset-bottom));
   object-fit: cover;
   opacity: 0.6;
   pointer-events: none;
