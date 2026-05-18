@@ -48,21 +48,27 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: #0E1117;
 }
 
 #root {
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
 /* ── Screen ── */
 .screen {
   position: relative;
-  width: 100vw;
+  width: 100%;
+  max-width: 430px;
   height: 100vh;
   height: 100svh;
   overflow: clip;
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
+  flex-shrink: 0;
 }
 
 /* ── Scroll Area ── */
