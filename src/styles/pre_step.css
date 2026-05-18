@@ -52,9 +52,9 @@
   text-decoration: none;
 }
 
-.btn-back-img {
-  width: 41px !important;
-  height: 41px !important;
+.pre-header .btn-back-img {
+  width: 41px;
+  height: 41px;
   display: block;
 }
 
