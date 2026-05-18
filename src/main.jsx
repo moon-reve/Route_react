@@ -2,12 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 
-// iOS safe area: window.innerHeight + safe-area-inset-bottom으로 실제 높이 측정
+// window.innerHeight로 실제 vh 설정 (100vh 불안정 대응)
 const setVh = () => {
-  const sab = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue('--sab')
-  ) || 0
-  const vh = (window.innerHeight + sab) * 0.01
+  const vh = window.innerHeight * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 }
 setVh()
