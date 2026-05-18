@@ -53,7 +53,7 @@ export default function PreStep4Page() {
                     <span className="option-sub">{opt.sub}</span>
                   </div>
                   <img
-                    src={selected === opt.text ? '/images/pre_radio_filled.svg' : '/images/pre_radio_empty.svg'}
+                    src={selected === opt.text ? '/images/pre_radio_selected.svg' : '/images/pre_radio_empty.svg'}
                     alt=""
                     className="option-radio"
                   />

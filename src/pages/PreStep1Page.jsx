@@ -45,7 +45,7 @@ export default function PreStep1Page() {
                 >
                   <span className="option-text">{opt}</span>
                   <img
-                    src={selected === opt ? '/images/pre_radio_filled.svg' : '/images/pre_radio_empty.svg'}
+                    src={selected === opt ? '/images/pre_radio_selected.svg' : '/images/pre_radio_empty.svg'}
                     alt=""
                     className="option-radio"
                   />
