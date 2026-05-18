@@ -241,7 +241,7 @@ export default function HomePage() {
             <img src="/images/home_alert_icon.svg" alt="알림" className="home-alert-icon" />
           </header>
 
-          <div className="contents">
+          <div className="home-contents">
 
             {/* ① 히어로 + 칩 묶음 */}
             <div className="section-top">

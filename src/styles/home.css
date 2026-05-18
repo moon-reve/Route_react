@@ -50,7 +50,7 @@
 }
 
 /* ── Sections container: column, gap 58px ── */
-.contents {
+.home-contents {
   display: flex;
   flex-direction: column;
   gap: 48px;
