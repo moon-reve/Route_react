@@ -58,7 +58,7 @@ export default function HomePage() {
   const [visibleArticleCount, setVisibleArticleCount] = useState(3)
   const cardListRef = useRef(null)
 
-  // 드래그 스크롤 (모멘텀 포함)
+  // 드래그 스크롤 (모멘텀 + 엣지 바운스 + 스냅)
   useEffect(() => {
     const el = cardListRef.current
     if (!el) return
@@ -69,17 +69,60 @@ export default function HomePage() {
     let lastX = 0
     let animFrame = null
 
+    const getCardWidth = () => {
+      const card = el.querySelector('[data-category]') || el.firstElementChild
+      return card ? card.offsetWidth + 17 : 280
+    }
+
+    const snapToNearest = (vel) => {
+      const cardW = getCardWidth()
+      const maxScroll = el.scrollWidth - el.clientWidth
+      let target = el.scrollLeft
+
+      if (Math.abs(vel) > 3) {
+        // 빠른 플릭: 방향으로 한 칸
+        target = vel > 0
+          ? Math.ceil(el.scrollLeft / cardW) * cardW
+          : Math.floor(el.scrollLeft / cardW) * cardW
+      } else {
+        // 느린 경우: 가장 가까운 카드
+        target = Math.round(el.scrollLeft / cardW) * cardW
+      }
+
+      target = Math.max(0, Math.min(target, maxScroll))
+      el.scrollTo({ left: target, behavior: 'smooth' })
+    }
+
     const stopMomentum = () => {
       if (animFrame) cancelAnimationFrame(animFrame)
+      animFrame = null
     }
 
     const startMomentum = () => {
       stopMomentum()
+      const maxScroll = el.scrollWidth - el.clientWidth
+      const startVel = velocity
+
       const step = () => {
-        if (Math.abs(velocity) < 0.5) return
-        el.scrollLeft -= velocity
-        velocity *= 0.92
-        animFrame = requestAnimationFrame(step)
+        velocity *= 0.88
+        const next = el.scrollLeft + velocity
+
+        // 엣지 바운스
+        if (next < 0) {
+          el.scrollLeft = next * 0.3
+          velocity *= -0.4
+        } else if (next > maxScroll) {
+          el.scrollLeft = maxScroll + (next - maxScroll) * 0.3
+          velocity *= -0.4
+        } else {
+          el.scrollLeft = next
+        }
+
+        if (Math.abs(velocity) > 0.8) {
+          animFrame = requestAnimationFrame(step)
+        } else {
+          snapToNearest(startVel)
+        }
       }
       animFrame = requestAnimationFrame(step)
     }
@@ -91,22 +134,20 @@ export default function HomePage() {
       lastX = e.pageX
       velocity = 0
       stopMomentum()
+      el.style.scrollSnapType = 'none'
       el.style.cursor = 'grabbing'
       el.style.userSelect = 'none'
     }
-    const onMouseLeave = () => {
+    const onEnd = () => {
       if (!isDown) return
       isDown = false
       el.style.cursor = 'grab'
       el.style.userSelect = ''
       startMomentum()
+      setTimeout(() => { el.style.scrollSnapType = '' }, 600)
     }
-    const onMouseUp = () => {
-      isDown = false
-      el.style.cursor = 'grab'
-      el.style.userSelect = ''
-      startMomentum()
-    }
+    const onMouseLeave = () => onEnd()
+    const onMouseUp = () => onEnd()
     const onMouseMove = (e) => {
       if (!isDown) return
       e.preventDefault()
