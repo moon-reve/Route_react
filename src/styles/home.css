@@ -53,7 +53,7 @@
 .contents {
   display: flex;
   flex-direction: column;
-  gap: 58px;
+  gap: 48px;
   margin-top: 16px;
   padding: 0;
 }
@@ -64,7 +64,7 @@
 .section-top {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 /* ════════════════════════════
