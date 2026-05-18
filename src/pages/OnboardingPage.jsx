@@ -83,7 +83,7 @@ export default function OnboardingPage() {
         >
           {SLIDES.map((s, i) => (
             <div className="ob-slide" key={i}>
-              <img className="ob-bg" src={s.bg} alt="" />
+              <img className="ob-bg" src={s.bg} alt="" draggable={false} />
               <div className="ob-content">
                 <div className={`title${s.isLast ? ' title--w236' : ''}`}>
                   {s.isLast ? (
