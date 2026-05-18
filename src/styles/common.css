@@ -65,7 +65,7 @@ body {
   max-width: 430px;
   height: 100vh;
   height: 100svh;
-  overflow: clip;
+  overflow: hidden;
   padding-top: env(safe-area-inset-top);
   background: var(--bg-gray-50);
   flex-shrink: 0;
@@ -86,12 +86,10 @@ body {
    NAV BAR
 ════════════════════════════ */
 .nav-bar {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   left: 20px;
   right: 20px;
-  width: calc(100% - 40px);
-  max-width: 390px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

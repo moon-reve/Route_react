@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/common.css'
 
@@ -18,7 +17,7 @@ export default function BottomNav({ active }) {
 
   const currentActive = getActive()
 
-  return createPortal(
+  return (
     <nav className="nav-bar">
       <button
         className={`nav-tab${currentActive === 'home' ? ' nav-tab--active' : ''}`}
@@ -59,7 +58,6 @@ export default function BottomNav({ active }) {
         <img src="/images/nav_my.svg" alt="My" className="nav-icon" />
         <span className="nav-label">My</span>
       </button>
-    </nav>,
-    document.body
+    </nav>
   )
 }
