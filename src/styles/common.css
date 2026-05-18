@@ -42,14 +42,12 @@
 html {
   margin: 0;
   padding: 0;
-  background: var(--bg-gray-50);
 }
 
 body {
   font-family: 'Pretendard', sans-serif;
   margin: 0;
   padding: 0;
-  background: var(--bg-gray-50);
 }
 
 @media (min-width: 431px) {
@@ -86,7 +84,7 @@ body {
   width: 100%;
   max-width: 430px;
   height: env(safe-area-inset-bottom);
-  background-color: var(--bg-gray-50);
+  background-color: transparent;
   background-image: var(--page-bg-image, none);
   background-size: cover;
   background-position: center;
