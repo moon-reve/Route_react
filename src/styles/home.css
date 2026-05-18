@@ -335,6 +335,12 @@
   scroll-snap-type: x mandatory;
   scroll-padding-left: 24px;
   cursor: grab;
+  user-select: none;
+}
+
+.card-list img {
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .card-list.is-dragging { cursor: grabbing; }

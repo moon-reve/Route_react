@@ -58,28 +58,62 @@ export default function HomePage() {
   const [visibleArticleCount, setVisibleArticleCount] = useState(3)
   const cardListRef = useRef(null)
 
-  // 드래그 스크롤
+  // 드래그 스크롤 (모멘텀 포함)
   useEffect(() => {
     const el = cardListRef.current
     if (!el) return
     let isDown = false
     let startX = 0
     let scrollLeft = 0
+    let velocity = 0
+    let lastX = 0
+    let animFrame = null
+
+    const stopMomentum = () => {
+      if (animFrame) cancelAnimationFrame(animFrame)
+    }
+
+    const startMomentum = () => {
+      stopMomentum()
+      const step = () => {
+        if (Math.abs(velocity) < 0.5) return
+        el.scrollLeft -= velocity
+        velocity *= 0.92
+        animFrame = requestAnimationFrame(step)
+      }
+      animFrame = requestAnimationFrame(step)
+    }
 
     const onMouseDown = (e) => {
       isDown = true
       startX = e.pageX - el.offsetLeft
       scrollLeft = el.scrollLeft
+      lastX = e.pageX
+      velocity = 0
+      stopMomentum()
       el.style.cursor = 'grabbing'
+      el.style.userSelect = 'none'
     }
-    const onMouseLeave = () => { isDown = false; el.style.cursor = 'grab' }
-    const onMouseUp = () => { isDown = false; el.style.cursor = 'grab' }
+    const onMouseLeave = () => {
+      if (!isDown) return
+      isDown = false
+      el.style.cursor = 'grab'
+      el.style.userSelect = ''
+      startMomentum()
+    }
+    const onMouseUp = () => {
+      isDown = false
+      el.style.cursor = 'grab'
+      el.style.userSelect = ''
+      startMomentum()
+    }
     const onMouseMove = (e) => {
       if (!isDown) return
       e.preventDefault()
       const x = e.pageX - el.offsetLeft
-      const walk = (x - startX) * 1.5
-      el.scrollLeft = scrollLeft - walk
+      velocity = lastX - e.pageX
+      lastX = e.pageX
+      el.scrollLeft = scrollLeft - (x - startX)
     }
 
     el.addEventListener('mousedown', onMouseDown)
@@ -87,6 +121,7 @@ export default function HomePage() {
     el.addEventListener('mouseup', onMouseUp)
     el.addEventListener('mousemove', onMouseMove)
     return () => {
+      stopMomentum()
       el.removeEventListener('mousedown', onMouseDown)
       el.removeEventListener('mouseleave', onMouseLeave)
       el.removeEventListener('mouseup', onMouseUp)
