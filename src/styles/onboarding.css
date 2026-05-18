@@ -104,8 +104,9 @@
 .bottom-controls {
   position: fixed;
   bottom: 60px;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(430px, 100vw);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
