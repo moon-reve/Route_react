@@ -25,6 +25,8 @@
   flex-direction: column;
   gap: 32px;
   padding-top: 24px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .complete-hero-top {
@@ -95,6 +97,8 @@
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid var(--inactive-gray-200);
   border-radius: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .complete-section-heading {
@@ -179,6 +183,8 @@
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid var(--inactive-gray-200);
   border-radius: 16px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .complete-mission-header {
