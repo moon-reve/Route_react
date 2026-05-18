@@ -82,16 +82,16 @@ export default function PreLoadingPage() {
 
       <div className="loading-wrap">
         <div className="loading-contents">
-          <div className="hero-section">
-            <h1 className="hero-title">맞춤 커리어 루트를<br />만들고 있습니다.</h1>
-            <div className="hero-bar"></div>
+          <div className="loading-hero-section">
+            <h1 className="loading-hero-title">맞춤 커리어 루트를<br />만들고 있습니다.</h1>
+            <div className="loading-hero-bar"></div>
           </div>
 
-          <div className="checklist">
+          <div className="loading-checklist">
             {CHECK_ITEMS.map((text, i) => {
               const state = itemStates[i]
               return (
-                <div key={i} className={`check-item check-item--${state}`}>
+                <div key={i} className={`loading-check-item loading-check-item--${state}`}>
                   <div className="loading-check-icon-wrap">
                     <img
                       src="/images/loading_icon_done.svg"
@@ -110,23 +110,23 @@ export default function PreLoadingPage() {
                       style={{ display: state === 'pending' ? 'block' : 'none' }}
                     ></div>
                   </div>
-                  <span className="check-text">{text}</span>
+                  <span className="loading-check-text">{text}</span>
                 </div>
               )
             })}
           </div>
         </div>
 
-        <div className="progress-footer">
-          <p className="progress-desc">완성도 높은 루트를 만들기 위해 꼼꼼하게 분석 중이에요</p>
-          <div className="progress-status">
-            <span className="progress-label">Processing</span>
-            <span className="progress-pct">{progress}%</span>
+        <div className="loading-progress-footer">
+          <p className="loading-progress-desc">완성도 높은 루트를 만들기 위해 꼼꼼하게 분석 중이에요</p>
+          <div className="loading-progress-status">
+            <span className="loading-progress-label">Processing</span>
+            <span className="loading-progress-pct">{progress}%</span>
           </div>
-          <div className="progress-track">
-            <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+          <div className="loading-progress-track">
+            <div className="loading-progress-fill" style={{ width: `${progress}%` }}></div>
           </div>
-          <p className="progress-sub">조금만 기다려주세요...</p>
+          <p className="loading-progress-sub">조금만 기다려주세요...</p>
         </div>
       </div>
     </div>

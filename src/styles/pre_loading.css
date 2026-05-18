@@ -31,14 +31,14 @@
 }
 
 /* ════════ HERO ════════ */
-.hero-section {
+.loading-hero-section {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-top: 40px;
 }
 
-.hero-title {
+.loading-hero-title {
   font-weight: 700;
   font-size: 40px;
   line-height: 46px;
@@ -46,7 +46,7 @@
   color: var(--midnight-charcoal);
 }
 
-.hero-bar {
+.loading-hero-bar {
   width: 48px;
   height: 6px;
   background: var(--midnight-charcoal);
@@ -54,14 +54,13 @@
 }
 
 /* ════════ CHECKLIST ════════ */
-.checklist {
+.loading-checklist {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* 아이템 기본 */
-.check-item {
+.loading-check-item {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -73,24 +72,23 @@
   -webkit-backdrop-filter: blur(2px);
 }
 
-/* 상태별 카드 스타일 */
-.check-item--pending {
+.loading-check-item--pending {
   background: rgba(255, 255, 255, 0.5);
   border: 0.5px solid var(--inactive-gray-200);
 }
 
-.check-item--loading {
+.loading-check-item--loading {
   background: rgba(232, 148, 26, 0.1);
   border: 0.5px solid rgba(232, 148, 26, 0.55);
 }
 
-.check-item--done {
+.loading-check-item--done {
   background: rgba(255, 255, 255, 0.5);
   border: 0.5px solid var(--inactive-gray-200);
 }
 
 /* 아이콘 래퍼 */
-.check-icon-wrap {
+.loading-check-icon-wrap {
   flex-shrink: 0;
   width: 28px;
   height: 28px;
@@ -106,7 +104,6 @@
   display: block;
 }
 
-/* 빈 원 (pending) */
 .loading-check-icon--empty {
   width: 28px;
   height: 28px;
@@ -115,7 +112,6 @@
   border: 0.5px solid var(--border-gray-300);
 }
 
-/* 스피닝 애니메이션 */
 .loading-check-icon--spin {
   animation: spin 1.2s linear infinite;
 }
@@ -125,8 +121,7 @@
   to   { transform: rotate(360deg); }
 }
 
-/* 텍스트 */
-.check-text {
+.loading-check-text {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
@@ -134,20 +129,20 @@
   transition: color 0.3s;
 }
 
-.check-item--pending .check-text {
+.loading-check-item--pending .loading-check-text {
   color: var(--active-border-gray-500);
   font-weight: 700;
 }
 
 /* ════════ PROGRESS FOOTER ════════ */
-.progress-footer {
+.loading-progress-footer {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 20px 0 32px;
 }
 
-.progress-desc {
+.loading-progress-desc {
   font-weight: 500;
   font-size: 14px;
   line-height: 22.75px;
@@ -156,7 +151,7 @@
   opacity: 0.8;
 }
 
-.progress-status {
+.loading-progress-status {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -164,7 +159,7 @@
   padding-top: 8px;
 }
 
-.progress-label {
+.loading-progress-label {
   font-weight: 700;
   font-size: 10px;
   line-height: 15px;
@@ -173,14 +168,13 @@
   color: var(--gray-700);
 }
 
-.progress-pct {
+.loading-progress-pct {
   font-weight: 900;
   font-size: 14px;
   color: var(--midnight-charcoal);
 }
 
-/* 프로그레스 바 */
-.progress-track {
+.loading-progress-track {
   width: 100%;
   height: 10px;
   background: var(--inactive-gray-200);
@@ -188,7 +182,7 @@
   overflow: hidden;
 }
 
-.progress-fill {
+.loading-progress-fill {
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, var(--champagne-gold) 0%, var(--starline-gold) 100%);
@@ -196,7 +190,7 @@
   transition: none;
 }
 
-.progress-sub {
+.loading-progress-sub {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -206,10 +200,6 @@
 }
 
 @media (max-width: 430px) {
-  .check-text {
-    font-size: 15px;
-  }
-  .progress-desc {
-    font-size: 13px;
-  }
+  .loading-check-text { font-size: 15px; }
+  .loading-progress-desc { font-size: 13px; }
 }
