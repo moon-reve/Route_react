@@ -1,10 +1,10 @@
 /* 배경 */
 .loading-bg {
-  position: absolute;
-  inset: 0;
-  bottom: calc(-1 * env(safe-area-inset-bottom));
-  width: 100%;
-  height: calc(100% + env(safe-area-inset-bottom));
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: max(0px, calc(50% - 215px));
+  right: max(0px, calc(50% - 215px));
   object-fit: cover;
   opacity: 0.6;
   pointer-events: none;
