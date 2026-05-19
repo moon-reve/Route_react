@@ -109,3 +109,14 @@
   55%      { opacity: 0.85; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
   72%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
 }
+
+/* 점별 — 원본 opacity ↔ 1.0 */
+.splash-dot {
+  opacity: var(--base);
+  animation: splash-dot-twinkle ease-in-out infinite;
+}
+
+@keyframes splash-dot-twinkle {
+  0%, 100% { opacity: var(--base); }
+  50%       { opacity: 1; }
+}
