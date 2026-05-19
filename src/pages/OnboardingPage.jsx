@@ -89,7 +89,7 @@ export default function OnboardingPage() {
               {i === 0 && (
                 <svg className="ob1-overlay" viewBox="0 0 430 932" preserveAspectRatio="xMidYMid slice">
                   {/* 글로우: 별 중앙에서 퍼짐 */}
-                  <circle cx="215" cy="317" r="60" className="ob1-glow" fill="#D4A853" />
+                  <circle cx="215" cy="317" r="88" className="ob1-glow" fill="#D4A853" />
                   {/* 원 파동: 안→중→바깥 순서 */}
                   <circle cx="215" cy="317" r="40" className="ob1-ring ob1-ring-1" fill="none" stroke="#D4A853" strokeWidth="1" />
                   <circle cx="215" cy="317" r="62" className="ob1-ring ob1-ring-2" fill="none" stroke="#D4A853" strokeWidth="0.8" />
