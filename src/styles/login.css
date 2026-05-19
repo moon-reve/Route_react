@@ -283,7 +283,7 @@
 }
 
 @keyframes login-ring-tilt {
-  0%, 100% { transform: rotate(-12deg); }
-  50%       { transform: rotate(5deg);   }
+  0%, 100% { transform: rotate(-9deg); }
+  50%       { transform: rotate(7deg);  }
 }
 
