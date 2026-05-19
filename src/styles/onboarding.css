@@ -222,7 +222,7 @@
 /* 슬라이드 활성화 시 애니메이션 시작 */
 
 /* clipPath 확장: x=75 기준 width 0→280 (star 각 x좌표에 도달 = 별 등장) */
-.ob-slide--active .ob2-clip-rect { animation: ob2-clip 10s ease-in-out infinite; }
+.ob-slide--active .ob2-clip-rect { animation: ob2-clip 10s linear infinite; }
 @keyframes ob2-clip {
   0%, 1%    { width: 0;   }
   65%, 98%  { width: 280; }
@@ -233,12 +233,12 @@
    star x: 82, 152, 199, 265, 320, 348  (clip_w = x-75)
    clip_w: 7,  77,  124, 190, 245, 273
    % = 1 + (clip_w/280)*64  */
-.ob-slide--active .ob2-dot-0 { animation: ob2-d0 10s ease-in-out infinite; }
-.ob-slide--active .ob2-dot-1 { animation: ob2-d1 10s ease-in-out infinite; }
-.ob-slide--active .ob2-dot-2 { animation: ob2-d2 10s ease-in-out infinite; }
-.ob-slide--active .ob2-dot-3 { animation: ob2-d3 10s ease-in-out infinite; }
-.ob-slide--active .ob2-dot-4 { animation: ob2-d4 10s ease-in-out infinite; }
-.ob-slide--active .ob2-dot-5 { animation: ob2-d5 10s ease-in-out infinite; }
+.ob-slide--active .ob2-dot-0 { animation: ob2-d0 10s linear infinite; }
+.ob-slide--active .ob2-dot-1 { animation: ob2-d1 10s linear infinite; }
+.ob-slide--active .ob2-dot-2 { animation: ob2-d2 10s linear infinite; }
+.ob-slide--active .ob2-dot-3 { animation: ob2-d3 10s linear infinite; }
+.ob-slide--active .ob2-dot-4 { animation: ob2-d4 10s linear infinite; }
+.ob-slide--active .ob2-dot-5 { animation: ob2-d5 10s linear infinite; }
 
 @keyframes ob2-d0 { 0%,99%,100%{ opacity:0; }  1%,98% { opacity:0.7;  } }  /* clip_w=7  → 1%  */
 @keyframes ob2-d1 { 0%,18%,99%,100%{ opacity:0; } 19%,98%{ opacity:0.75; } } /* clip_w=77 → 19% */
