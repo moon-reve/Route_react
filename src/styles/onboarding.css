@@ -220,9 +220,9 @@
 .ob1-ring-mid   { animation: ob1-wave-16 3.6s ease-in-out infinite 0.55s; }
 .ob1-ring-outer { animation: ob1-wave-10 3.6s ease-in-out infinite 1.1s;  }
 
-@keyframes ob1-wave-22 { 0%,42%,100%{ opacity:0; } 12%{ opacity:0.22; } }
-@keyframes ob1-wave-16 { 0%,42%,100%{ opacity:0; } 12%{ opacity:0.16; } }
-@keyframes ob1-wave-10 { 0%,42%,100%{ opacity:0; } 12%{ opacity:0.10; } }
+@keyframes ob1-wave-22 { 0%{ opacity:0; } 100%{ opacity:0.22; } }
+@keyframes ob1-wave-16 { 0%{ opacity:0; } 100%{ opacity:0.16; } }
+@keyframes ob1-wave-10 { 0%{ opacity:0; } 100%{ opacity:0.10; } }
 
 /* 글로우 원 — SVG feGaussianBlur, iOS 호환 */
 .ob1-glow-circle {
