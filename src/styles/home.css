@@ -193,15 +193,13 @@
   display: inline-flex;
   align-items: center;
   padding: 10px 25px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--starline-gold);
+  border: none;
   border-radius: 50px;
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
   font-size: 13px;
-  color: var(--midnight-charcoal);
+  color: var(--pure-white);
   text-decoration: none;
   white-space: nowrap;
   transition: opacity 0.15s;
