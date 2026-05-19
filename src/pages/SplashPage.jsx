@@ -2,17 +2,15 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/splash.css'
 
-// 배경 SVG의 금색 별 위치에 맞춘 트윙클 레이어
+// SVG 파일(430x932)에서 추출한 정확한 별 위치·색상·크기
 const STARS = [
-  { top: '9.9%',  left: '27.8%', size: 13, delay: 0,    dur: 2.5 },
-  { top: '8.4%',  left: '80.6%', size: 11, delay: 1.2,  dur: 3.0 },
-  { top: '19.3%', left: '8.3%',  size: 15, delay: 0.6,  dur: 2.8 },
-  { top: '31.4%', left: '26.4%', size: 20, delay: 1.8,  dur: 2.3 },
-  { top: '35.7%', left: '88.9%', size: 12, delay: 0.3,  dur: 3.2 },
-  { top: '52.9%', left: '11.1%', size: 17, delay: 1.5,  dur: 2.6 },
-  { top: '52.9%', left: '87.9%', size: 10, delay: 0.9,  dur: 2.9 },
-  { top: '77.8%', left: '63.9%', size: 18, delay: 0.4,  dur: 2.7 },
-  { top: '83.4%', left: '82.9%', size: 11, delay: 2.0,  dur: 2.4 },
+  { cx: 204, cy: 190, size: 30, color: '#D4A853', glow: 'rgba(212,168,83,0.8)',   delay: 0,   dur: 7.0 },
+  { cx: 363, cy: 177, size: 22, color: '#D4A853', glow: 'rgba(212,168,83,0.75)',  delay: 2.2, dur: 6.5 },
+  { cx: 72,  cy: 262, size: 16, color: '#D4A853', glow: 'rgba(212,168,83,0.7)',   delay: 1.1, dur: 5.8 },
+  { cx: 390, cy: 528, size: 16, color: '#D4A853', glow: 'rgba(212,168,83,0.7)',   delay: 3.5, dur: 6.2 },
+  { cx: 148, cy: 823, size: 22, color: '#8FAF8A', glow: 'rgba(143,175,138,0.75)', delay: 1.8, dur: 7.5 },
+  { cx: 34,  cy: 342, size: 16, color: '#8FAF8A', glow: 'rgba(143,175,138,0.7)',  delay: 0.7, dur: 6.0 },
+  { cx: 292, cy: 850, size: 16, color: '#C4876A', glow: 'rgba(196,135,106,0.7)',  delay: 2.8, dur: 6.8 },
 ]
 
 export default function SplashPage() {
@@ -26,19 +24,28 @@ export default function SplashPage() {
       {/* 트윙클 별 레이어 */}
       <div className="splash-star-layer">
         {STARS.map((s, i) => (
-          <span
+          <svg
             key={i}
             className="splash-star"
+            viewBox="0 0 100 100"
+            width={s.size}
+            height={s.size}
             style={{
-              top: s.top,
-              left: s.left,
-              fontSize: s.size + 'px',
-              animationDelay: s.delay + 's',
-              animationDuration: s.dur + 's',
+              top:  (s.cy / 932 * 100) + '%',
+              left: (s.cx / 430 * 100) + '%',
+              animationDelay:    s.delay + 's',
+              animationDuration: s.dur   + 's',
+              '--glow': s.glow,
             }}
           >
-            ✦
-          </span>
+            <path
+              d="M50 4 L56 44 L96 50 L56 56 L50 96 L44 56 L4 50 L44 44 Z"
+              fill="none"
+              stroke={s.color}
+              strokeWidth="5"
+              strokeLinejoin="round"
+            />
+          </svg>
         ))}
       </div>
 
