@@ -362,8 +362,8 @@
 /* ── 링 pulse: infinite (scale 0→1, opacity 높여서 잘 보이게) ── */
 .ob-slide--active .ob3-ring-1 { animation: ob3-r1 1.5s ease-out infinite; }
 .ob-slide--active .ob3-ring-2 { animation: ob3-r2 1.5s ease-out infinite; }
-@keyframes ob3-r1 { 0%{ opacity:0.4; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
-@keyframes ob3-r2 { 0%{ opacity:0.3; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
+@keyframes ob3-r1 { 0%{ opacity:0.6; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
+@keyframes ob3-r2 { 0%{ opacity:0.4; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
 
 /* ── orbit: 4s, 0→현재 opacity·scale, infinite ── */
 .ob-slide--active .ob3-orbit-1 { animation: ob3-orb1 4s ease-out infinite; }
