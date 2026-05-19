@@ -248,6 +248,9 @@ export default function HomePage() {
               <section className="section-hero">
                 <div className="hero-card">
                   <img className="hero-bg" src="/images/home_hero_bg.svg" alt="" />
+                  <div className="hero-star-wrap">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
                   <div className="hero-text">
                     <span className="hero-label">당신의 커리어,</span>
                     <span className="home-hero-title">아직 그려지지 않은 별자리입니다.</span>

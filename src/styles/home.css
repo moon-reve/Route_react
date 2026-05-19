@@ -82,7 +82,7 @@
   padding: 200px 20px 44px;
   border-radius: 12px;
   overflow: visible; /* 버튼이 카드 아래로 -11.5px 삐져나옴 */
-  background: linear-gradient(135deg, rgba(247,245,240,1) 0%, rgba(239,239,239,1) 100%);
+  background: linear-gradient(135deg, #141828 0%, #1E2438 100%);
 }
 
 /* 배경 일러스트: absolute, full cover — radius로 직접 클립 */
@@ -109,7 +109,7 @@
   font-family: 'Pretendard', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #9C9090;
+  color: #F9F9F9;
   line-height: 1.4;
 }
 
@@ -117,8 +117,70 @@
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
   font-size: 20px;
-  color: var(--midnight-charcoal);
+  color: #FFFFFF;
   line-height: 1.4;
+}
+
+/* ── 히어로 별똥별 ── */
+.hero-star-wrap {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-star-wrap span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: hero-shoot 8s linear infinite;
+  animation-fill-mode: backwards;
+}
+
+.hero-star-wrap span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+@keyframes hero-shoot {
+  0%          { transform: rotate(315deg) translateX(0);      opacity: 0; }
+  3%          { opacity: 0.9; }
+  18%         { transform: rotate(315deg) translateX(-260px); opacity: 0; }
+  18.1%, 100% { transform: rotate(315deg) translateX(-260px); opacity: 0; }
+}
+
+.hero-star-wrap span:nth-child(1) {
+  color: #E8941A; background: #E8941A;
+  box-shadow: 0 0 0 2px rgba(232,148,26,.2), 0 0 10px rgba(232,148,26,.3);
+  top: 0; right: 0; left: initial;
+  animation-delay: 0s; animation-duration: 7s;
+}
+.hero-star-wrap span:nth-child(2) {
+  color: #8FAF8A; background: #8FAF8A;
+  box-shadow: 0 0 0 2px rgba(143,175,138,.2), 0 0 10px rgba(143,175,138,.3);
+  top: 40px; right: 0; left: initial;
+  animation-delay: 3s; animation-duration: 10s;
+}
+.hero-star-wrap span:nth-child(3) {
+  color: #C4876A; background: #C4876A;
+  box-shadow: 0 0 0 2px rgba(196,135,106,.2), 0 0 10px rgba(196,135,106,.3);
+  top: 0; right: 100px; left: initial;
+  animation-delay: 6s; animation-duration: 9s;
+}
+.hero-star-wrap span:nth-child(4) {
+  color: #D4A853; background: #D4A853;
+  box-shadow: 0 0 0 2px rgba(212,168,83,.2), 0 0 10px rgba(212,168,83,.3);
+  top: 80px; right: 0; left: initial;
+  animation-delay: 1.5s; animation-duration: 12s;
 }
 
 /* 버튼: text 박스 기준 absolute, 피그마 수치 right:11px bottom:-11.5px */
