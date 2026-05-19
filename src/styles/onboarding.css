@@ -205,6 +205,65 @@
 .ob3-cta-btn:hover { opacity: 0.85; }
 
 /* ══════════════════════════
+   온보딩 2: 선 드로잉 + 별 순차 등장
+   전체 10s 단일 루프
+══════════════════════════ */
+
+/* 점선 드로잉 — dashoffset 으로 reveal */
+.ob2-line {
+  opacity: 0.22;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: ob2-line 10s ease-in-out infinite;
+}
+@keyframes ob2-line {
+  0%, 1%    { stroke-dashoffset: 600; }
+  65%, 98%  { stroke-dashoffset: 0;   }
+  99%, 100% { stroke-dashoffset: 600; }
+}
+
+/* 점 6개 — 선이 도착하는 순서대로 등장 */
+.ob2-dot-0,.ob2-dot-1,.ob2-dot-2,.ob2-dot-3,.ob2-dot-4,.ob2-dot-5 { opacity: 0; }
+
+.ob2-dot-0 { animation: ob2-d0 10s ease-in-out infinite; }
+.ob2-dot-1 { animation: ob2-d1 10s ease-in-out infinite; }
+.ob2-dot-2 { animation: ob2-d2 10s ease-in-out infinite; }
+.ob2-dot-3 { animation: ob2-d3 10s ease-in-out infinite; }
+.ob2-dot-4 { animation: ob2-d4 10s ease-in-out infinite; }
+.ob2-dot-5 { animation: ob2-d5 10s ease-in-out infinite; }
+
+@keyframes ob2-d0 { 0%,99%,100%{ opacity:0; }  1%,98%{ opacity:0.7;  } }
+@keyframes ob2-d1 { 0%,13%,99%,100%{ opacity:0; } 14%,98%{ opacity:0.75; } }
+@keyframes ob2-d2 { 0%,26%,99%,100%{ opacity:0; } 27%,98%{ opacity:0.75; } }
+@keyframes ob2-d3 { 0%,39%,99%,100%{ opacity:0; } 40%,98%{ opacity:0.75; } }
+@keyframes ob2-d4 { 0%,52%,99%,100%{ opacity:0; } 53%,98%{ opacity:0.75; } }
+@keyframes ob2-d5 { 0%,64%,99%,100%{ opacity:0; } 65%,98%{ opacity:0.9;  } }
+
+/* 블러 2개 — 마지막 별 도착 후 scale 0→1, opacity 0 (pulse) */
+.ob2-blur-in,
+.ob2-blur-out {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ob2-blur-in  { animation: ob2-blur-in  10s ease-out infinite; }
+.ob2-blur-out { animation: ob2-blur-out 10s ease-out infinite; }
+
+@keyframes ob2-blur-in {
+  0%, 64%   { opacity: 0;   transform: scale(0);   }
+  70%       { opacity: 0.3; transform: scale(0.5);  }
+  82%       { opacity: 0;   transform: scale(1);    }
+  99%, 100% { opacity: 0;   transform: scale(0);    }
+}
+@keyframes ob2-blur-out {
+  0%, 68%   { opacity: 0;    transform: scale(0);   }
+  74%       { opacity: 0.15; transform: scale(0.5);  }
+  86%       { opacity: 0;    transform: scale(1);    }
+  99%, 100% { opacity: 0;    transform: scale(0);    }
+}
+
+/* ══════════════════════════
    온보딩 1: inline SVG 배경
 ══════════════════════════ */
 .ob-bg-svg {
