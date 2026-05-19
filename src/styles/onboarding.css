@@ -339,8 +339,8 @@
 }
 
 /* ══════════════════════════
-   온보딩 3: 선 뻗기 + 노드 + 링 pulse + orbit
-   메인 8s 루프 / 링 1.5s / orbit 4s
+   온보딩 3: 한 번만 재생 후 유지
+   링 pulse만 infinite / 나머지 1 forwards
 ══════════════════════════ */
 
 /* 초기 상태 */
@@ -349,7 +349,6 @@
 .ob3-node-1,.ob3-node-2,.ob3-node-3,
 .ob3-node-1a,.ob3-node-1b,.ob3-node-2a,.ob3-node-3a,
 .ob3-node-1aa,.ob3-node-2aa { opacity:0; }
-/* 선: dashoffset으로 초기 숨김 */
 .ob3-line-1   { stroke-dasharray:67;  stroke-dashoffset:67;  }
 .ob3-line-2   { stroke-dasharray:60;  stroke-dashoffset:60;  }
 .ob3-line-3   { stroke-dasharray:63;  stroke-dashoffset:63;  }
@@ -360,62 +359,60 @@
 .ob3-line-1aa { stroke-dasharray:51;  stroke-dashoffset:51;  }
 .ob3-line-2aa { stroke-dasharray:60;  stroke-dashoffset:60;  }
 
-/* ── 링 pulse 1.5s ── */
+/* ── 링 pulse: infinite (scale 0→1, opacity 높여서 잘 보이게) ── */
 .ob-slide--active .ob3-ring-1 { animation: ob3-r1 1.5s ease-out infinite; }
 .ob-slide--active .ob3-ring-2 { animation: ob3-r2 1.5s ease-out infinite; }
-@keyframes ob3-r1 { 0%{ opacity:0.28; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
-@keyframes ob3-r2 { 0%{ opacity:0.14; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
+@keyframes ob3-r1 { 0%{ opacity:0.7; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
+@keyframes ob3-r2 { 0%{ opacity:0.5; transform:scale(0); } 100%{ opacity:0; transform:scale(1); } }
 
-/* ── 외곽 orbit 4s ── */
-.ob-slide--active .ob3-orbit-1 { animation: ob3-orb1 4s ease-in-out infinite; }
-.ob-slide--active .ob3-orbit-2 { animation: ob3-orb2 4s ease-in-out infinite 1s; }
-@keyframes ob3-orb1 { 0%,100%{ opacity:0; transform:scale(0.7); } 40%,70%{ opacity:0.1;  transform:scale(1); } }
-@keyframes ob3-orb2 { 0%,100%{ opacity:0; transform:scale(0.7); } 40%,70%{ opacity:0.07; transform:scale(1); } }
+/* ── orbit: 1회 재생 후 유지 ── */
+.ob-slide--active .ob3-orbit-1 { animation: ob3-orb1 4s ease-out 1 forwards; }
+.ob-slide--active .ob3-orbit-2 { animation: ob3-orb2 4s ease-out 1 forwards 1s; }
+@keyframes ob3-orb1 { 0%{ opacity:0; transform:scale(0.7); } 100%{ opacity:0.1;  transform:scale(1); } }
+@keyframes ob3-orb2 { 0%{ opacity:0; transform:scale(0.7); } 100%{ opacity:0.07; transform:scale(1); } }
 
-/* ── 메인 8s: 선 드로잉 + 노드 순차 등장 ──
-   0-25%:  Level1 선 3개 동시
-   25%:    Level1 노드 등장 + Level2 선 4개 동시
-   45%:    Level2 노드 등장 + Level3 선 2개 동시
-   60%:    Level3 노드 등장
-   60-90%: 유지
-   93-100%: 리셋 */
-.ob-slide--active .ob3-line-1   { animation: ob3-l1   8s linear infinite; }
-.ob-slide--active .ob3-line-2   { animation: ob3-l2   8s linear infinite; }
-.ob-slide--active .ob3-line-3   { animation: ob3-l3   8s linear infinite; }
-.ob-slide--active .ob3-line-1a  { animation: ob3-l1a  8s linear infinite; }
-.ob-slide--active .ob3-line-1b  { animation: ob3-l1b  8s linear infinite; }
-.ob-slide--active .ob3-line-2a  { animation: ob3-l2a  8s linear infinite; }
-.ob-slide--active .ob3-line-3a  { animation: ob3-l3a  8s linear infinite; }
-.ob-slide--active .ob3-line-1aa { animation: ob3-l1aa 8s linear infinite; }
-.ob-slide--active .ob3-line-2aa { animation: ob3-l2aa 8s linear infinite; }
-.ob-slide--active .ob3-node-1   { animation: ob3-n1   8s linear infinite; }
-.ob-slide--active .ob3-node-2   { animation: ob3-n2   8s linear infinite; }
-.ob-slide--active .ob3-node-3   { animation: ob3-n3   8s linear infinite; }
-.ob-slide--active .ob3-node-1a  { animation: ob3-n1a  8s linear infinite; }
-.ob-slide--active .ob3-node-1b  { animation: ob3-n1b  8s linear infinite; }
-.ob-slide--active .ob3-node-2a  { animation: ob3-n2a  8s linear infinite; }
-.ob-slide--active .ob3-node-3a  { animation: ob3-n3a  8s linear infinite; }
-.ob-slide--active .ob3-node-1aa { animation: ob3-n1aa 8s linear infinite; }
-.ob-slide--active .ob3-node-2aa { animation: ob3-n2aa 8s linear infinite; }
+/* ── 선: 1회 재생 후 유지 (delay로 레벨별 순서) ── */
+/* Level 1: 즉시 시작, 2s */
+.ob-slide--active .ob3-line-1   { animation: ob3-draw-67 2s linear 1 forwards; }
+.ob-slide--active .ob3-line-2   { animation: ob3-draw-60 2s linear 1 forwards; }
+.ob-slide--active .ob3-line-3   { animation: ob3-draw-63 2s linear 1 forwards; }
+/* Level 2: 2s 후 시작, 1.6s */
+.ob-slide--active .ob3-line-1a  { animation: ob3-draw-31 1.6s linear 1 forwards 2s; }
+.ob-slide--active .ob3-line-1b  { animation: ob3-draw-54 1.6s linear 1 forwards 2s; }
+.ob-slide--active .ob3-line-2a  { animation: ob3-draw-87 1.6s linear 1 forwards 2s; }
+.ob-slide--active .ob3-line-3a  { animation: ob3-draw-49 1.6s linear 1 forwards 2s; }
+/* Level 3: 3.6s 후 시작, 1.2s */
+.ob-slide--active .ob3-line-1aa { animation: ob3-draw-51 1.2s linear 1 forwards 3.6s; }
+.ob-slide--active .ob3-line-2aa { animation: ob3-draw-60 1.2s linear 1 forwards 3.6s; }
 
-/* 선 keyframes */
-@keyframes ob3-l1   { 0%,1%   { stroke-dashoffset:67; } 25%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:67; } }
-@keyframes ob3-l2   { 0%,1%   { stroke-dashoffset:60; } 25%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:60; } }
-@keyframes ob3-l3   { 0%,1%   { stroke-dashoffset:63; } 25%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:63; } }
-@keyframes ob3-l1a  { 0%,25%  { stroke-dashoffset:31; } 45%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:31; } }
-@keyframes ob3-l1b  { 0%,25%  { stroke-dashoffset:54; } 45%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:54; } }
-@keyframes ob3-l2a  { 0%,25%  { stroke-dashoffset:87; } 45%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:87; } }
-@keyframes ob3-l3a  { 0%,25%  { stroke-dashoffset:49; } 45%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:49; } }
-@keyframes ob3-l1aa { 0%,45%  { stroke-dashoffset:51; } 60%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:51; } }
-@keyframes ob3-l2aa { 0%,45%  { stroke-dashoffset:60; } 60%,91%{ stroke-dashoffset:0; } 95%,100%{ stroke-dashoffset:60; } }
+@keyframes ob3-draw-67 { 0%{stroke-dashoffset:67;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-60 { 0%{stroke-dashoffset:60;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-63 { 0%{stroke-dashoffset:63;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-31 { 0%{stroke-dashoffset:31;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-54 { 0%{stroke-dashoffset:54;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-87 { 0%{stroke-dashoffset:87;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-49 { 0%{stroke-dashoffset:49;} 100%{stroke-dashoffset:0;} }
+@keyframes ob3-draw-51 { 0%{stroke-dashoffset:51;} 100%{stroke-dashoffset:0;} }
 
-/* 노드 keyframes */
-@keyframes ob3-n1   { 0%,24%,93%,100%{ opacity:0; } 25%,92%{ opacity:0.82; } }
-@keyframes ob3-n2   { 0%,24%,93%,100%{ opacity:0; } 25%,92%{ opacity:0.78; } }
-@keyframes ob3-n3   { 0%,24%,93%,100%{ opacity:0; } 25%,92%{ opacity:0.60; } }
-@keyframes ob3-n1a  { 0%,44%,93%,100%{ opacity:0; } 45%,92%{ opacity:0.62; } }
-@keyframes ob3-n1b  { 0%,44%,93%,100%{ opacity:0; } 45%,92%{ opacity:0.55; } }
-@keyframes ob3-n2a  { 0%,44%,93%,100%{ opacity:0; } 45%,92%{ opacity:0.65; } }
-@keyframes ob3-n3a  { 0%,44%,93%,100%{ opacity:0; } 45%,92%{ opacity:0.52; } }
-@keyframes ob3-n1aa { 0%,59%,93%,100%{ opacity:0; } 60%,92%{ opacity:0.65; } }
-@keyframes ob3-n2aa { 0%,59%,93%,100%{ opacity:0; } 60%,92%{ opacity:0.68; } }
+/* ── 노드: 1회 재생 후 유지 ── */
+/* Level 1 노드: 2s 후 */
+.ob-slide--active .ob3-node-1   { animation: ob3-appear-82 0.2s linear 1 forwards 2s; }
+.ob-slide--active .ob3-node-2   { animation: ob3-appear-78 0.2s linear 1 forwards 2s; }
+.ob-slide--active .ob3-node-3   { animation: ob3-appear-60 0.2s linear 1 forwards 2s; }
+/* Level 2 노드: 3.6s 후 */
+.ob-slide--active .ob3-node-1a  { animation: ob3-appear-62 0.2s linear 1 forwards 3.6s; }
+.ob-slide--active .ob3-node-1b  { animation: ob3-appear-55 0.2s linear 1 forwards 3.6s; }
+.ob-slide--active .ob3-node-2a  { animation: ob3-appear-65 0.2s linear 1 forwards 3.6s; }
+.ob-slide--active .ob3-node-3a  { animation: ob3-appear-52 0.2s linear 1 forwards 3.6s; }
+/* Level 3 노드: 4.8s 후 */
+.ob-slide--active .ob3-node-1aa { animation: ob3-appear-65 0.2s linear 1 forwards 4.8s; }
+.ob-slide--active .ob3-node-2aa { animation: ob3-appear-68 0.2s linear 1 forwards 4.8s; }
+
+@keyframes ob3-appear-82 { 0%{opacity:0;} 100%{opacity:0.82;} }
+@keyframes ob3-appear-78 { 0%{opacity:0;} 100%{opacity:0.78;} }
+@keyframes ob3-appear-60 { 0%{opacity:0;} 100%{opacity:0.60;} }
+@keyframes ob3-appear-62 { 0%{opacity:0;} 100%{opacity:0.62;} }
+@keyframes ob3-appear-55 { 0%{opacity:0;} 100%{opacity:0.55;} }
+@keyframes ob3-appear-65 { 0%{opacity:0;} 100%{opacity:0.65;} }
+@keyframes ob3-appear-52 { 0%{opacity:0;} 100%{opacity:0.52;} }
+@keyframes ob3-appear-68 { 0%{opacity:0;} 100%{opacity:0.68;} }
