@@ -238,13 +238,25 @@
   transform-origin: center;
 }
 
-.ob1-ring-1 { animation: ob1-ring-wave 3.6s ease-in-out infinite 0s;   }
-.ob1-ring-2 { animation: ob1-ring-wave 3.6s ease-in-out infinite 0.55s; }
-.ob1-ring-3 { animation: ob1-ring-wave 3.6s ease-in-out infinite 1.1s;  }
+.ob1-ring-1 { animation: ob1-ring-wave-1 3.6s ease-in-out infinite 0s;   }
+.ob1-ring-2 { animation: ob1-ring-wave-2 3.6s ease-in-out infinite 0.55s; }
+.ob1-ring-3 { animation: ob1-ring-wave-3 3.6s ease-in-out infinite 1.1s;  }
 
-@keyframes ob1-ring-wave {
-  0%        { opacity: 0;    }
-  12%       { opacity: 0.85; }
-  42%       { opacity: 0;    }
-  100%      { opacity: 0;    }
+@keyframes ob1-ring-wave-1 {
+  0%   { opacity: 0;    }
+  12%  { opacity: 0.22; }
+  42%  { opacity: 0;    }
+  100% { opacity: 0;    }
+}
+@keyframes ob1-ring-wave-2 {
+  0%   { opacity: 0;    }
+  12%  { opacity: 0.16; }
+  42%  { opacity: 0;    }
+  100% { opacity: 0;    }
+}
+@keyframes ob1-ring-wave-3 {
+  0%   { opacity: 0;    }
+  12%  { opacity: 0.10; }
+  42%  { opacity: 0;    }
+  100% { opacity: 0;    }
 }
