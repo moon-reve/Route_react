@@ -72,25 +72,40 @@
   white-space: nowrap;
 }
 
-/* ── 트윙클 별 레이어 ── */
-.splash-star-layer {
+/* ── 트윙클 오버레이 SVG ── */
+.splash-star-overlay {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 1;
 }
 
-.splash-star {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  animation: splash-twinkle ease-in-out infinite;
-  will-change: opacity, transform, filter;
+/* 선별 — 베이스는 투명, 반짝일 때만 원본 위로 밝아짐 */
+.splash-star-stroke {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: splash-stroke-twinkle ease-in-out infinite;
 }
 
-@keyframes splash-twinkle {
-  0%   { opacity: 0.18; transform: translate(-50%, -50%) scale(0.8);  filter: none; }
-  40%  { opacity: 0.18; transform: translate(-50%, -50%) scale(0.85); filter: none; }
-  55%  { opacity: 1;    transform: translate(-50%, -50%) scale(1.2);  filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
-  70%  { opacity: 0.18; transform: translate(-50%, -50%) scale(0.8);  filter: none; }
-  100% { opacity: 0.18; transform: translate(-50%, -50%) scale(0.8);  filter: none; }
+/* fill별 — 평소엔 없다가 반짝 나타남 */
+.splash-star-fill {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: splash-fill-twinkle ease-in-out infinite;
+}
+
+@keyframes splash-stroke-twinkle {
+  0%, 35% { opacity: 0;   filter: none; }
+  52%      { opacity: 0.9; filter: drop-shadow(0 0 8px var(--glow)) drop-shadow(0 0 16px var(--glow)); }
+  68%, 100%{ opacity: 0;   filter: none; }
+}
+
+@keyframes splash-fill-twinkle {
+  0%, 38% { opacity: 0;    transform: scale(0.7); filter: none; }
+  55%      { opacity: 0.85; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
+  72%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
 }

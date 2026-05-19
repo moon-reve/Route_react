@@ -2,15 +2,20 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/splash.css'
 
-// SVG 파일(430x932)에서 추출한 정확한 별 위치·색상·크기
-const STARS = [
-  { cx: 204, cy: 190, size: 30, color: '#D4A853', glow: 'rgba(212,168,83,0.8)',   delay: 0,   dur: 7.0 },
-  { cx: 363, cy: 177, size: 22, color: '#D4A853', glow: 'rgba(212,168,83,0.75)',  delay: 2.2, dur: 6.5 },
-  { cx: 72,  cy: 262, size: 16, color: '#D4A853', glow: 'rgba(212,168,83,0.7)',   delay: 1.1, dur: 5.8 },
-  { cx: 390, cy: 528, size: 16, color: '#D4A853', glow: 'rgba(212,168,83,0.7)',   delay: 3.5, dur: 6.2 },
-  { cx: 148, cy: 823, size: 22, color: '#8FAF8A', glow: 'rgba(143,175,138,0.75)', delay: 1.8, dur: 7.5 },
-  { cx: 34,  cy: 342, size: 16, color: '#8FAF8A', glow: 'rgba(143,175,138,0.7)',  delay: 0.7, dur: 6.0 },
-  { cx: 292, cy: 850, size: 16, color: '#C4876A', glow: 'rgba(196,135,106,0.7)',  delay: 2.8, dur: 6.8 },
+// SVG 원본 별 경로 그대로 — 큰 중앙별(204,190) 제외
+const STROKE_STARS = [
+  { d: 'M360 174L363 166L366 174L374 177L366 180L363 188L360 180L352 177Z', stroke: '#D4A853', sw: '1',   glow: 'rgba(212,168,83,0.85)',   delay: 2.2, dur: 7.0 },
+  { d: 'M70 260L72 254L74 260L80 262L74 264L72 270L70 264L64 262Z',         stroke: '#D4A853', sw: '0.9', glow: 'rgba(212,168,83,0.8)',    delay: 1.1, dur: 5.8 },
+  { d: 'M388 526L390 520L392 526L398 528L392 530L390 536L388 530L382 528Z', stroke: '#D4A853', sw: '0.9', glow: 'rgba(212,168,83,0.8)',    delay: 3.5, dur: 6.2 },
+  { d: 'M145 820L148 812L151 820L159 823L151 826L148 834L145 826L137 823Z', stroke: '#8FAF8A', sw: '1',   glow: 'rgba(143,175,138,0.85)',  delay: 1.8, dur: 7.5 },
+  { d: 'M32 340L34 334L36 340L42 342L36 344L34 350L32 344L26 342Z',         stroke: '#8FAF8A', sw: '0.9', glow: 'rgba(143,175,138,0.8)',   delay: 0.7, dur: 6.0 },
+  { d: 'M290 848L292 842L294 848L300 850L294 852L292 858L290 852L284 850Z', stroke: '#C4876A', sw: '0.9', glow: 'rgba(196,135,106,0.8)',   delay: 2.8, dur: 6.8 },
+]
+
+// fill 별 — 북두칠성 노드(148,68) + 오른쪽아래 별자리 노드(376,686)
+const FILL_STARS = [
+  { d: 'M148 59L150.4 65.6L157 68L150.4 70.4L148 77L145.6 70.4L139 68L145.6 65.6Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.85)', delay: 0.5, dur: 6.5 },
+  { d: 'M376 677L378.4 683.6L385 686L378.4 688.4L376 695L373.6 688.4L367 686L373.6 683.6Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.85)', delay: 3.0, dur: 7.2 },
 ]
 
 export default function SplashPage() {
@@ -21,33 +26,34 @@ export default function SplashPage() {
     <div className="screen" onClick={() => navigate('/onboarding')} style={{ cursor: 'pointer' }}>
       <img className="bg" src="/images/splash_bg.svg" alt="" />
 
-      {/* 트윙클 별 레이어 */}
-      <div className="splash-star-layer">
-        {STARS.map((s, i) => (
-          <svg
+      {/* 트윙클 오버레이 — SVG 원본 경로 그대로 사용 */}
+      <svg
+        className="splash-star-overlay"
+        viewBox="0 0 430 932"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        {STROKE_STARS.map((s, i) => (
+          <path
             key={i}
-            className="splash-star"
-            viewBox="0 0 100 100"
-            width={s.size}
-            height={s.size}
-            style={{
-              top:  (s.cy / 932 * 100) + '%',
-              left: (s.cx / 430 * 100) + '%',
-              animationDelay:    s.delay + 's',
-              animationDuration: s.dur   + 's',
-              '--glow': s.glow,
-            }}
-          >
-            <path
-              d="M50 4 L56 44 L96 50 L56 56 L50 96 L44 56 L4 50 L44 44 Z"
-              fill="none"
-              stroke={s.color}
-              strokeWidth="5"
-              strokeLinejoin="round"
-            />
-          </svg>
+            d={s.d}
+            fill="none"
+            stroke={s.stroke}
+            strokeWidth={s.sw}
+            strokeLinejoin="round"
+            className="splash-star-stroke"
+            style={{ animationDelay: s.delay + 's', animationDuration: s.dur + 's', '--glow': s.glow }}
+          />
         ))}
-      </div>
+        {FILL_STARS.map((s, i) => (
+          <path
+            key={i}
+            d={s.d}
+            fill={s.fill}
+            className="splash-star-fill"
+            style={{ animationDelay: s.delay + 's', animationDuration: s.dur + 's', '--glow': s.glow }}
+          />
+        ))}
+      </svg>
 
       <div className="title-box">
         <div className="logo">
