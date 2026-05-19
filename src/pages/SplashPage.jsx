@@ -20,7 +20,7 @@ export default function SplashPage() {
       <div className="title-box">
         <div className="logo">
           <img src="/images/splash_logo.svg" alt="Route Logo" />
-          <span className="logo-text">Route</span>
+          <span className="splash-logo-text">Route</span>
         </div>
 
         <img className="divider" src="/images/splash_line.svg" alt="" />

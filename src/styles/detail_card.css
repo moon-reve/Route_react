@@ -49,7 +49,7 @@
    HERO SECTION
 ════════════════════════════ */
 /* column, gap 12px */
-.section-hero {
+.dc-section-hero {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -89,7 +89,7 @@
   line-height: 1.3;
 }
 
-.hero-subtitle {
+.dc-hero-subtitle {
   font-family: 'Pretendard', sans-serif;
   font-weight: 400;
   font-size: 14px;

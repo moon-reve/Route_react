@@ -58,14 +58,14 @@ export default function DetailCard1Page() {
           </header>
 
           {/* 히어로 섹션 */}
-          <section className="section-hero">
+          <section className="dc-section-hero">
             <div className="section-header-info">
               <div className="section-tag">
                 <span className="tag">#기초사전</span>
                 <span className="tag">#UI/UX</span>
               </div>
               <h1 className="hero-title">헷갈리는 UI/UX 필수 용어</h1>
-              <p className="hero-subtitle">와이어프레임과 프로토타입, 어떻게 다를까?</p>
+              <p className="dc-hero-subtitle">와이어프레임과 프로토타입, 어떻게 다를까?</p>
             </div>
             <div className="cover-image-box">
               <img src="/images/detail_cover_img.svg" alt="커버 이미지" className="cover-img" />

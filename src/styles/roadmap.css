@@ -68,7 +68,7 @@
 }
 
 /* ════════ STATUS BAR: column, padding 20px 0, gap 2px, h:78, bg rgba(255,255,255,0.4), radius 10px ════════ */
-.status-bar {
+.rm-status-bar {
   display: flex;
   flex-direction: column;
   gap: 2px;

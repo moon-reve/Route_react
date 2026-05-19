@@ -19,7 +19,7 @@ export default function LoginPage() {
         <section className="header-section">
           <div className="logo-row">
             <img src="/images/login_logo.svg" alt="Route 로고" className="logo-img" />
-            <span className="logo-text">Route</span>
+            <span className="login-logo-text">Route</span>
           </div>
           <h1 className="heading">새로운 커리어를<br />찾아보세요</h1>
           <p className="subtext">개인화된 성장 구조와 구조적 통찰력을 확인하세요.</p>
@@ -52,7 +52,7 @@ export default function LoginPage() {
       <div className={`modal${modalOpen ? ' active' : ''}`}>
         <div className="modal-handle"></div>
 
-        <h2 className="modal-title">다른 방법으로 로그인</h2>
+        <h2 className="login-modal-title">다른 방법으로 로그인</h2>
 
         <div className="modal-buttons">
           <button className="login-btn login-btn-line" onClick={() => navigate('/home')}>

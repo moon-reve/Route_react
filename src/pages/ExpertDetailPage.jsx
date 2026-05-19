@@ -33,7 +33,7 @@ export default function ExpertDetailPage() {
                 </div>
               </div>
 
-              <p className="profile-name">J.young</p>
+              <p className="ed-profile-name">J.young</p>
               <p className="profile-role">Senior Product Designer (10yr+)</p>
 
               <div className="profile-stats">

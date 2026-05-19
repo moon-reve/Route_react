@@ -119,7 +119,7 @@ export default function RoadmapPage() {
             </div>
 
             {/* 상태 바 */}
-            <div className="status-bar">
+            <div className="rm-status-bar">
               <div className="status-top">
                 <div className="status-pill">
                   <img src="/images/roadmap_dot.svg" alt="" className="pill-dot" />

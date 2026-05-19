@@ -82,7 +82,7 @@ export default function DetailMag1Page() {
                 </div>
                 <div className="text-box">
                   <h1 className="hero-title">실무에서 바로 쓰는 피그마<br />오토레이아웃 활용 팁 10가지</h1>
-                  <p className="hero-subtitle">디자인 효율을 극대화하고 협업을 매끄럽게 만드는 오토레이아웃의 핵심 기능과 실무 활용 사례를 정리했습니다.</p>
+                  <p className="dmag-hero-subtitle">디자인 효율을 극대화하고 협업을 매끄럽게 만드는 오토레이아웃의 핵심 기능과 실무 활용 사례를 정리했습니다.</p>
                 </div>
               </div>
               <div className="header-img-box">

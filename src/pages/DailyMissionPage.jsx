@@ -164,7 +164,7 @@ export default function DailyMissionPage() {
       {deleteTargetId && (
         <div className="modal-overlay is-open">
           <div className="modal-card">
-            <p className="modal-title">삭제하시겠습니까?</p>
+            <p className="dm-modal-title">삭제하시겠습니까?</p>
             <div className="modal-btns">
               <button className="modal-btn modal-btn--gray" onClick={closeDeleteModal}>취소</button>
               <button className="modal-btn modal-btn--charcoal" onClick={confirmDelete}>확인</button>

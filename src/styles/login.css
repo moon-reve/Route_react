@@ -39,7 +39,7 @@
   height: 40px;
 }
 
-.logo-text {
+.login-logo-text {
   font-family: Georgia, serif;
   font-weight: 700;
   font-size: 20px;
@@ -190,7 +190,7 @@
 }
 
 /* 모달 타이틀 */
-.modal-title {
+.login-modal-title {
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
   font-size: 20px;
