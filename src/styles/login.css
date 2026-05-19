@@ -275,12 +275,32 @@
 }
 
 
-/* ── 행성 고리 흔들 ── */
-.login-ring {
-  animation: login-ring-float 3s ease-in-out infinite;
+/* ── 행성 고리 tilt (좌우가 위아래로) ── */
+.login-ring-back,
+.login-ring-front {
+  transform-origin: 213.64px 524.22px;
+  animation: login-ring-tilt 4s ease-in-out infinite;
 }
 
-@keyframes login-ring-float {
-  0%, 100% { transform: translateY(0);   }
-  50%      { transform: translateY(-8px); }
+@keyframes login-ring-tilt {
+  0%, 100% { transform: rotate(-6deg); }
+  50%       { transform: rotate(6deg);  }
+}
+
+/* ── 왼쪽 동그라미 반시계 궤도 ── */
+.login-dot-orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: login-dot-orbit 8s linear infinite;
+}
+
+@keyframes login-dot-orbit {
+  0%   { transform: translate(0px,   0px);  opacity: 0.55; }
+  25%  { transform: translate(97px,  43px); opacity: 0.55; }
+  50%  { transform: translate(196px, -2px); opacity: 0.55; }
+  58%  { transform: translate(160px, 2px);  opacity: 0;    }
+  75%  { transform: translate(97px,  5px);  opacity: 0;    }
+  92%  { transform: translate(20px,  8px);  opacity: 0;    }
+  96%  { transform: translate(5px,   3px);  opacity: 0.55; }
+  100% { transform: translate(0px,   0px);  opacity: 0.55; }
 }
