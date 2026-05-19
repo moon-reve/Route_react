@@ -82,7 +82,7 @@ export default function OnboardingPage() {
           style={{ transform: `translateX(calc(-${idx} * 100% / 3))` }}
         >
           {SLIDES.map((s, i) => (
-            <div className="ob-slide" key={i}>
+            <div className={`ob-slide${i === idx ? ' ob-slide--active' : ''}`} key={i}>
               {/* 슬라이드 0: inline SVG로 원·별 직접 애니메이션 */}
               {i === 0 ? (
                 <svg className="ob-bg-svg" viewBox="0 0 430 932" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -191,10 +191,18 @@ export default function OnboardingPage() {
                     <path d="M310 160L348 138" stroke="#1A1C1E" strokeWidth="0.6"/><path d="M348 138L385 155" stroke="#1A1C1E" strokeWidth="0.6"/><path d="M385 155L412 132" stroke="#1A1C1E" strokeWidth="0.6"/>
                   </g>
                   {/* ── 애니메이션 요소 ── */}
-                  {/* 점선 경로: stroke-dashoffset 으로 드로잉 */}
+                  <defs>
+                    <clipPath id="ob2-line-clip">
+                      {/* x=75부터 오른쪽으로 확장 → 별 x좌표 도달 시 별 등장 */}
+                      <rect className="ob2-clip-rect" x="75" y="185" width="0" height="285"/>
+                    </clipPath>
+                  </defs>
+                  {/* 점선 경로: clipPath로 좌→우 reveal (원본 dasharray·opacity 유지) */}
                   <path className="ob2-line"
                     d="M82 455C115 435 155 425 175 400C195 375 195 350 225 335C255 320 290 318 308 295C326 272 322 245 348 198"
-                    stroke="#1A1C1E" strokeWidth="1.2" strokeLinecap="round" strokeDasharray="5 5"/>
+                    stroke="#1A1C1E" strokeWidth="1.2" strokeLinecap="round"
+                    strokeDasharray="5 5" opacity="0.22"
+                    clipPath="url(#ob2-line-clip)"/>
                   {/* 점 6개 순서대로 */}
                   <path className="ob2-dot-0" d="M82 460.5C85.0376 460.5 87.5 458.038 87.5 455C87.5 451.962 85.0376 449.5 82 449.5C78.9624 449.5 76.5 451.962 76.5 455C76.5 458.038 78.9624 460.5 82 460.5Z" fill="white" stroke="#999999" strokeWidth="1.2"/>
                   <path className="ob2-dot-1" d="M152 425.5C155.038 425.5 157.5 423.038 157.5 420C157.5 416.962 155.038 414.5 152 414.5C148.962 414.5 146.5 416.962 146.5 420C146.5 423.038 148.962 425.5 152 425.5Z" fill="#E8941A"/>

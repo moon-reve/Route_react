@@ -206,61 +206,62 @@
 
 /* ══════════════════════════
    온보딩 2: 선 드로잉 + 별 순차 등장
-   전체 10s 단일 루프
+   전체 10s 단일 루프 — ob-slide--active 클래스일 때만 실행
 ══════════════════════════ */
 
-/* 점선 드로잉 — dashoffset 으로 reveal */
-.ob2-line {
-  opacity: 0.22;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: ob2-line 10s ease-in-out infinite;
-}
-@keyframes ob2-line {
-  0%, 1%    { stroke-dashoffset: 600; }
-  65%, 98%  { stroke-dashoffset: 0;   }
-  99%, 100% { stroke-dashoffset: 600; }
-}
-
-/* 점 6개 — 선이 도착하는 순서대로 등장 */
-.ob2-dot-0,.ob2-dot-1,.ob2-dot-2,.ob2-dot-3,.ob2-dot-4,.ob2-dot-5 { opacity: 0; }
-
-.ob2-dot-0 { animation: ob2-d0 10s ease-in-out infinite; }
-.ob2-dot-1 { animation: ob2-d1 10s ease-in-out infinite; }
-.ob2-dot-2 { animation: ob2-d2 10s ease-in-out infinite; }
-.ob2-dot-3 { animation: ob2-d3 10s ease-in-out infinite; }
-.ob2-dot-4 { animation: ob2-d4 10s ease-in-out infinite; }
-.ob2-dot-5 { animation: ob2-d5 10s ease-in-out infinite; }
-
-@keyframes ob2-d0 { 0%,99%,100%{ opacity:0; }  1%,98%{ opacity:0.7;  } }
-@keyframes ob2-d1 { 0%,13%,99%,100%{ opacity:0; } 14%,98%{ opacity:0.75; } }
-@keyframes ob2-d2 { 0%,26%,99%,100%{ opacity:0; } 27%,98%{ opacity:0.75; } }
-@keyframes ob2-d3 { 0%,39%,99%,100%{ opacity:0; } 40%,98%{ opacity:0.75; } }
-@keyframes ob2-d4 { 0%,52%,99%,100%{ opacity:0; } 53%,98%{ opacity:0.75; } }
-@keyframes ob2-d5 { 0%,64%,99%,100%{ opacity:0; } 65%,98%{ opacity:0.9;  } }
-
-/* 블러 2개 — 마지막 별 도착 후 scale 0→1, opacity 0 (pulse) */
-.ob2-blur-in,
-.ob2-blur-out {
+/* 초기 상태 (항상) */
+.ob2-clip-rect { width: 0; }
+.ob2-dot-0,.ob2-dot-1,.ob2-dot-2,
+.ob2-dot-3,.ob2-dot-4,.ob2-dot-5 { opacity: 0; }
+.ob2-blur-in,.ob2-blur-out {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.ob2-blur-in  { animation: ob2-blur-in  10s ease-out infinite; }
-.ob2-blur-out { animation: ob2-blur-out 10s ease-out infinite; }
+/* 슬라이드 활성화 시 애니메이션 시작 */
+
+/* clipPath 확장: x=75 기준 width 0→280 (star 각 x좌표에 도달 = 별 등장) */
+.ob-slide--active .ob2-clip-rect { animation: ob2-clip 10s ease-in-out infinite; }
+@keyframes ob2-clip {
+  0%, 1%    { width: 0;   }
+  65%, 98%  { width: 280; }
+  99%, 100% { width: 0;   }
+}
+
+/* 별 6개 — clip이 해당 x에 닿는 순간과 동일 타이밍
+   star x: 82, 152, 199, 265, 320, 348  (clip_w = x-75)
+   clip_w: 7,  77,  124, 190, 245, 273
+   % = 1 + (clip_w/280)*64  */
+.ob-slide--active .ob2-dot-0 { animation: ob2-d0 10s ease-in-out infinite; }
+.ob-slide--active .ob2-dot-1 { animation: ob2-d1 10s ease-in-out infinite; }
+.ob-slide--active .ob2-dot-2 { animation: ob2-d2 10s ease-in-out infinite; }
+.ob-slide--active .ob2-dot-3 { animation: ob2-d3 10s ease-in-out infinite; }
+.ob-slide--active .ob2-dot-4 { animation: ob2-d4 10s ease-in-out infinite; }
+.ob-slide--active .ob2-dot-5 { animation: ob2-d5 10s ease-in-out infinite; }
+
+@keyframes ob2-d0 { 0%,99%,100%{ opacity:0; }  1%,98% { opacity:0.7;  } }  /* clip_w=7  → 1%  */
+@keyframes ob2-d1 { 0%,18%,99%,100%{ opacity:0; } 19%,98%{ opacity:0.75; } } /* clip_w=77 → 19% */
+@keyframes ob2-d2 { 0%,28%,99%,100%{ opacity:0; } 29%,98%{ opacity:0.75; } } /* clip_w=124→ 29% */
+@keyframes ob2-d3 { 0%,44%,99%,100%{ opacity:0; } 45%,98%{ opacity:0.75; } } /* clip_w=190→ 44% */
+@keyframes ob2-d4 { 0%,57%,99%,100%{ opacity:0; } 58%,98%{ opacity:0.75; } } /* clip_w=245→ 57% */
+@keyframes ob2-d5 { 0%,64%,99%,100%{ opacity:0; } 65%,98%{ opacity:0.9;  } } /* clip_w=273→ 65% */
+
+/* 블러 2개 — 마지막 별 도착 후 scale 0→1 pulse */
+.ob-slide--active .ob2-blur-in  { animation: ob2-blur-in  10s ease-out infinite; }
+.ob-slide--active .ob2-blur-out { animation: ob2-blur-out 10s ease-out infinite; }
 
 @keyframes ob2-blur-in {
-  0%, 64%   { opacity: 0;   transform: scale(0);   }
-  70%       { opacity: 0.3; transform: scale(0.5);  }
-  82%       { opacity: 0;   transform: scale(1);    }
-  99%, 100% { opacity: 0;   transform: scale(0);    }
+  0%, 64%   { opacity: 0;   transform: scale(0);  }
+  70%       { opacity: 0.3; transform: scale(0.5); }
+  82%       { opacity: 0;   transform: scale(1);   }
+  99%, 100% { opacity: 0;   transform: scale(0);   }
 }
 @keyframes ob2-blur-out {
-  0%, 68%   { opacity: 0;    transform: scale(0);   }
-  74%       { opacity: 0.15; transform: scale(0.5);  }
-  86%       { opacity: 0;    transform: scale(1);    }
-  99%, 100% { opacity: 0;    transform: scale(0);    }
+  0%, 68%   { opacity: 0;    transform: scale(0);  }
+  74%       { opacity: 0.15; transform: scale(0.5); }
+  86%       { opacity: 0;    transform: scale(1);   }
+  99%, 100% { opacity: 0;    transform: scale(0);   }
 }
 
 /* ══════════════════════════
@@ -281,9 +282,9 @@
 .ob1-ring-mid,
 .ob1-ring-outer { opacity: 0; }
 
-.ob1-ring-inner { animation: ob1-ring-kf-22 4s ease-in-out infinite; }
-.ob1-ring-mid   { animation: ob1-ring-kf-16 4s ease-in-out infinite; }
-.ob1-ring-outer { animation: ob1-ring-kf-10 4s ease-in-out infinite; }
+.ob-slide--active .ob1-ring-inner { animation: ob1-ring-kf-22 4s ease-in-out infinite; }
+.ob-slide--active .ob1-ring-mid   { animation: ob1-ring-kf-16 4s ease-in-out infinite; }
+.ob-slide--active .ob1-ring-outer { animation: ob1-ring-kf-10 4s ease-in-out infinite; }
 
 /* 안: 0% 시작, 20%에 도달, 99% 유지, 100% 스냅 */
 @keyframes ob1-ring-kf-22 {
@@ -309,8 +310,8 @@
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation: ob1-glow-pulse 4s ease-out infinite;
 }
+.ob-slide--active .ob1-glow-circle { animation: ob1-glow-pulse 4s ease-out infinite; }
 
 @keyframes ob1-glow-pulse {
   0%        { opacity: 0.5; transform: scale(0.05); }
@@ -319,10 +320,8 @@
 }
 
 /* 별 — 동일 4s 주기 */
-.ob1-star {
-  opacity: 0.75;
-  animation: ob1-star-bright 4s ease-in-out infinite;
-}
+.ob1-star { opacity: 0.75; }
+.ob-slide--active .ob1-star { animation: ob1-star-bright 4s ease-in-out infinite; }
 
 @keyframes ob1-star-bright {
   0%        { opacity: 0.75; }
