@@ -279,7 +279,7 @@
 .login-ring-back,
 .login-ring-front {
   transform-origin: 213.64px 524.22px;
-  animation: login-ring-tilt 9s ease-in-out infinite;
+  animation: login-ring-tilt 20s ease-in-out infinite;
 }
 
 @keyframes login-ring-tilt {
