@@ -212,8 +212,8 @@ export default function OnboardingPage() {
                   {/* 마지막 별: 블러 2개 + 메인 원 + 별 모양 */}
                   <path className="ob2-blur-out" d="M348 218C359.046 218 368 209.046 368 198C368 186.954 359.046 178 348 178C336.954 178 328 186.954 328 198C328 209.046 336.954 218 348 218Z" fill="#D4A853" stroke="#D4A853" strokeWidth="0.6"/>
                   <path className="ob2-blur-in"  d="M348 212C355.732 212 362 205.732 362 198C362 190.268 355.732 184 348 184C340.268 184 334 190.268 334 198C334 205.732 340.268 212 348 212Z" fill="#D4A853" stroke="#D4A853"/>
-                  <path className="ob2-dot-5"    d="M348 190.5C352.142 190.5 355.5 193.858 355.5 198C355.5 202.142 352.142 205.5 348 205.5C343.858 205.5 340.5 202.142 340.5 198C340.5 193.858 343.858 190.5 348 190.5Z" fill="#D4A853" stroke="#D4A853"/>
-                  <path className="ob2-dot-5"    d="M348 178L352 192L366 196L352 200L348 214L344 200L330 196L344 192L348 178Z" fill="#D4A853" stroke="#D4A853" strokeWidth="1.3" strokeLinejoin="round"/>
+                  <path className="ob2-dot-5"  d="M348 190.5C352.142 190.5 355.5 193.858 355.5 198C355.5 202.142 352.142 205.5 348 205.5C343.858 205.5 340.5 202.142 340.5 198C340.5 193.858 343.858 190.5 348 190.5Z" fill="#D4A853" stroke="#D4A853"/>
+                  <path className="ob2-dot-5s" d="M348 178L352 192L366 196L352 200L348 214L344 200L330 196L344 192L348 178Z" fill="#D4A853" stroke="#D4A853" strokeWidth="1.3" strokeLinejoin="round"/>
                 </svg>
               ) : (
                 <img className="ob-bg" src={s.bg} alt="" draggable={false} />
