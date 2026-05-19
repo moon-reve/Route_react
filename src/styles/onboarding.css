@@ -227,7 +227,7 @@
 /* 글로우 원 — SVG feGaussianBlur, iOS 호환 */
 .ob1-glow-circle {
   opacity: 0;
-  animation: ob1-glow-pulse 3.2s ease-in-out infinite;
+  animation: ob1-glow-pulse 3.6s ease-in-out infinite;
 }
 
 @keyframes ob1-glow-pulse {
@@ -238,7 +238,7 @@
 /* 별 — 글로우와 함께 밝아짐 */
 .ob1-star {
   opacity: 0.75;
-  animation: ob1-star-bright 3.2s ease-in-out infinite;
+  animation: ob1-star-bright 3.6s ease-in-out infinite;
 }
 
 @keyframes ob1-star-bright {
