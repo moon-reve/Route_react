@@ -2,8 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/splash.css'
 
-// SVG 원본 별 경로 그대로 — 큰 중앙별(204,190) 제외
+// SVG 원본 별 경로 그대로 — 큰 중앙별 포함
 const STROKE_STARS = [
+  { d: 'M200 186L204 175L208 186L219 190L208 194L204 205L200 194L189 190L200 186Z', stroke: '#D4A853', sw: '1.2', glow: 'rgba(212,168,83,0.9)', delay: 0.0, dur: 6.0 },
   { d: 'M360 174L363 166L366 174L374 177L366 180L363 188L360 180L352 177Z', stroke: '#D4A853', sw: '1',   glow: 'rgba(212,168,83,0.85)',   delay: 2.2, dur: 7.0 },
   { d: 'M70 260L72 254L74 260L80 262L74 264L72 270L70 264L64 262Z',         stroke: '#D4A853', sw: '0.9', glow: 'rgba(212,168,83,0.8)',    delay: 1.1, dur: 5.8 },
   { d: 'M388 526L390 520L392 526L398 528L392 530L390 536L388 530L382 528Z', stroke: '#D4A853', sw: '0.9', glow: 'rgba(212,168,83,0.8)',    delay: 3.5, dur: 6.2 },
