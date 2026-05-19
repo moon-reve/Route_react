@@ -1,3 +1,11 @@
+/* 홈 전체 배경에 그리드 5% */
+.screen:has(.home-main) {
+  background-image:
+    linear-gradient(rgba(26,28,30,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,28,30,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
 /* ── Main: padding 40px 24px 125px ── */
 .home-main {
   display: flex;

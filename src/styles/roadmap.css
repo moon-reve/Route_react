@@ -1,6 +1,5 @@
 .screen:has(.roadmap-main) {
-  background: url('/images/roadmap_bg.svg') top center / cover no-repeat,
-              linear-gradient(180deg, var(--bg-gray-50) 0%, #F5F3EF 100%);
+  background: url('/images/roadmap_bg.svg') top center / cover no-repeat, #FFFFFF;
 }
 
 
