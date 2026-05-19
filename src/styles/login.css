@@ -275,6 +275,21 @@
 }
 
 
+/* ── 별똥별 ── */
+/* 공통 keyframe: translate(90,50)으로 이동하며 깜빡 */
+@keyframes login-shoot {
+  0%        { opacity: 0;    transform: translate(0,   0);   }
+  2%        { opacity: 0.75; transform: translate(15px, 8px); }
+  8%        { opacity: 0;    transform: translate(90px, 50px); }
+  9%, 100%  { opacity: 0;    transform: translate(0,   0);   }
+}
+
+.ls-1 { animation: login-shoot 12s linear infinite 0s;   }
+.ls-2 { animation: login-shoot 17s linear infinite 3.2s; }
+.ls-3 { animation: login-shoot 14s linear infinite 7.8s; }
+.ls-4 { animation: login-shoot 11s linear infinite 5.1s; }
+.ls-5 { animation: login-shoot 19s linear infinite 9.4s; }
+
 /* ── 행성 고리 tilt (좌우가 위아래로) ── */
 .login-ring-back,
 .login-ring-front {
