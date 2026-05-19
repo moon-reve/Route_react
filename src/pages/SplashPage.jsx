@@ -12,35 +12,34 @@ const STROKE_STARS = [
   { d: 'M290 848L292 842L294 848L300 850L294 852L292 858L290 852L284 850Z', stroke: '#C4876A', sw: '0.9', glow: 'rgba(196,135,106,0.8)',   delay: 2.8, dur: 6.8 },
 ]
 
-// fill 별 — 별자리 노드에 크기 다양하게 (r=4~6)
-// 경로: M cx cy-r L cx+w cy-w L cx+r cy L cx+w cy+w L cx cy+r L cx-w cy+w L cx-r cy L cx-w cy-w Z (w=r*0.27)
+// fill 별 — v: keyframe 변형(a~d), flash 위치가 달라서 산발적으로 반짝임
 const FILL_STARS = [
-  { d: 'M148 62L149.6 66.4L154 68L149.6 69.6L148 74L146.4 69.6L142 68L146.4 66.4Z',   fill: '#D4A853', glow: 'rgba(212,168,83,0.9)',  delay: 0.5, dur: 6.5 }, // 북두칠성 r=6
-  { d: 'M370 51L371.4 54.6L375 56L371.4 57.4L370 61L368.6 57.4L365 56L368.6 54.6Z',   fill: '#D4A853', glow: 'rgba(212,168,83,0.9)',  delay: 3.8, dur: 7.0 }, // 우상단 r=5
-  { d: 'M272 114L273.1 116.9L276 118L273.1 119.1L272 122L270.9 119.1L268 118L270.9 116.9Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.85)', delay: 1.5, dur: 5.8 }, // r=4
-  { d: 'M92 99L93.4 102.6L97 104L93.4 105.4L92 109L90.6 105.4L87 104L90.6 102.6Z',    fill: '#D4A853', glow: 'rgba(212,168,83,0.85)', delay: 2.8, dur: 6.8 }, // r=5
-  { d: 'M412 353L413.4 356.6L417 358L413.4 359.4L412 363L410.6 359.4L407 358L410.6 356.6Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.9)', delay: 0.9, dur: 7.5 }, // 우중단 r=5
-  { d: 'M52 486L53.1 488.9L56 490L53.1 491.1L52 494L50.9 491.1L48 490L50.9 488.9Z',   fill: '#8FAF8A', glow: 'rgba(143,175,138,0.9)', delay: 4.2, dur: 6.0 }, // 좌중단 r=4
-  { d: 'M82 623L83.4 626.6L87 628L83.4 629.4L82 633L80.6 629.4L77 628L80.6 626.6Z',   fill: '#8FAF8A', glow: 'rgba(143,175,138,0.9)', delay: 1.2, dur: 5.5 }, // r=5
-  { d: 'M376 681L377.4 684.6L381 686L377.4 687.4L376 691L374.6 687.4L371 686L374.6 684.6Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.9)', delay: 3.0, dur: 7.2 }, // 우하단 r=5
-  { d: 'M148 693L149.4 696.6L153 698L149.4 699.4L148 703L146.6 699.4L143 698L146.6 696.6Z', fill: '#C4876A', glow: 'rgba(196,135,106,0.9)', delay: 2.2, dur: 6.3 }, // r=5
-  { d: 'M212 768L213.1 770.9L216 772L213.1 773.1L212 776L210.9 773.1L208 772L210.9 770.9Z', fill: '#8FAF8A', glow: 'rgba(143,175,138,0.85)', delay: 5.0, dur: 6.8 }, // r=4
+  { d: 'M148 62L149.6 66.4L154 68L149.6 69.6L148 74L146.4 69.6L142 68L146.4 66.4Z',        fill: '#D4A853', glow: 'rgba(212,168,83,0.9)',   v:'a', delay: 0.5, dur: 5.2  },
+  { d: 'M370 51L371.4 54.6L375 56L371.4 57.4L370 61L368.6 57.4L365 56L368.6 54.6Z',        fill: '#D4A853', glow: 'rgba(212,168,83,0.9)',   v:'c', delay: 1.1, dur: 8.7  },
+  { d: 'M272 114L273.1 116.9L276 118L273.1 119.1L272 122L270.9 119.1L268 118L270.9 116.9Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.85)',  v:'b', delay: 3.2, dur: 6.1  },
+  { d: 'M92 99L93.4 102.6L97 104L93.4 105.4L92 109L90.6 105.4L87 104L90.6 102.6Z',         fill: '#D4A853', glow: 'rgba(212,168,83,0.85)',  v:'d', delay: 0.8, dur: 11.3 },
+  { d: 'M412 353L413.4 356.6L417 358L413.4 359.4L412 363L410.6 359.4L407 358L410.6 356.6Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.9)',   v:'a', delay: 4.5, dur: 7.4  },
+  { d: 'M52 486L53.1 488.9L56 490L53.1 491.1L52 494L50.9 491.1L48 490L50.9 488.9Z',        fill: '#8FAF8A', glow: 'rgba(143,175,138,0.9)',  v:'c', delay: 2.1, dur: 9.6  },
+  { d: 'M82 623L83.4 626.6L87 628L83.4 629.4L82 633L80.6 629.4L77 628L80.6 626.6Z',        fill: '#8FAF8A', glow: 'rgba(143,175,138,0.9)',  v:'b', delay: 5.5, dur: 5.8  },
+  { d: 'M376 681L377.4 684.6L381 686L377.4 687.4L376 691L374.6 687.4L371 686L374.6 684.6Z', fill: '#D4A853', glow: 'rgba(212,168,83,0.9)',   v:'d', delay: 1.7, dur: 8.2  },
+  { d: 'M148 693L149.4 696.6L153 698L149.4 699.4L148 703L146.6 699.4L143 698L146.6 696.6Z', fill: '#C4876A', glow: 'rgba(196,135,106,0.9)',  v:'a', delay: 3.8, dur: 6.9  },
+  { d: 'M212 768L213.1 770.9L216 772L213.1 773.1L212 776L210.9 773.1L208 772L210.9 770.9Z', fill: '#8FAF8A', glow: 'rgba(143,175,138,0.85)', v:'c', delay: 6.3, dur: 10.1 },
 ]
 
-// 점별 — SVG 색깔 점들, 원본 opacity~1 왔다갔다 (3~5초)
+// 점별 — 원본 opacity~1, 빠르고 산발적 (v로 flash 위치 다르게)
 const DOT_STARS = [
-  { cx: 248, cy: 218, r: 2.1, color: '#D4A853', base: 0.42, delay: 1.2, dur: 3.5 },
-  { cx: 356, cy: 296, r: 2.1, color: '#D4A853', base: 0.40, delay: 0.4, dur: 4.0 },
-  { cx: 308, cy: 252, r: 1.7, color: '#D4A853', base: 0.38, delay: 2.5, dur: 3.8 },
-  { cx: 294, cy: 558, r: 1.7, color: '#D4A853', base: 0.35, delay: 0.9, dur: 4.2 },
-  { cx: 332, cy: 584, r: 2.1, color: '#D4A853', base: 0.35, delay: 3.1, dur: 3.5 },
-  { cx:  42, cy: 272, r: 1.7, color: '#D4A853', base: 0.30, delay: 1.8, dur: 4.5 },
-  { cx: 136, cy: 196, r: 2.1, color: '#8FAF8A', base: 0.40, delay: 0.6, dur: 3.8 },
-  { cx: 380, cy: 200, r: 1.7, color: '#8FAF8A', base: 0.38, delay: 2.0, dur: 4.0 },
-  { cx: 160, cy: 708, r: 2.1, color: '#8FAF8A', base: 0.35, delay: 1.5, dur: 3.5 },
-  { cx:  52, cy: 620, r: 2.1, color: '#C4876A', base: 0.38, delay: 0.3, dur: 4.2 },
-  { cx: 368, cy: 808, r: 2.1, color: '#C4876A', base: 0.30, delay: 2.7, dur: 3.8 },
-  { cx: 178, cy: 408, r: 1.7, color: '#C4876A', base: 0.30, delay: 1.0, dur: 4.5 },
+  { cx: 248, cy: 218, r: 2.1, color: '#D4A853', base: 0.42, v:'b', delay: 1.2, dur: 3.7 },
+  { cx: 356, cy: 296, r: 2.1, color: '#D4A853', base: 0.40, v:'a', delay: 0.4, dur: 4.9 },
+  { cx: 308, cy: 252, r: 1.7, color: '#D4A853', base: 0.38, v:'d', delay: 2.5, dur: 3.3 },
+  { cx: 294, cy: 558, r: 1.7, color: '#D4A853', base: 0.35, v:'c', delay: 0.9, dur: 5.1 },
+  { cx: 332, cy: 584, r: 2.1, color: '#D4A853', base: 0.35, v:'a', delay: 3.1, dur: 4.3 },
+  { cx:  42, cy: 272, r: 1.7, color: '#D4A853', base: 0.30, v:'b', delay: 1.8, dur: 3.8 },
+  { cx: 136, cy: 196, r: 2.1, color: '#8FAF8A', base: 0.40, v:'c', delay: 0.6, dur: 4.6 },
+  { cx: 380, cy: 200, r: 1.7, color: '#8FAF8A', base: 0.38, v:'d', delay: 2.0, dur: 3.5 },
+  { cx: 160, cy: 708, r: 2.1, color: '#8FAF8A', base: 0.35, v:'a', delay: 1.5, dur: 4.8 },
+  { cx:  52, cy: 620, r: 2.1, color: '#C4876A', base: 0.38, v:'b', delay: 0.3, dur: 3.9 },
+  { cx: 368, cy: 808, r: 2.1, color: '#C4876A', base: 0.30, v:'d', delay: 2.7, dur: 4.4 },
+  { cx: 178, cy: 408, r: 1.7, color: '#C4876A', base: 0.30, v:'c', delay: 1.0, dur: 5.2 },
 ]
 
 export default function SplashPage() {
@@ -74,7 +73,7 @@ export default function SplashPage() {
             key={i}
             d={s.d}
             fill={s.fill}
-            className="splash-star-fill"
+            className={`splash-star-fill splash-fill-${s.v}`}
             style={{ animationDelay: s.delay + 's', animationDuration: s.dur + 's', '--glow': s.glow }}
           />
         ))}
@@ -83,7 +82,7 @@ export default function SplashPage() {
             key={i}
             cx={s.cx} cy={s.cy} r={s.r}
             fill={s.color}
-            className="splash-dot"
+            className={`splash-dot splash-dot-${s.v}`}
             style={{ '--base': s.base, animationDelay: s.delay + 's', animationDuration: s.dur + 's' }}
           />
         ))}

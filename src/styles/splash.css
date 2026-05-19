@@ -104,19 +104,44 @@
   68%, 100%{ opacity: 0;   filter: none; }
 }
 
-@keyframes splash-fill-twinkle {
-  0%, 38% { opacity: 0;    transform: scale(0.7); filter: none; }
-  55%      { opacity: 0.85; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
-  72%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
+/* fill별 — 4가지 변형, flash 위치 다름 → 진짜 산발적 */
+.splash-star-fill { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+.splash-fill-a { animation: sf-a ease-in-out infinite; }
+.splash-fill-b { animation: sf-b ease-in-out infinite; }
+.splash-fill-c { animation: sf-c ease-in-out infinite; }
+.splash-fill-d { animation: sf-d ease-in-out infinite; }
+
+@keyframes sf-a {
+  0%, 10%  { opacity: 0;    transform: scale(0.7); filter: none; }
+  18%      { opacity: 0.88; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
+  28%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
+}
+@keyframes sf-b {
+  0%, 55%  { opacity: 0;    transform: scale(0.7); filter: none; }
+  65%      { opacity: 0.88; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
+  76%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
+}
+@keyframes sf-c {
+  0%, 32%  { opacity: 0;    transform: scale(0.7); filter: none; }
+  42%      { opacity: 0.88; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
+  53%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
+}
+@keyframes sf-d {
+  0%, 78%  { opacity: 0;    transform: scale(0.7); filter: none; }
+  87%      { opacity: 0.88; transform: scale(1.15); filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 20px var(--glow)); }
+  96%, 100%{ opacity: 0;    transform: scale(0.7); filter: none; }
 }
 
-/* 점별 — 원본 opacity ↔ 1.0 */
-.splash-dot {
-  opacity: var(--base);
-  animation: splash-dot-twinkle ease-in-out infinite;
-}
+/* 점별 — 4가지 변형, 원본 opacity ↔ 1.0 */
+.splash-dot { opacity: var(--base); transform-box: fill-box; transform-origin: center; }
 
-@keyframes splash-dot-twinkle {
-  0%, 100% { opacity: var(--base); }
-  50%       { opacity: 1; }
-}
+.splash-dot-a { animation: sd-a ease-in-out infinite; }
+.splash-dot-b { animation: sd-b ease-in-out infinite; }
+.splash-dot-c { animation: sd-c ease-in-out infinite; }
+.splash-dot-d { animation: sd-d ease-in-out infinite; }
+
+@keyframes sd-a { 0%,15%,100%{ opacity:var(--base); } 8%{ opacity:1; } }
+@keyframes sd-b { 0%,60%,100%{ opacity:var(--base); } 72%{ opacity:1; } }
+@keyframes sd-c { 0%,38%,100%{ opacity:var(--base); } 48%{ opacity:1; } }
+@keyframes sd-d { 0%,80%,100%{ opacity:var(--base); } 90%{ opacity:1; } }
