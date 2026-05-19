@@ -72,6 +72,78 @@
   white-space: nowrap;
 }
 
+/* ── 별똥별 ── */
+.splash-stars-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.splash-stars-wrap span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: splash-shoot 10s linear infinite;
+  animation-fill-mode: backwards;
+}
+
+.splash-stars-wrap span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+@keyframes splash-shoot {
+  0%          { transform: rotate(315deg) translateX(0);      opacity: 0; }
+  3%          { opacity: 0.75; }
+  18%         { transform: rotate(315deg) translateX(-500px); opacity: 0; }
+  18.1%, 100% { transform: rotate(315deg) translateX(-500px); opacity: 0; }
+}
+
+.splash-stars-wrap span:nth-child(1) {
+  color: #E8941A; background: #E8941A;
+  box-shadow: 0 0 0 3px rgba(232,148,26,.1), 0 0 0 6px rgba(232,148,26,.1), 0 0 15px rgba(232,148,26,.2);
+  top: 0; right: 0; left: initial;
+  animation-delay: 0s; animation-duration: 8s;
+}
+.splash-stars-wrap span:nth-child(2) {
+  color: #8FAF8A; background: #8FAF8A;
+  box-shadow: 0 0 0 3px rgba(143,175,138,.1), 0 0 0 6px rgba(143,175,138,.1), 0 0 15px rgba(143,175,138,.2);
+  top: 80px; right: 0; left: initial;
+  animation-delay: 3s; animation-duration: 12s;
+}
+.splash-stars-wrap span:nth-child(3) {
+  color: #C4876A; background: #C4876A;
+  box-shadow: 0 0 0 3px rgba(196,135,106,.1), 0 0 0 6px rgba(196,135,106,.1), 0 0 15px rgba(196,135,106,.2);
+  top: 40px; right: 80px; left: initial;
+  animation-delay: 6s; animation-duration: 10s;
+}
+.splash-stars-wrap span:nth-child(4) {
+  color: #D4A853; background: #D4A853;
+  box-shadow: 0 0 0 3px rgba(212,168,83,.1), 0 0 0 6px rgba(212,168,83,.1), 0 0 15px rgba(212,168,83,.2);
+  top: 0; right: 180px; left: initial;
+  animation-delay: 9s; animation-duration: 14s;
+}
+.splash-stars-wrap span:nth-child(5) {
+  color: #E8941A; background: #E8941A;
+  box-shadow: 0 0 0 3px rgba(232,148,26,.1), 0 0 0 6px rgba(232,148,26,.1), 0 0 15px rgba(232,148,26,.2);
+  top: 130px; right: 0; left: initial;
+  animation-delay: 1.5s; animation-duration: 9s;
+}
+.splash-stars-wrap span:nth-child(6) {
+  color: #8FAF8A; background: #8FAF8A;
+  box-shadow: 0 0 0 3px rgba(143,175,138,.1), 0 0 0 6px rgba(143,175,138,.1), 0 0 15px rgba(143,175,138,.2);
+  top: 0; right: 280px; left: initial;
+  animation-delay: 11s; animation-duration: 11s;
+}
+
 /* ── 트윙클 오버레이 SVG ── */
 .splash-star-overlay {
   position: absolute;

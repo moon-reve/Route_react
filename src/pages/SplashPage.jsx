@@ -41,6 +41,16 @@ export default function SplashPage() {
         ))}
       </svg>
 
+      {/* 별똥별 */}
+      <div className="splash-stars-wrap">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <div className="title-box">
         <div className="logo">
           <img src="/images/splash_logo.svg" alt="Route Logo" />
