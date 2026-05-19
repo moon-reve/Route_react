@@ -125,6 +125,14 @@ export default function OnboardingPage() {
                     <path d="M398 201.5C398.828 201.5 399.5 200.828 399.5 200C399.5 199.172 398.828 198.5 398 198.5C397.172 198.5 396.5 199.172 396.5 200C396.5 200.828 397.172 201.5 398 201.5Z" fill="#1A1C1E"/>
                     <path d="M280 210L318 188" stroke="#1A1C1E" strokeWidth="0.7"/><path d="M318 188L348 205" stroke="#1A1C1E" strokeWidth="0.7"/><path d="M348 205L375 182" stroke="#1A1C1E" strokeWidth="0.7"/><path d="M375 182L398 200" stroke="#1A1C1E" strokeWidth="0.7"/>
                   </g>
+                  {/* SVG 네이티브 블러 필터 — iOS 호환 */}
+                  <defs>
+                    <filter id="ob1-blur" x="-80%" y="-80%" width="260%" height="260%">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="12"/>
+                    </filter>
+                  </defs>
+                  {/* 글로우 원 — 블러 필터 + opacity 애니메이션 */}
+                  <circle cx="215" cy="317" r="35" fill="#D4A853" filter="url(#ob1-blur)" className="ob1-glow-circle"/>
                   {/* 원 3개 — 직접 애니메이션 */}
                   <path className="ob1-ring-outer" d="M215 405C263.601 405 303 365.601 303 317C303 268.399 263.601 229 215 229C166.399 229 127 268.399 127 317C127 365.601 166.399 405 215 405Z" stroke="#D4A853" strokeWidth="0.6"/>
                   <path className="ob1-ring-mid"   d="M215 379C249.242 379 277 351.242 277 317C277 282.758 249.242 255 215 255C180.758 255 153 282.758 153 317C153 351.242 180.758 379 215 379Z" stroke="#D4A853" strokeWidth="0.8"/>

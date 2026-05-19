@@ -224,15 +224,24 @@
 @keyframes ob1-wave-16 { 0%,42%,100%{ opacity:0; } 12%{ opacity:0.16; } }
 @keyframes ob1-wave-10 { 0%,42%,100%{ opacity:0; } 12%{ opacity:0.10; } }
 
-/* 별 글로우 */
-.ob1-star {
-  opacity: 0.75;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: ob1-star-glow 3.2s ease-in-out infinite;
+/* 글로우 원 — SVG feGaussianBlur, iOS 호환 */
+.ob1-glow-circle {
+  opacity: 0;
+  animation: ob1-glow-pulse 3.2s ease-in-out infinite;
 }
 
-@keyframes ob1-star-glow {
-  0%, 60%, 100% { opacity: 0.75; filter: none; }
-  20% { opacity: 1; filter: drop-shadow(0 0 10px rgba(212,168,83,0.6)) drop-shadow(0 0 22px rgba(212,168,83,0.35)); }
+@keyframes ob1-glow-pulse {
+  0%, 55%, 100% { opacity: 0; }
+  20%           { opacity: 0.4; }
+}
+
+/* 별 — 글로우와 함께 밝아짐 */
+.ob1-star {
+  opacity: 0.75;
+  animation: ob1-star-bright 3.2s ease-in-out infinite;
+}
+
+@keyframes ob1-star-bright {
+  0%, 55%, 100% { opacity: 0.75; }
+  20%           { opacity: 1; }
 }
