@@ -216,36 +216,55 @@
 }
 
 /* 원 3개 — 직접 opacity 애니메이션 */
+/* 전체 4s 동일 주기, delay 없음 — 스태거를 keyframe % 안에 내장 */
+/* 0.55s stagger → 0.55/4 = 13.75% ≈ 14% */
 .ob1-ring-inner,
 .ob1-ring-mid,
 .ob1-ring-outer { opacity: 0; }
 
-.ob1-ring-inner { animation: ob1-wave-22 3.6s ease-in-out infinite 0s;    }
-.ob1-ring-mid   { animation: ob1-wave-16 3.6s ease-in-out infinite 0.55s; }
-.ob1-ring-outer { animation: ob1-wave-10 3.6s ease-in-out infinite 1.1s;  }
+.ob1-ring-inner { animation: ob1-ring-kf-22 4s ease-in-out infinite; }
+.ob1-ring-mid   { animation: ob1-ring-kf-16 4s ease-in-out infinite; }
+.ob1-ring-outer { animation: ob1-ring-kf-10 4s ease-in-out infinite; }
 
-@keyframes ob1-wave-22 { 0%{ opacity:0; } 100%{ opacity:0.22; } }
-@keyframes ob1-wave-16 { 0%{ opacity:0; } 100%{ opacity:0.16; } }
-@keyframes ob1-wave-10 { 0%{ opacity:0; } 100%{ opacity:0.10; } }
+/* 안: 0% 시작, 20%에 도달, 99% 유지, 100% 스냅 */
+@keyframes ob1-ring-kf-22 {
+  0%       { opacity: 0;    }
+  20%, 99% { opacity: 0.22; }
+  100%     { opacity: 0;    }
+}
+/* 중: 14% 시작, 34%에 도달 */
+@keyframes ob1-ring-kf-16 {
+  0%, 14%  { opacity: 0;    }
+  34%, 99% { opacity: 0.16; }
+  100%     { opacity: 0;    }
+}
+/* 바깥: 28% 시작, 48%에 도달 */
+@keyframes ob1-ring-kf-10 {
+  0%, 28%  { opacity: 0;    }
+  48%, 99% { opacity: 0.10; }
+  100%     { opacity: 0;    }
+}
 
-/* 글로우 원 — SVG feGaussianBlur, iOS 호환 */
+/* 글로우 — 동일 4s 주기 */
 .ob1-glow-circle {
   opacity: 0;
-  animation: ob1-glow-pulse 3.6s ease-in-out infinite;
+  animation: ob1-glow-pulse 4s ease-in-out infinite;
 }
 
 @keyframes ob1-glow-pulse {
-  0%, 55%, 100% { opacity: 0; }
-  20%           { opacity: 0.4; }
+  0%        { opacity: 0;   }
+  12%       { opacity: 0.4; }
+  50%, 100% { opacity: 0;   }
 }
 
-/* 별 — 글로우와 함께 밝아짐 */
+/* 별 — 동일 4s 주기 */
 .ob1-star {
   opacity: 0.75;
-  animation: ob1-star-bright 3.6s ease-in-out infinite;
+  animation: ob1-star-bright 4s ease-in-out infinite;
 }
 
 @keyframes ob1-star-bright {
-  0%, 55%, 100% { opacity: 0.75; }
-  20%           { opacity: 1; }
+  0%        { opacity: 0.75; }
+  12%       { opacity: 1;    }
+  50%, 100% { opacity: 0.75; }
 }
