@@ -81,13 +81,6 @@ export default function LoginPage() {
             d="M116.085 504.134C118.065 504.134 119.671 502.528 119.671 500.547C119.671 498.567 118.065 496.961 116.085 496.961C114.104 496.961 112.498 498.567 112.498 500.547C112.498 502.528 114.104 504.134 116.085 504.134Z"
             fill="white" stroke="#1A1C1E" strokeWidth="0.860779"/>
 
-          {/* ⑦ 별똥별 — 색상 믹스, 각각 다른 주기/딜레이 */}
-          <g className="ls-1"><line x1="50"  y1="150" x2="70"  y2="161" stroke="#E8941A" strokeWidth="1"   strokeLinecap="round"/></g>
-          <g className="ls-2"><line x1="220" y1="80"  x2="240" y2="91"  stroke="#C4876A" strokeWidth="0.9" strokeLinecap="round"/></g>
-          <g className="ls-3"><line x1="370" y1="140" x2="390" y2="151" stroke="#8FAF8A" strokeWidth="0.9" strokeLinecap="round"/></g>
-          <g className="ls-4"><line x1="80"  y1="380" x2="100" y2="391" stroke="#D4A853" strokeWidth="1"   strokeLinecap="round"/></g>
-          <g className="ls-5"><line x1="300" y1="240" x2="320" y2="251" stroke="#C4876A" strokeWidth="0.8" strokeLinecap="round"/></g>
-
           {/* ⑥ 나머지 장식 — 고정 */}
           <path opacity="0.45" d="M286.089 483.691C286.683 483.691 287.165 483.209 287.165 482.615C287.165 482.02 286.683 481.539 286.089 481.539C285.494 481.539 285.013 482.02 285.013 482.615C285.013 483.209 285.494 483.691 286.089 483.691Z" fill="#D4A853"/>
           <path opacity="0.4"  d="M142.625 479.171C143.101 479.171 143.486 478.786 143.486 478.311C143.486 477.835 143.101 477.45 142.625 477.45C142.15 477.45 141.765 477.835 141.765 478.311C141.765 478.786 142.15 479.171 142.625 479.171Z" fill="#8FAF8A"/>
@@ -163,6 +156,15 @@ export default function LoginPage() {
         <div className="guest-section">
           <button className="guest-btn" onClick={() => navigate('/home')}>비회원으로 둘러보기</button>
         </div>
+      </div>
+      {/* 별똥별 */}
+      <div className="login-stars-wrap">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   )

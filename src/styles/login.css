@@ -276,19 +276,76 @@
 
 
 /* ── 별똥별 ── */
-/* 공통 keyframe: translate(90,50)으로 이동하며 깜빡 */
-@keyframes login-shoot {
-  0%        { opacity: 0;    transform: translate(0,   0);   }
-  2%        { opacity: 0.75; transform: translate(15px, 8px); }
-  8%        { opacity: 0;    transform: translate(90px, 50px); }
-  9%, 100%  { opacity: 0;    transform: translate(0,   0);   }
+.login-stars-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.ls-1 { animation: login-shoot 12s linear infinite 0s;   }
-.ls-2 { animation: login-shoot 17s linear infinite 3.2s; }
-.ls-3 { animation: login-shoot 14s linear infinite 7.8s; }
-.ls-4 { animation: login-shoot 11s linear infinite 5.1s; }
-.ls-5 { animation: login-shoot 19s linear infinite 9.4s; }
+.login-stars-wrap span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  animation: login-shoot 10s linear infinite;
+}
+
+.login-stars-wrap span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+/* 18% 이후 opacity 0으로 대기 → 자주 안 쏟아지게 */
+@keyframes login-shoot {
+  0%          { transform: rotate(315deg) translateX(0);      opacity: 0; }
+  3%          { opacity: 1; }
+  18%         { transform: rotate(315deg) translateX(-500px); opacity: 0; }
+  18.1%, 100% { transform: rotate(315deg) translateX(-500px); opacity: 0; }
+}
+
+/* 컬러 + 위치 + 주기 */
+.login-stars-wrap span:nth-child(1) {
+  color: #E8941A; background: #E8941A;
+  box-shadow: 0 0 0 3px rgba(232,148,26,.1), 0 0 0 6px rgba(232,148,26,.1), 0 0 15px rgba(232,148,26,.2);
+  top: 0; right: 0; left: initial;
+  animation-delay: 0s; animation-duration: 8s;
+}
+.login-stars-wrap span:nth-child(2) {
+  color: #D4A853; background: #D4A853;
+  box-shadow: 0 0 0 3px rgba(212,168,83,.1), 0 0 0 6px rgba(212,168,83,.1), 0 0 15px rgba(212,168,83,.2);
+  top: 0; right: 80px; left: initial;
+  animation-delay: 2s; animation-duration: 12s;
+}
+.login-stars-wrap span:nth-child(3) {
+  color: #C4876A; background: #C4876A;
+  box-shadow: 0 0 0 3px rgba(196,135,106,.1), 0 0 0 6px rgba(196,135,106,.1), 0 0 15px rgba(196,135,106,.2);
+  top: 60px; right: 0; left: initial;
+  animation-delay: 4.5s; animation-duration: 10s;
+}
+.login-stars-wrap span:nth-child(4) {
+  color: #8FAF8A; background: #8FAF8A;
+  box-shadow: 0 0 0 3px rgba(143,175,138,.1), 0 0 0 6px rgba(143,175,138,.1), 0 0 15px rgba(143,175,138,.2);
+  top: 0; right: 180px; left: initial;
+  animation-delay: 7s; animation-duration: 14s;
+}
+.login-stars-wrap span:nth-child(5) {
+  color: #E8941A; background: #E8941A;
+  box-shadow: 0 0 0 3px rgba(232,148,26,.1), 0 0 0 6px rgba(232,148,26,.1), 0 0 15px rgba(232,148,26,.2);
+  top: 0; right: 300px; left: initial;
+  animation-delay: 10s; animation-duration: 9s;
+}
+.login-stars-wrap span:nth-child(6) {
+  color: #D4A853; background: #D4A853;
+  box-shadow: 0 0 0 3px rgba(212,168,83,.1), 0 0 0 6px rgba(212,168,83,.1), 0 0 15px rgba(212,168,83,.2);
+  top: 150px; right: 0; left: initial;
+  animation-delay: 13s; animation-duration: 11s;
+}
 
 /* ── 행성 고리 tilt (좌우가 위아래로) ── */
 .login-ring-back,
