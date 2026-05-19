@@ -1,8 +1,9 @@
-/* 홈 전체 배경에 그리드 5% */
+/* 홈 배경 흰색 + 그리드 3% */
 .screen:has(.home-main) {
+  background-color: #FFFFFF;
   background-image:
-    linear-gradient(rgba(26,28,30,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,28,30,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(26,28,30,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,28,30,0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
