@@ -370,12 +370,12 @@
 .ob-slide--active .ob3-orbit-2 { animation: ob3-orb2 4s ease-out infinite; }
 /* 두 원 모두 4s 주기 — orbit2는 keyframe 25%(=1s) 안에서 딜레이 */
 @keyframes ob3-orb1 {
-  0%         { opacity:0;    transform:scale(0.7); }
-  100%       { opacity:0.55; transform:scale(1);   }
+  0%         { opacity:0;   transform:scale(0.7); }
+  100%       { opacity:0.4; transform:scale(1);   }
 }
 @keyframes ob3-orb2 {
   0%, 25%    { opacity:0;   transform:scale(0.7); }
-  100%       { opacity:0.4; transform:scale(1);   }
+  100%       { opacity:0.3; transform:scale(1);   }
 }
 
 /* ── 선: 1회 재생 후 유지 (delay로 레벨별 순서) ── */
