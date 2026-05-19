@@ -87,10 +87,10 @@ export default function DailyMissionPage() {
                       <img src="/images/daily_play_btn.svg" alt="재생" className="play-btn" />
                     </div>
                     <div className="bottom-box">
-                      <div className="card-text">
+                      <div className="dm-card-body">
                         <div className="card-title-row">
                           <span className="badge badge--gold">[인강]</span>
-                          <span className="card-title">피그마 오토레이아웃 기초</span>
+                          <span className="dm-card-title">피그마 오토레이아웃 기초</span>
                         </div>
                         <span className="card-sub">23분 소요</span>
                       </div>
@@ -112,7 +112,7 @@ export default function DailyMissionPage() {
                     <div className="book-right">
                       <div className="book-info">
                         <span className="badge badge--sage">[도서]</span>
-                        <span className="card-title">린 스타트업 - 애시 모리아</span>
+                        <span className="dm-card-title">린 스타트업 - 애시 모리아</span>
                         <span className="card-sub">p.12 ~ p.34</span>
                       </div>
                       <div className="book-btn-box">
@@ -132,7 +132,7 @@ export default function DailyMissionPage() {
                     <div className="project-text">
                       <div className="project-title-box">
                         <span className="badge badge--orange">[프로젝트]</span>
-                        <span className="card-title">포트폴리오 리뉴얼</span>
+                        <span className="dm-card-title">포트폴리오 리뉴얼</span>
                       </div>
                       <div className="project-list">
                         <div className="list-item">

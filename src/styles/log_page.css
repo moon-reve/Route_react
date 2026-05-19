@@ -56,12 +56,15 @@
 .log-slider-wrap {
   overflow: hidden;
   width: 100%;
+  min-height: 0;
+  transition: height 0.3s ease;
 }
 
 .log-slider {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: flex-start;
   width: 300%;
   transition: transform 0.3s ease;
   will-change: transform;

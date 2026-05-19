@@ -31,7 +31,7 @@ export default function LogProjectPage() {
                     <img src="/images/project_figma_icon.png" alt="피그마 아이콘" />
                   </div>
                   <div className="card-body">
-                    <p className="card-title">피그마 오토레이아웃 마스터 클래스</p>
+                    <p className="proj-card-title">피그마 오토레이아웃 마스터 클래스</p>
                     <div className="progress-track">
                       <div className="progress-fill progress-fill--gold"></div>
                     </div>
@@ -44,7 +44,7 @@ export default function LogProjectPage() {
                     <img src="/images/daily_book_cover.png" alt="Lean 스타트업" />
                   </div>
                   <div className="card-body">
-                    <p className="card-title">Lean 스타트업 완독하기</p>
+                    <p className="proj-card-title">Lean 스타트업 완독하기</p>
                     <div className="progress-track">
                       <div className="progress-fill progress-fill--sage"></div>
                     </div>
@@ -62,7 +62,7 @@ export default function LogProjectPage() {
                     <img src="/images/project_completed_icon.svg" alt="완료 아이콘" />
                   </div>
                   <div className="card-completed-body">
-                    <p className="card-title">나만의 포트폴리오 1차 완성</p>
+                    <p className="proj-card-title">나만의 포트폴리오 1차 완성</p>
                     <p className="card-meta">총 24개의 기록 • 2026.04.10 완료</p>
                   </div>
                 </div>

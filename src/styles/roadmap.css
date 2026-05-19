@@ -44,7 +44,7 @@
   padding: 10px 0;
 }
 
-.chip {
+.rm-chip {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +60,7 @@
   flex: 1;
 }
 
-.chip--active {
+.rm-chip--active {
   background: var(--midnight-charcoal);
   border-color: var(--midnight-charcoal);
   color: var(--pure-white);

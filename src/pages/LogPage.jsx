@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
@@ -63,6 +63,8 @@ export default function LogPage() {
   const initialTab = useRef(getInitialTab(pathname)).current
   const [tabIdx, setTabIdx] = useState(initialTab)
   const touchStartX = useRef(null)
+  const wrapRef = useRef(null)
+  const panelRefsEl = useRef([])
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX
@@ -88,6 +90,13 @@ export default function LogPage() {
   const [selectedDay, setSelectedDay] = useState(today)
   const [savedItems,  setSavedItems]  = useState([])
   const [savedDates,  setSavedDates]  = useState(new Set())
+
+  // 활성 패널 높이에 맞게 wrap 높이 동적 조정
+  useLayoutEffect(() => {
+    const panel = panelRefsEl.current[tabIdx]
+    if (!panel || !wrapRef.current) return
+    wrapRef.current.style.height = panel.offsetHeight + 'px'
+  }, [tabIdx, selectedDay, savedItems])
 
   useEffect(() => {
     const items = getSavedItems()
@@ -137,6 +146,7 @@ export default function LogPage() {
           {/* ── 슬라이더 ── */}
           <div
             className="log-slider-wrap"
+            ref={wrapRef}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
@@ -146,7 +156,7 @@ export default function LogPage() {
             <div className="log-slider" style={{ transform: `translateX(calc(-${tabIdx} * 100% / 3))` }}>
 
               {/* ────── Panel 0: 캘린더 ────── */}
-              <div className="log-panel">
+              <div className="log-panel" ref={el => panelRefsEl.current[0] = el}>
                 <div className="log-contents log-contents--cal">
 
                   <div className="calendar">
@@ -230,7 +240,7 @@ export default function LogPage() {
               </div>
 
               {/* ────── Panel 1: 로그 피드 ────── */}
-              <div className="log-panel">
+              <div className="log-panel" ref={el => panelRefsEl.current[1] = el}>
                 <div className="log-contents log-contents--feed">
 
                   <div className="filter-area">
@@ -254,41 +264,41 @@ export default function LogPage() {
                             onClick={() => item.href && navigate('/' + item.href)}
                             style={item.href ? { cursor: 'pointer' } : undefined}
                           >
-                            <div className="article-meta">
+                            <div className="feed-meta">
                               <span className="article-date">{formatDate(item.date)}</span>
                               <span className="article-badge badge--blue">[저장] {item.type}</span>
                             </div>
-                            <p className="article-text">{item.title}</p>
+                            <p className="feed-text">{item.title}</p>
                           </div>
                         ))}
                       </>
                     )}
 
                     <div className="article">
-                      <div className="article-meta" style={{ width: '97px' }}>
+                      <div className="feed-meta">
                         <span className="article-date">2026. 05. 08</span>
                         <span className="article-badge badge--gold">[인강] 피그마 기초</span>
                       </div>
-                      <p className="article-text">오토레이아웃에서 Hug 속성 쓸 때 패딩 주의할 것.<br />여백 계산이 헷갈림.</p>
+                      <p className="feed-text">오토레이아웃에서 Hug 속성 쓸 때 패딩 주의할 것.<br />여백 계산이 헷갈림.</p>
                       <div className="article-img-box">
                         <img src="/images/log_card_img.png" alt="참고 이미지" />
                       </div>
                     </div>
 
                     <div className="article">
-                      <div className="article-meta" style={{ width: '92px' }}>
+                      <div className="feed-meta">
                         <span className="article-date">2026. 05. 06</span>
                         <span className="article-badge badge--sage">[도서] UX 심리학</span>
                       </div>
-                      <p className="article-text">사용자는 기다리지 않는다. 로딩 애니메이션의 중요성 파악.</p>
+                      <p className="feed-text">사용자는 기다리지 않는다. 로딩 애니메이션의 중요성 파악.</p>
                     </div>
 
                     <div className="article">
-                      <div className="article-meta" style={{ width: '115px' }}>
+                      <div className="feed-meta">
                         <span className="article-date">2026. 05. 02</span>
                         <span className="article-badge badge--orange">[프로젝트] 포트폴리오</span>
                       </div>
-                      <p className="article-text">내러티브 중심의 케이스 스터디 작성 중. 불필요한 시각적 장식보다는 문제 해결 과정에 집중하기로 함.</p>
+                      <p className="feed-text">내러티브 중심의 케이스 스터디 작성 중. 불필요한 시각적 장식보다는 문제 해결 과정에 집중하기로 함.</p>
                     </div>
                   </div>
 
@@ -296,7 +306,7 @@ export default function LogPage() {
               </div>
 
               {/* ────── Panel 2: 프로젝트 ────── */}
-              <div className="log-panel">
+              <div className="log-panel" ref={el => panelRefsEl.current[2] = el}>
                 <div className="log-contents log-contents--proj">
 
                   <div className="section">
@@ -306,7 +316,7 @@ export default function LogPage() {
                         <img src="/images/project_figma_icon.png" alt="피그마 아이콘" />
                       </div>
                       <div className="card-body">
-                        <p className="card-title">피그마 오토레이아웃 마스터 클래스</p>
+                        <p className="proj-card-title">피그마 오토레이아웃 마스터 클래스</p>
                         <div className="proj-progress-track">
                           <div className="proj-progress-fill proj-progress-fill--gold"></div>
                         </div>
@@ -318,7 +328,7 @@ export default function LogPage() {
                         <img src="/images/daily_book_cover.png" alt="Lean 스타트업" />
                       </div>
                       <div className="card-body">
-                        <p className="card-title">Lean 스타트업 완독하기</p>
+                        <p className="proj-card-title">Lean 스타트업 완독하기</p>
                         <div className="proj-progress-track">
                           <div className="proj-progress-fill proj-progress-fill--sage"></div>
                         </div>
@@ -334,7 +344,7 @@ export default function LogPage() {
                         <img src="/images/project_completed_icon.svg" alt="완료 아이콘" />
                       </div>
                       <div className="card-completed-body">
-                        <p className="card-title">나만의 포트폴리오 1차 완성</p>
+                        <p className="proj-card-title">나만의 포트폴리오 1차 완성</p>
                         <p className="card-meta">총 24개의 기록 • 2026.04.10 완료</p>
                       </div>
                     </div>

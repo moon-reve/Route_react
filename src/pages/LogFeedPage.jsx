@@ -80,11 +80,11 @@ export default function LogFeedPage() {
                         onClick={() => item.href && navigate('/' + item.href)}
                         style={item.href ? { cursor: 'pointer' } : undefined}
                       >
-                        <div className="article-meta">
+                        <div className="feed-meta">
                           <span className="article-date">{formatDate(item.date)}</span>
                           <span className="article-badge badge--blue">[저장] {item.type}</span>
                         </div>
-                        <p className="article-text">{item.title}</p>
+                        <p className="feed-text">{item.title}</p>
                       </div>
                     ))}
                   </>
@@ -92,30 +92,30 @@ export default function LogFeedPage() {
 
                 {/* 하드코딩 아티클들 */}
                 <div className="article">
-                  <div className="article-meta" style={{ width: '97px' }}>
+                  <div className="feed-meta">
                     <span className="article-date">2026. 05. 08</span>
                     <span className="article-badge badge--gold">[인강] 피그마 기초</span>
                   </div>
-                  <p className="article-text">오토레이아웃에서 Hug 속성 쓸 때 패딩 주의할 것.<br />여백 계산이 헷갈림.</p>
+                  <p className="feed-text">오토레이아웃에서 Hug 속성 쓸 때 패딩 주의할 것.<br />여백 계산이 헷갈림.</p>
                   <div className="article-img-box">
                     <img src="/images/log_card_img.png" alt="참고 이미지" />
                   </div>
                 </div>
 
                 <div className="article">
-                  <div className="article-meta" style={{ width: '92px' }}>
+                  <div className="feed-meta">
                     <span className="article-date">2026. 05. 06</span>
                     <span className="article-badge badge--sage">[도서] UX 심리학</span>
                   </div>
-                  <p className="article-text">사용자는 기다리지 않는다. 로딩 애니메이션의 중요성 파악.</p>
+                  <p className="feed-text">사용자는 기다리지 않는다. 로딩 애니메이션의 중요성 파악.</p>
                 </div>
 
                 <div className="article">
-                  <div className="article-meta" style={{ width: '115px' }}>
+                  <div className="feed-meta">
                     <span className="article-date">2026. 05. 02</span>
                     <span className="article-badge badge--orange">[프로젝트] 포트폴리오</span>
                   </div>
-                  <p className="article-text">내러티브 중심의 케이스 스터디 작성 중. 불필요한 시각적 장식보다는 문제 해결 과정에 집중하기로 함.</p>
+                  <p className="feed-text">내러티브 중심의 케이스 스터디 작성 중. 불필요한 시각적 장식보다는 문제 해결 과정에 집중하기로 함.</p>
                 </div>
 
               </div>
