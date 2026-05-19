@@ -17,7 +17,7 @@ export default function PreCompletePage() {
             <div className="complete-hero-top">
               <div className="complete-route-badge">루트 완성</div>
               <h1 className="complete-hero-title">
-                축하합니다, 박서준 님!<br />
+                축하합니다, 김루트 님!<br />
                 <span className="complete-hero-title--gold">12주 UI/UX 이직 루트</span>가 완성되었습니다.
               </h1>
             </div>
