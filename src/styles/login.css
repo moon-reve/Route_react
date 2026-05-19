@@ -310,6 +310,7 @@
 }
 
 /* 컬러 + 위치 + 주기 */
+/* 행성 중간 가로지르도록 top 값 다양하게 분산 */
 .login-stars-wrap span:nth-child(1) {
   color: #E8941A; background: #E8941A;
   box-shadow: 0 0 0 3px rgba(232,148,26,.1), 0 0 0 6px rgba(232,148,26,.1), 0 0 15px rgba(232,148,26,.2);
@@ -317,34 +318,34 @@
   animation-delay: 0s; animation-duration: 8s;
 }
 .login-stars-wrap span:nth-child(2) {
-  color: #D4A853; background: #D4A853;
-  box-shadow: 0 0 0 3px rgba(212,168,83,.1), 0 0 0 6px rgba(212,168,83,.1), 0 0 15px rgba(212,168,83,.2);
-  top: 0; right: 80px; left: initial;
-  animation-delay: 2s; animation-duration: 12s;
+  color: #8FAF8A; background: #8FAF8A;
+  box-shadow: 0 0 0 3px rgba(143,175,138,.1), 0 0 0 6px rgba(143,175,138,.1), 0 0 15px rgba(143,175,138,.2);
+  top: 80px; right: 0; left: initial;     /* 행성 통과 */
+  animation-delay: 3s; animation-duration: 12s;
 }
 .login-stars-wrap span:nth-child(3) {
   color: #C4876A; background: #C4876A;
   box-shadow: 0 0 0 3px rgba(196,135,106,.1), 0 0 0 6px rgba(196,135,106,.1), 0 0 15px rgba(196,135,106,.2);
-  top: 60px; right: 0; left: initial;
-  animation-delay: 4.5s; animation-duration: 10s;
+  top: 40px; right: 80px; left: initial;  /* 행성 근처 */
+  animation-delay: 6s; animation-duration: 10s;
 }
 .login-stars-wrap span:nth-child(4) {
-  color: #8FAF8A; background: #8FAF8A;
-  box-shadow: 0 0 0 3px rgba(143,175,138,.1), 0 0 0 6px rgba(143,175,138,.1), 0 0 15px rgba(143,175,138,.2);
-  top: 0; right: 180px; left: initial;
-  animation-delay: 7s; animation-duration: 14s;
+  color: #D4A853; background: #D4A853;
+  box-shadow: 0 0 0 3px rgba(212,168,83,.1), 0 0 0 6px rgba(212,168,83,.1), 0 0 15px rgba(212,168,83,.2);
+  top: 0; right: 150px; left: initial;
+  animation-delay: 9s; animation-duration: 14s;
 }
 .login-stars-wrap span:nth-child(5) {
   color: #E8941A; background: #E8941A;
   box-shadow: 0 0 0 3px rgba(232,148,26,.1), 0 0 0 6px rgba(232,148,26,.1), 0 0 15px rgba(232,148,26,.2);
-  top: 0; right: 300px; left: initial;
-  animation-delay: 10s; animation-duration: 9s;
+  top: 130px; right: 0; left: initial;    /* 행성 아래 통과 */
+  animation-delay: 1.5s; animation-duration: 9s;
 }
 .login-stars-wrap span:nth-child(6) {
-  color: #D4A853; background: #D4A853;
-  box-shadow: 0 0 0 3px rgba(212,168,83,.1), 0 0 0 6px rgba(212,168,83,.1), 0 0 15px rgba(212,168,83,.2);
-  top: 150px; right: 0; left: initial;
-  animation-delay: 13s; animation-duration: 11s;
+  color: #8FAF8A; background: #8FAF8A;
+  box-shadow: 0 0 0 3px rgba(143,175,138,.1), 0 0 0 6px rgba(143,175,138,.1), 0 0 15px rgba(143,175,138,.2);
+  top: 0; right: 280px; left: initial;
+  animation-delay: 11s; animation-duration: 11s;
 }
 
 /* ── 행성 고리 tilt (좌우가 위아래로) ── */
