@@ -132,7 +132,7 @@ export default function OnboardingPage() {
                     </filter>
                   </defs>
                   {/* 글로우 원 — 블러 필터 + opacity 애니메이션 */}
-                  <circle cx="215" cy="317" r="60" fill="#D4A853" filter="url(#ob1-blur)" className="ob1-glow-circle"/>
+                  <circle cx="215" cy="317" r="88" fill="#D4A853" filter="url(#ob1-blur)" className="ob1-glow-circle"/>
                   {/* 원 3개 — 직접 애니메이션 */}
                   <path className="ob1-ring-outer" d="M215 405C263.601 405 303 365.601 303 317C303 268.399 263.601 229 215 229C166.399 229 127 268.399 127 317C127 365.601 166.399 405 215 405Z" stroke="#D4A853" strokeWidth="0.6"/>
                   <path className="ob1-ring-mid"   d="M215 379C249.242 379 277 351.242 277 317C277 282.758 249.242 255 215 255C180.758 255 153 282.758 153 317C153 351.242 180.758 379 215 379Z" stroke="#D4A853" strokeWidth="0.8"/>
