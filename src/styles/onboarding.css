@@ -248,13 +248,15 @@
 /* 글로우 — 동일 4s 주기 */
 .ob1-glow-circle {
   opacity: 0;
-  animation: ob1-glow-pulse 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ob1-glow-pulse 4s ease-out infinite;
 }
 
 @keyframes ob1-glow-pulse {
-  0%        { opacity: 0;   }
-  12%       { opacity: 0.4; }
-  50%, 100% { opacity: 0;   }
+  0%        { opacity: 0.5; transform: scale(0.05); }
+  40%       { opacity: 0.2; transform: scale(0.8);  }
+  65%, 100% { opacity: 0;   transform: scale(1);    }
 }
 
 /* 별 — 동일 4s 주기 */
