@@ -362,7 +362,7 @@ export default function RoadmapPage() {
                           </div>
                         </div>
                       </div>
-                      <div className="card-items" onClick={() => navigate('/mission')} style={{ cursor: 'pointer' }}>
+                      <div className="card-items" onClick={() => navigate('/mission')} style={{ cursor: 'pointer' }} data-hint="true">
                         <div className="card-item">
                           <img src="/images/roadmap_icon_active.svg" alt="" className="item-icon" />
                           <div className="item-body">
