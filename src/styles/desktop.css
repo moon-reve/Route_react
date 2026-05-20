@@ -27,8 +27,7 @@
   .desktop-left {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 15vh;
+    justify-content: center;
     gap: 32px;
     width: 400px;
     flex-shrink: 0;
