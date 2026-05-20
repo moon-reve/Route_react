@@ -18,7 +18,7 @@ export default function MyPage() {
               <img src="/images/my_profile_photo.svg" alt="프로필 사진" className="profile-photo" />
               <p className="mp-profile-name">김루트</p>
               <p className="profile-bio">3년차 UX 디자이너 | 피그마 마스터 항해 중</p>
-              <button className="edit-btn">프로필 수정</button>
+              <button className="edit-btn" data-hint="false">프로필 수정</button>
             </section>
 
             {/* 성취 섹션 */}
