@@ -98,7 +98,9 @@ export default function LogPage() {
     let m = calMonth + dir, y = calYear
     if (m > 11) { m = 0; y++ }
     if (m < 0)  { m = 11; y-- }
-    setCalMonth(m); setCalYear(y); setSelectedDay(1)
+    const isToday = y === _today.getFullYear() && m === _today.getMonth()
+    setCalMonth(m); setCalYear(y)
+    setSelectedDay(isToday ? _today.getDate() : 1)
   }
 
   // 달력 그리드 계산
