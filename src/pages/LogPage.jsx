@@ -148,8 +148,16 @@ export default function LogPage() {
   const dividerText = `${label}의 기록${totalCount > 0 ? ` (${totalCount})` : ''}`
 
   // feed derived
-  const feedTotalCount  = 42 + savedItems.length
+  const feedTotalCount   = HARD_LOG_CARDS.length + savedItems.length
   const sortedSavedItems = [...savedItems].sort((a, b) => b.date.localeCompare(a.date))
+
+  const BADGE_MAP = {
+    'log-badge--gold':       'badge--gold',
+    'log-badge--terracotta': 'badge--terracotta',
+    'log-badge--sage':       'badge--sage',
+    'log-badge--orange':     'badge--orange',
+  }
+  const cardDate = (day) => `2026. 05. ${String(day).padStart(2, '0')}`
 
   return (
     <div className="screen">
@@ -307,32 +315,20 @@ export default function LogPage() {
                       </>
                     )}
 
-                    <div className="article">
-                      <div className="feed-meta">
-                        <span className="article-date">2026. 05. 08</span>
-                        <span className="article-badge badge--gold">[인강] 피그마 기초</span>
+                    {HARD_LOG_CARDS.map((card, i) => (
+                      <div className="article" key={i}>
+                        <div className="feed-meta">
+                          <span className="article-date">{cardDate(card.day)}</span>
+                          <span className={`article-badge ${BADGE_MAP[card.badge]}`}>{card.badgeText}</span>
+                        </div>
+                        <p className="feed-text">{card.text}</p>
+                        {card.img && (
+                          <div className="article-img-box">
+                            <img src={card.img} alt="참고 이미지" />
+                          </div>
+                        )}
                       </div>
-                      <p className="feed-text">오토레이아웃에서 Hug 속성 쓸 때 패딩 주의할 것.<br />여백 계산이 헷갈림.</p>
-                      <div className="article-img-box">
-                        <img src="/images/log_card_img.png" alt="참고 이미지" />
-                      </div>
-                    </div>
-
-                    <div className="article">
-                      <div className="feed-meta">
-                        <span className="article-date">2026. 05. 06</span>
-                        <span className="article-badge badge--sage">[도서] UX 심리학</span>
-                      </div>
-                      <p className="feed-text">사용자는 기다리지 않는다. 로딩 애니메이션의 중요성 파악.</p>
-                    </div>
-
-                    <div className="article">
-                      <div className="feed-meta">
-                        <span className="article-date">2026. 05. 02</span>
-                        <span className="article-badge badge--orange">[프로젝트] 포트폴리오</span>
-                      </div>
-                      <p className="feed-text">내러티브 중심의 케이스 스터디 작성 중. 불필요한 시각적 장식보다는 문제 해결 과정에 집중하기로 함.</p>
-                    </div>
+                    ))}
                   </div>
 
                 </div>
