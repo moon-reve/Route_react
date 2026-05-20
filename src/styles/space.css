@@ -23,15 +23,16 @@
 
   /* ── 별똥별 ── */
   .shooting-star {
+    --star-color: #ffffff;
     position: absolute;
     width: 4px;
     height: 4px;
-    background: #fff;
+    background: var(--star-color);
     border-radius: 50%;
     box-shadow:
-      0 0 0 4px rgba(255,255,255,0.1),
-      0 0 0 8px rgba(255,255,255,0.1),
-      0 0 20px rgba(255,255,255,0.1);
+      0 0 0 4px rgba(255,255,255,0.08),
+      0 0 0 8px rgba(255,255,255,0.05),
+      0 0 16px rgba(255,255,255,0.08);
     animation: shoot linear infinite;
     opacity: 0;
   }
@@ -41,9 +42,9 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 300px;
+    width: 280px;
     height: 1px;
-    background: linear-gradient(90deg, #fff, transparent);
+    background: linear-gradient(90deg, var(--star-color), transparent);
   }
 
   @keyframes shoot {
@@ -52,15 +53,15 @@
     100% { transform: rotate(315deg) translateX(-1500px); opacity: 0; }
   }
 
-  /* vw 기준으로 전체 너비에 분산 */
-  .shooting-star:nth-child(1)  { top: 0;    right: 5vw;   animation-delay: 0s;    animation-duration: 1.2s; }
-  .shooting-star:nth-child(2)  { top: 0;    right: 15vw;  animation-delay: 0.3s;  animation-duration: 2.8s; }
-  .shooting-star:nth-child(3)  { top: 5vh;  right: 0;     animation-delay: 0.6s;  animation-duration: 2s;   }
-  .shooting-star:nth-child(4)  { top: 0;    right: 28vw;  animation-delay: 0.9s;  animation-duration: 1.6s; }
-  .shooting-star:nth-child(5)  { top: 0;    right: 40vw;  animation-delay: 1.1s;  animation-duration: 2.4s; }
-  .shooting-star:nth-child(6)  { top: 0;    right: 55vw;  animation-delay: 1.4s;  animation-duration: 3s;   }
-  .shooting-star:nth-child(7)  { top: 20vh; right: 3vw;   animation-delay: 1.7s;  animation-duration: 1.8s; }
-  .shooting-star:nth-child(8)  { top: 0;    right: 68vw;  animation-delay: 2s;    animation-duration: 1.3s; }
-  .shooting-star:nth-child(9)  { top: 0;    right: 80vw;  animation-delay: 0.5s;  animation-duration: 2.2s; }
-  .shooting-star:nth-child(10) { top: 0;    right: 92vw;  animation-delay: 2.5s;  animation-duration: 2.6s; }
+  /* 브랜드 컬러 랜덤 배치 + duration 2배 */
+  .shooting-star:nth-child(1)  { top: 0;    right: 5vw;  --star-color: #d4a853; animation-delay: 0s;    animation-duration: 2.4s;  }
+  .shooting-star:nth-child(2)  { top: 0;    right: 15vw; --star-color: #8faf8a; animation-delay: 0.6s;  animation-duration: 5.6s;  }
+  .shooting-star:nth-child(3)  { top: 5vh;  right: 0;    --star-color: #e8941a; animation-delay: 1.2s;  animation-duration: 4s;    }
+  .shooting-star:nth-child(4)  { top: 0;    right: 28vw; --star-color: #7b9ead; animation-delay: 1.8s;  animation-duration: 3.2s;  }
+  .shooting-star:nth-child(5)  { top: 0;    right: 40vw; --star-color: #c4876a; animation-delay: 2.2s;  animation-duration: 4.8s;  }
+  .shooting-star:nth-child(6)  { top: 0;    right: 55vw; --star-color: #9e90bc; animation-delay: 2.8s;  animation-duration: 6s;    }
+  .shooting-star:nth-child(7)  { top: 20vh; right: 3vw;  --star-color: #47b5a7; animation-delay: 3.4s;  animation-duration: 3.6s;  }
+  .shooting-star:nth-child(8)  { top: 0;    right: 68vw; --star-color: #d4849a; animation-delay: 4s;    animation-duration: 2.6s;  }
+  .shooting-star:nth-child(9)  { top: 0;    right: 80vw; --star-color: #d4a853; animation-delay: 1s;    animation-duration: 4.4s;  }
+  .shooting-star:nth-child(10) { top: 0;    right: 92vw; --star-color: #8faf8a; animation-delay: 5s;    animation-duration: 5.2s;  }
 }
