@@ -21,8 +21,8 @@
     inset: 0;
   }
 
-  /* ── 별똥별 ── */
-  .shooting-star {
+  /* ── 별똥별 (JS로 동적 생성) ── */
+  .shooting-star-dyn {
     --star-color: #ffffff;
     position: absolute;
     width: 4px;
@@ -33,11 +33,11 @@
       0 0 0 4px rgba(255,255,255,0.08),
       0 0 0 8px rgba(255,255,255,0.05),
       0 0 16px rgba(255,255,255,0.08);
-    animation: shoot linear infinite;
+    animation: shoot linear forwards;
     opacity: 0;
   }
 
-  .shooting-star::before {
+  .shooting-star-dyn::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -52,10 +52,4 @@
     70%  { opacity: 1; }
     100% { transform: rotate(315deg) translateX(-1500px); opacity: 0; }
   }
-
-  /* 4개만, delay 크게 벌려서 한번에 1~2개만 보이게 */
-  .shooting-star:nth-child(1) { top: 0;   right: 15vw; --star-color: #d4a853; animation-delay: 0s;    animation-duration: 5.6s; }
-  .shooting-star:nth-child(2) { top: 5vh; right: 55vw; --star-color: #8faf8a; animation-delay: 7s;    animation-duration: 4s;   }
-  .shooting-star:nth-child(3) { top: 0;   right: 80vw; --star-color: #7b9ead; animation-delay: 13s;   animation-duration: 4.8s; }
-  .shooting-star:nth-child(4) { top: 0;   right: 35vw; --star-color: #c4876a; animation-delay: 20s;   animation-duration: 5.2s; }
 }
