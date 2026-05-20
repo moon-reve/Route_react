@@ -134,9 +134,11 @@
   font-size: 12px;
 }
 
-.badge--gold      { background: rgba(212, 168, 83, 0.15);  color: var(--champagne-gold); }
-.badge--sage      { background: rgba(143, 175, 138, 0.15); color: var(--dusty-sage); }
-.badge--orange    { background: rgba(232, 148, 26, 0.15);  color: var(--starline-gold); }
+.badge--gold        { background: rgba(212, 168, 83, 0.15);  color: var(--champagne-gold); }
+.badge--sage        { background: rgba(143, 175, 138, 0.15); color: var(--dusty-sage); }
+.badge--orange      { background: rgba(232, 148, 26, 0.15);  color: var(--starline-gold); }
+.badge--terracotta  { background: rgba(196, 135, 106, 0.15); color: var(--muted-terracotta); }
+.badge--rose        { background: rgba(212, 132, 154, 0.15); color: var(--dusty-rose); }
 
 .feed-text {
   font-weight: 400;

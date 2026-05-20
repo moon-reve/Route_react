@@ -174,6 +174,7 @@
 .cal-dot--gold       { background: var(--champagne-gold); }
 .cal-dot--sage       { background: var(--dusty-sage); }
 .cal-dot--terracotta { background: var(--muted-terracotta); }
+.cal-dot--rose       { background: var(--dusty-rose); }
 .cal-dot--orange     { background: var(--starline-gold); }
 
 /* ════════ SECTION DIVIDER ════════ */
@@ -235,6 +236,7 @@
 .log-badge--gold      { background: rgba(212, 168, 83, 0.15);  color: var(--champagne-gold); }
 .log-badge--sage      { background: rgba(143, 175, 138, 0.15); color: var(--dusty-sage); }
 .log-badge--terracotta{ background: rgba(196, 135, 106, 0.15); color: var(--muted-terracotta); }
+.log-badge--rose      { background: rgba(212, 132, 154, 0.15); color: var(--dusty-rose); }
 .log-badge--orange    { background: rgba(232, 148, 26, 0.15);  color: var(--starline-gold); }
 
 .log-time {

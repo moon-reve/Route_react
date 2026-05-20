@@ -38,12 +38,12 @@ function formatDate(dateStr) {
 // ── Calendar static data ─────────────────────────────────────
 const HARD_LOG_CARDS = [
   { day: 8,  badge: 'log-badge--gold',       badgeText: '[인강] 피그마 기초',   time: '오전 11:30', text: '오토레이아웃에서 Hug 속성 쓸 때 패딩 주의할 것. 레퍼런스 이미지 첨부함.', img: '/images/log_card_img.png' },
-  { day: 8,  badge: 'log-badge--terracotta', badgeText: '[매거진] 아티클',       time: '오후 07:10', text: '2025 디자인 트렌드 아티클 읽음. 모션디자인 섹션 인상적.' },
+  { day: 8,  badge: 'log-badge--rose',       badgeText: '[매거진] 아티클',       time: '오후 07:10', text: '2025 디자인 트렌드 아티클 읽음. 모션디자인 섹션 인상적.' },
   { day: 12, badge: 'log-badge--sage',       badgeText: '[도서] Lean 스타트업', time: '오후 04:20', text: '1장 요약. 시각적 위계가 인지 부하에 미치는 영향.' },
   { day: 12, badge: 'log-badge--orange',     badgeText: '[프로젝트]',            time: '오후 09:00', text: '포트폴리오 리뉴얼 — 앱 기획 완료.\n와이어프레임 작업 시작함.' },
 ]
 const DAY_LABELS = { 8: '5월 8일', 12: '5월 12일' }
-const DOT_DAYS   = { 8: ['cal-dot--gold', 'cal-dot--terracotta'], 12: ['cal-dot--sage', 'cal-dot--orange'] }
+const DOT_DAYS   = { 8: ['cal-dot--gold', 'cal-dot--rose'], 12: ['cal-dot--sage', 'cal-dot--orange'] }
 
 // ── Tab init ─────────────────────────────────────────────────
 function getInitialTab(pathname) {
@@ -154,6 +154,7 @@ export default function LogPage() {
   const BADGE_MAP = {
     'log-badge--gold':       'badge--gold',
     'log-badge--terracotta': 'badge--terracotta',
+    'log-badge--rose':       'badge--rose',
     'log-badge--sage':       'badge--sage',
     'log-badge--orange':     'badge--orange',
   }
