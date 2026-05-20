@@ -5,7 +5,7 @@
   height: 100svh;
   overflow: hidden;
   padding-top: env(safe-area-inset-top);
-  background: #F8F7F3;
+
   display: flex;
   justify-content: center;
   align-items: center;
