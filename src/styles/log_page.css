@@ -1,5 +1,9 @@
 /* ════════ LOG PAGE (통합) ════════ */
 
+.screen:has(.log-main) {
+  background-color: #FFFFFF;
+}
+
 .log-main {
   display: flex;
   flex-direction: column;
