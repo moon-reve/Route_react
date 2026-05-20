@@ -165,8 +165,8 @@
     position: relative;
   }
 
-  /* 빨간 점 */
-  .hints-on .screen button:not([data-hint="false"])::before,
+  /* 빨간 점 — position:static 버튼도 제외 (::before가 .screen 기준으로 튀어나옴 방지) */
+  .hints-on .screen button:not([data-hint="false"]):not(.btn-back):not(.nav-center):not(.log-close)::before,
   .hints-on .screen a:not([data-hint="false"])::before,
   .hints-on .screen [data-hint="true"]::before,
   .hints-on .screen .rm-chip::before,
