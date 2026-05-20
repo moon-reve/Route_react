@@ -87,7 +87,7 @@ export default function SpaceBackground() {
   return (
     <div className="space-bg">
       <canvas ref={canvasRef} className="space-canvas" />
-      {Array.from({ length: 10 }, (_, i) => (
+      {Array.from({ length: 4 }, (_, i) => (
         <span key={i} className="shooting-star" />
       ))}
     </div>
