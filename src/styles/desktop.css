@@ -156,14 +156,18 @@
   /* position:absolute 버튼은 relative 재정의 제외 (레이아웃 깨짐 방지) */
   .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.btn-back):not(.nav-center),
   .hints-on .screen a:not([data-hint="false"]),
-  .hints-on .screen [data-hint="true"] {
+  .hints-on .screen [data-hint="true"],
+  .hints-on .screen .rm-chip,
+  .hints-on .screen .chevron {
     position: relative;
   }
 
   /* 빨간 점 */
   .hints-on .screen button:not([data-hint="false"])::before,
   .hints-on .screen a:not([data-hint="false"])::before,
-  .hints-on .screen [data-hint="true"]::before {
+  .hints-on .screen [data-hint="true"]::before,
+  .hints-on .screen .rm-chip::before,
+  .hints-on .screen .chevron::before {
     content: '';
     position: absolute;
     top: 4px;
