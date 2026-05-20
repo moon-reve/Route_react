@@ -47,7 +47,9 @@ export default function App() {
         </p>
         <div className="desktop-copy">
           <p className="desktop-copy-highlight">
-            나아갈 길(Route), 단단한 뿌리(Root), 진심 어린 응원(Root for)
+            <span style={{ color: '#E8941A' }}>나아갈 길(Route)</span>,{' '}
+            <span style={{ color: '#8FAF8A' }}>단단한 뿌리(Root)</span>,{' '}
+            <span style={{ color: '#C4876A' }}>진심 어린 응원(Root for)</span>
           </p>
           <p className="desktop-copy-body">
             이 세 가지 진심을 '루트'라는 하나의 이름으로 연결했습니다.
