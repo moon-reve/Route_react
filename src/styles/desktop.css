@@ -154,7 +154,7 @@
   /* ── 힌트: 클릭 가능 영역 오른쪽 상단 빨간 점 ── */
 
   /* position:absolute 버튼은 relative 재정의 제외 (레이아웃 깨짐 방지) */
-  .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.btn-back):not(.log-close),
+  .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.btn-back):not(.log-close):not(.nav-tab),
   .hints-on .screen a:not([data-hint="false"]),
   .hints-on .screen [data-hint="true"],
   .hints-on .screen .rm-chip,
@@ -167,7 +167,7 @@
   }
 
   /* 빨간 점 — position:static 버튼도 제외 (::before가 .screen 기준으로 튀어나옴 방지) */
-  .hints-on .screen button:not([data-hint="false"]):not(.btn-back):not(.log-close)::before,
+  .hints-on .screen button:not([data-hint="false"]):not(.btn-back):not(.log-close):not(.nav-tab)::before,
   .hints-on .screen a:not([data-hint="false"])::before,
   .hints-on .screen [data-hint="true"]::before,
   .hints-on .screen .rm-chip::before,
