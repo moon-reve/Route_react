@@ -43,7 +43,7 @@ export default function App() {
         </div>
         <div className="desktop-divider" />
         <p className="desktop-tagline">
-          멈춰있는 커리어를<br />움직이는 실행의 궤적
+          멈춰있는 커리어를 움직이는<br />실행의 궤적
         </p>
         <div className="desktop-copy">
           <p className="desktop-copy-highlight">
