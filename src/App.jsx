@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import './styles/desktop.css'
 
 import SplashPage from './pages/SplashPage'
 import LoginPage from './pages/LoginPage'
@@ -29,10 +31,35 @@ import DetailMag1Page from './pages/DetailMag1Page'
 import MyPage from './pages/MyPage'
 
 export default function App() {
+  const [hintsOn, setHintsOn] = useState(false)
+
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
+    <>
+      {/* 데스크탑 왼쪽 브랜딩 패널 */}
+      <div className="desktop-left">
+        <div className="desktop-logo-wrap">
+          <img src="/images/splash_logo.svg" alt="Route" className="desktop-logo-icon" />
+          <span className="desktop-logo-text">ROUTE</span>
+        </div>
+        <div className="desktop-divider" />
+        <p className="desktop-tagline">
+          멈춰있는 커리어를<br />움직이는 실행의 궤적.
+        </p>
+        <div className="desktop-copy">
+          <p className="desktop-copy-highlight">
+            나아갈 길(Route), 단단한 뿌리(Root), 진심 어린 응원(Root for)
+          </p>
+          <p className="desktop-copy-body">
+            이 세 가지 진심을 '루트'라는 하나의 이름으로 연결했습니다.
+          </p>
+        </div>
+      </div>
+
+      {/* 앱 화면 + 힌트 토글 */}
+      <div className={`desktop-app-wrap${hintsOn ? ' hints-on' : ''}`}>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
         <Route path="/" element={<SplashPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/onboarding" element={<OnboardingPage />} />
@@ -58,7 +85,18 @@ export default function App() {
         <Route path="/detail/card/1" element={<DetailCard1Page />} />
         <Route path="/detail/mag/1" element={<DetailMag1Page />} />
         <Route path="/my" element={<MyPage />} />
-      </Routes>
-    </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+
+        {/* 힌트 토글 버튼 */}
+        <button
+          className={`hint-toggle${hintsOn ? ' active' : ''}`}
+          onClick={() => setHintsOn(!hintsOn)}
+        >
+          <span className="hint-dot" />
+          클릭 힌트
+        </button>
+      </div>
+    </>
   )
 }

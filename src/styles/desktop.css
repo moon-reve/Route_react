@@ -1,0 +1,171 @@
+/* ═══════════════════════════════════════════
+   DESKTOP LAYOUT
+   431px 이상에서만 활성화
+═══════════════════════════════════════════ */
+
+/* ── 모바일: 숨김 ── */
+.desktop-left,
+.hint-toggle {
+  display: none;
+}
+
+/* ════════════════════════════════════════
+   데스크탑
+════════════════════════════════════════ */
+@media (min-width: 431px) {
+
+  /* #root 재정의 */
+  #root {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding: 0 60px;
+  }
+
+  /* ── 왼쪽 브랜딩 패널 ── */
+  .desktop-left {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 400px;
+    flex-shrink: 0;
+  }
+
+  /* 로고 */
+  .desktop-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .desktop-logo-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+  }
+
+  .desktop-logo-text {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 46px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  /* 구분선 */
+  .desktop-divider {
+    width: 36px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* 태그라인 */
+  .desktop-tagline {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.5;
+  }
+
+  /* 카피 */
+  .desktop-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .desktop-copy-highlight {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #D4A853;
+    line-height: 1.9;
+  }
+
+  .desktop-copy-body {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+  }
+
+  /* ── 앱 + 토글 래퍼 ── */
+  .desktop-app-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ── 힌트 토글 버튼 ── */
+  .hint-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'Pretendard', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .hint-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .hint-toggle.active {
+    background: rgba(255, 68, 68, 0.12);
+    border-color: rgba(255, 68, 68, 0.5);
+    color: #FF4444;
+  }
+
+  .hint-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .hint-toggle.active .hint-dot {
+    background: #FF4444;
+  }
+
+  /* ── 힌트: 클릭 가능 영역 빨간 점 ── */
+  .hints-on .screen button,
+  .hints-on .screen a,
+  .hints-on .screen [role="button"] {
+    position: relative;
+  }
+
+  .hints-on .screen button::before,
+  .hints-on .screen a::before,
+  .hints-on .screen [role="button"]::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FF3B30;
+    z-index: 9999;
+    pointer-events: none;
+  }
+}
