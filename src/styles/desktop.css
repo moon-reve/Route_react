@@ -38,6 +38,8 @@
     gap: 32px;
     width: 400px;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
 
   /* 로고 */
@@ -110,6 +112,8 @@
     gap: 20px;
     flex-shrink: 0;
     width: 430px;
+    position: relative;
+    z-index: 2;
   }
 
   /* ── 힌트 토글 버튼 ── */

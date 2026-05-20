@@ -11,21 +11,31 @@ export default function SpaceBackground() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
 
+    // 2K/레티나 대응 - devicePixelRatio 적용
+    const dpr = window.devicePixelRatio || 1
+
     const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      canvas.width = window.innerWidth * dpr
+      canvas.height = window.innerHeight * dpr
+      canvas.style.width = window.innerWidth + 'px'
+      canvas.style.height = window.innerHeight + 'px'
+      ctx.scale(dpr, dpr)
     }
     resize()
     window.addEventListener('resize', resize)
 
-    const numStars = 400
+    const W = () => window.innerWidth
+    const H = () => window.innerHeight
+
+    // 별 150개로 축소
+    const numStars = 150
     const stars = Array.from({ length: numStars }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+      x: Math.random() * W(),
+      y: Math.random() * H(),
       length: 1 + Math.random() * 1.5,
       opacity: Math.random(),
       factor: 1,
-      increment: Math.random() * 0.02,
+      increment: Math.random() * 0.015,
     }))
 
     function drawStar(star) {
@@ -36,8 +46,8 @@ export default function SpaceBackground() {
       if (star.opacity > 1) star.factor = -1
       else if (star.opacity <= 0) {
         star.factor = 1
-        star.x = Math.random() * canvas.width
-        star.y = Math.random() * canvas.height
+        star.x = Math.random() * W()
+        star.y = Math.random() * H()
       }
       star.opacity += star.increment * star.factor
 
@@ -53,7 +63,7 @@ export default function SpaceBackground() {
       ctx.lineTo(0, star.length)
       ctx.closePath()
       ctx.fillStyle = `rgba(255, 255, 200, ${star.opacity})`
-      ctx.shadowBlur = 5
+      ctx.shadowBlur = 4
       ctx.shadowColor = '#fff'
       ctx.fill()
       ctx.restore()
@@ -61,8 +71,8 @@ export default function SpaceBackground() {
 
     let animId
     function animate() {
-      ctx.setTransform(1, 0, 0, 1, 0, 0)
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      ctx.clearRect(0, 0, W(), H())
       stars.forEach(drawStar)
       animId = requestAnimationFrame(animate)
     }
