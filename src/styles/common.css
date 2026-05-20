@@ -20,7 +20,7 @@
   --dusty-lavender: #9E90BC;
 
   /* background */
-  --bg-gray-50: #FFFFFF;
+  --bg-gray-50: #F9F9F9;
   --pure-white: #FFFFFF;
   --gray-100: #F2F2F2;
 
@@ -73,7 +73,7 @@ body {
   height: 100vh;
   height: 100svh;
   overflow: clip;
-  background: var(--bg-gray-50);
+  background: var(--pure-white);
   flex-shrink: 0;
 }
 
