@@ -154,11 +154,14 @@
   /* ── 힌트: 클릭 가능 영역 오른쪽 상단 빨간 점 ── */
 
   /* position:absolute 버튼은 relative 재정의 제외 (레이아웃 깨짐 방지) */
-  .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.btn-back):not(.nav-center),
+  .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.btn-back):not(.nav-center):not(.log-close),
   .hints-on .screen a:not([data-hint="false"]),
   .hints-on .screen [data-hint="true"],
   .hints-on .screen .rm-chip,
-  .hints-on .screen .chevron {
+  .hints-on .screen .chevron,
+  .hints-on .screen .date-box,
+  .hints-on .screen .toggle-switch,
+  .hints-on .screen .reminder-time-row {
     position: relative;
   }
 
@@ -167,7 +170,10 @@
   .hints-on .screen a:not([data-hint="false"])::before,
   .hints-on .screen [data-hint="true"]::before,
   .hints-on .screen .rm-chip::before,
-  .hints-on .screen .chevron::before {
+  .hints-on .screen .chevron::before,
+  .hints-on .screen .date-box::before,
+  .hints-on .screen .toggle-switch::before,
+  .hints-on .screen .reminder-time-row::before {
     content: '';
     position: absolute;
     top: 4px;
