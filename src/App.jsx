@@ -39,7 +39,7 @@ export default function App() {
       <div className="desktop-left">
         <div className="desktop-logo-wrap">
           <img src="/images/splash_logo.svg" alt="Route" className="desktop-logo-icon" />
-          <span className="desktop-logo-text">ROUTE</span>
+          <span className="desktop-logo-text">Route</span>
         </div>
         <div className="desktop-divider" />
         <p className="desktop-tagline">

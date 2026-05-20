@@ -51,7 +51,7 @@
     font-size: 46px;
     font-weight: 700;
     color: #FFFFFF;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     line-height: 1;
   }
 
@@ -65,7 +65,7 @@
   /* 태그라인 */
   .desktop-tagline {
     font-family: 'Pretendard', sans-serif;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 700;
     color: #FFFFFF;
     line-height: 1.5;
@@ -75,7 +75,7 @@
   .desktop-copy {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
   }
 
   .desktop-copy-highlight {
