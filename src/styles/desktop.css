@@ -103,6 +103,7 @@
     align-self: center;
     gap: 20px;
     flex-shrink: 0;
+    width: 430px;
   }
 
   /* ── 힌트 토글 버튼 ── */
