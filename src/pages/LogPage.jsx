@@ -86,10 +86,31 @@ export default function LogPage() {
   }
 
   // calendar
-  const today = new Date().getDate()
-  const [selectedDay, setSelectedDay] = useState(today)
+  const _today = new Date()
+  const [calYear,    setCalYear]    = useState(_today.getFullYear())
+  const [calMonth,   setCalMonth]   = useState(_today.getMonth())
+  const [selectedDay, setSelectedDay] = useState(_today.getDate())
   const [savedItems,  setSavedItems]  = useState([])
   const [savedDates,  setSavedDates]  = useState(new Set())
+
+  // 월 이동
+  const moveCal = (dir) => {
+    let m = calMonth + dir, y = calYear
+    if (m > 11) { m = 0; y++ }
+    if (m < 0)  { m = 11; y-- }
+    setCalMonth(m); setCalYear(y); setSelectedDay(1)
+  }
+
+  // 달력 그리드 계산
+  const firstDay    = new Date(calYear, calMonth, 1).getDay()
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate()
+  const prevTotal   = new Date(calYear, calMonth, 0).getDate()
+  const prevDays    = Array.from({ length: firstDay }, (_, i) => prevTotal - firstDay + 1 + i)
+
+  // 이번 달 고정 기록 (2026년 5월만 표시)
+  const isMay2026 = calYear === 2026 && calMonth === 4
+  const currentMonthHardCards = isMay2026 ? HARD_LOG_CARDS : []
+  const currentMonthDotDays   = isMay2026 ? DOT_DAYS : {}
 
   // 활성 패널 높이에 맞게 wrap 높이 동적 조정
   useLayoutEffect(() => {
@@ -101,20 +122,28 @@ export default function LogPage() {
   useEffect(() => {
     const items = getSavedItems()
     setSavedItems(items)
-    const dates = new Set()
-    items.forEach(item => {
-      const p = item.date.split('-')
-      if (parseInt(p[0]) === 2026 && parseInt(p[1]) === 5) dates.add(parseInt(p[2]))
-    })
-    setSavedDates(dates)
   }, [])
 
+  // 현재 보이는 달의 저장 날짜
+  useEffect(() => {
+    const dates = new Set()
+    savedItems.forEach(item => {
+      const p = item.date.split('-')
+      if (parseInt(p[0]) === calYear && parseInt(p[1]) - 1 === calMonth)
+        dates.add(parseInt(p[2]))
+    })
+    setSavedDates(dates)
+  }, [savedItems, calYear, calMonth])
+
   // calendar derived
-  const visibleHardCards  = HARD_LOG_CARDS.filter(c => c.day === selectedDay)
-  const visibleSavedCards = savedItems.filter(item => parseInt(item.date.split('-')[2]) === selectedDay)
-  const totalCount        = visibleHardCards.length + visibleSavedCards.length
-  const label             = DAY_LABELS[selectedDay] || `5월 ${selectedDay}일`
-  const dividerText       = `${label}의 기록${totalCount > 0 ? ` (${totalCount})` : ''}`
+  const visibleHardCards  = currentMonthHardCards.filter(c => c.day === selectedDay)
+  const visibleSavedCards = savedItems.filter(item => {
+    const p = item.date.split('-')
+    return parseInt(p[0]) === calYear && parseInt(p[1]) - 1 === calMonth && parseInt(p[2]) === selectedDay
+  })
+  const totalCount  = visibleHardCards.length + visibleSavedCards.length
+  const label       = isMay2026 && DAY_LABELS[selectedDay] ? DAY_LABELS[selectedDay] : `${calMonth + 1}월 ${selectedDay}일`
+  const dividerText = `${label}의 기록${totalCount > 0 ? ` (${totalCount})` : ''}`
 
   // feed derived
   const feedTotalCount  = 42 + savedItems.length
@@ -161,23 +190,23 @@ export default function LogPage() {
 
                   <div className="calendar">
                     <div className="cal-header">
-                      <button className="cal-nav-btn"><img src="/images/cal_prev.svg" alt="이전달" /></button>
-                      <div className="cal-month">2026년 5월</div>
-                      <button className="cal-nav-btn"><img src="/images/cal_next.svg" alt="다음달" /></button>
+                      <button className="cal-nav-btn" onClick={() => moveCal(-1)}><img src="/images/cal_prev.svg" alt="이전달" /></button>
+                      <div className="cal-month">{calYear}년 {calMonth + 1}월</div>
+                      <button className="cal-nav-btn" onClick={() => moveCal(1)}><img src="/images/cal_next.svg" alt="다음달" /></button>
                     </div>
 
                     <div className="cal-grid">
                       {['일','월','화','수','목','금','토'].map(d => (
                         <div key={d} className="cal-dow">{d}</div>
                       ))}
-                      {[26,27,28,29,30].map(n => (
+                      {prevDays.map(n => (
                         <div key={`prev-${n}`} className="cal-day cal-day--prev">
                           <span className="cal-num">{n}</span>
                         </div>
                       ))}
-                      {Array.from({ length: 31 }, (_, i) => {
+                      {Array.from({ length: daysInMonth }, (_, i) => {
                         const day  = i + 1
-                        const dots = DOT_DAYS[day] || []
+                        const dots = currentMonthDotDays[day] || []
                         const savedDot = savedDates.has(day)
                         return (
                           <div
