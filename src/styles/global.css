@@ -16,7 +16,7 @@
   --color-champagne:   #E5C185;
 
   /* Background */
-  --color-bg-50:       #FFFFFF;
+  --color-bg-50:       #F9F9F9;
   --color-white:       #FFFFFF;
 
   /* System */
@@ -60,7 +60,7 @@ html, body {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  background-color: var(--color-bg-50);
+  background-color: var(--color-white);
   display: flex;
   flex-direction: column;
 }
