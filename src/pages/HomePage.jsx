@@ -285,6 +285,7 @@ export default function HomePage() {
                       className="card"
                       style={getCardStyle(card.category)}
                       onClick={() => card.href && navigate(card.href)}
+                      data-hint={card.href ? 'true' : 'false'}
                     >
                       <div className="card-img-box">
                         <img src={card.img} alt="" />
@@ -318,6 +319,7 @@ export default function HomePage() {
                   className="article-item"
                   onClick={() => article.href && navigate(article.href)}
                   style={article.href ? { cursor: 'pointer' } : undefined}
+                  data-hint={article.href ? 'true' : 'false'}
                 >
                   <img className="article-img" src={article.img} alt="" />
                   <div className="article-text">
