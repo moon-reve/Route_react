@@ -257,6 +257,7 @@ export default function LogPage() {
                           className="log-card log-card--saved"
                           onClick={() => item.href && navigate('/' + item.href)}
                           style={item.href ? { cursor: 'pointer' } : undefined}
+                          data-hint={item.href ? 'true' : 'false'}
                         >
                           <div className="log-card-top">
                             <span className="log-badge badge--bookmark">[저장] {item.type}</span>
@@ -294,6 +295,7 @@ export default function LogPage() {
                             className="article article--saved"
                             onClick={() => item.href && navigate('/' + item.href)}
                             style={item.href ? { cursor: 'pointer' } : undefined}
+                            data-hint={item.href ? 'true' : 'false'}
                           >
                             <div className="feed-meta">
                               <span className="article-date">{formatDate(item.date)}</span>
