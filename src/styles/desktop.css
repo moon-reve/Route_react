@@ -14,8 +14,15 @@
 ════════════════════════════════════════ */
 @media (min-width: 431px) {
 
+  /* body 투명 처리 — space-bg가 배경 담당 */
+  html, body {
+    background: transparent;
+  }
+
   /* #root 재정의: row, stretch로 전체 높이 사용 */
   #root {
+    position: relative;
+    z-index: 1;
     flex-direction: row;
     align-items: stretch;
     justify-content: center;

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import SpaceBackground from './components/SpaceBackground'
 import './styles/desktop.css'
 
 import SplashPage from './pages/SplashPage'
@@ -35,6 +36,8 @@ export default function App() {
 
   return (
     <>
+      <SpaceBackground />
+
       {/* 데스크탑 왼쪽 브랜딩 패널 */}
       <div className="desktop-left">
         <div className="desktop-logo-wrap">
