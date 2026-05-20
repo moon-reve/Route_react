@@ -117,7 +117,7 @@ export default function ExpertDetailPage() {
             </section>
 
             {/* ⑤ CTA 버튼 */}
-            <button className="btn-cta">J.young 멘토에게 1:1 질문하기</button>
+            <button className="btn-cta" data-hint="false">J.young 멘토에게 1:1 질문하기</button>
 
           </main>
         </div>

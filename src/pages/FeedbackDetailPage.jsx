@@ -125,8 +125,8 @@ export default function FeedbackDetailPage() {
 
               {/* ⑤ 하단 버튼 */}
               <div className="footer-btns">
-                <button className="btn-secondary">추가 질문하기</button>
-                <button className="btn-primary">피드백 반영 및 업데이트</button>
+                <button className="btn-secondary" data-hint="false">추가 질문하기</button>
+                <button className="btn-primary" data-hint="false">피드백 반영 및 업데이트</button>
               </div>
 
             </div>
