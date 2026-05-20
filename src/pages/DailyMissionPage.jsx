@@ -94,7 +94,7 @@ export default function DailyMissionPage() {
                         </div>
                         <span className="card-sub">23분 소요</span>
                       </div>
-                      <button className="card-btn">강의 들으러 가기</button>
+                      <button className="card-btn" data-hint="false">강의 들으러 가기</button>
                     </div>
                   </div>
                 )
@@ -116,7 +116,7 @@ export default function DailyMissionPage() {
                         <span className="card-sub">p.12 ~ p.34</span>
                       </div>
                       <div className="book-btn-box">
-                        <button className="card-btn card-btn--sm">이어보기</button>
+                        <button className="card-btn card-btn--sm" data-hint="false">이어보기</button>
                       </div>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default function DailyMissionPage() {
                         </div>
                       </div>
                     </div>
-                    <button className="card-btn">작업 시작하기</button>
+                    <button className="card-btn" data-hint="false">작업 시작하기</button>
                   </div>
                 )
 
