@@ -139,6 +139,7 @@
 .badge--orange      { background: rgba(232, 148, 26, 0.15);  color: var(--starline-gold); }
 .badge--terracotta  { background: rgba(196, 135, 106, 0.15); color: var(--muted-terracotta); }
 .badge--rose        { background: rgba(212, 132, 154, 0.15); color: var(--dusty-rose); }
+.badge--mint        { background: rgba(71, 181, 167, 0.15);  color: var(--fresh-mint); }
 .badge--lavender    { background: rgba(158, 144, 188, 0.15); color: var(--dusty-lavender); }
 
 .feed-text {

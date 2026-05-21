@@ -176,6 +176,7 @@
 .cal-dot--terracotta { background: var(--muted-terracotta); }
 .cal-dot--rose       { background: var(--dusty-rose); }
 .cal-dot--orange     { background: var(--starline-gold); }
+.cal-dot--mint       { background: var(--fresh-mint); }
 .cal-dot--lavender   { background: var(--dusty-lavender); }
 
 /* ════════ SECTION DIVIDER ════════ */
@@ -239,6 +240,7 @@
 .log-badge--terracotta{ background: rgba(196, 135, 106, 0.15); color: var(--muted-terracotta); }
 .log-badge--rose      { background: rgba(212, 132, 154, 0.15); color: var(--dusty-rose); }
 .log-badge--orange    { background: rgba(232, 148, 26, 0.15);  color: var(--starline-gold); }
+.log-badge--mint      { background: rgba(71, 181, 167, 0.15);  color: var(--fresh-mint); }
 .log-badge--lavender  { background: rgba(158, 144, 188, 0.15); color: var(--dusty-lavender); }
 
 .log-time {
