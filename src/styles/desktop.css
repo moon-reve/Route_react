@@ -56,8 +56,8 @@
     gap: 14px;
   }
 
-  .desktop-logo-wrap .hint-toggle {
-    margin-left: 26px; /* 14px 기존 gap + 26px = 총 40px */
+  .hint-toggle {
+    align-self: center;
   }
 
   .desktop-logo-icon {
