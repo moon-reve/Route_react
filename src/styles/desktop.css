@@ -37,15 +37,6 @@
   }
 
   /* ── 왼쪽 브랜딩 패널: 컨텐츠를 2/3 지점부터 ── */
-  .desktop-left-group {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 40px;
-    flex-shrink: 0;
-    transform: translate(-200px, 200px);
-  }
-
   .desktop-left {
     display: flex;
     flex-direction: column;
