@@ -721,4 +721,4 @@
 .log-tag-chip--active[data-tag="인강"]    { background: var(--champagne-gold);    border-color: var(--champagne-gold); }
 .log-tag-chip--active[data-tag="도서"]    { background: var(--dusty-sage);        border-color: var(--dusty-sage); }
 .log-tag-chip--active[data-tag="매거진"]  { background: var(--dusty-rose);        border-color: var(--dusty-rose); }
-.log-tag-chip--active[data-tag="프로젝트"]{ background: var(--starline-gold);     border-color: var(--starline-gold); }
+.log-tag-chip--active[data-tag="프로젝트"]{ background: var(--dusty-lavender);    border-color: var(--dusty-lavender); }
