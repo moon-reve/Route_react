@@ -40,7 +40,7 @@
   .desktop-left-group {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     gap: 40px;
     flex-shrink: 0;
     transform: translate(-200px, 200px);
