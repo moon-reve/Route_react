@@ -11,7 +11,6 @@
 
 /* 모바일에서 desktop-app-wrap이 #root 전체를 채우도록 */
 .desktop-app-wrap {
-  flex: 1;
   width: 100%;
   height: 100%;
 }
