@@ -93,6 +93,7 @@ export default function LogWritePage() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
+  const [logTitle, setLogTitle]           = useState('')
   const [heroImgSrc, setHeroImgSrc]       = useState('/images/log_hero_img.svg')
   const [heroCap, setHeroCap]             = useState('탭하여 오늘의 항해 순간을 담아보세요')
   const [heroCapVisible, setHeroCapVisible] = useState(true)
@@ -339,7 +340,12 @@ export default function LogWritePage() {
                 <div className="input-group">
                   <label className="input-label">{cfg.titleLabel}</label>
                   <div className="input-box">
-                    <input type="text" placeholder={cfg.titlePH} />
+                    <input
+                      type="text"
+                      placeholder={cfg.titlePH}
+                      value={logTitle}
+                      onChange={e => setLogTitle(e.target.value)}
+                    />
                   </div>
                 </div>
               </div>
@@ -394,7 +400,18 @@ export default function LogWritePage() {
               {/* 제출 버튼 — 로그 탭만 활성화 */}
               <button
                 className="submit-btn"
-                onClick={() => activeTab === 'log' && navigate('/log')}
+                onClick={() => {
+                  if (activeTab !== 'log') return
+                  if (logTitle.trim()) {
+                    const key = `route_saved_log_${Date.now()}`
+                    localStorage.setItem(key, 'true')
+                    localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
+                    localStorage.setItem(key + '_title', logTitle.trim())
+                    localStorage.setItem(key + '_type', logTag || '로그')
+                    localStorage.setItem(key + '_href', '')
+                  }
+                  navigate('/log')
+                }}
                 disabled={activeTab !== 'log'}
                 data-hint={activeTab === 'log' ? 'true' : 'false'}
                 style={{ opacity: activeTab !== 'log' ? 0.4 : 1, cursor: activeTab !== 'log' ? 'not-allowed' : 'pointer' }}
