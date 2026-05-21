@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .profile-text {
@@ -64,7 +64,7 @@
 
 /* 프로필 수정 버튼: padding 9px 12px, bg white, border 1px #999, radius 50px */
 .edit-btn {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
