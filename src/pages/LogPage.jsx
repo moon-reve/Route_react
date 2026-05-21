@@ -13,7 +13,7 @@ function getSavedItems() {
   Object.keys(localStorage)
     .filter(k =>
       k.startsWith('route_saved_') &&
-      !k.includes('_date') && !k.includes('_title') && !k.includes('_type') && !k.includes('_href')
+      !k.includes('_date') && !k.includes('_title') && !k.includes('_type') && !k.includes('_href') && !k.includes('_text')
     )
     .forEach(k => {
       if (localStorage.getItem(k) !== 'true') return
@@ -24,6 +24,7 @@ function getSavedItems() {
         date: dateStr,
         title: localStorage.getItem(k + '_title') || '',
         type: localStorage.getItem(k + '_type') || '',
+        text: localStorage.getItem(k + '_text') || '',
         href: localStorage.getItem(k + '_href') || '',
       })
     })
@@ -274,6 +275,7 @@ export default function LogPage() {
                             <span className="log-badge badge--bookmark">[저장] {item.type}</span>
                           </div>
                           <p className="cal-log-title">{item.title}</p>
+                          {item.text && <p className="log-text">{item.text}</p>}
                         </div>
                       ))}
                     </div>
@@ -313,6 +315,7 @@ export default function LogPage() {
                               <span className="article-badge badge--blue">[저장] {item.type}</span>
                             </div>
                             <p className="feed-text">{item.title}</p>
+                            {item.text && <p className="feed-text" style={{ color: 'var(--gray-700)', fontWeight: 400 }}>{item.text}</p>}
                           </div>
                         ))}
                       </>

@@ -94,6 +94,7 @@ export default function LogWritePage() {
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
   const [logTitle, setLogTitle]           = useState('')
+  const [logContent, setLogContent]       = useState('')
   const [heroImgSrc, setHeroImgSrc]       = useState('/images/log_hero_img.svg')
   const [heroCap, setHeroCap]             = useState('탭하여 오늘의 항해 순간을 담아보세요')
   const [heroCapVisible, setHeroCapVisible] = useState(true)
@@ -355,7 +356,12 @@ export default function LogWritePage() {
                 <div className="input-group">
                   <label className="input-label">간단한 설명 (선택)</label>
                   <div className="input-box input-box--textarea">
-                    <textarea placeholder={cfg.descPH} rows={3}></textarea>
+                    <textarea
+                      placeholder={cfg.descPH}
+                      rows={3}
+                      value={logContent}
+                      onChange={e => setLogContent(e.target.value)}
+                    ></textarea>
                   </div>
                 </div>
               </div>
@@ -408,6 +414,7 @@ export default function LogWritePage() {
                     localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
                     localStorage.setItem(key + '_title', logTitle.trim())
                     localStorage.setItem(key + '_type', logTag || '로그')
+                    localStorage.setItem(key + '_text', logContent.trim())
                     localStorage.setItem(key + '_href', '')
                   }
                   navigate('/log')
