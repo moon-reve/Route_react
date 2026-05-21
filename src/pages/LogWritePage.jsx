@@ -330,6 +330,7 @@ export default function LogWritePage() {
                         key={tag}
                         className={`log-tag-chip${logTag === tag ? ' log-tag-chip--active' : ''}`}
                         onClick={() => setLogTag(prev => prev === tag ? null : tag)}
+                        data-tag={tag}
                         type="button"
                       >{tag}</button>
                     ))}
