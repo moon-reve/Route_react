@@ -37,6 +37,15 @@
   }
 
   /* ── 왼쪽 브랜딩 패널: 컨텐츠를 2/3 지점부터 ── */
+  .desktop-left-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    flex-shrink: 0;
+    transform: translate(-200px, 200px);
+  }
+
   .desktop-left {
     display: flex;
     flex-direction: column;
@@ -44,7 +53,6 @@
     gap: 32px;
     width: 400px;
     flex-shrink: 0;
-    transform: translate(-200px, 200px);
     position: relative;
     z-index: 2;
   }
@@ -56,9 +64,6 @@
     gap: 14px;
   }
 
-  .hint-toggle {
-    align-self: center;
-  }
 
   .desktop-logo-icon {
     width: 52px;

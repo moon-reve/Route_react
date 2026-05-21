@@ -38,7 +38,8 @@ export default function App() {
     <>
       <SpaceBackground />
 
-      {/* 데스크탑 왼쪽 브랜딩 패널 */}
+      {/* 데스크탑 왼쪽 패널 + 힌트 토글 묶음 */}
+      <div className="desktop-left-group">
       <div className="desktop-left">
         <div className="desktop-logo-wrap">
           <img src="/images/splash_logo.svg" alt="Route" className="desktop-logo-icon" />
@@ -68,6 +69,7 @@ export default function App() {
         <span className="hint-dot" />
         클릭 힌트
       </button>
+      </div>
 
       {/* 앱 화면 */}
       <div className={`desktop-app-wrap${hintsOn ? ' hints-on' : ''}`}>
