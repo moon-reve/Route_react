@@ -281,6 +281,20 @@
 
 #saved-log-cards { display: flex; flex-direction: column; gap: 12px; }
 
+.log-card-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--active-border-gray-500);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+.log-card-delete:hover { color: var(--midnight-charcoal); }
+
 .log-card--saved {
   padding: 14px 16px;
   background: rgba(123, 158, 173, 0.06);

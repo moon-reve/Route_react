@@ -127,6 +127,13 @@ export default function LogPage() {
     setSavedItems(items)
   }, [])
 
+  const deleteSavedItem = (key) => {
+    ['', '_date', '_title', '_type', '_text', '_href'].forEach(suffix => {
+      localStorage.removeItem(key + suffix)
+    })
+    setSavedItems(getSavedItems())
+  }
+
   // 현재 보이는 달의 저장 날짜
   useEffect(() => {
     const dates = new Set()
@@ -268,9 +275,13 @@ export default function LogPage() {
                           key={i}
                           className="log-card log-card--saved"
                           onClick={() => item.href && navigate('/' + item.href)}
-                          style={item.href ? { cursor: 'pointer' } : undefined}
+                          style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
                           data-hint={item.href ? 'true' : 'false'}
                         >
+                          <button
+                            className="log-card-delete"
+                            onClick={e => { e.stopPropagation(); deleteSavedItem(item.key) }}
+                          >×</button>
                           <div className="log-card-top">
                             <span className="log-badge badge--bookmark">[저장] {item.type}</span>
                           </div>
@@ -307,9 +318,13 @@ export default function LogPage() {
                             key={i}
                             className="article article--saved"
                             onClick={() => item.href && navigate('/' + item.href)}
-                            style={item.href ? { cursor: 'pointer' } : undefined}
+                            style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
                             data-hint={item.href ? 'true' : 'false'}
                           >
+                            <button
+                              className="log-card-delete"
+                              onClick={e => { e.stopPropagation(); deleteSavedItem(item.key) }}
+                            >×</button>
                             <div className="feed-meta">
                               <span className="article-date">{formatDate(item.date)}</span>
                               <span className="article-badge badge--blue">[저장] {item.type}</span>
