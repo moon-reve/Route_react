@@ -376,8 +376,14 @@ export default function LogWritePage() {
                 </div>
               )}
 
-              {/* 제출 버튼 */}
-              <button className="submit-btn" onClick={() => navigate('/log')}>계획 추가하기</button>
+              {/* 제출 버튼 — 로그 탭만 활성화 */}
+              <button
+                className="submit-btn"
+                onClick={() => activeTab === 'log' && navigate('/log')}
+                disabled={activeTab !== 'log'}
+                data-hint={activeTab === 'log' ? 'true' : 'false'}
+                style={{ opacity: activeTab !== 'log' ? 0.4 : 1, cursor: activeTab !== 'log' ? 'not-allowed' : 'pointer' }}
+              >계획 추가하기</button>
 
             </div>
           </div>
