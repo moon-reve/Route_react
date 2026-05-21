@@ -693,3 +693,31 @@
   text-align: center;
 }
 .drum-confirm:active { opacity: 0.7; }
+
+/* ── 로그 태그 선택 칩 ── */
+.log-tag-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.log-tag-chip {
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--inactive-gray-200);
+  background: var(--pure-white);
+  font-family: 'Pretendard', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.log-tag-chip--active {
+  background: var(--midnight-charcoal);
+  border-color: var(--midnight-charcoal);
+  color: var(--pure-white);
+}

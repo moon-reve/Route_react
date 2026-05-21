@@ -92,6 +92,7 @@ function DrumCol({ items, selectedIndex, onChange }) {
 export default function LogWritePage() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab]         = useState('log')
+  const [logTag, setLogTag]               = useState(null)
   const [heroImgSrc, setHeroImgSrc]       = useState('/images/log_hero_img.svg')
   const [heroCap, setHeroCap]             = useState('탭하여 오늘의 항해 순간을 담아보세요')
   const [heroCapVisible, setHeroCapVisible] = useState(true)
@@ -319,6 +320,19 @@ export default function LogWritePage() {
                       <span className="file-name-text">{fileName}</span>
                       <img src="/images/log_write_upload.svg" alt="" className="file-icon" />
                     </div>
+                  </div>
+                )}
+                {/* 로그 탭 태그 선택 */}
+                {activeTab === 'log' && (
+                  <div className="log-tag-row">
+                    {['인강', '도서', '매거진', '프로젝트'].map(tag => (
+                      <button
+                        key={tag}
+                        className={`log-tag-chip${logTag === tag ? ' log-tag-chip--active' : ''}`}
+                        onClick={() => setLogTag(prev => prev === tag ? null : tag)}
+                        type="button"
+                      >{tag}</button>
+                    ))}
                   </div>
                 )}
                 <div className="input-group">
