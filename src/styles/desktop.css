@@ -23,6 +23,7 @@
   /* body 투명 처리 — space-bg가 배경 담당 */
   html, body {
     background: transparent;
+    overflow: hidden;
   }
 
   /* #root 재정의: row, stretch로 전체 높이 사용 */
