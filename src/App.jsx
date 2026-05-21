@@ -43,6 +43,14 @@ export default function App() {
         <div className="desktop-logo-wrap">
           <img src="/images/splash_logo.svg" alt="Route" className="desktop-logo-icon" />
           <span className="desktop-logo-text">Route</span>
+          {/* 힌트 토글 버튼 */}
+          <button
+            className={`hint-toggle${hintsOn ? ' active' : ''}`}
+            onClick={() => setHintsOn(!hintsOn)}
+          >
+            <span className="hint-dot" />
+            클릭 힌트
+          </button>
         </div>
         <div className="desktop-divider" />
         <p className="desktop-tagline">
@@ -93,14 +101,6 @@ export default function App() {
           </Routes>
         </BrowserRouter>
 
-        {/* 힌트 토글 버튼 */}
-        <button
-          className={`hint-toggle${hintsOn ? ' active' : ''}`}
-          onClick={() => setHintsOn(!hintsOn)}
-        >
-          <span className="hint-dot" />
-          클릭 힌트
-        </button>
       </div>
     </>
   )
