@@ -100,7 +100,7 @@ export default function MyPage() {
             maxWidth: '320px',
             textAlign: 'center',
           }}>
-            <p style={{ fontSize: '17px', fontWeight: '700', color: '#E8941A', margin: 0 }}>
+            <p style={{ fontSize: '17px', fontWeight: '700', color: '#C4876A', margin: 0 }}>
               로그인이 필요한 기능이에요
             </p>
             <p style={{ fontSize: '14px', fontWeight: '400', color: '#1A1C1E', margin: 0, lineHeight: '1.6' }}>
