@@ -77,7 +77,7 @@ export default function PreCompletePage() {
           </section>
 
           {/* ④ CTA 버튼 */}
-          <button className="complete-btn-start" onClick={() => navigate('/home')}>나의 루트 시작하기</button>
+          <button className="complete-btn-start" onClick={() => navigate('/roadmap')}>나의 루트 시작하기</button>
 
         </div>
       </div>
