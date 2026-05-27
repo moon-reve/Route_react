@@ -46,6 +46,8 @@
     flex-shrink: 0;
     align-self: flex-end;
     margin-bottom: 20vh;
+    position: relative;
+    z-index: 1;
   }
 
   .desktop-left {
