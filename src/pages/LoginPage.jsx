@@ -104,12 +104,12 @@ export default function LoginPage() {
 
         {/* 액션 섹션 */}
         <section className="action-section">
-          <button className="login-btn login-btn-kakao" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-kakao" onClick={() => { localStorage.setItem('userType', 'member'); navigate('/home') }}>
             <img src="/images/ic_kakao.svg" alt="" className="btn-icon" />
             <span>카카오톡으로 로그인</span>
           </button>
 
-          <button className="login-btn login-btn-google" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-google" onClick={() => { localStorage.setItem('userType', 'member'); navigate('/home') }}>
             <img src="/images/ic_google.svg" alt="" className="btn-icon" />
             <span>구글로 로그인</span>
           </button>
@@ -132,29 +132,29 @@ export default function LoginPage() {
         <h2 className="login-modal-title">다른 방법으로 로그인</h2>
 
         <div className="modal-buttons">
-          <button className="login-btn login-btn-line" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-line" onClick={() => { localStorage.setItem('userType', 'member'); navigate('/home') }}>
             <img src="/images/ic_line.svg" alt="" className="btn-icon" />
             <span>LINE으로 로그인</span>
           </button>
 
-          <button className="login-btn login-btn-linkedin" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-linkedin" onClick={() => { localStorage.setItem('userType', 'member'); navigate('/home') }}>
             <img src="/images/ic_linkedin.svg" alt="" className="btn-icon" />
             <span>LinkedIn으로 로그인</span>
           </button>
 
-          <button className="login-btn login-btn-github" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-github" onClick={() => { localStorage.setItem('userType', 'member'); navigate('/home') }}>
             <img src="/images/ic_github.svg" alt="" className="btn-icon" />
             <span>GitHub로 로그인</span>
           </button>
 
-          <button className="login-btn login-btn-phone" onClick={() => navigate('/home')}>
+          <button className="login-btn login-btn-phone" onClick={() => { localStorage.setItem('userType', 'member'); navigate('/home') }}>
             <img src="/images/ic_phone.svg" alt="" className="btn-icon" />
             <span>휴대폰/이메일로 로그인</span>
           </button>
         </div>
 
         <div className="guest-section">
-          <button className="guest-btn" onClick={() => navigate('/home')}>비회원으로 둘러보기</button>
+          <button className="guest-btn" onClick={() => { localStorage.setItem('userType', 'guest'); navigate('/home') }}>비회원으로 둘러보기</button>
         </div>
       </div>
       {/* 별똥별 */}

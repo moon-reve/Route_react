@@ -1,10 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
 import '../styles/my_page.css'
 
 export default function MyPage() {
+  const navigate = useNavigate()
+  const isGuest = localStorage.getItem('userType') === 'guest'
+
   return (
-    <div className="screen">
+    <div className="screen" style={{ position: 'relative' }}>
       <div className="scroll-area">
         <div className="my-page">
           <main className="my-main">
@@ -69,6 +73,60 @@ export default function MyPage() {
       </div>
 
       <BottomNav active="my" />
+
+      {/* 비회원 안내 오버레이 */}
+      {isGuest && (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 50,
+          padding: '24px',
+        }}>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.5)',
+            backdropFilter: 'blur(4px)',
+            WebkitBackdropFilter: 'blur(4px)',
+            border: '1px solid rgba(0, 0, 0, 0.08)',
+            borderRadius: '20px',
+            padding: '36px 28px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
+            width: '100%',
+            maxWidth: '320px',
+            textAlign: 'center',
+          }}>
+            <p style={{ fontSize: '17px', fontWeight: '700', color: '#1A1C1E', margin: 0 }}>
+              로그인이 필요한 기능이에요
+            </p>
+            <p style={{ fontSize: '14px', fontWeight: '400', color: '#555555', margin: 0, lineHeight: '1.6' }}>
+              로그인하고 나만의 루트를<br />완성해보세요
+            </p>
+            <button
+              onClick={() => navigate('/login')}
+              style={{
+                marginTop: '8px',
+                width: '100%',
+                padding: '14px 0',
+                background: '#1A1C1E',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '10px',
+                fontSize: '15px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                fontFamily: 'Pretendard, sans-serif',
+              }}
+            >
+              로그인하기
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
