@@ -64,7 +64,7 @@
   background: var(--pure-white);
   border: 1px solid var(--border-gray-300);
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   min-width: 110px;
   z-index: 50;
   overflow: hidden;
