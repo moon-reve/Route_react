@@ -43,9 +43,9 @@
     flex-direction: row;
     align-items: center;
     gap: 40px;
-    position: absolute;
-    bottom: 10%;
-    left: 9%;
+    flex-shrink: 0;
+    align-self: flex-end;
+    margin-bottom: 10vh;
   }
 
   .desktop-left {
