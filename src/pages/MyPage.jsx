@@ -86,7 +86,7 @@ export default function MyPage() {
           padding: '24px',
         }}>
           <div style={{
-            background: 'rgba(255, 255, 255, 0.5)',
+            background: 'rgba(255, 255, 255, 0.6)',
             backdropFilter: 'blur(4px)',
             WebkitBackdropFilter: 'blur(4px)',
             border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -100,10 +100,10 @@ export default function MyPage() {
             maxWidth: '320px',
             textAlign: 'center',
           }}>
-            <p style={{ fontSize: '17px', fontWeight: '700', color: '#1A1C1E', margin: 0 }}>
+            <p style={{ fontSize: '17px', fontWeight: '700', color: '#E8941A', margin: 0 }}>
               로그인이 필요한 기능이에요
             </p>
-            <p style={{ fontSize: '14px', fontWeight: '400', color: '#555555', margin: 0, lineHeight: '1.6' }}>
+            <p style={{ fontSize: '14px', fontWeight: '400', color: '#1A1C1E', margin: 0, lineHeight: '1.6' }}>
               로그인하고 나만의 루트를<br />완성해보세요
             </p>
             <button
