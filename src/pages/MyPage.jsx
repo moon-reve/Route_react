@@ -86,6 +86,7 @@ export default function MyPage() {
           padding: '24px',
         }}>
           <div style={{
+            transform: 'translateY(-80px)',
             background: 'rgba(255, 255, 255, 0.6)',
             backdropFilter: 'blur(4px)',
             WebkitBackdropFilter: 'blur(4px)',
