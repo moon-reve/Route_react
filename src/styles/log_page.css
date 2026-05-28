@@ -54,8 +54,7 @@
 
 /* ── 슬라이더 ── */
 .log-slider-wrap {
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
   width: 100%;
   min-height: 0;
   transition: height 0.3s ease;
@@ -106,7 +105,8 @@
 
 .log-kebab-menu {
   position: absolute;
-  top: 32px;
+  bottom: 32px;
+  top: auto;
   right: 10px;
   background: var(--pure-white);
   border: 1px solid var(--border-gray-300);
