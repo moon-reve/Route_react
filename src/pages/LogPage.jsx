@@ -359,27 +359,35 @@ export default function LogPage() {
                           )}
                         </div>
                       ))}
-                      {visibleSavedCards.map((item, i) => (
-                        <div
-                          key={i}
-                          className="log-card log-card--saved"
-                          onClick={() => { setMenuOpen(null); item.href && navigate('/' + item.href) }}
-                          style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
-                          data-hint={item.href ? 'true' : 'false'}
-                        >
-                          <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === item.key ? null : item.key) }}>⋮</button>
-                          {menuOpen === item.key && (
-                            <div className="log-kebab-menu">
-                              <button onClick={e => { e.stopPropagation(); setMenuOpen(null); setDeleteTarget(item.key) }}>삭제</button>
+                      {visibleSavedCards.map((item, i) => {
+                        const isUserLog = item.source === 'log'
+                        return (
+                          <div
+                            key={i}
+                            className="log-card log-card--saved"
+                            onClick={() => { setMenuOpen(null); item.href && navigate('/' + item.href) }}
+                            style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
+                            data-hint={item.href ? 'true' : 'false'}
+                          >
+                            <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === item.key ? null : item.key) }}>⋮</button>
+                            {menuOpen === item.key && (
+                              <div className="log-kebab-menu">
+                                {isUserLog && (
+                                  <button onClick={e => { e.stopPropagation(); setMenuOpen(null); navigate('/log/write', { state: { editItem: { key: item.key, title: item.title, content: item.text } } }) }}>수정</button>
+                                )}
+                                <button onClick={e => { e.stopPropagation(); setMenuOpen(null); setDeleteTarget(item.key) }}>삭제</button>
+                              </div>
+                            )}
+                            <div className="log-card-top">
+                              <span className="log-badge badge--bookmark">
+                                {isUserLog ? `[로그] ${item.type}` : `[저장] ${item.type}`}
+                              </span>
                             </div>
-                          )}
-                          <div className="log-card-top">
-                            <span className="log-badge badge--bookmark">[저장] {item.type}</span>
+                            <p className="cal-log-title">{item.title}</p>
+                            {item.text && <p className="log-text">{item.text}</p>}
                           </div>
-                          <p className="cal-log-title">{item.title}</p>
-                          {item.text && <p className="log-text">{item.text}</p>}
-                        </div>
-                      ))}
+                        )
+                      })}
                     </div>
                   )}
 
