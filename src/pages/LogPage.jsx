@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef, startTransition } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import '../styles/common.css'
@@ -283,7 +283,7 @@ export default function LogPage() {
                           <div
                             key={day}
                             className={`cal-day${selectedDay === day ? ' cal-day--selected' : ''}`}
-                            onClick={() => setSelectedDay(day)}
+                            onClick={() => startTransition(() => setSelectedDay(day))}
                           >
                             <span className="cal-num">{day}</span>
                             {(dots.length > 0 || savedDot) && (
