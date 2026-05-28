@@ -95,6 +95,17 @@ export default function LogWritePage() {
   const editItem   = state?.editItem ?? null   // 수정 모드: { key, title, content, tag, date }
   const [toastVisible,   setToastVisible]   = useState(false)
   const [emptyModal,     setEmptyModal]     = useState(false)
+  const [leaveModal,     setLeaveModal]     = useState(false)
+
+  const handleBack = () => {
+    const title   = logTitleRef.current?.value?.trim() ?? ''
+    const content = logContentRef.current?.value?.trim() ?? ''
+    if (title || content) {
+      setLeaveModal(true)
+    } else {
+      navigate(-1)
+    }
+  }
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
   const logTitleRef   = useRef('')
@@ -264,7 +275,7 @@ export default function LogWritePage() {
 
             <header className="log-header">
               <div className="log-title">새로운 항로 등록</div>
-              <button className="log-close" onClick={() => navigate(-1)}>
+              <button className="log-close" onClick={handleBack}>
                 <img src="/images/log_btn_close.svg" alt="닫기" />
               </button>
             </header>
@@ -487,6 +498,19 @@ export default function LogWritePage() {
       <div className={`bookmark-toast${toastVisible ? '' : ' is-hidden'}`}>
         <span className="toast-text">로그가 저장되었습니다</span>
       </div>
+
+      {/* 나가기 확인 모달 */}
+      {leaveModal && (
+        <div className="modal-overlay is-open" onClick={() => setLeaveModal(false)}>
+          <div className="modal-card" onClick={e => e.stopPropagation()}>
+            <p className="dm-modal-title">작성 중인 내용이 있어요.{'\n'}나가시겠습니까?</p>
+            <div className="modal-btns">
+              <button className="modal-btn modal-btn--gray" onClick={() => setLeaveModal(false)}>취소</button>
+              <button className="modal-btn modal-btn--charcoal" onClick={() => navigate(-1)}>나가기</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 빈 내용 경고 모달 */}
       {emptyModal && (
