@@ -88,6 +88,14 @@ const FEEDBACK_PROJECTS = [
     project: '포트폴리오 리뉴얼',
     feedbacks: [
       {
+        date: '2026. 05. 28',
+        from: 'J.young 멘토',
+        badge: 'badge--blue',
+        badgeText: '[멘토 피드백]',
+        text: '앱 기획의 방향성이 명확하고 실현 가능성이 높습니다.',
+        href: '/feedback',
+      },
+      {
         date: '2026. 04. 22',
         from: '멘토 이지혜',
         badge: 'badge--blue',
@@ -462,13 +470,22 @@ export default function LogPage() {
                         <span className="saved-section-label">{proj.project}</span>
                       </div>
                       {proj.feedbacks.map((fb, fi) => (
-                        <div key={fi} className="article">
+                        <div
+                          key={fi}
+                          className="article"
+                          onClick={() => fb.href && navigate(fb.href)}
+                          style={fb.href ? { cursor: 'pointer' } : undefined}
+                          data-hint={fb.href ? 'true' : 'false'}
+                        >
                           <div className="feed-meta">
                             <span className="article-date">{fb.date}</span>
                             <span className={`article-badge ${fb.badge}`}>{fb.badgeText}</span>
                           </div>
                           <p className="feed-text" style={{ fontSize: '12px', color: 'var(--active-border-gray-500)', marginBottom: '4px' }}>{fb.from}</p>
                           <p className="feed-text">{fb.text}</p>
+                          {fb.href && (
+                            <p style={{ fontSize: '12px', color: 'var(--starline-gold)', fontWeight: 600 }}>상세 보기 →</p>
+                          )}
                         </div>
                       ))}
                     </div>
