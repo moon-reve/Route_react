@@ -151,6 +151,7 @@ export default function LogPage() {
   const [selectedDay, setSelectedDay] = useState(_today.getDate())
   const [savedItems,  setSavedItems]  = useState([])
   const [deleteTarget, setDeleteTarget] = useState(null)  // 삭제 확인 모달용
+  const [menuOpen,     setMenuOpen]     = useState(null)  // ⋮ 메뉴 열린 아이템 key
   const [savedDates,  setSavedDates]  = useState(new Set())
 
   // 월 이동
@@ -346,14 +347,16 @@ export default function LogPage() {
                         <div
                           key={i}
                           className="log-card log-card--saved"
-                          onClick={() => item.href && navigate('/' + item.href)}
+                          onClick={() => { setMenuOpen(null); item.href && navigate('/' + item.href) }}
                           style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
                           data-hint={item.href ? 'true' : 'false'}
                         >
-                          <button
-                            className="log-card-delete"
-                            onClick={e => { e.stopPropagation(); setDeleteTarget(item.key) }}
-                          >×</button>
+                          <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === item.key ? null : item.key) }}>⋮</button>
+                          {menuOpen === item.key && (
+                            <div className="log-kebab-menu">
+                              <button onClick={e => { e.stopPropagation(); setMenuOpen(null); setDeleteTarget(item.key) }}>삭제</button>
+                            </div>
+                          )}
                           <div className="log-card-top">
                             <span className="log-badge badge--bookmark">[저장] {item.type}</span>
                           </div>
@@ -381,19 +384,23 @@ export default function LogPage() {
 
                   <div className="articles">
                     {allFeedItems.map((item, i) => {
+                      const menuKey = item._type === 'saved' ? item.key : `hard_${i}`
                       if (item._type === 'saved') {
                         return (
                           <div
                             key={i}
                             className="article article--saved"
-                            onClick={() => item.href && navigate('/' + item.href)}
+                            onClick={() => { setMenuOpen(null); item.href && navigate('/' + item.href) }}
                             style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
                             data-hint={item.href ? 'true' : 'false'}
                           >
-                            <button
-                              className="log-card-delete"
-                              onClick={e => { e.stopPropagation(); setDeleteTarget(item.key) }}
-                            >×</button>
+                            {/* ⋮ 메뉴 버튼 */}
+                            <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === menuKey ? null : menuKey) }}>⋮</button>
+                            {menuOpen === menuKey && (
+                              <div className="log-kebab-menu">
+                                <button onClick={e => { e.stopPropagation(); setMenuOpen(null); setDeleteTarget(item.key) }}>삭제</button>
+                              </div>
+                            )}
                             <div className="feed-meta">
                               <span className="article-date">{formatDate(item.date)}</span>
                               <span className="article-badge badge--blue">[저장] {item.type}</span>
@@ -404,7 +411,15 @@ export default function LogPage() {
                         )
                       }
                       return (
-                        <div className="article" key={i}>
+                        <div className="article" key={i} style={{ position: 'relative' }}>
+                          {/* ⋮ 메뉴 버튼 */}
+                          <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === menuKey ? null : menuKey) }}>⋮</button>
+                          {menuOpen === menuKey && (
+                            <div className="log-kebab-menu">
+                              <button onClick={e => { e.stopPropagation(); setMenuOpen(null); navigate('/log/write', { state: { editItem: { key: menuKey, title: item.text, content: '', tag: item.badgeText, date: cardDate(item.day) } }) }}>수정</button>
+                              <button onClick={e => { e.stopPropagation(); setMenuOpen(null) }}>삭제</button>
+                            </div>
+                          )}
                           <div className="feed-meta">
                             <span className="article-date">{cardDate(item.day)}</span>
                             <span className={`article-badge ${BADGE_MAP[item.badge]}`}>{item.badgeText}</span>

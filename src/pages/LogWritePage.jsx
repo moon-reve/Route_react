@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/log_write.css'
 
@@ -90,7 +90,9 @@ function DrumCol({ items, selectedIndex, onChange }) {
 }
 
 export default function LogWritePage() {
-  const navigate = useNavigate()
+  const navigate   = useNavigate()
+  const { state }  = useLocation()
+  const editItem   = state?.editItem ?? null   // 수정 모드: { key, title, content, tag, date }
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
   const logTitleRef   = useRef('')
@@ -345,7 +347,7 @@ export default function LogWritePage() {
                       type="text"
                       placeholder={cfg.titlePH}
                       ref={logTitleRef}
-                      defaultValue=""
+                      defaultValue={editItem?.title ?? ''}
                     />
                   </div>
                 </div>
@@ -360,7 +362,7 @@ export default function LogWritePage() {
                       placeholder={cfg.descPH}
                       rows={3}
                       ref={logContentRef}
-                      defaultValue=""
+                      defaultValue={editItem?.content ?? ''}
                     ></textarea>
                   </div>
                 </div>
@@ -411,13 +413,20 @@ export default function LogWritePage() {
                   const title   = logTitleRef.current?.value?.trim() ?? ''
                   const content = logContentRef.current?.value?.trim() ?? ''
                   if (title) {
-                    const key = `route_saved_log_${Date.now()}`
-                    localStorage.setItem(key, 'true')
-                    localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
-                    localStorage.setItem(key + '_title', title)
-                    localStorage.setItem(key + '_type', logTag || '로그')
-                    localStorage.setItem(key + '_text', content)
-                    localStorage.setItem(key + '_href', '')
+                    if (editItem?.key && localStorage.getItem(editItem.key) === 'true') {
+                      // 수정 모드 — 기존 항목 업데이트
+                      localStorage.setItem(editItem.key + '_title', title)
+                      localStorage.setItem(editItem.key + '_text', content)
+                    } else {
+                      // 신규 저장
+                      const key = `route_saved_log_${Date.now()}`
+                      localStorage.setItem(key, 'true')
+                      localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
+                      localStorage.setItem(key + '_title', title)
+                      localStorage.setItem(key + '_type', logTag || '로그')
+                      localStorage.setItem(key + '_text', content)
+                      localStorage.setItem(key + '_href', '')
+                    }
                   }
                   navigate('/log')
                 }}
