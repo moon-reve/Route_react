@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/splash.css'
@@ -17,6 +18,10 @@ const STROKE_STARS = [
 export default function SplashPage() {
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const timer = setTimeout(() => navigate('/onboarding'), 3000)
+    return () => clearTimeout(timer)
+  }, [navigate])
 
   return (
     <div className="screen" onClick={() => navigate('/onboarding')} style={{ cursor: 'pointer' }}>
