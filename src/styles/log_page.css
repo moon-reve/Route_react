@@ -54,7 +54,8 @@
 
 /* ── 슬라이더 ── */
 .log-slider-wrap {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
   min-height: 0;
   transition: height 0.3s ease;
