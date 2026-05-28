@@ -150,6 +150,7 @@ export default function LogPage() {
   const [calMonth,   setCalMonth]   = useState(_today.getMonth())
   const [selectedDay, setSelectedDay] = useState(_today.getDate())
   const [savedItems,  setSavedItems]  = useState([])
+  const [deleteTarget, setDeleteTarget] = useState(null)  // 삭제 확인 모달용
   const [savedDates,  setSavedDates]  = useState(new Set())
 
   // 월 이동
@@ -190,6 +191,7 @@ export default function LogPage() {
       localStorage.removeItem(key + suffix)
     })
     setSavedItems(getSavedItems())
+    setDeleteTarget(null)
   }
 
   // 현재 보이는 달의 저장 날짜
@@ -350,7 +352,7 @@ export default function LogPage() {
                         >
                           <button
                             className="log-card-delete"
-                            onClick={e => { e.stopPropagation(); deleteSavedItem(item.key) }}
+                            onClick={e => { e.stopPropagation(); setDeleteTarget(item.key) }}
                           >×</button>
                           <div className="log-card-top">
                             <span className="log-badge badge--bookmark">[저장] {item.type}</span>
@@ -390,7 +392,7 @@ export default function LogPage() {
                           >
                             <button
                               className="log-card-delete"
-                              onClick={e => { e.stopPropagation(); deleteSavedItem(item.key) }}
+                              onClick={e => { e.stopPropagation(); setDeleteTarget(item.key) }}
                             >×</button>
                             <div className="feed-meta">
                               <span className="article-date">{formatDate(item.date)}</span>
@@ -507,6 +509,19 @@ export default function LogPage() {
 
         </main>
       </div>
+
+      {/* 삭제 확인 모달 */}
+      {deleteTarget && (
+        <div className="modal-overlay is-open">
+          <div className="modal-card">
+            <p className="dm-modal-title">삭제하시겠습니까?</p>
+            <div className="modal-btns">
+              <button className="modal-btn modal-btn--gray" onClick={() => setDeleteTarget(null)}>취소</button>
+              <button className="modal-btn modal-btn--charcoal" onClick={() => deleteSavedItem(deleteTarget)}>삭제</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <BottomNav active="log" />
     </div>

@@ -85,3 +85,15 @@
 .log-contents--cal  { gap: 11px; }
 .log-contents--feed { gap: 21px; }
 .log-contents--proj { gap: 39px; }
+
+/* ── 삭제 확인 모달 ── */
+.log-main .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.40);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.log-main .modal-overlay.is-open { display: flex; }
