@@ -48,12 +48,62 @@ const DOT_DAYS   = { 8: ['cal-dot--gold', 'cal-dot--rose'], 12: ['cal-dot--mint'
 
 // ── Tab init ─────────────────────────────────────────────────
 function getInitialTab(pathname) {
-  if (pathname.startsWith('/log/project')) return 2
-  if (pathname.startsWith('/log/feed'))    return 1
+  if (pathname.startsWith('/log/project'))  return 2
+  if (pathname.startsWith('/log/feed'))     return 1
+  if (pathname.startsWith('/log/feedback')) return 3
   return 0
 }
 
-const TAB_LABELS = ['캘린더', '로그 피드', '프로젝트']
+const TAB_LABELS = ['캘린더', '로그 피드', '프로젝트', '피드백']
+
+// ── 피드백 데이터 ─────────────────────────────────────────────
+const FEEDBACK_PROJECTS = [
+  {
+    project: 'Route 앱 프로젝트',
+    feedbacks: [
+      {
+        date: '2026. 05. 20',
+        from: '멘토 이지혜',
+        badge: 'badge--blue',
+        badgeText: '[디자인 피드백]',
+        text: '히어로 섹션의 별자리 비주얼이 앱의 컨셉을 잘 살려주고 있어요. 버튼 CTA 문구가 명확해서 전환 유도가 자연스럽습니다.',
+      },
+      {
+        date: '2026. 05. 15',
+        from: '멘토 이지혜',
+        badge: 'badge--orange',
+        badgeText: '[UX 피드백]',
+        text: '프리스텝 5단계가 조금 길게 느껴질 수 있어요. 3~4단계로 압축하거나 진행률 표시를 더 명확히 해주면 이탈률을 줄일 수 있을 것 같습니다.',
+      },
+      {
+        date: '2026. 05. 08',
+        from: '동료 피드백',
+        badge: 'badge--mint',
+        badgeText: '[사용성 평가]',
+        text: '로그 작성 후 저장 완료 피드백이 없어서 저장됐는지 알기 어려웠어요. 토스트 메시지나 시각적 확인이 있으면 좋겠어요.',
+      },
+    ],
+  },
+  {
+    project: '포트폴리오 리뉴얼',
+    feedbacks: [
+      {
+        date: '2026. 04. 22',
+        from: '멘토 이지혜',
+        badge: 'badge--blue',
+        badgeText: '[디자인 피드백]',
+        text: '케이스 스터디 구조가 명확해요. 문제 정의 → 해결 과정 → 결과 순서가 잘 잡혀 있습니다. 결과 지표를 수치로 넣어주면 더 설득력이 높아질 거예요.',
+      },
+      {
+        date: '2026. 04. 10',
+        from: '동료 피드백',
+        badge: 'badge--orange',
+        badgeText: '[내용 피드백]',
+        text: '전반적인 톤앤매너가 일관돼서 좋았어요. 모바일 뷰에서 이미지 비율이 깨지는 부분이 있으니 확인해보세요.',
+      },
+    ],
+  },
+]
 
 // ─────────────────────────────────────────────────────────────
 export default function LogPage() {
@@ -73,7 +123,7 @@ export default function LogPage() {
   const handleTouchEnd = (e) => {
     if (touchStartX.current === null) return
     const diff = touchStartX.current - e.changedTouches[0].clientX
-    if (diff > 50 && tabIdx < 2) setTabIdx(tabIdx + 1)
+    if (diff > 50 && tabIdx < 3) setTabIdx(tabIdx + 1)
     else if (diff < -50 && tabIdx > 0) setTabIdx(tabIdx - 1)
     touchStartX.current = null
   }
@@ -81,7 +131,7 @@ export default function LogPage() {
   const handleMouseUp = (e) => {
     if (touchStartX.current === null) return
     const diff = touchStartX.current - e.clientX
-    if (diff > 50 && tabIdx < 2) setTabIdx(tabIdx + 1)
+    if (diff > 50 && tabIdx < 3) setTabIdx(tabIdx + 1)
     else if (diff < -50 && tabIdx > 0) setTabIdx(tabIdx - 1)
     touchStartX.current = null
   }
@@ -203,7 +253,7 @@ export default function LogPage() {
             onMouseUp={handleMouseUp}
             style={{ userSelect: 'none' }}
           >
-            <div className="log-slider" style={{ transform: `translateX(calc(-${tabIdx} * 100% / 3))` }}>
+            <div className="log-slider" style={{ transform: `translateX(calc(-${tabIdx} * 100% / 4))` }}>
 
               {/* ────── Panel 0: 캘린더 ────── */}
               <div className="log-panel" ref={el => panelRefsEl.current[0] = el}>
@@ -400,6 +450,29 @@ export default function LogPage() {
                     </div>
                   </div>
 
+                </div>
+              </div>
+
+              {/* ────── Panel 3: 피드백 ────── */}
+              <div className="log-panel" ref={el => panelRefsEl.current[3] = el}>
+                <div className="log-contents log-contents--feed">
+                  {FEEDBACK_PROJECTS.map((proj, pi) => (
+                    <div key={pi}>
+                      <div className="saved-section-header">
+                        <span className="saved-section-label">{proj.project}</span>
+                      </div>
+                      {proj.feedbacks.map((fb, fi) => (
+                        <div key={fi} className="article">
+                          <div className="feed-meta">
+                            <span className="article-date">{fb.date}</span>
+                            <span className={`article-badge ${fb.badge}`}>{fb.badgeText}</span>
+                          </div>
+                          <p className="feed-text" style={{ fontSize: '12px', color: 'var(--active-border-gray-500)', marginBottom: '4px' }}>{fb.from}</p>
+                          <p className="feed-text">{fb.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </div>
 
