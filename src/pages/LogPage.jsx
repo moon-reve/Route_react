@@ -26,6 +26,7 @@ function getSavedItems() {
         type: localStorage.getItem(k + '_type') || '',
         text: localStorage.getItem(k + '_text') || '',
         href: localStorage.getItem(k + '_href') || '',
+        source: k.includes('_log_') ? 'log' : 'bookmark',
       })
     })
   return items
@@ -401,6 +402,7 @@ export default function LogPage() {
                     {allFeedItems.map((item, i) => {
                       const menuKey = item._type === 'saved' ? item.key : `hard_${i}`
                       if (item._type === 'saved') {
+                        const isUserLog = item.source === 'log'
                         return (
                           <div
                             key={i}
@@ -409,16 +411,20 @@ export default function LogPage() {
                             style={{ position: 'relative', ...(item.href ? { cursor: 'pointer' } : {}) }}
                             data-hint={item.href ? 'true' : 'false'}
                           >
-                            {/* ⋮ 메뉴 버튼 */}
                             <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === menuKey ? null : menuKey) }}>⋮</button>
                             {menuOpen === menuKey && (
                               <div className="log-kebab-menu">
+                                {isUserLog && (
+                                  <button onClick={e => { e.stopPropagation(); setMenuOpen(null); navigate('/log/write', { state: { editItem: { key: item.key, title: item.title, content: item.text } } }) }}>수정</button>
+                                )}
                                 <button onClick={e => { e.stopPropagation(); setMenuOpen(null); setDeleteTarget(item.key) }}>삭제</button>
                               </div>
                             )}
                             <div className="feed-meta">
                               <span className="article-date">{formatDate(item.date)}</span>
-                              <span className="article-badge badge--blue">[저장] {item.type}</span>
+                              <span className="article-badge badge--blue">
+                                {isUserLog ? `[로그] ${item.type}` : `[저장] ${item.type}`}
+                              </span>
                             </div>
                             <p className="feed-text">{item.title}</p>
                             {item.text && <p className="feed-text" style={{ color: 'var(--gray-700)', fontWeight: 400 }}>{item.text}</p>}
