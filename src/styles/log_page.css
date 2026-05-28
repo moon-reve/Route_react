@@ -132,14 +132,4 @@
 .log-kebab-menu button:not(:last-child) { border-bottom: 1px solid var(--inactive-gray-200); }
 .log-kebab-menu button:last-child { color: #E03E3E; }
 
-/* ── 삭제 확인 모달 ── */
-.log-main .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.40);
-  z-index: 200;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-.log-main .modal-overlay.is-open { display: flex; }
+/* ── 삭제 확인 모달 → common.css로 이동 ── */

@@ -193,65 +193,7 @@
   display: flex;
 }
 
-/* ── 삭제 확인 모달 ── */
-.modal-overlay {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.40);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-overlay.is-open {
-  display: flex;
-}
-
-.modal-card {
-  background: var(--pure-white);
-  border-radius: 16px;
-  padding: 28px 24px 22px;
-  width: 280px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.dm-modal-title {
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
-  font-size: 17px;
-  color: var(--midnight-charcoal);
-  text-align: center;
-  margin: 0;
-}
-
-.modal-btns {
-  display: flex;
-  gap: 10px;
-}
-
-.modal-btn {
-  flex: 1;
-  padding: 13px 0;
-  border-radius: 10px;
-  border: none;
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.modal-btn--gray {
-  background: var(--gray-100);
-  color: var(--active-border-gray-500);
-}
-
-.modal-btn--charcoal {
-  background: var(--midnight-charcoal);
-  color: var(--pure-white);
-}
+/* ── 삭제 확인 모달 → common.css로 이동 ── */
 
 /* ════════ CARD VIDEO ════════ */
 .card-video {

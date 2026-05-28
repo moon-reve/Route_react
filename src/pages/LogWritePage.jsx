@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/log_write.css'
-import '../styles/daily_mission.css'
 
 const TAB_CONFIG = {
   log: {
