@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/log_write.css'
+import '../styles/daily_mission.css'
 
 const TAB_CONFIG = {
   log: {
@@ -93,7 +94,8 @@ export default function LogWritePage() {
   const navigate   = useNavigate()
   const { state }  = useLocation()
   const editItem   = state?.editItem ?? null   // 수정 모드: { key, title, content, tag, date }
-  const [toastVisible, setToastVisible] = useState(false)
+  const [toastVisible,   setToastVisible]   = useState(false)
+  const [emptyModal,     setEmptyModal]     = useState(false)
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
   const logTitleRef   = useRef('')
@@ -413,25 +415,25 @@ export default function LogWritePage() {
                   if (activeTab !== 'log') return
                   const title   = logTitleRef.current?.value?.trim() ?? ''
                   const content = logContentRef.current?.value?.trim() ?? ''
-                  if (title) {
-                    if (editItem?.key && localStorage.getItem(editItem.key) === 'true') {
-                      localStorage.setItem(editItem.key + '_title', title)
-                      localStorage.setItem(editItem.key + '_text', content)
-                    } else {
-                      const key = `route_saved_log_${Date.now()}`
-                      localStorage.setItem(key, 'true')
-                      localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
-                      localStorage.setItem(key + '_title', title)
-                      localStorage.setItem(key + '_type', logTag || '로그')
-                      localStorage.setItem(key + '_text', content)
-                      localStorage.setItem(key + '_href', '')
-                      localStorage.setItem(key + '_source', 'log')
-                    }
-                    setToastVisible(true)
-                    setTimeout(() => { setToastVisible(false); navigate('/log') }, 1500)
-                  } else {
-                    navigate('/log')
+                  if (!title && !content) {
+                    setEmptyModal(true)
+                    return
                   }
+                  if (editItem?.key && localStorage.getItem(editItem.key) === 'true') {
+                    localStorage.setItem(editItem.key + '_title', title)
+                    localStorage.setItem(editItem.key + '_text', content)
+                  } else {
+                    const key = `route_saved_log_${Date.now()}`
+                    localStorage.setItem(key, 'true')
+                    localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
+                    localStorage.setItem(key + '_title', title)
+                    localStorage.setItem(key + '_type', logTag || '로그')
+                    localStorage.setItem(key + '_text', content)
+                    localStorage.setItem(key + '_href', '')
+                    localStorage.setItem(key + '_source', 'log')
+                  }
+                  setToastVisible(true)
+                  setTimeout(() => { setToastVisible(false); navigate('/log') }, 1500)
                 }}
                 disabled={activeTab !== 'log'}
                 data-hint={activeTab === 'log' ? 'true' : 'false'}
@@ -486,6 +488,18 @@ export default function LogWritePage() {
       <div className={`bookmark-toast${toastVisible ? '' : ' is-hidden'}`}>
         <span className="toast-text">로그가 저장되었습니다</span>
       </div>
+
+      {/* 빈 내용 경고 모달 */}
+      {emptyModal && (
+        <div className="modal-overlay is-open" onClick={() => setEmptyModal(false)}>
+          <div className="modal-card" onClick={e => e.stopPropagation()}>
+            <p className="dm-modal-title">내용을 입력해주세요</p>
+            <div className="modal-btns">
+              <button className="modal-btn modal-btn--charcoal" onClick={() => setEmptyModal(false)}>확인</button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
