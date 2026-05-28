@@ -93,6 +93,7 @@ export default function LogWritePage() {
   const navigate   = useNavigate()
   const { state }  = useLocation()
   const editItem   = state?.editItem ?? null   // 수정 모드: { key, title, content, tag, date }
+  const [toastVisible, setToastVisible] = useState(false)
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
   const logTitleRef   = useRef('')
@@ -414,11 +415,9 @@ export default function LogWritePage() {
                   const content = logContentRef.current?.value?.trim() ?? ''
                   if (title) {
                     if (editItem?.key && localStorage.getItem(editItem.key) === 'true') {
-                      // 수정 모드 — 기존 항목 업데이트
                       localStorage.setItem(editItem.key + '_title', title)
                       localStorage.setItem(editItem.key + '_text', content)
                     } else {
-                      // 신규 저장
                       const key = `route_saved_log_${Date.now()}`
                       localStorage.setItem(key, 'true')
                       localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
@@ -428,8 +427,11 @@ export default function LogWritePage() {
                       localStorage.setItem(key + '_href', '')
                       localStorage.setItem(key + '_source', 'log')
                     }
+                    setToastVisible(true)
+                    setTimeout(() => { setToastVisible(false); navigate('/log') }, 1500)
+                  } else {
+                    navigate('/log')
                   }
-                  navigate('/log')
                 }}
                 disabled={activeTab !== 'log'}
                 data-hint={activeTab === 'log' ? 'true' : 'false'}
@@ -479,6 +481,11 @@ export default function LogWritePage() {
           <button className="drum-confirm" onClick={() => setTimeOpen(false)}>확인</button>
         </div>
       )}
+
+      {/* 저장 토스트 */}
+      <div className={`bookmark-toast${toastVisible ? '' : ' is-hidden'}`}>
+        <span className="toast-text">로그가 저장되었습니다</span>
+      </div>
     </>
   )
 }
