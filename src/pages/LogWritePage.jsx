@@ -433,7 +433,7 @@ export default function LogWritePage() {
                 disabled={activeTab !== 'log'}
                 data-hint={activeTab === 'log' ? 'true' : 'false'}
                 style={{ opacity: activeTab !== 'log' ? 0.4 : 1, cursor: activeTab !== 'log' ? 'not-allowed' : 'pointer' }}
-              >계획 추가하기</button>
+              >추가하기</button>
 
             </div>
           </div>
