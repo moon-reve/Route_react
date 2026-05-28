@@ -213,9 +213,21 @@ export default function LogPage() {
   const label       = isMay2026 && DAY_LABELS[selectedDay] ? DAY_LABELS[selectedDay] : `${calMonth + 1}월 ${selectedDay}일`
   const dividerText = `${label}의 기록${totalCount > 0 ? ` (${totalCount})` : ''}`
 
-  // feed derived
-  const feedTotalCount   = HARD_LOG_CARDS.length + savedItems.length
-  const sortedSavedItems = [...savedItems].sort((a, b) => b.date.localeCompare(a.date))
+  // feed derived — 전체 합쳐서 날짜 최신순 정렬
+  const feedTotalCount = HARD_LOG_CARDS.length + savedItems.length
+  const hardFeedItems  = HARD_LOG_CARDS.map(c => ({
+    ...c,
+    _type: 'hard',
+    _sortKey: `2026-05-${String(c.day).padStart(2, '0')}`,
+  }))
+  const savedFeedItems = savedItems.map(item => ({ ...item, _type: 'saved' }))
+  const sortedSavedItems = [...savedItems].sort((a, b) => b.date.localeCompare(a.date)) // 캘린더용 유지
+  const allFeedItems   = [...hardFeedItems, ...savedFeedItems]
+    .sort((a, b) => {
+      const da = a._sortKey || a.date
+      const db = b._sortKey || b.date
+      return db.localeCompare(da)
+    })
 
   const BADGE_MAP = {
     'log-badge--gold':       'badge--gold',
@@ -366,12 +378,9 @@ export default function LogPage() {
                   </div>
 
                   <div className="articles">
-                    {sortedSavedItems.length > 0 && (
-                      <>
-                        <div className="saved-section-header">
-                          <span className="saved-section-label">저장된 항목 ({sortedSavedItems.length})</span>
-                        </div>
-                        {sortedSavedItems.map((item, i) => (
+                    {allFeedItems.map((item, i) => {
+                      if (item._type === 'saved') {
+                        return (
                           <div
                             key={i}
                             className="article article--saved"
@@ -390,24 +399,23 @@ export default function LogPage() {
                             <p className="feed-text">{item.title}</p>
                             {item.text && <p className="feed-text" style={{ color: 'var(--gray-700)', fontWeight: 400 }}>{item.text}</p>}
                           </div>
-                        ))}
-                      </>
-                    )}
-
-                    {HARD_LOG_CARDS.map((card, i) => (
-                      <div className="article" key={i}>
-                        <div className="feed-meta">
-                          <span className="article-date">{cardDate(card.day)}</span>
-                          <span className={`article-badge ${BADGE_MAP[card.badge]}`}>{card.badgeText}</span>
-                        </div>
-                        <p className="feed-text">{card.text}</p>
-                        {card.img && (
-                          <div className="article-img-box">
-                            <img src={card.img} alt="참고 이미지" />
+                        )
+                      }
+                      return (
+                        <div className="article" key={i}>
+                          <div className="feed-meta">
+                            <span className="article-date">{cardDate(item.day)}</span>
+                            <span className={`article-badge ${BADGE_MAP[item.badge]}`}>{item.badgeText}</span>
                           </div>
-                        )}
-                      </div>
-                    ))}
+                          <p className="feed-text">{item.text}</p>
+                          {item.img && (
+                            <div className="article-img-box">
+                              <img src={item.img} alt="참고 이미지" />
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })}
                   </div>
 
                 </div>
