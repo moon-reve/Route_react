@@ -526,12 +526,22 @@ export default function LogPage() {
               {/* ────── Panel 3: 피드백 ────── */}
               <div className="log-panel" ref={el => panelRefsEl.current[3] = el}>
                 <div className="log-contents log-contents--feed">
-                  {FEEDBACK_PROJECTS.map((proj, pi) => (
+                  {[...FEEDBACK_PROJECTS]
+                    .sort((a, b) => {
+                      const aLatest = a.feedbacks[0]?.date ?? ''
+                      const bLatest = b.feedbacks[0]?.date ?? ''
+                      return bLatest.replace(/\. /g, '-').localeCompare(aLatest.replace(/\. /g, '-'))
+                    })
+                    .map((proj, pi) => {
+                      const sortedFeedbacks = [...proj.feedbacks].sort((a, b) =>
+                        b.date.replace(/\. /g, '-').localeCompare(a.date.replace(/\. /g, '-'))
+                      )
+                      return (
                     <div key={pi}>
                       <div className="saved-section-header">
                         <span className="saved-section-label">{proj.project}</span>
                       </div>
-                      {proj.feedbacks.map((fb, fi) => (
+                      {sortedFeedbacks.map((fb, fi) => (
                         <div
                           key={fi}
                           className="article"
@@ -551,7 +561,9 @@ export default function LogPage() {
                         </div>
                       ))}
                     </div>
-                  ))}
+                      )
+                    })
+                  }
                 </div>
               </div>
 
