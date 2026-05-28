@@ -93,8 +93,8 @@ export default function LogWritePage() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab]         = useState('log')
   const [logTag, setLogTag]               = useState(null)
-  const [logTitle, setLogTitle]           = useState('')
-  const [logContent, setLogContent]       = useState('')
+  const logTitleRef   = useRef('')
+  const logContentRef = useRef('')
   const [heroImgSrc, setHeroImgSrc]       = useState('/images/log_hero_img.svg')
   const [heroCap, setHeroCap]             = useState('탭하여 오늘의 항해 순간을 담아보세요')
   const [heroCapVisible, setHeroCapVisible] = useState(true)
@@ -344,8 +344,8 @@ export default function LogWritePage() {
                     <input
                       type="text"
                       placeholder={cfg.titlePH}
-                      value={logTitle}
-                      onChange={e => setLogTitle(e.target.value)}
+                      ref={logTitleRef}
+                      defaultValue=""
                     />
                   </div>
                 </div>
@@ -359,8 +359,8 @@ export default function LogWritePage() {
                     <textarea
                       placeholder={cfg.descPH}
                       rows={3}
-                      value={logContent}
-                      onChange={e => setLogContent(e.target.value)}
+                      ref={logContentRef}
+                      defaultValue=""
                     ></textarea>
                   </div>
                 </div>
@@ -408,13 +408,15 @@ export default function LogWritePage() {
                 className="submit-btn"
                 onClick={() => {
                   if (activeTab !== 'log') return
-                  if (logTitle.trim()) {
+                  const title   = logTitleRef.current?.value?.trim() ?? ''
+                  const content = logContentRef.current?.value?.trim() ?? ''
+                  if (title) {
                     const key = `route_saved_log_${Date.now()}`
                     localStorage.setItem(key, 'true')
                     localStorage.setItem(key + '_date', logDate.replace(/\. /g, '-').replace('.', ''))
-                    localStorage.setItem(key + '_title', logTitle.trim())
+                    localStorage.setItem(key + '_title', title)
                     localStorage.setItem(key + '_type', logTag || '로그')
-                    localStorage.setItem(key + '_text', logContent.trim())
+                    localStorage.setItem(key + '_text', content)
                     localStorage.setItem(key + '_href', '')
                   }
                   navigate('/log')
