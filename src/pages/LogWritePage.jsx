@@ -503,7 +503,7 @@ export default function LogWritePage() {
       {leaveModal && (
         <div className="modal-overlay is-open" onClick={() => setLeaveModal(false)}>
           <div className="modal-card" onClick={e => e.stopPropagation()}>
-            <p className="dm-modal-title">작성 중인 내용이 있어요.{'\n'}나가시겠습니까?</p>
+            <p className="dm-modal-title">작성 중인 내용이 있어요.<br/>나가시겠습니까?</p>
             <div className="modal-btns">
               <button className="modal-btn modal-btn--gray" onClick={() => setLeaveModal(false)}>취소</button>
               <button className="modal-btn modal-btn--charcoal" onClick={() => navigate(-1)}>나가기</button>
