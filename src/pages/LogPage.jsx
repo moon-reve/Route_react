@@ -152,6 +152,21 @@ export default function LogPage() {
   const [savedItems,  setSavedItems]  = useState([])
   const [deleteTarget, setDeleteTarget] = useState(null)  // 삭제 확인 모달용
   const [menuOpen,     setMenuOpen]     = useState(null)  // ⋮ 메뉴 열린 아이템 key
+
+  const handleEditHard = (item, menuKey) => {
+    setMenuOpen(null)
+    navigate('/log/write', {
+      state: {
+        editItem: {
+          key: menuKey,
+          title: item.text,
+          content: '',
+          tag: item.badgeText,
+          date: cardDate(item.day),
+        }
+      }
+    })
+  }
   const [savedDates,  setSavedDates]  = useState(new Set())
 
   // 월 이동
@@ -416,7 +431,7 @@ export default function LogPage() {
                           <button className="log-kebab-btn" onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === menuKey ? null : menuKey) }}>⋮</button>
                           {menuOpen === menuKey && (
                             <div className="log-kebab-menu">
-                              <button onClick={e => { e.stopPropagation(); setMenuOpen(null); navigate('/log/write', { state: { editItem: { key: menuKey, title: item.text, content: '', tag: item.badgeText, date: cardDate(item.day) } }) }}>수정</button>
+                              <button onClick={e => { e.stopPropagation(); handleEditHard(item, menuKey) }}>수정</button>
                               <button onClick={e => { e.stopPropagation(); setMenuOpen(null) }}>삭제</button>
                             </div>
                           )}
