@@ -154,6 +154,14 @@ export default function LogPage() {
   const [deleteTarget, setDeleteTarget] = useState(null)  // 삭제 확인 모달용
   const [menuOpen,     setMenuOpen]     = useState(null)  // ⋮ 메뉴 열린 아이템 key
 
+  // 바깥 클릭 시 메뉴·모달 닫기
+  useEffect(() => {
+    if (!menuOpen) return
+    const handler = () => setMenuOpen(null)
+    document.addEventListener('click', handler)
+    return () => document.removeEventListener('click', handler)
+  }, [menuOpen])
+
   const handleEditHard = (item, menuKey) => {
     setMenuOpen(null)
     navigate('/log/write', {
@@ -556,8 +564,8 @@ export default function LogPage() {
 
       {/* 삭제 확인 모달 */}
       {deleteTarget && (
-        <div className="modal-overlay is-open">
-          <div className="modal-card">
+        <div className="modal-overlay is-open" onClick={() => setDeleteTarget(null)}>
+          <div className="modal-card" onClick={e => e.stopPropagation()}>
             <p className="dm-modal-title">삭제하시겠습니까?</p>
             <div className="modal-btns">
               <button className="modal-btn modal-btn--gray" onClick={() => setDeleteTarget(null)}>취소</button>
