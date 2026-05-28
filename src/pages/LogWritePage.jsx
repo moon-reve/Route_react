@@ -96,6 +96,7 @@ export default function LogWritePage() {
   const [toastVisible,   setToastVisible]   = useState(false)
   const [emptyModal,     setEmptyModal]     = useState(false)
   const [leaveModal,     setLeaveModal]     = useState(false)
+  const [readyModal,     setReadyModal]     = useState(false)
 
   const handleBack = () => {
     const title   = logTitleRef.current?.value?.trim() ?? ''
@@ -152,6 +153,7 @@ export default function LogWritePage() {
     setEndDate('종료일 선택')
     setCalOpen(false)
     setTimeOpen(false)
+    if (type !== 'log') setReadyModal(true)
   }
 
   /* ── 히어로 업로드 ── */
@@ -237,12 +239,15 @@ export default function LogWritePage() {
   const timeRowRef = useRef(null)
   const openTime = () => {
     if (timeOpen) { setTimeOpen(false); return }
-    const rect = timeRowRef.current?.getBoundingClientRect() || { top: 0, left: 0, bottom: 0 }
+    const rect = timeRowRef.current?.getBoundingClientRect() || { top: 0, left: 0, bottom: 0, right: 0 }
     const popupH = 168  // drum(108) + confirm(44) + padding
-    let top = rect.top - popupH - 8
-    if (top < 8) top = rect.bottom + 8
-    let left = rect.left
-    if (left + 280 > window.innerWidth) left = window.innerWidth - 288
+    const popupW = 280
+    // 아래 우선, 공간 없으면 위로
+    let top = rect.bottom + 8
+    if (top + popupH > window.innerHeight) top = rect.top - popupH - 8
+    // 오른쪽 정렬 (시간 표시에 붙이기)
+    let left = rect.right - popupW
+    if (left < 8) left = 8
     setTimePos({ top, left })
     setTimeOpen(true)
   }
@@ -498,6 +503,18 @@ export default function LogWritePage() {
       <div className={`bookmark-toast${toastVisible ? '' : ' is-hidden'}`}>
         <span className="toast-text">로그가 저장되었습니다</span>
       </div>
+
+      {/* 준비중 모달 */}
+      {readyModal && (
+        <div className="modal-overlay is-open" onClick={() => setReadyModal(false)}>
+          <div className="modal-card" onClick={e => e.stopPropagation()}>
+            <p className="dm-modal-title">준비 중인 기능이에요.<br/>달력과 알림 시간은 미리 설정해볼 수 있어요!</p>
+            <div className="modal-btns">
+              <button className="modal-btn modal-btn--charcoal" onClick={() => setReadyModal(false)}>확인</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 나가기 확인 모달 */}
       {leaveModal && (
