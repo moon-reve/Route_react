@@ -26,7 +26,7 @@ function getSavedItems() {
         type: localStorage.getItem(k + '_type') || '',
         text: localStorage.getItem(k + '_text') || '',
         href: localStorage.getItem(k + '_href') || '',
-        source: k.includes('_log_') ? 'log' : 'bookmark',
+        source: k.startsWith('route_saved_log_') || localStorage.getItem(k + '_source') === 'log' ? 'log' : 'bookmark',
       })
     })
   return items

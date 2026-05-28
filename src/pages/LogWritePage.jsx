@@ -426,6 +426,7 @@ export default function LogWritePage() {
                       localStorage.setItem(key + '_type', logTag || '로그')
                       localStorage.setItem(key + '_text', content)
                       localStorage.setItem(key + '_href', '')
+                      localStorage.setItem(key + '_source', 'log')
                     }
                   }
                   navigate('/log')
