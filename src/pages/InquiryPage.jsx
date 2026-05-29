@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/inquiry.css'
 
-const BOT_NAME = 'Route 도우미'
+const BOT_NAME = '커리어 페이스메이커 루티'
 
 const FAQ = [
   {
@@ -32,7 +32,7 @@ const FAQ = [
   },
 ]
 
-const GREETING = '안녕하세요! Route 도우미예요 🚀\n무엇이 궁금하신가요? 아래 질문을 선택하거나 직접 입력해보세요!\n\n다른 질문이 생기면 하단의 ? 버튼을 눌러 언제든 다시 볼 수 있어요!'
+const GREETING = '안녕하세요! 당신의 커리어 완주를 도울 페이스메이커, 루티(Rooty)예요 🚀\n\n혼자 하는 이직 준비가 외롭고 막막하지 않도록, 나아갈 길(Route)을 밝히고 단단한 뿌리(Root)를 내릴 수 있게 끝까지 응원(Root for)할게요!\n\n무엇이 궁금하신가요? 아래 질문을 선택하거나 직접 입력해보세요. 다른 질문이 생기면 하단의 ? 버튼을 눌러 언제든 다시 볼 수 있어요!'
 
 export default function InquiryPage() {
   const navigate = useNavigate()
