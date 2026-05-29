@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/common.css'
 import '../styles/inquiry.css'
 
-const BOT_NAME = '커리어 페이스메이커 루티'
+const BOT_NAME = '루티 (Rooty)'
 
 const FAQ = [
   {
