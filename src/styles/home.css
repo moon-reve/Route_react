@@ -598,6 +598,34 @@
   letter-spacing: 0.02em;
 }
 
+/* ── 루티 플로팅 버튼 ── */
+.routy-fab {
+  position: absolute;
+  right: 20px;
+  bottom: 100px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.routy-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.routy-fab img {
+  width: 44px;
+  height: 44px;
+}
+
 /* ── 430px 미만: 카테고리 칩 축소 ── */
 @media (max-width: 429px) {
   .chip {
