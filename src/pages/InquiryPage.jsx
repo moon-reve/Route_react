@@ -40,6 +40,7 @@ export default function InquiryPage() {
   const [input, setInput]         = useState('')
   const [isTyping, setIsTyping]   = useState(false)
   const [faqDone, setFaqDone]     = useState(false)
+  const [showFaq, setShowFaq]     = useState(false)
   const messagesEndRef = useRef(null)
   const fileInputRef   = useRef(null)
   const inputRef       = useRef(null)
@@ -58,6 +59,7 @@ export default function InquiryPage() {
 
   const handleFAQ = (item) => {
     setFaqDone(true)
+    setShowFaq(false)
     setMessages(prev => [...prev, { type: 'user', text: item.q }])
     addBotMessage(item.a)
   }
@@ -156,12 +158,31 @@ export default function InquiryPage() {
           <div ref={messagesEndRef} />
         </div>
 
+        {/* FAQ 토글 패널 */}
+        {showFaq && (
+          <div className="faq-panel">
+            <div className="faq-panel-title">자주 묻는 질문</div>
+            <div className="faq-panel-chips">
+              {FAQ.map((item, i) => (
+                <button key={i} className="faq-chip" onClick={() => handleFAQ(item)}>
+                  {item.q}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* 입력창 */}
         <div className="inquiry-input-bar">
           {/* + 이미지 업로드 */}
           <button className="inquiry-plus" onClick={() => fileInputRef.current?.click()}>
             <span className="inquiry-plus-icon">+</span>
           </button>
+          {/* ? FAQ 토글 */}
+          <button
+            className={`inquiry-faq-toggle${showFaq ? ' inquiry-faq-toggle--active' : ''}`}
+            onClick={() => setShowFaq(v => !v)}
+          >?</button>
           <input
             type="file"
             accept="image/*"

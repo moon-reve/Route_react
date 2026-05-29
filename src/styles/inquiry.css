@@ -152,6 +152,31 @@
   background: rgba(232, 148, 26, 0.06);
 }
 
+/* ── FAQ 토글 패널 ── */
+.faq-panel {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-gray-300);
+  padding: 14px 16px 10px;
+  flex-shrink: 0;
+}
+.faq-panel-title {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--active-border-gray-500);
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+.faq-panel-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.faq-panel-chips::-webkit-scrollbar { display: none; }
+
 /* ── 입력창 ── */
 .inquiry-input-bar {
   display: flex;
@@ -177,6 +202,29 @@
   transition: border-color 0.15s;
 }
 .inquiry-plus:hover { border-color: var(--starline-gold); }
+
+.inquiry-faq-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-gray-300);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--active-border-gray-500);
+  transition: all 0.15s;
+}
+.inquiry-faq-toggle--active {
+  border-color: var(--starline-gold);
+  background: rgba(232, 148, 26, 0.08);
+  color: var(--starline-gold);
+}
 .inquiry-plus-icon {
   font-size: 20px;
   font-weight: 300;
