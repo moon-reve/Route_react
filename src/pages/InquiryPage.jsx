@@ -21,6 +21,7 @@ const FAQ = [
   {
     q: '저장 아티클 확인',
     a: 'Log 탭 → 로그 피드에서 저장한 아티클을 확인할 수 있어요.',
+    image: '/images/faq_log_feed.png',
   },
   {
     q: '피드백 확인 방법',
@@ -49,11 +50,11 @@ export default function InquiryPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, isTyping])
 
-  const addBotMessage = (text) => {
+  const addBotMessage = (text, image = null) => {
     setIsTyping(true)
     setTimeout(() => {
       setIsTyping(false)
-      setMessages(prev => [...prev, { type: 'bot', text }])
+      setMessages(prev => [...prev, { type: 'bot', text, ...(image && { image }) }])
     }, 800)
   }
 
@@ -61,7 +62,7 @@ export default function InquiryPage() {
     setFaqDone(true)
     setShowFaq(false)
     setMessages(prev => [...prev, { type: 'user', text: item.q }])
-    addBotMessage(item.a)
+    addBotMessage(item.a, item.image || null)
   }
 
   const handleSend = () => {
@@ -124,12 +125,15 @@ export default function InquiryPage() {
                 <img src="/images/chat_bot_v12.svg" alt="bot" className="msg-avatar" />
               )}
               <div className={`msg-bubble msg-bubble--${msg.type}`}>
-                {msg.image
+                {msg.image && msg.type === 'user'
                   ? <img src={msg.image} alt="첨부" className="msg-image" />
                   : msg.text.split('\n').map((line, j) => (
                       <span key={j}>{line}{j < msg.text.split('\n').length - 1 && <br/>}</span>
                     ))
                 }
+                {msg.type === 'bot' && msg.image && (
+                  <img src={msg.image} alt="안내 이미지" className="msg-image msg-image--bot" />
+                )}
                 {msg.chips && (
                   <div className="bubble-chips">
                     {FAQ.map((item, i) => (
