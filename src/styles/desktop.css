@@ -131,9 +131,14 @@
     align-self: center;
     gap: 20px;
     flex-shrink: 0;
-    width: 430px;
+    width: auto;
     position: relative;
     z-index: 2;
+  }
+
+  .desktop-app-wrap .screen {
+    width: 430px;
+    flex-shrink: 0;
   }
 
   /* ── 힌트 토글 버튼 ── */
