@@ -123,22 +123,14 @@
     line-height: 1.7;
   }
 
-  /* ── 앱 + 토글 래퍼: 세로 중앙 정렬 ── */
+  /* ── 앱 래퍼: 430px 고정 ── */
   .desktop-app-wrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: block;
     align-self: center;
-    gap: 20px;
     flex-shrink: 0;
-    width: auto;
+    width: 430px;
     position: relative;
     z-index: 2;
-  }
-
-  .desktop-app-wrap .screen {
-    width: 430px;
-    flex-shrink: 0;
   }
 
   /* ── 힌트 토글 버튼 ── */
