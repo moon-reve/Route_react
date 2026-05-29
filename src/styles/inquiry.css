@@ -198,7 +198,8 @@
 }
 .faq-panel-chips {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 7px;
   max-height: 220px;
   overflow-y: auto;
