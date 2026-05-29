@@ -32,7 +32,7 @@ const FAQ = [
   },
 ]
 
-const GREETING = '안녕하세요! Route 도우미예요 🚀\n무엇이 궁금하신가요? 아래 질문을 선택하거나 직접 입력해보세요!'
+const GREETING = '안녕하세요! Route 도우미예요 🚀\n무엇이 궁금하신가요? 아래 질문을 선택하거나 직접 입력해보세요!\n\n다른 질문이 생기면 하단의 ? 버튼을 눌러 언제든 다시 볼 수 있어요!'
 
 export default function InquiryPage() {
   const navigate = useNavigate()
