@@ -153,6 +153,31 @@
   background: rgba(232, 148, 26, 0.06);
 }
 
+/* ── 말풍선 안 칩 ── */
+.bubble-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+.bubble-chip {
+  padding: 7px 12px;
+  background: var(--gray-100);
+  border: 1px solid var(--border-gray-300);
+  border-radius: 20px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--midnight-charcoal);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.bubble-chip:hover {
+  background: rgba(232, 148, 26, 0.08);
+  border-color: var(--starline-gold);
+}
+
 /* ── FAQ 토글 패널 ── */
 .faq-panel {
   position: absolute;
