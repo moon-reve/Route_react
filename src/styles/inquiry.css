@@ -63,7 +63,7 @@
 /* ── 메시지 행 ── */
 .msg-row {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 8px;
 }
 .msg-row--bot  { flex-direction: row; }
