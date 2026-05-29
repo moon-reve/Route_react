@@ -1,0 +1,221 @@
+/* ════════ INQUIRY (챗봇) ════════ */
+
+.inquiry-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #F7F6F3;
+}
+
+/* ── 헤더 ── */
+.inquiry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-gray-300);
+  flex-shrink: 0;
+}
+
+.inquiry-back {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.inquiry-back img { width: 20px; height: 20px; }
+
+.inquiry-header-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.inquiry-header-avatar {
+  width: 32px;
+  height: 32px;
+}
+.inquiry-header-name {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--midnight-charcoal);
+}
+
+/* ── 메시지 영역 ── */
+.inquiry-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: none;
+}
+.inquiry-messages::-webkit-scrollbar { display: none; }
+
+/* ── 메시지 행 ── */
+.msg-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.msg-row--bot  { flex-direction: row; }
+.msg-row--user { flex-direction: row-reverse; }
+
+.msg-avatar {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+/* ── 말풍선 ── */
+.msg-bubble {
+  max-width: 72%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.msg-bubble--bot {
+  background: #FFFFFF;
+  color: var(--midnight-charcoal);
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border-gray-300);
+}
+.msg-bubble--user {
+  background: var(--midnight-charcoal);
+  color: #FFFFFF;
+  border-bottom-right-radius: 4px;
+}
+
+/* 이미지 메시지 */
+.msg-image {
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ── 타이핑 인디케이터 ── */
+.msg-bubble--typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 18px;
+}
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #BBBBBB;
+  animation: typing-bounce 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40%           { transform: translateY(-6px); }
+}
+
+/* ── FAQ 칩 ── */
+.faq-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 42px;
+}
+.faq-chip {
+  display: inline-block;
+  width: fit-content;
+  padding: 9px 14px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--starline-gold);
+  border-radius: 20px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--midnight-charcoal);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.faq-chip:hover {
+  background: rgba(232, 148, 26, 0.06);
+}
+
+/* ── 입력창 ── */
+.inquiry-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px 28px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-gray-300);
+  flex-shrink: 0;
+}
+
+.inquiry-plus {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-gray-300);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+.inquiry-plus:hover { border-color: var(--starline-gold); }
+.inquiry-plus-icon {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--active-border-gray-500);
+  line-height: 1;
+  margin-top: -1px;
+}
+
+.inquiry-input {
+  flex: 1;
+  height: 38px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border-gray-300);
+  border-radius: 20px;
+  background: var(--gray-100);
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  color: var(--midnight-charcoal);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.inquiry-input:focus { border-color: var(--starline-gold); background: #FFFFFF; }
+.inquiry-input::placeholder { color: var(--active-border-gray-500); }
+
+.inquiry-send {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: var(--inactive-gray-200);
+  color: var(--active-border-gray-500);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+.inquiry-send--active {
+  background: var(--midnight-charcoal);
+  color: #FFFFFF;
+}

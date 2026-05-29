@@ -30,6 +30,7 @@ import ExpertDetailPage from './pages/ExpertDetailPage'
 import DetailCard1Page from './pages/DetailCard1Page'
 import DetailMag1Page from './pages/DetailMag1Page'
 import MyPage from './pages/MyPage'
+import InquiryPage from './pages/InquiryPage'
 
 export default function App() {
   const [hintsOn, setHintsOn] = useState(false)
@@ -101,6 +102,7 @@ export default function App() {
         <Route path="/detail/card/1" element={<DetailCard1Page />} />
         <Route path="/detail/mag/1" element={<DetailMag1Page />} />
         <Route path="/my" element={<MyPage />} />
+        <Route path="/inquiry" element={<InquiryPage />} />
           </Routes>
         </BrowserRouter>
 

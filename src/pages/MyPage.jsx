@@ -62,7 +62,7 @@ export default function MyPage() {
                 <span className="menu-text">계정 관리</span>
                 <img src="/images/my_chevron_right.svg" alt="" className="menu-arrow" />
               </div>
-              <div className="menu-item">
+              <div className="menu-item" onClick={() => navigate('/inquiry')} style={{ cursor: 'pointer' }} data-hint="true">
                 <span className="menu-text">앱 정보 및 고객센터</span>
                 <img src="/images/my_chevron_right.svg" alt="" className="menu-arrow" />
               </div>

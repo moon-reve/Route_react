@@ -1,0 +1,74 @@
+<svg width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<!-- 바닥 그림자 -->
+<path d="M43 83.5C54.0457 83.5 63 81.933 63 80C63 78.067 54.0457 76.5 43 76.5C31.9543 76.5 23 78.067 23 80C23 81.933 31.9543 83.5 43 83.5Z" fill="url(#sh)"/>
+
+<!-- 귀 왼쪽 -->
+<path d="M14 50.5C18.1421 50.5 21.5 47.1421 21.5 43C21.5 38.8579 18.1421 35.5 14 35.5C9.85786 35.5 6.5 38.8579 6.5 43C6.5 47.1421 9.85786 50.5 14 50.5Z" fill="url(#eg_l)" stroke="#1A1C1E" stroke-width="2.5"/>
+<path d="M14 47C16.2091 47 18 45.2091 18 43C18 40.7909 16.2091 39 14 39C11.7909 39 10 40.7909 10 43C10 45.2091 11.7909 47 14 47Z" fill="#DEDEDE" stroke="#1A1C1E" stroke-width="1.5"/>
+<ellipse cx="13" cy="41" rx="2" ry="2.5" fill="#FFFFFF" opacity="0.6"/>
+
+<!-- 귀 오른쪽 -->
+<path d="M72 50.5C76.1421 50.5 79.5 47.1421 79.5 43C79.5 38.8579 76.1421 35.5 72 35.5C67.8579 35.5 64.5 38.8579 64.5 43C64.5 47.1421 67.8579 50.5 72 50.5Z" fill="url(#eg_r)" stroke="#1A1C1E" stroke-width="2.5"/>
+<path d="M72 47C74.2091 47 76 45.2091 76 43C76 40.7909 74.2091 39 72 39C69.7909 39 68 40.7909 68 43C68 45.2091 69.7909 47 72 47Z" fill="#DEDEDE" stroke="#1A1C1E" stroke-width="1.5"/>
+<ellipse cx="71" cy="41" rx="2" ry="2.5" fill="#FFFFFF" opacity="0.6"/>
+
+<!-- 칼라 -->
+<path d="M43 73C54.598 73 64 70.3137 64 67C64 63.6863 54.598 61 43 61C31.402 61 22 63.6863 22 67C22 70.3137 31.402 73 43 73Z" fill="url(#cg)" stroke="#1A1C1E" stroke-width="2.5"/>
+<path opacity="0.35" d="M43 68C50.732 68 57 66.8807 57 65.5C57 64.1193 50.732 63 43 63C35.268 63 29 64.1193 29 65.5C29 66.8807 35.268 68 43 68Z" fill="white"/>
+
+<!-- 헬멧 -->
+<path d="M43 67C58.464 67 71 54.464 71 39C71 23.536 58.464 11 43 11C27.536 11 15 23.536 15 39C15 54.464 27.536 67 43 67Z" fill="url(#hg)" stroke="#1A1C1E" stroke-width="3"/>
+<path d="M43 67C58.464 67 71 54.464 71 39C71 23.536 58.464 11 43 11C27.536 11 15 23.536 15 39C15 54.464 27.536 67 43 67Z" fill="url(#hg_shadow)"/>
+<ellipse cx="33" cy="22" rx="14" ry="9" fill="url(#top_hl)"/>
+
+<!-- 바이저 -->
+<path d="M43 55.5C54.8741 55.5 64.5 46.7696 64.5 36C64.5 25.2304 54.8741 16.5 43 16.5C31.1259 16.5 21.5 25.2304 21.5 36C21.5 46.7696 31.1259 55.5 43 55.5Z" fill="url(#vg)"/>
+<path d="M43 55.5C54.8741 55.5 64.5 46.7696 64.5 36C64.5 25.2304 54.8741 16.5 43 16.5C31.1259 16.5 21.5 25.2304 21.5 36C21.5 46.7696 31.1259 55.5 43 55.5Z" stroke="#E8941A" stroke-width="2.8"/>
+<path opacity="0.65" d="M39.6286 34.6278C45.1565 30.9719 48.1558 25.7676 46.3279 23.0036C44.5 20.2397 38.5369 20.9628 33.0091 24.6187C27.4812 28.2746 24.4818 33.4789 26.3098 36.2428C28.1377 39.0067 34.1008 38.2836 39.6286 34.6278Z" fill="white"/>
+
+<defs>
+<radialGradient id="sh" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43 80) scale(20 3.5)">
+  <stop stop-color="#606060" stop-opacity="0.3"/>
+  <stop offset="1" stop-color="#606060" stop-opacity="0"/>
+</radialGradient>
+
+<!-- 귀 더 밝게 (#FFFFFF → #D0D0D0) -->
+<radialGradient id="eg_l" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11.5 39) scale(11.25)">
+  <stop stop-color="#FFFFFF"/>
+  <stop offset="1" stop-color="#D0D0D0"/>
+</radialGradient>
+<radialGradient id="eg_r" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(69.5 39) scale(11.25)">
+  <stop stop-color="#FFFFFF"/>
+  <stop offset="1" stop-color="#D0D0D0"/>
+</radialGradient>
+
+<linearGradient id="cg" x1="22" y1="61" x2="22" y2="73" gradientUnits="userSpaceOnUse">
+  <stop stop-color="#F8F8F8"/>
+  <stop offset="1" stop-color="#BBBBBB"/>
+</linearGradient>
+
+<radialGradient id="hg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33 24) scale(62)">
+  <stop stop-color="#FFFFFF"/>
+  <stop offset="0.5" stop-color="#F0F0F0"/>
+  <stop offset="1" stop-color="#CCCCCC"/>
+</radialGradient>
+
+<radialGradient id="hg_shadow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43 67) scale(30 16)">
+  <stop stop-color="#404040" stop-opacity="0.15"/>
+  <stop offset="0.6" stop-color="#404040" stop-opacity="0.04"/>
+  <stop offset="1" stop-color="#404040" stop-opacity="0"/>
+</radialGradient>
+
+<radialGradient id="top_hl" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33 22) scale(14 9)">
+  <stop stop-color="#FFFFFF" stop-opacity="0.6"/>
+  <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+</radialGradient>
+
+<radialGradient id="vg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(38 28) scale(55)">
+  <stop stop-color="#243870"/>
+  <stop offset="0.5" stop-color="#0E1A38"/>
+  <stop offset="1" stop-color="#020408"/>
+</radialGradient>
+</defs>
+</svg>
