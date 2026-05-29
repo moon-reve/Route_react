@@ -162,20 +162,19 @@
 }
 .bubble-chip {
   padding: 7px 12px;
-  background: var(--gray-100);
-  border: 1px solid var(--border-gray-300);
+  background: #FFFFFF;
+  border: 1.5px solid var(--starline-gold);
   border-radius: 20px;
   font-family: 'Pretendard', sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: var(--midnight-charcoal);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s;
   white-space: nowrap;
 }
 .bubble-chip:hover {
   background: rgba(232, 148, 26, 0.08);
-  border-color: var(--starline-gold);
 }
 
 /* ── FAQ 토글 패널 ── */
