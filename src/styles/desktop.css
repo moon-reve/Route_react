@@ -186,7 +186,7 @@
   /* ── 힌트: 클릭 가능 영역 오른쪽 상단 빨간 점 ── */
 
   /* position:absolute 버튼은 relative 재정의 제외 (레이아웃 깨짐 방지) */
-  .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.log-close):not(.log-card-delete):not(.log-kebab-btn),
+  .hints-on .screen button:not([data-hint="false"]):not(.hero-btn):not(.btn-next):not(.log-close):not(.log-card-delete):not(.log-kebab-btn):not(.routy-fab),
   .hints-on .screen a:not([data-hint="false"]),
   .hints-on .screen [data-hint="true"],
   .hints-on .screen .rm-chip,
