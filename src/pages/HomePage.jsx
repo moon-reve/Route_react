@@ -344,7 +344,7 @@ export default function HomePage() {
       </div>
 
       {/* 루티 플로팅 버튼 */}
-      <button className="routy-fab" onClick={() => navigate('/inquiry')} data-hint="true">
+      <button className="routy-fab" onClick={() => navigate('/inquiry')}>
         <img src="/images/chat_bot_v12.svg" alt="루티에게 물어보기" />
       </button>
 
